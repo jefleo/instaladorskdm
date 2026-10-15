@@ -1,0 +1,2754 @@
+{
+  "quando": "2026-10-15T10:40:17.352Z",
+  "testes": {
+    "medicoes1920": {
+      "10": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 15.4,
+        "pequenas": [
+          {
+            "el": "span",
+            "texto": "PROJEÇÃO",
+            "px": 15.4
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 36
+      },
+      "11": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 25
+      },
+      "12": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 19
+      },
+      "13": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 22,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 2
+      },
+      "00": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 10
+      },
+      "01": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 15.4,
+        "pequenas": [
+          {
+            "el": "span",
+            "texto": "ILUSTRATIVO",
+            "px": 15.4
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 11
+      },
+      "01b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 12
+      },
+      "02": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 27
+      },
+      "02b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 24
+      },
+      "03": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 11,
+        "pequenas": [
+          {
+            "el": "h3.font-texto.text-[17px].font-bold",
+            "texto": "Vapti",
+            "px": 17.1
+          },
+          {
+            "el": "p.font-texto.text-[13px].text-texto-3",
+            "texto": "Atendimento",
+            "px": 13.1
+          },
+          {
+            "el": "span.rounded-full.bg-superficie-2.px-[12px]",
+            "texto": "HOJE",
+            "px": 11.9
+          },
+          {
+            "el": "span.flex-none.font-mono.text-[13px]",
+            "texto": "0:12",
+            "px": 13.1
+          },
+          {
+            "el": "p.mt-[8px].border-t.border-borda-forte",
+            "texto": "TRANSCRIÇÃO · Oi, preciso de R$ 400 pra fechar a semana.",
+            "px": 13
+          },
+          {
+            "el": "span.font-mono.text-[11px].uppercase",
+            "texto": "TRANSCRIÇÃO ·",
+            "px": 11
+          },
+          {
+            "el": "p.max-w-[282px].rounded-[18px].rounded-bl-[6px]",
+            "texto": "Oi, Carlos! Dá pra ver agora mesmo.",
+            "px": 16
+          },
+          {
+            "el": "p.max-w-[282px].rounded-[18px].rounded-bl-[6px]",
+            "texto": "Toque no link para seguir na plataforma Vapti. Leva poucos minutos.",
+            "px": 16
+          },
+          {
+            "el": "p.mt-[10px].font-texto.text-[15px]",
+            "texto": "Plataforma Vapti",
+            "px": 15
+          },
+          {
+            "el": "p.font-texto.text-[14px].text-texto-2",
+            "texto": "Seu limite, sua proposta e seu painel.",
+            "px": 14
+          },
+          {
+            "el": "button.flex.h-[46px].w-full",
+            "texto": "Abrir plataforma Vapti",
+            "px": 16
+          },
+          {
+            "el": "span",
+            "texto": "PROTÓTIPO",
+            "px": 12.9
+          },
+          {
+            "el": "span.font-mono.text-[0.8em].text-verde",
+            "texto": "01",
+            "px": 17.7
+          },
+          {
+            "el": "span.font-mono.text-[0.8em].text-texto-3",
+            "texto": "02",
+            "px": 17.7
+          },
+          {
+            "el": "span.font-mono.text-[0.8em].text-texto-3",
+            "texto": "03",
+            "px": 17.7
+          },
+          {
+            "el": "span.font-mono.text-[0.8em].text-texto-3",
+            "texto": "04",
+            "px": 17.7
+          },
+          {
+            "el": "span.font-mono.text-[0.8em].text-texto-3",
+            "texto": "05",
+            "px": 17.7
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 37
+      },
+      "03b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 13.1,
+        "pequenas": [
+          {
+            "el": "p.font-texto.text-corpo.font-semibold",
+            "texto": "Um saque de R$ 400, dois jeitos de pagar",
+            "px": 21
+          },
+          {
+            "el": "p.font-texto.text-apoio.text-texto-3",
+            "texto": "Recebe R$ 400 · 5% por semana sobre o valor sacado",
+            "px": 17.8
+          },
+          {
+            "el": "p.flex.flex-wrap.items-center",
+            "texto": "Padrão: 4 parcelas semanais",
+            "px": 21.1
+          },
+          {
+            "el": "p.font-texto.text-apoio.leading-snug",
+            "texto": "R$ 100 do valor + R$ 20 de juros por semana",
+            "px": 17.8
+          },
+          {
+            "el": "p.font-texto.text-apoio.leading-snug",
+            "texto": "R$ 80 de juros no total · 37,5% ao mês",
+            "px": 17.8
+          },
+          {
+            "el": "p.flex.flex-wrap.items-center",
+            "texto": "Alternativa: plano diário de 14 dias RECOMENDADO",
+            "px": 21.1
+          },
+          {
+            "el": "span.rounded-full.border.border-verde-borda",
+            "texto": "RECOMENDADO",
+            "px": 13.1
+          },
+          {
+            "el": "p.font-texto.text-apoio.leading-snug",
+            "texto": "R$ 40,00 de juros no total · 47,2% ao mês",
+            "px": 17.8
+          },
+          {
+            "el": "p.font-texto.text-apoio.leading-snug",
+            "texto": "Também em 7 ou 20 dias.",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto-3.font-texto",
+            "texto": "Parcela (R$)",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto-2.font-texto.font-semibold",
+            "texto": "Semanal",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto-2.font-texto.font-semibold",
+            "texto": "Diário",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto-2.font-texto",
+            "texto": "Saque",
+            "px": 16
+          },
+          {
+            "el": "text.fill-texto.font-mono.font-bold",
+            "texto": "R$ 120",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto.font-mono.font-bold",
+            "texto": "R$ 120",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto.font-mono.font-bold",
+            "texto": "R$ 120",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto.font-mono.font-bold",
+            "texto": "R$ 120",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto.font-mono.font-bold",
+            "texto": "14 × R$ 31,43",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto-3.font-mono",
+            "texto": "0",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto-3.font-mono",
+            "texto": "7",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto-3.font-mono",
+            "texto": "14",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto-3.font-mono",
+            "texto": "21",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto-3.font-mono",
+            "texto": "28",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto-3.font-texto",
+            "texto": "Dias corridos desde o saque",
+            "px": 17.8
+          },
+          {
+            "el": "figcaption.mt-[0.9em].font-texto.text-apoio",
+            "texto": "Exemplo de R$ 400: 5,0% por semana = 37,5% ao mês = R$ 80 de juros em ",
+            "px": 17.8
+          },
+          {
+            "el": "p.flex.items-center.gap-[0.45em]",
+            "texto": "01",
+            "px": 19.3
+          },
+          {
+            "el": "p.mt-[0.3em].text-apoio.leading-snug",
+            "texto": "O cliente autoriza uma vez, na contratação.",
+            "px": 19.3
+          },
+          {
+            "el": "p.flex.items-center.gap-[0.45em]",
+            "texto": "02",
+            "px": 19.3
+          },
+          {
+            "el": "p.mt-[0.3em].text-apoio.leading-snug",
+            "texto": "O cliente vê o valor antes de cada cobrança.",
+            "px": 19.3
+          },
+          {
+            "el": "p.flex.items-center.gap-[0.45em]",
+            "texto": "03",
+            "px": 19.3
+          },
+          {
+            "el": "p.mt-[0.3em].text-apoio.leading-snug",
+            "texto": "A cobrança cai na conta da parceira ou do fundo.",
+            "px": 19.3
+          },
+          {
+            "el": "p.flex.items-center.gap-[0.45em]",
+            "texto": "04",
+            "px": 19.3
+          },
+          {
+            "el": "p.mt-[0.3em].text-apoio.leading-snug",
+            "texto": "Se faltar saldo, o Pix tenta de novo.",
+            "px": 19.3
+          },
+          {
+            "el": "span.font-mono",
+            "texto": "1",
+            "px": 19.6
+          },
+          {
+            "el": "span.text-texto-2",
+            "texto": "Sem saldo",
+            "px": 19.2
+          },
+          {
+            "el": "span.font-mono",
+            "texto": "2",
+            "px": 19.6
+          },
+          {
+            "el": "span.text-texto-2",
+            "texto": "Sem saldo",
+            "px": 19.2
+          },
+          {
+            "el": "span.font-mono",
+            "texto": "3",
+            "px": 19.6
+          },
+          {
+            "el": "span.text-texto-2",
+            "texto": "Pago",
+            "px": 19.2
+          },
+          {
+            "el": "p.text-apoio.leading-snug.text-texto-2",
+            "texto": "Cancelou até 23h59 da véspera? Vira sinal de risco e gatilho de contat",
+            "px": 19.3
+          },
+          {
+            "el": "strong.font-semibold.text-texto",
+            "texto": "Cancelou até 23h59 da véspera?",
+            "px": 19.3
+          },
+          {
+            "el": "p.text-apoio.text-texto-3",
+            "texto": "QR Pix como alternativa.",
+            "px": 19.3
+          },
+          {
+            "el": "figcaption.mt-[0.9em].font-texto.text-apoio",
+            "texto": "Pix Automático, do Banco Central, em operação desde junho de 2025. Fon",
+            "px": 19.3
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 53
+      },
+      "04": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 49
+      },
+      "04b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 21
+      },
+      "05": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 23
+      },
+      "05b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 34
+      },
+      "05c": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 24
+      },
+      "06": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 16.2,
+        "pequenas": [
+          {
+            "el": "span.inline-flex.items-center.gap-[0.4em]",
+            "texto": "ESTIMATIVA",
+            "px": 16.2
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 38
+      },
+      "06b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 11
+      },
+      "07": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 15.4,
+        "pequenas": [
+          {
+            "el": "span",
+            "texto": "PROJEÇÃO",
+            "px": 15.4
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 30
+      },
+      "07b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 15.4,
+        "pequenas": [
+          {
+            "el": "span",
+            "texto": "PROJEÇÃO",
+            "px": 15.4
+          },
+          {
+            "el": "text.fill-coral.font-texto.font-semibold",
+            "texto": "Margem negativa",
+            "px": 19.8
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [
+          {
+            "a": "text.fill-texto-2.font-texto",
+            "ta": "Perda de 8%",
+            "b": "text.fill-texto.font-mono.font-bold",
+            "tb": "R$ 128,9 mil",
+            "frac": 0.25
+          },
+          {
+            "a": "text.fill-texto-2.font-texto",
+            "ta": "Perda de 12%",
+            "b": "text.fill-texto.font-mono.font-bold",
+            "tb": "R$ 70,0 mil",
+            "frac": 0.25
+          }
+        ],
+        "nTextos": 30
+      },
+      "07c": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 15.4,
+        "pequenas": [
+          {
+            "el": "span",
+            "texto": "PROJEÇÃO",
+            "px": 15.4
+          }
+        ],
+        "contraste": [
+          {
+            "el": "button.inline-flex.items-center.gap-[0.5em]",
+            "texto": "Voltar ao cenário-base",
+            "razao": 4.16,
+            "min": 4.5,
+            "px": 22,
+            "cor": "rgb(242, 244, 247)",
+            "fundo": "rgb(22,27,34)",
+            "fundoComImagem": false,
+            "opacidade": 0.45
+          }
+        ],
+        "sobrepostos": [
+          {
+            "a": "p.mt-[0.1em].font-mono.text-kpi-p",
+            "ta": "R$ 128,9 mil",
+            "b": "p.text-apoio.text-texto-3",
+            "tb": "Antes de equipe, tecnologia e impostos.",
+            "frac": 0.31
+          }
+        ],
+        "nTextos": 50
+      },
+      "07d": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 15.4,
+        "pequenas": [
+          {
+            "el": "span",
+            "texto": "PROJEÇÃO",
+            "px": 15.4
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 61
+      },
+      "07e": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 15.4,
+        "pequenas": [
+          {
+            "el": "span",
+            "texto": "PROJEÇÃO",
+            "px": 15.4
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 26
+      },
+      "07f": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 20.8,
+        "pequenas": [
+          {
+            "el": "th.sticky.top-0.z-10",
+            "texto": "PROJEÇÃO",
+            "px": 20.8
+          },
+          {
+            "el": "th.sticky.top-0.z-10",
+            "texto": "FASE 1 Meses 0–12",
+            "px": 20.8
+          },
+          {
+            "el": "span.block.normal-case.text-texto-3",
+            "texto": "Meses 0–12",
+            "px": 20.8
+          },
+          {
+            "el": "th.sticky.top-0.z-10",
+            "texto": "FASE 2 Meses 12–24",
+            "px": 20.8
+          },
+          {
+            "el": "span.block.normal-case.text-texto-3",
+            "texto": "Meses 12–24",
+            "px": 20.8
+          },
+          {
+            "el": "th.sticky.top-0.z-10",
+            "texto": "FASE 3 Ano 3",
+            "px": 20.8
+          },
+          {
+            "el": "span.block.normal-case.text-texto-3",
+            "texto": "Ano 3",
+            "px": 20.8
+          },
+          {
+            "el": "span",
+            "texto": "PROJEÇÃO",
+            "px": 20.8
+          },
+          {
+            "el": "span",
+            "texto": "As três fases. Projeção a 5,0% por semana = 37,5% ao mês = R$ 80 de ju",
+            "px": 20.8
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 63
+      },
+      "08": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 13.6,
+        "pequenas": [
+          {
+            "el": "span.inline-flex.items-center.gap-[0.4em]",
+            "texto": "ESTIMATIVA",
+            "px": 13.6
+          },
+          {
+            "el": "span.inline-flex.items-center.gap-[0.4em]",
+            "texto": "ESTIMATIVA",
+            "px": 13.6
+          },
+          {
+            "el": "span.inline-flex.items-center.gap-[0.4em]",
+            "texto": "ESTIMATIVA",
+            "px": 13.6
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 31
+      },
+      "08b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 9
+      },
+      "08c": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 26
+      },
+      "09": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 27
+      },
+      "09b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 25
+      },
+      "09c": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 27
+      },
+      "10b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 31
+      },
+      "10c": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 16
+      },
+      "12b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 18
+      },
+      "13b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 40
+      },
+      "13c": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 37
+      }
+    },
+    "console": {
+      "mensagens": []
+    },
+    "medicoesPrint": {
+      "10": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 15.4,
+        "pequenas": [
+          {
+            "el": "span",
+            "texto": "PROJEÇÃO",
+            "px": 15.4
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 36
+      },
+      "11": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 25
+      },
+      "12": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 19
+      },
+      "13": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 22,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 2
+      },
+      "00": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 10
+      },
+      "01": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 15.4,
+        "pequenas": [
+          {
+            "el": "span",
+            "texto": "ILUSTRATIVO",
+            "px": 15.4
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 11
+      },
+      "01b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 12
+      },
+      "02": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 27
+      },
+      "02b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 24
+      },
+      "03": {
+        "cortes": [
+          {
+            "el": "div.relative.overflow-hidden",
+            "texto": "VENCIMENTOS (FICTÍCIOS)",
+            "motivo": "filho com texto ultrapassa caixa com overflow hidden",
+            "filho": "p.font-mono.text-[12px].font-medium"
+          },
+          {
+            "el": "div.relative.overflow-hidden",
+            "texto": "23/10",
+            "motivo": "filho com texto ultrapassa caixa com overflow hidden",
+            "filho": "span.block.font-mono.text-[14px]"
+          },
+          {
+            "el": "div.relative.overflow-hidden",
+            "texto": "R$ 120",
+            "motivo": "filho com texto ultrapassa caixa com overflow hidden",
+            "filho": "span.block.font-mono.text-[12px]"
+          },
+          {
+            "el": "div.relative.overflow-hidden",
+            "texto": "30/10",
+            "motivo": "filho com texto ultrapassa caixa com overflow hidden",
+            "filho": "span.block.font-mono.text-[14px]"
+          },
+          {
+            "el": "div.relative.overflow-hidden",
+            "texto": "R$ 120",
+            "motivo": "filho com texto ultrapassa caixa com overflow hidden",
+            "filho": "span.block.font-mono.text-[12px]"
+          },
+          {
+            "el": "div.relative.overflow-hidden",
+            "texto": "06/11",
+            "motivo": "filho com texto ultrapassa caixa com overflow hidden",
+            "filho": "span.block.font-mono.text-[14px]"
+          },
+          {
+            "el": "div.relative.overflow-hidden",
+            "texto": "R$ 120",
+            "motivo": "filho com texto ultrapassa caixa com overflow hidden",
+            "filho": "span.block.font-mono.text-[12px]"
+          },
+          {
+            "el": "div.relative.overflow-hidden",
+            "texto": "13/11",
+            "motivo": "filho com texto ultrapassa caixa com overflow hidden",
+            "filho": "span.block.font-mono.text-[14px]"
+          },
+          {
+            "el": "div.relative.overflow-hidden",
+            "texto": "R$ 120",
+            "motivo": "filho com texto ultrapassa caixa com overflow hidden",
+            "filho": "span.block.font-mono.text-[12px]"
+          }
+        ],
+        "fora": [],
+        "menorFonte": 11.8,
+        "pequenas": [
+          {
+            "el": "span.whitespace-nowrap.font-mono.text-[12px]",
+            "texto": "4/7",
+            "px": 11.8
+          },
+          {
+            "el": "span.text-verde",
+            "texto": "04",
+            "px": 12.2
+          },
+          {
+            "el": "span",
+            "texto": "ETAPA 4 DE 7",
+            "px": 12
+          },
+          {
+            "el": "span.text-texto-3",
+            "texto": "· PROPOSTA",
+            "px": 12.1
+          },
+          {
+            "el": "span.inline-flex.items-center.gap-[6px]",
+            "texto": "Nível Bronze",
+            "px": 13
+          },
+          {
+            "el": "p.-mt-[6px].mb-[10px].font-texto",
+            "texto": "Confira tudo antes de aceitar.",
+            "px": 15
+          },
+          {
+            "el": "span.text-texto-2",
+            "texto": "Credora:",
+            "px": 14.1
+          },
+          {
+            "el": "strong.font-semibold",
+            "texto": "Instituição Parceira S.A. (credora)",
+            "px": 14
+          },
+          {
+            "el": "p.font-mono.text-[12px].font-medium",
+            "texto": "VOCÊ RECEBE",
+            "px": 12
+          },
+          {
+            "el": "p.font-mono.text-[12px].font-medium",
+            "texto": "VOCÊ PAGA",
+            "px": 12
+          },
+          {
+            "el": "p.mt-[2px].font-texto.text-[14px]",
+            "texto": "R$ 100 do valor + R$ 20 de juros por semana",
+            "px": 14
+          },
+          {
+            "el": "dt.font-texto.text-[15px].text-texto-2",
+            "texto": "Taxa",
+            "px": 15.1
+          },
+          {
+            "el": "span.font-texto.text-[14px].font-semibold",
+            "texto": "5% por semana sobre o valor sacado",
+            "px": 14
+          },
+          {
+            "el": "dt.font-texto.text-[15px].text-texto-2",
+            "texto": "Taxa efetiva ao mês",
+            "px": 15
+          },
+          {
+            "el": "dd.text-right.font-mono.tracking-[-0.02em]",
+            "texto": "37,5%",
+            "px": 16.1
+          },
+          {
+            "el": "dt.font-texto.text-[15px].text-texto-2",
+            "texto": "Juros em reais",
+            "px": 14.9
+          },
+          {
+            "el": "dd.text-right.font-mono.tracking-[-0.02em]",
+            "texto": "R$ 80",
+            "px": 16.1
+          },
+          {
+            "el": "dt.font-texto.text-[15px].font-semibold",
+            "texto": "Total a pagar",
+            "px": 14.9
+          },
+          {
+            "el": "dd.text-right.font-mono.tracking-[-0.02em]",
+            "texto": "R$ 480",
+            "px": 19
+          },
+          {
+            "el": "p.font-mono.text-[12px].font-medium",
+            "texto": "CREDORA",
+            "px": 12
+          },
+          {
+            "el": "p.font-texto.text-[16px].font-bold",
+            "texto": "Instituição Parceira S.A. (credora)",
+            "px": 16
+          },
+          {
+            "el": "p.mt-[10px].font-texto.text-[14px]",
+            "texto": "Quem empresta é a instituição parceira, autorizada pelo Banco Central.",
+            "px": 14
+          },
+          {
+            "el": "p.font-mono.text-[12px].font-medium",
+            "texto": "VENCIMENTOS (FICTÍCIOS)",
+            "px": 12
+          },
+          {
+            "el": "span.block.font-mono.text-[14px]",
+            "texto": "23/10",
+            "px": 13.9
+          },
+          {
+            "el": "span.block.font-mono.text-[12px]",
+            "texto": "R$ 120",
+            "px": 11.9
+          },
+          {
+            "el": "span.block.font-mono.text-[14px]",
+            "texto": "30/10",
+            "px": 13.9
+          },
+          {
+            "el": "span.block.font-mono.text-[12px]",
+            "texto": "R$ 120",
+            "px": 11.9
+          },
+          {
+            "el": "span.block.font-mono.text-[14px]",
+            "texto": "06/11",
+            "px": 13.9
+          },
+          {
+            "el": "span.block.font-mono.text-[12px]",
+            "texto": "R$ 120",
+            "px": 11.9
+          },
+          {
+            "el": "span.block.font-mono.text-[14px]",
+            "texto": "13/11",
+            "px": 13.9
+          },
+          {
+            "el": "span.block.font-mono.text-[12px]",
+            "texto": "R$ 120",
+            "px": 11.9
+          },
+          {
+            "el": "span",
+            "texto": "Continuar",
+            "px": 16.9
+          },
+          {
+            "el": "span",
+            "texto": "PROTÓTIPO",
+            "px": 12.9
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [
+          {
+            "a": "p.font-mono.text-[12px].font-medium",
+            "ta": "VOCÊ RECEBE",
+            "b": "p.font-mono.text-[46px].font-bold",
+            "tb": "R$ 400",
+            "frac": 0.45
+          },
+          {
+            "a": "p.mt-[10px].font-texto.text-[14px]",
+            "ta": "Quem empresta é a instituição parceira, ",
+            "b": "span",
+            "tb": "Continuar",
+            "frac": 0.31
+          },
+          {
+            "a": "p.mt-[10px].font-texto.text-[14px]",
+            "ta": "Quem empresta é a instituição parceira, ",
+            "b": "span",
+            "tb": "Continuar",
+            "frac": 0.67
+          },
+          {
+            "a": "p.font-mono.text-[12px].font-medium",
+            "ta": "VENCIMENTOS (FICTÍCIOS)",
+            "b": "p.text-center.font-texto.text-apoio",
+            "tb": "Dados fictícios. Nenhum campo coleta dad",
+            "frac": 0.38
+          },
+          {
+            "a": "span.block.font-mono.text-[14px]",
+            "ta": "23/10",
+            "b": "p.text-center.font-texto.text-apoio",
+            "tb": "Dados fictícios. Nenhum campo coleta dad",
+            "frac": 0.4
+          },
+          {
+            "a": "span.block.font-mono.text-[14px]",
+            "ta": "30/10",
+            "b": "p.text-center.font-texto.text-apoio",
+            "tb": "Dados fictícios. Nenhum campo coleta dad",
+            "frac": 0.4
+          },
+          {
+            "a": "span.block.font-mono.text-[14px]",
+            "ta": "06/11",
+            "b": "p.text-center.font-texto.text-apoio",
+            "tb": "Dados fictícios. Nenhum campo coleta dad",
+            "frac": 0.4
+          },
+          {
+            "a": "span.block.font-mono.text-[14px]",
+            "ta": "13/11",
+            "b": "p.text-center.font-texto.text-apoio",
+            "tb": "Dados fictícios. Nenhum campo coleta dad",
+            "frac": 0.4
+          }
+        ],
+        "nTextos": 49
+      },
+      "03b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 13.1,
+        "pequenas": [
+          {
+            "el": "p.font-texto.text-corpo.font-semibold",
+            "texto": "Um saque de R$ 400, dois jeitos de pagar",
+            "px": 21
+          },
+          {
+            "el": "p.font-texto.text-apoio.text-texto-3",
+            "texto": "Recebe R$ 400 · 5% por semana sobre o valor sacado",
+            "px": 17.8
+          },
+          {
+            "el": "p.flex.flex-wrap.items-center",
+            "texto": "Padrão: 4 parcelas semanais",
+            "px": 21
+          },
+          {
+            "el": "p.font-texto.text-apoio.leading-snug",
+            "texto": "R$ 100 do valor + R$ 20 de juros por semana",
+            "px": 17.8
+          },
+          {
+            "el": "p.font-texto.text-apoio.leading-snug",
+            "texto": "R$ 80 de juros no total · 37,5% ao mês",
+            "px": 17.8
+          },
+          {
+            "el": "p.flex.flex-wrap.items-center",
+            "texto": "Alternativa: plano diário de 14 dias RECOMENDADO",
+            "px": 21
+          },
+          {
+            "el": "span.rounded-full.border.border-verde-borda",
+            "texto": "RECOMENDADO",
+            "px": 13.1
+          },
+          {
+            "el": "p.font-texto.text-apoio.leading-snug",
+            "texto": "R$ 40,00 de juros no total · 47,2% ao mês",
+            "px": 17.8
+          },
+          {
+            "el": "p.font-texto.text-apoio.leading-snug",
+            "texto": "Também em 7 ou 20 dias.",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto-3.font-texto",
+            "texto": "Parcela (R$)",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto-2.font-texto.font-semibold",
+            "texto": "Semanal",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto-2.font-texto.font-semibold",
+            "texto": "Diário",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto-2.font-texto",
+            "texto": "Saque",
+            "px": 16
+          },
+          {
+            "el": "text.fill-texto.font-mono.font-bold",
+            "texto": "R$ 120",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto.font-mono.font-bold",
+            "texto": "R$ 120",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto.font-mono.font-bold",
+            "texto": "R$ 120",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto.font-mono.font-bold",
+            "texto": "R$ 120",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto.font-mono.font-bold",
+            "texto": "14 × R$ 31,43",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto-3.font-mono",
+            "texto": "0",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto-3.font-mono",
+            "texto": "7",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto-3.font-mono",
+            "texto": "14",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto-3.font-mono",
+            "texto": "21",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto-3.font-mono",
+            "texto": "28",
+            "px": 17.8
+          },
+          {
+            "el": "text.fill-texto-3.font-texto",
+            "texto": "Dias corridos desde o saque",
+            "px": 17.8
+          },
+          {
+            "el": "figcaption.mt-[0.9em].font-texto.text-apoio",
+            "texto": "Exemplo de R$ 400: 5,0% por semana = 37,5% ao mês = R$ 80 de juros em ",
+            "px": 17.8
+          },
+          {
+            "el": "p.flex.items-center.gap-[0.45em]",
+            "texto": "01",
+            "px": 19.3
+          },
+          {
+            "el": "p.mt-[0.3em].text-apoio.leading-snug",
+            "texto": "O cliente autoriza uma vez, na contratação.",
+            "px": 19.3
+          },
+          {
+            "el": "p.flex.items-center.gap-[0.45em]",
+            "texto": "02",
+            "px": 19.3
+          },
+          {
+            "el": "p.mt-[0.3em].text-apoio.leading-snug",
+            "texto": "O cliente vê o valor antes de cada cobrança.",
+            "px": 19.3
+          },
+          {
+            "el": "p.flex.items-center.gap-[0.45em]",
+            "texto": "03",
+            "px": 19.3
+          },
+          {
+            "el": "p.mt-[0.3em].text-apoio.leading-snug",
+            "texto": "A cobrança cai na conta da parceira ou do fundo.",
+            "px": 19.3
+          },
+          {
+            "el": "p.flex.items-center.gap-[0.45em]",
+            "texto": "04",
+            "px": 19.3
+          },
+          {
+            "el": "p.mt-[0.3em].text-apoio.leading-snug",
+            "texto": "Se faltar saldo, o Pix tenta de novo.",
+            "px": 19.3
+          },
+          {
+            "el": "span.font-mono",
+            "texto": "1",
+            "px": 19.6
+          },
+          {
+            "el": "span.text-texto-2",
+            "texto": "Sem saldo",
+            "px": 19.2
+          },
+          {
+            "el": "span.font-mono",
+            "texto": "2",
+            "px": 19.6
+          },
+          {
+            "el": "span.text-texto-2",
+            "texto": "Sem saldo",
+            "px": 19.2
+          },
+          {
+            "el": "span.font-mono",
+            "texto": "3",
+            "px": 19.6
+          },
+          {
+            "el": "span.text-texto-2",
+            "texto": "Pago",
+            "px": 19.2
+          },
+          {
+            "el": "p.text-apoio.leading-snug.text-texto-2",
+            "texto": "Cancelou até 23h59 da véspera? Vira sinal de risco e gatilho de contat",
+            "px": 19.3
+          },
+          {
+            "el": "strong.font-semibold.text-texto",
+            "texto": "Cancelou até 23h59 da véspera?",
+            "px": 19.3
+          },
+          {
+            "el": "p.text-apoio.text-texto-3",
+            "texto": "QR Pix como alternativa.",
+            "px": 19.3
+          },
+          {
+            "el": "figcaption.mt-[0.9em].font-texto.text-apoio",
+            "texto": "Pix Automático, do Banco Central, em operação desde junho de 2025. Fon",
+            "px": 19.3
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 53
+      },
+      "04": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 49
+      },
+      "04b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 21
+      },
+      "05": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 23
+      },
+      "05b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 34
+      },
+      "05c": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 24
+      },
+      "06": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 16.2,
+        "pequenas": [
+          {
+            "el": "span.inline-flex.items-center.gap-[0.4em]",
+            "texto": "ESTIMATIVA",
+            "px": 16.2
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 38
+      },
+      "06b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 11
+      },
+      "07": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 15.4,
+        "pequenas": [
+          {
+            "el": "span",
+            "texto": "PROJEÇÃO",
+            "px": 15.4
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 30
+      },
+      "07b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 15.4,
+        "pequenas": [
+          {
+            "el": "span",
+            "texto": "PROJEÇÃO",
+            "px": 15.4
+          },
+          {
+            "el": "text.fill-coral.font-texto.font-semibold",
+            "texto": "Margem negativa",
+            "px": 19.8
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [
+          {
+            "a": "text.fill-texto-2.font-texto",
+            "ta": "Perda de 8%",
+            "b": "text.fill-texto.font-mono.font-bold",
+            "tb": "R$ 128,9 mil",
+            "frac": 0.25
+          },
+          {
+            "a": "text.fill-texto-2.font-texto",
+            "ta": "Perda de 12%",
+            "b": "text.fill-texto.font-mono.font-bold",
+            "tb": "R$ 70,0 mil",
+            "frac": 0.25
+          }
+        ],
+        "nTextos": 30
+      },
+      "07c": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 15.4,
+        "pequenas": [
+          {
+            "el": "span",
+            "texto": "PROJEÇÃO",
+            "px": 15.4
+          }
+        ],
+        "contraste": [
+          {
+            "el": "button.inline-flex.items-center.gap-[0.5em]",
+            "texto": "Voltar ao cenário-base",
+            "razao": 2.96,
+            "min": 4.5,
+            "px": 22,
+            "cor": "rgb(18, 22, 28)",
+            "fundo": "rgb(255,255,255)",
+            "fundoComImagem": false,
+            "opacidade": 0.45
+          }
+        ],
+        "sobrepostos": [
+          {
+            "a": "p.mt-[0.1em].font-mono.text-kpi-p",
+            "ta": "R$ 128,9 mil",
+            "b": "p.text-apoio.text-texto-3",
+            "tb": "Antes de equipe, tecnologia e impostos.",
+            "frac": 0.31
+          }
+        ],
+        "nTextos": 50
+      },
+      "07d": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 15.4,
+        "pequenas": [
+          {
+            "el": "span",
+            "texto": "PROJEÇÃO",
+            "px": 15.4
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 61
+      },
+      "07e": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 15.4,
+        "pequenas": [
+          {
+            "el": "span",
+            "texto": "PROJEÇÃO",
+            "px": 15.4
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 26
+      },
+      "07f": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 20.8,
+        "pequenas": [
+          {
+            "el": "th.sticky.top-0.z-10",
+            "texto": "PROJEÇÃO",
+            "px": 20.8
+          },
+          {
+            "el": "th.sticky.top-0.z-10",
+            "texto": "FASE 1 Meses 0–12",
+            "px": 20.8
+          },
+          {
+            "el": "span.block.normal-case.text-texto-3",
+            "texto": "Meses 0–12",
+            "px": 20.8
+          },
+          {
+            "el": "th.sticky.top-0.z-10",
+            "texto": "FASE 2 Meses 12–24",
+            "px": 20.8
+          },
+          {
+            "el": "span.block.normal-case.text-texto-3",
+            "texto": "Meses 12–24",
+            "px": 20.8
+          },
+          {
+            "el": "th.sticky.top-0.z-10",
+            "texto": "FASE 3 Ano 3",
+            "px": 20.8
+          },
+          {
+            "el": "span.block.normal-case.text-texto-3",
+            "texto": "Ano 3",
+            "px": 20.8
+          },
+          {
+            "el": "span",
+            "texto": "PROJEÇÃO",
+            "px": 20.8
+          },
+          {
+            "el": "span",
+            "texto": "As três fases. Projeção a 5,0% por semana = 37,5% ao mês = R$ 80 de ju",
+            "px": 20.8
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 63
+      },
+      "08": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 13.6,
+        "pequenas": [
+          {
+            "el": "span.inline-flex.items-center.gap-[0.4em]",
+            "texto": "ESTIMATIVA",
+            "px": 13.6
+          },
+          {
+            "el": "span.inline-flex.items-center.gap-[0.4em]",
+            "texto": "ESTIMATIVA",
+            "px": 13.6
+          },
+          {
+            "el": "span.inline-flex.items-center.gap-[0.4em]",
+            "texto": "ESTIMATIVA",
+            "px": 13.6
+          }
+        ],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 31
+      },
+      "08b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 9
+      },
+      "08c": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 26
+      },
+      "09": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 27
+      },
+      "09b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 25
+      },
+      "09c": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 27
+      },
+      "10b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 31
+      },
+      "10c": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 16
+      },
+      "12b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 18
+      },
+      "13b": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 40
+      },
+      "13c": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 37
+      }
+    },
+    "leitura390": {
+      "rolagemHorizontalPx": 0
+    },
+    "teclado": {
+      "passos": 34,
+      "falhas": [],
+      "console": []
+    },
+    "simulador": {
+      "base": {
+        "esperados": [
+          "R$ 1,47 mi",
+          "R$ 294,7 mil",
+          "R$ 128,9 mil",
+          "16,75%"
+        ],
+        "faltando": []
+      },
+      "faixas": [
+        {
+          "min": "150000",
+          "max": "1000000",
+          "step": "50000"
+        },
+        {
+          "min": "0.04",
+          "max": "0.06",
+          "step": "0.005"
+        },
+        {
+          "min": "0.04",
+          "max": "0.2",
+          "step": "0.005"
+        }
+      ],
+      "casos": [
+        {
+          "capital": "min",
+          "taxa": "min",
+          "perda": "min",
+          "fase": 1,
+          "sliders": [
+            "150000",
+            "0.04",
+            "0.04"
+          ],
+          "perdaPct": 4,
+          "equilibrio": "12,75%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "min",
+          "taxa": "min",
+          "perda": "min",
+          "fase": 2,
+          "sliders": [
+            "150000",
+            "0.04",
+            "0.04"
+          ],
+          "perdaPct": 4,
+          "equilibrio": "11,9%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "min",
+          "taxa": "min",
+          "perda": "min",
+          "fase": 3,
+          "sliders": [
+            "150000",
+            "0.04",
+            "0.04"
+          ],
+          "perdaPct": 4,
+          "equilibrio": "11,8%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "min",
+          "taxa": "min",
+          "perda": "max",
+          "fase": 1,
+          "sliders": [
+            "150000",
+            "0.04",
+            "0.2"
+          ],
+          "perdaPct": 20,
+          "equilibrio": "12,75%",
+          "alerta": true,
+          "deveAlertar": true,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "min",
+          "taxa": "min",
+          "perda": "max",
+          "fase": 2,
+          "sliders": [
+            "150000",
+            "0.04",
+            "0.2"
+          ],
+          "perdaPct": 20,
+          "equilibrio": "11,9%",
+          "alerta": true,
+          "deveAlertar": true,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "min",
+          "taxa": "min",
+          "perda": "max",
+          "fase": 3,
+          "sliders": [
+            "150000",
+            "0.04",
+            "0.2"
+          ],
+          "perdaPct": 20,
+          "equilibrio": "11,8%",
+          "alerta": true,
+          "deveAlertar": true,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "min",
+          "taxa": "min",
+          "perda": 0.08,
+          "fase": 1,
+          "sliders": [
+            "150000",
+            "0.04",
+            "0.08"
+          ],
+          "perdaPct": 8,
+          "equilibrio": "12,75%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "min",
+          "taxa": "min",
+          "perda": 0.08,
+          "fase": 2,
+          "sliders": [
+            "150000",
+            "0.04",
+            "0.08"
+          ],
+          "perdaPct": 8,
+          "equilibrio": "11,9%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "min",
+          "taxa": "min",
+          "perda": 0.08,
+          "fase": 3,
+          "sliders": [
+            "150000",
+            "0.04",
+            "0.08"
+          ],
+          "perdaPct": 8,
+          "equilibrio": "11,8%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "min",
+          "taxa": "max",
+          "perda": "min",
+          "fase": 1,
+          "sliders": [
+            "150000",
+            "0.06",
+            "0.04"
+          ],
+          "perdaPct": 4,
+          "equilibrio": "20,75%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "min",
+          "taxa": "max",
+          "perda": "min",
+          "fase": 2,
+          "sliders": [
+            "150000",
+            "0.06",
+            "0.04"
+          ],
+          "perdaPct": 4,
+          "equilibrio": "19,9%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "min",
+          "taxa": "max",
+          "perda": "min",
+          "fase": 3,
+          "sliders": [
+            "150000",
+            "0.06",
+            "0.04"
+          ],
+          "perdaPct": 4,
+          "equilibrio": "19,8%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "min",
+          "taxa": "max",
+          "perda": "max",
+          "fase": 1,
+          "sliders": [
+            "150000",
+            "0.06",
+            "0.2"
+          ],
+          "perdaPct": 20,
+          "equilibrio": "20,75%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "min",
+          "taxa": "max",
+          "perda": "max",
+          "fase": 2,
+          "sliders": [
+            "150000",
+            "0.06",
+            "0.2"
+          ],
+          "perdaPct": 20,
+          "equilibrio": "19,9%",
+          "alerta": true,
+          "deveAlertar": true,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "min",
+          "taxa": "max",
+          "perda": "max",
+          "fase": 3,
+          "sliders": [
+            "150000",
+            "0.06",
+            "0.2"
+          ],
+          "perdaPct": 20,
+          "equilibrio": "19,8%",
+          "alerta": true,
+          "deveAlertar": true,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "min",
+          "taxa": "max",
+          "perda": 0.08,
+          "fase": 1,
+          "sliders": [
+            "150000",
+            "0.06",
+            "0.08"
+          ],
+          "perdaPct": 8,
+          "equilibrio": "20,75%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "min",
+          "taxa": "max",
+          "perda": 0.08,
+          "fase": 2,
+          "sliders": [
+            "150000",
+            "0.06",
+            "0.08"
+          ],
+          "perdaPct": 8,
+          "equilibrio": "19,9%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "min",
+          "taxa": "max",
+          "perda": 0.08,
+          "fase": 3,
+          "sliders": [
+            "150000",
+            "0.06",
+            "0.08"
+          ],
+          "perdaPct": 8,
+          "equilibrio": "19,8%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "max",
+          "taxa": "min",
+          "perda": "min",
+          "fase": 1,
+          "sliders": [
+            "1000000",
+            "0.04",
+            "0.04"
+          ],
+          "perdaPct": 4,
+          "equilibrio": "12,75%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "max",
+          "taxa": "min",
+          "perda": "min",
+          "fase": 2,
+          "sliders": [
+            "1000000",
+            "0.04",
+            "0.04"
+          ],
+          "perdaPct": 4,
+          "equilibrio": "11,9%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "max",
+          "taxa": "min",
+          "perda": "min",
+          "fase": 3,
+          "sliders": [
+            "1000000",
+            "0.04",
+            "0.04"
+          ],
+          "perdaPct": 4,
+          "equilibrio": "11,8%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "max",
+          "taxa": "min",
+          "perda": "max",
+          "fase": 1,
+          "sliders": [
+            "1000000",
+            "0.04",
+            "0.2"
+          ],
+          "perdaPct": 20,
+          "equilibrio": "12,75%",
+          "alerta": true,
+          "deveAlertar": true,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "max",
+          "taxa": "min",
+          "perda": "max",
+          "fase": 2,
+          "sliders": [
+            "1000000",
+            "0.04",
+            "0.2"
+          ],
+          "perdaPct": 20,
+          "equilibrio": "11,9%",
+          "alerta": true,
+          "deveAlertar": true,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "max",
+          "taxa": "min",
+          "perda": "max",
+          "fase": 3,
+          "sliders": [
+            "1000000",
+            "0.04",
+            "0.2"
+          ],
+          "perdaPct": 20,
+          "equilibrio": "11,8%",
+          "alerta": true,
+          "deveAlertar": true,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "max",
+          "taxa": "min",
+          "perda": 0.08,
+          "fase": 1,
+          "sliders": [
+            "1000000",
+            "0.04",
+            "0.08"
+          ],
+          "perdaPct": 8,
+          "equilibrio": "12,75%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "max",
+          "taxa": "min",
+          "perda": 0.08,
+          "fase": 2,
+          "sliders": [
+            "1000000",
+            "0.04",
+            "0.08"
+          ],
+          "perdaPct": 8,
+          "equilibrio": "11,9%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "max",
+          "taxa": "min",
+          "perda": 0.08,
+          "fase": 3,
+          "sliders": [
+            "1000000",
+            "0.04",
+            "0.08"
+          ],
+          "perdaPct": 8,
+          "equilibrio": "11,8%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "max",
+          "taxa": "max",
+          "perda": "min",
+          "fase": 1,
+          "sliders": [
+            "1000000",
+            "0.06",
+            "0.04"
+          ],
+          "perdaPct": 4,
+          "equilibrio": "20,75%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "max",
+          "taxa": "max",
+          "perda": "min",
+          "fase": 2,
+          "sliders": [
+            "1000000",
+            "0.06",
+            "0.04"
+          ],
+          "perdaPct": 4,
+          "equilibrio": "19,9%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "max",
+          "taxa": "max",
+          "perda": "min",
+          "fase": 3,
+          "sliders": [
+            "1000000",
+            "0.06",
+            "0.04"
+          ],
+          "perdaPct": 4,
+          "equilibrio": "19,8%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "max",
+          "taxa": "max",
+          "perda": "max",
+          "fase": 1,
+          "sliders": [
+            "1000000",
+            "0.06",
+            "0.2"
+          ],
+          "perdaPct": 20,
+          "equilibrio": "20,75%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "max",
+          "taxa": "max",
+          "perda": "max",
+          "fase": 2,
+          "sliders": [
+            "1000000",
+            "0.06",
+            "0.2"
+          ],
+          "perdaPct": 20,
+          "equilibrio": "19,9%",
+          "alerta": true,
+          "deveAlertar": true,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "max",
+          "taxa": "max",
+          "perda": "max",
+          "fase": 3,
+          "sliders": [
+            "1000000",
+            "0.06",
+            "0.2"
+          ],
+          "perdaPct": 20,
+          "equilibrio": "19,8%",
+          "alerta": true,
+          "deveAlertar": true,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "max",
+          "taxa": "max",
+          "perda": 0.08,
+          "fase": 1,
+          "sliders": [
+            "1000000",
+            "0.06",
+            "0.08"
+          ],
+          "perdaPct": 8,
+          "equilibrio": "20,75%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "max",
+          "taxa": "max",
+          "perda": 0.08,
+          "fase": 2,
+          "sliders": [
+            "1000000",
+            "0.06",
+            "0.08"
+          ],
+          "perdaPct": 8,
+          "equilibrio": "19,9%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        },
+        {
+          "capital": "max",
+          "taxa": "max",
+          "perda": 0.08,
+          "fase": 3,
+          "sliders": [
+            "1000000",
+            "0.06",
+            "0.08"
+          ],
+          "perdaPct": 8,
+          "equilibrio": "19,8%",
+          "alerta": false,
+          "deveAlertar": false,
+          "ruim": false,
+          "ok": true,
+          "alertaSemNecessidade": false
+        }
+      ],
+      "falhas": [],
+      "alertaSemNecessidade": [],
+      "varreduraBase": [
+        {
+          "perda": 4,
+          "equilibrio": 16.75,
+          "alerta": false,
+          "ruim": false
+        },
+        {
+          "perda": 5,
+          "equilibrio": 16.75,
+          "alerta": false,
+          "ruim": false
+        },
+        {
+          "perda": 6,
+          "equilibrio": 16.75,
+          "alerta": false,
+          "ruim": false
+        },
+        {
+          "perda": 7,
+          "equilibrio": 16.75,
+          "alerta": false,
+          "ruim": false
+        },
+        {
+          "perda": 8,
+          "equilibrio": 16.75,
+          "alerta": false,
+          "ruim": false
+        },
+        {
+          "perda": 9,
+          "equilibrio": 16.75,
+          "alerta": false,
+          "ruim": false
+        },
+        {
+          "perda": 10,
+          "equilibrio": 16.75,
+          "alerta": false,
+          "ruim": false
+        },
+        {
+          "perda": 11,
+          "equilibrio": 16.75,
+          "alerta": false,
+          "ruim": false
+        },
+        {
+          "perda": 12,
+          "equilibrio": 16.75,
+          "alerta": false,
+          "ruim": false
+        },
+        {
+          "perda": 13,
+          "equilibrio": 16.75,
+          "alerta": false,
+          "ruim": false
+        },
+        {
+          "perda": 14,
+          "equilibrio": 16.75,
+          "alerta": false,
+          "ruim": false
+        },
+        {
+          "perda": 15,
+          "equilibrio": 16.75,
+          "alerta": false,
+          "ruim": false
+        },
+        {
+          "perda": 16,
+          "equilibrio": 16.75,
+          "alerta": false,
+          "ruim": false
+        },
+        {
+          "perda": 17,
+          "equilibrio": 16.75,
+          "alerta": true,
+          "ruim": false
+        },
+        {
+          "perda": 18,
+          "equilibrio": 16.75,
+          "alerta": true,
+          "ruim": false
+        },
+        {
+          "perda": 19,
+          "equilibrio": 16.75,
+          "alerta": true,
+          "ruim": false
+        },
+        {
+          "perda": 20,
+          "equilibrio": 16.75,
+          "alerta": true,
+          "ruim": false
+        }
+      ],
+      "varreduraFalhas": [],
+      "console": []
+    },
+    "prototipo": [
+      {
+        "rota": "#/03",
+        "passos": [
+          {
+            "nome": "conversa: tocar áudio",
+            "ok": true
+          },
+          {
+            "nome": "conversa: abrir link",
+            "ok": true
+          },
+          {
+            "nome": "contratação: etapa 1",
+            "ok": true
+          },
+          {
+            "nome": "contratação: etapa 2",
+            "ok": true
+          },
+          {
+            "nome": "contratação: etapa 3",
+            "ok": true
+          },
+          {
+            "nome": "contratação: etapa 4",
+            "ok": true
+          },
+          {
+            "nome": "contratação: etapa 5",
+            "ok": true
+          },
+          {
+            "nome": "contratação: etapa 6",
+            "ok": true
+          },
+          {
+            "nome": "contratação: etapa 7",
+            "ok": true
+          },
+          {
+            "nome": "painel visível",
+            "ok": true
+          },
+          {
+            "nome": "painel → níveis",
+            "ok": true
+          },
+          {
+            "nome": "níveis visível",
+            "ok": true
+          },
+          {
+            "nome": "níveis: tocar cada nível",
+            "ok": true
+          },
+          {
+            "nome": "trilho → atraso",
+            "ok": true
+          },
+          {
+            "nome": "atraso: opções",
+            "ok": true
+          },
+          {
+            "nome": "atraso: voltar ao painel",
+            "ok": true
+          },
+          {
+            "nome": "reiniciar",
+            "ok": true
+          }
+        ],
+        "console": []
+      },
+      {
+        "rota": "#/prototipo",
+        "passos": [
+          {
+            "nome": "conversa: tocar áudio",
+            "ok": true
+          },
+          {
+            "nome": "conversa: abrir link",
+            "ok": true
+          },
+          {
+            "nome": "contratação: etapa 1",
+            "ok": true
+          },
+          {
+            "nome": "contratação: etapa 2",
+            "ok": true
+          },
+          {
+            "nome": "contratação: etapa 3",
+            "ok": true
+          },
+          {
+            "nome": "contratação: etapa 4",
+            "ok": true
+          },
+          {
+            "nome": "contratação: etapa 5",
+            "ok": true
+          },
+          {
+            "nome": "contratação: etapa 6",
+            "ok": true
+          },
+          {
+            "nome": "contratação: etapa 7",
+            "ok": true
+          },
+          {
+            "nome": "painel visível",
+            "ok": true
+          },
+          {
+            "nome": "painel → níveis",
+            "ok": true
+          },
+          {
+            "nome": "níveis visível",
+            "ok": true
+          },
+          {
+            "nome": "níveis: tocar cada nível",
+            "ok": true
+          },
+          {
+            "nome": "trilho → atraso",
+            "ok": true
+          },
+          {
+            "nome": "atraso: opções",
+            "ok": true
+          },
+          {
+            "nome": "atraso: voltar ao painel",
+            "ok": true
+          },
+          {
+            "nome": "reiniciar",
+            "ok": true
+          }
+        ],
+        "console": []
+      }
+    ],
+    "arquivoUnico": {
+      "bytes": 1278605,
+      "mb": 1.22,
+      "abaixoDe5MB": true,
+      "referenciasExternas": [],
+      "scriptsComSrc": 0,
+      "linksStylesheet": 0
+    },
+    "termos415": {
+      "arquivos": 102,
+      "achados": []
+    },
+    "rede": {
+      "bloqueadas": 0,
+      "urls": []
+    }
+  },
+  "telas": [
+    "00",
+    "01",
+    "01b",
+    "02",
+    "02b",
+    "03",
+    "03b",
+    "04",
+    "04b",
+    "05",
+    "05b",
+    "05c",
+    "06",
+    "06b",
+    "07",
+    "07b",
+    "07c",
+    "07d",
+    "07e",
+    "07f",
+    "08",
+    "08b",
+    "08c",
+    "09",
+    "09b",
+    "09c",
+    "10",
+    "10b",
+    "10c",
+    "11",
+    "12",
+    "12b",
+    "13",
+    "13b",
+    "13c"
+  ],
+  "resumo": {
+    "console": 0,
+    "rede": 0,
+    "teclado": 0,
+    "cortes1920": 0,
+    "foraDoPalco1920": 0,
+    "sobrepostos1920": 3,
+    "fontesAbaixo22": 81,
+    "menorFonte1920": 11,
+    "contraste1920": 1,
+    "cortesPrint": 9,
+    "contrastePrint": 1,
+    "simuladorBase": 0,
+    "simuladorFalhas": 0,
+    "prototipo": 0,
+    "arquivoMB": 1.22,
+    "refsExternas": 0,
+    "termos415": 0
+  }
+}

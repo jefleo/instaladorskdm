@@ -7,8 +7,8 @@ import { Slide, secaoPorId, type PropsSecao } from "./Slide";
  */
 const FAIXAS: FaixaLista[] = [
   { vantagens: [0, 3], riscos: [0, 3] },
-  { vantagens: [3, 6], riscos: [3, 7] },
-  { vantagens: [6, 8], riscos: [7, 10] },
+  { vantagens: [3, 6], riscos: [3, 6] },
+  { vantagens: [6, 8], riscos: [6, 10] },
 ];
 
 export const partesSecao09 = FAIXAS.length;

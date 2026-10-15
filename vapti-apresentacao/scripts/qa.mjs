@@ -100,7 +100,8 @@ function medirTela({ seletorRaiz, fonteMin }) {
     // corte: overflow escondido com conteúdo maior que a caixa
     const escondeX = /hidden|clip/.test(cs.overflowX) || cs.textOverflow === "ellipsis";
     const escondeY = /hidden|clip/.test(cs.overflowY) || cs.webkitLineClamp !== "none";
-    if ((escondeX || escondeY) && (el.innerText || "").trim()) {
+    // .encaixe reduz o conteúdo com transform: a rolagem mede o tamanho sem escala; o corte real é medido pelos retângulos abaixo
+    if ((escondeX || escondeY) && (el.innerText || "").trim() && !el.classList.contains("encaixe")) {
       const cx = escondeX && el.scrollWidth > el.clientWidth + 1;
       const cy = escondeY && el.scrollHeight > el.clientHeight + 1;
       if (cx || cy) cortes.push({ el: desc(el), texto: textoDe(el), sw: el.scrollWidth, cw: el.clientWidth, sh: el.scrollHeight, ch: el.clientHeight });
@@ -125,19 +126,20 @@ function medirTela({ seletorRaiz, fonteMin }) {
         }
       }
       // fonte
+      // tamanho efetivo no palco de 1920: considera transform (encaixe, celular) e o viewBox de svg
       const tam = parseFloat(cs.fontSize);
-      fontes.push(tam);
-      if (tam < fonteMin) {
-        const svg = el.closest("svg");
-        // tamanho efetivo em svg escalado: proporcional ao viewBox
-        let efetivo = tam;
-        if (svg) {
-          const vb = svg.viewBox?.baseVal;
-          const r2 = svg.getBoundingClientRect();
-          if (vb && vb.width) efetivo = (tam * r2.width) / escala / vb.width;
-        }
-        if (efetivo < fonteMin) fontes.push({ el: desc(el), texto: textoDe(el), px: Math.round(efetivo * 10) / 10 });
+      let efetivo = tam;
+      const svg = el.closest("svg");
+      if (svg) {
+        const vb = svg.viewBox?.baseVal;
+        const r2 = svg.getBoundingClientRect();
+        if (vb && vb.width) efetivo = (tam * r2.width) / escala / vb.width;
+      } else if (el.offsetWidth > 0) {
+        efetivo = (tam * r.width) / el.offsetWidth / escala;
       }
+      efetivo = Math.round(efetivo * 10) / 10;
+      fontes.push(efetivo);
+      if (efetivo < fonteMin - 0.4) fontes.push({ el: desc(el), texto: textoDe(el), px: efetivo });
       // contraste
       if (el.tagName !== "text") {
         const cor = parse(cs.color);
@@ -145,9 +147,9 @@ function medirTela({ seletorRaiz, fonteMin }) {
         const o = opacidade(el);
         const corEf = sobre([cor[0], cor[1], cor[2], cor[3] * o], fundo);
         const rz = razao(corEf, fundo);
-        const grande = tam >= 24 || (tam >= 18.66 && Number(cs.fontWeight) >= 700);
+        const grande = efetivo >= 24 || (efetivo >= 18.66 && Number(cs.fontWeight) >= 700);
         const min = grande ? 3 : 4.5;
-        if (rz < min) contraste.push({ el: desc(el), texto: textoDe(el), razao: Math.round(rz * 100) / 100, min, px: tam, cor: cs.color, fundo: `rgb(${fundo.slice(0, 3).map(Math.round).join(",")})`, fundoComImagem: temImagem, opacidade: Math.round(o * 100) / 100 });
+        if (rz < min) contraste.push({ el: desc(el), texto: textoDe(el), razao: Math.round(rz * 100) / 100, min, px: efetivo, cor: cs.color, fundo: `rgb(${fundo.slice(0, 3).map(Math.round).join(",")})`, fundoComImagem: temImagem, opacidade: Math.round(o * 100) / 100 });
       }
     }
   }

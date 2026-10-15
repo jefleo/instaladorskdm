@@ -6,8 +6,10 @@ import { Icone, Selo } from "../base";
 import { useViz, type VizProps } from "./comum";
 import { cenarioBase, efetivaMes, formatCapital, formatEquilibrio, formatTaxa, jurosEm400, pctCurto, rotulosResultado, simularCenario } from "./rotulos";
 
-/** Setas, Home/End e PageUp/PageDown mexem no controle — não trocam a tela da apresentação. */
-const naoPropagar = (e: KeyboardEvent) => e.stopPropagation();
+/** Setas e Home/End mexem no controle — não trocam a tela. PageUp/PageDown (passador) seguem para a apresentação. */
+const naoPropagar = (e: KeyboardEvent) => {
+  if (e.key !== "PageDown" && e.key !== "PageUp") e.stopPropagation();
+};
 const naoPropagarAtivacao = (e: KeyboardEvent) => {
   if (e.key === " " || e.key === "Enter" || e.key.startsWith("Arrow")) e.stopPropagation();
 };
