@@ -1,0 +1,2006 @@
+{
+ "meta": {
+  "projeto": "Vapti",
+  "versao": "1.0",
+  "data": "2026-10-15",
+  "frases": 91,
+  "duracao_estimada_s": 451.8,
+  "formato": "16:9",
+  "fps": 30,
+  "palavras_por_minuto": 150,
+  "aviso_final": "Projeções são hipóteses com premissas declaradas, não promessa de resultado. Estrutura sujeita a parecer jurídico e contábil."
+ },
+ "layouts": {
+  "L1": {
+   "nome": "Você no centro",
+   "descricao": "Você ocupa o centro, do peito para cima, cerca de 60% da altura da tela. Pouco ou nenhum texto. Usado em aberturas, viradas e momentos de confiança."
+  },
+  "L2": {
+   "nome": "Você à esquerda, painel à direita",
+   "descricao": "Você no terço esquerdo da tela. O painel com o visual ocupa os dois terços da direita. É o layout padrão das explicações."
+  },
+  "L3": {
+   "nome": "Você no canto",
+   "descricao": "Você reduzido no canto inferior esquerdo, recorte circular ou retangular arredondado, cerca de 25% da altura. O visual ocupa a tela. Usado para tabelas, linhas do tempo e diagramas densos."
+  },
+  "L4": {
+   "nome": "Tela cheia sem você",
+   "descricao": "Só o visual, a voz continua. No máximo 4 segundos seguidos. Usar com moderação."
+  },
+  "L5": {
+   "nome": "Número gigante atrás de você",
+   "descricao": "Um número enorme no fundo, atrás do seu recorte (efeito de profundidade graças ao PNG). Reservado para os números que a pessoa precisa lembrar."
+  }
+ },
+ "atos": [
+  {
+   "id": "A1",
+   "titulo": "O problema",
+   "tom": "Próximo e calmo, como quem conta uma história real. Sem pressa.",
+   "energia": 3,
+   "musica": "Pad musical entra baixinho, sem batida.",
+   "primeira": "F001",
+   "ultima": "F009",
+   "inicio_s": 0.0,
+   "fim_s": 42.1,
+   "n": 9
+  },
+  {
+   "id": "A2",
+   "titulo": "A prova",
+   "tom": "O ritmo sobe. Entusiasmo contido: você está mostrando evidência, não vendendo sonho.",
+   "energia": 4,
+   "musica": "A batida entra no “não é uma aposta no escuro”.",
+   "primeira": "F010",
+   "ultima": "F021",
+   "inicio_s": 42.4,
+   "fim_s": 97.3,
+   "n": 12
+  },
+  {
+   "id": "A3",
+   "titulo": "O produto",
+   "tom": "Didático. Mãos ajudando a explicar, na altura do peito.",
+   "energia": 3,
+   "musica": "Batida leve, constante.",
+   "primeira": "F022",
+   "ultima": "F031",
+   "inicio_s": 97.5,
+   "fim_s": 146.2,
+   "n": 10
+  },
+  {
+   "id": "A4",
+   "titulo": "Gamificação",
+   "tom": "Leve, com sorriso. É a parte divertida, mas com um momento firme no “nunca”.",
+   "energia": 4,
+   "musica": "Um pouco mais de brilho na música.",
+   "primeira": "F032",
+   "ultima": "F041",
+   "inicio_s": 146.5,
+   "fim_s": 199.0,
+   "n": 10
+  },
+  {
+   "id": "A5",
+   "titulo": "Estrutura",
+   "tom": "Sério e seguro. Mais devagar. Você é quem tirou o projeto da zona de risco.",
+   "energia": 2,
+   "musica": "Música cai para quase só pad.",
+   "primeira": "F042",
+   "ultima": "F052",
+   "inicio_s": 199.2,
+   "fim_s": 261.5,
+   "n": 11
+  },
+  {
+   "id": "A6",
+   "titulo": "Números",
+   "tom": "Preciso. Uma micro pausa antes de cada número. Olhar firme.",
+   "energia": 3,
+   "musica": "Batida volta discreta.",
+   "primeira": "F053",
+   "ultima": "F066",
+   "inicio_s": 261.8,
+   "fim_s": 338.3,
+   "n": 14
+  },
+  {
+   "id": "A7",
+   "titulo": "Eficiência e riscos",
+   "tom": "Franco. Nos riscos, olho no olho e tom de quem já tem a resposta.",
+   "energia": 3,
+   "musica": "Música baixa nos riscos.",
+   "primeira": "F067",
+   "ultima": "F074",
+   "inicio_s": 338.6,
+   "fim_s": 380.8,
+   "n": 8
+  },
+  {
+   "id": "A8",
+   "titulo": "Crescimento e saída",
+   "tom": "Visão de futuro. O ritmo cresce até a última frase do ato.",
+   "energia": 4,
+   "musica": "Música cresce aos poucos.",
+   "primeira": "F075",
+   "ultima": "F084",
+   "inicio_s": 381.1,
+   "fim_s": 423.7,
+   "n": 10
+  },
+  {
+   "id": "A9",
+   "titulo": "A decisão",
+   "tom": "Firme e caloroso. A última palavra com um sorriso.",
+   "energia": 5,
+   "musica": "Resolução musical no “Vamos?”.",
+   "primeira": "F085",
+   "ultima": "F091",
+   "inicio_s": 424.0,
+   "fim_s": 451.6,
+   "n": 7
+  }
+ ],
+ "visuais": [
+  {
+   "id": "V01",
+   "nome": "Marca Vapti",
+   "conteudo": "Logotipo (ou wordmark provisório) e a frase “capital de giro na velocidade do Pix”.",
+   "secao_site": "Capa"
+  },
+  {
+   "id": "V02",
+   "nome": "Caixa irregular do autônomo",
+   "conteudo": "Gráfico ILUSTRATIVO de entradas diárias pequenas e irregulares de um motorista e um barbeiro, com um “buraco” no meio da semana. Selo “Ilustrativo”.",
+   "secao_site": "01 Problema"
+  },
+  {
+   "id": "V03",
+   "nome": "24 milhões de autônomos",
+   "conteudo": "Contador até 24.000.000 sobre mapa do Brasil em pontos. Fonte: IBGE, citado por Startups.com.br.",
+   "secao_site": "01 Problema"
+  },
+  {
+   "id": "V04",
+   "nome": "Linha do tempo da Zippi",
+   "conteudo": "2019 seed US$ 125 mil · out/2021 crédito semanal via Pix · 2022 R$ 275 mi liberados (9x) · abr/2024 R$ 1 bi acumulado · 2024 primeiro FIDC · 2025 FIDC de R$ 80 mi e crescimento acima de 100% · fev/2026 FIDC R$ 220 mi. Zippi em cinza neutro, só o nome em texto, sem logotipo.",
+   "secao_site": "02 A prova"
+  },
+  {
+   "id": "V05",
+   "nome": "FIDC da Zippi",
+   "conteudo": "Três barras: R$ 66 mi (2024), R$ 80 mi (2025), R$ 220 mi (fev/2026).",
+   "secao_site": "02 A prova"
+  },
+  {
+   "id": "V06",
+   "nome": "Números da Zippi hoje",
+   "conteudo": "Cards: R$ 7,6 bi concedidos · ≈ US$ 80 mi de valor estimado (Dealroom; estimativa de terceiros, sempre com essa etiqueta) · cerca de 250 mil autônomos no app.",
+   "secao_site": "02 A prova"
+  },
+  {
+   "id": "V07",
+   "nome": "Celular — jornada e painel",
+   "conteudo": "Protótipo: conversa com áudio (balões genéricos, sem logotipo de terceiros) → link → plataforma com barra de 7 etapas (dados, Open Finance, análise, proposta, aceite, Pix Automático, Pix recebido) → painel com limite, nível e próxima parcela. Instituição parceira aparece como credora. Dados fictícios.",
+   "secao_site": "03 Produto"
+  },
+  {
+   "id": "V08",
+   "nome": "Planos de pagamento",
+   "conteudo": "R$ 400 → 4 parcelas semanais de R$ 120 (R$ 100 + R$ 20 de juros). Alternativa: 14 dias de R$ 31,43.",
+   "secao_site": "03 Produto"
+  },
+  {
+   "id": "V09",
+   "nome": "Pix Automático",
+   "conteudo": "Autorização única + até 3 retentativas se faltar saldo (1 ✕, 2 ✕, 3 ✓).",
+   "secao_site": "03 Produto"
+  },
+  {
+   "id": "V10",
+   "nome": "Escada de níveis",
+   "conteudo": "Entrada 6,0%/sem (45,8% ao mês) · Bronze 5,0% (37,5%) · Prata 4,5% (33,5%) · Ouro 4,0% (29,5%). Prata e Ouro: limite volta conforme paga. Ouro: reserva de emergência.",
+   "secao_site": "04 Gamificação"
+  },
+  {
+   "id": "V11",
+   "nome": "Regras do jogo justo",
+   "conteudo": "Premia pagamento em dia, nunca volume de dívida · regras visíveis · nada aleatório · sinal de dependência reduz limite.",
+   "secao_site": "04 Gamificação"
+  },
+  {
+   "id": "V12",
+   "nome": "Três caminhos",
+   "conteudo": "Empresa comum (juros limitados a 12% ao ano) ✕ · ESC (sem pessoa física, só a cidade, sem fundos, teto R$ 4,8 mi/ano) ✕ · BaaS ✓.",
+   "secao_site": "05 Estrutura"
+  },
+  {
+   "id": "V13",
+   "nome": "Fluxo BaaS",
+   "conteudo": "Cliente → Vapti (cliente, análise, cobrança) → Instituição parceira (credora: emite a CCB e libera o Pix) → cessão da CCB para quem financia a carteira: a Vapti (fase 1), dívida estruturada (fase 2) ou FIDC (fase 3) → cliente paga por Pix Automático na conta da parceira ou do fundo. Selo “Resolução Conjunta nº 16 · 28/11/2025”.",
+   "secao_site": "05 Estrutura"
+  },
+  {
+   "id": "V14",
+   "nome": "Preço",
+   "conteudo": "R$ 400 × 5% × 4 semanas = R$ 80 → 37,5% ao mês. Barras: Zippi 18,3% (cinza) × Vapti por nível 45,8% / 37,5% / 33,5% / 29,5%.",
+   "secao_site": "06 Preço"
+  },
+  {
+   "id": "V15",
+   "nome": "Fase 1 em números",
+   "conteudo": "Capital R$ 1 mi → R$ 0,85 mi na rua → R$ 1,47 mi sacados por mês → receita R$ 294,7 mil/mês (R$ 3,54 mi/ano) − perda R$ 117,9 mil − custos R$ 47,9 mil = margem R$ 128,9 mil/mês. Selo “Projeção”.",
+   "secao_site": "07 Números"
+  },
+  {
+   "id": "V16",
+   "nome": "Margem × perda",
+   "conteudo": "Curva da margem mensal da fase 1 conforme a perda sobe de 4% a 20%; cruza o zero em 16,75%. Selo “Projeção”.",
+   "secao_site": "07 Números"
+  },
+  {
+   "id": "V17",
+   "nome": "Três fases",
+   "conteudo": "Carteira R$ 0,85 mi → R$ 3,4 mi → R$ 12,75 mi; margem/mês R$ 128,9 mil → R$ 464,7 mil → R$ 1,73 mi (perda de 8%). Selo “Projeção”.",
+   "secao_site": "07 Números"
+  },
+  {
+   "id": "V18",
+   "nome": "Eficiência",
+   "conteudo": "WhatsApp: 30 mensagens (R$ 1,05) → 5 (R$ 0,20) por saque. Bureau: R$ 15,99 no balcão → R$ 8,33 por aprovado com funil → R$ 2 a 3 por saque na carteira madura.",
+   "secao_site": "08 Eficiência"
+  },
+  {
+   "id": "V19",
+   "nome": "Riscos e mitigação",
+   "conteudo": "Parceira → cotar 3 · Taxa ~2x Zippi → CET em reais e taxa por nível · Regra nova → parecer jurídico · Prazo 2–4 meses → começar já.",
+   "secao_site": "09 Vantagens e riscos"
+  },
+  {
+   "id": "V20",
+   "nome": "Régua Vapti × Zippi",
+   "conteudo": "Duas trilhas por ano. Zippi (cinza): lançamento 2021 → primeiro FIDC 2024 → FIDC R$ 80 mi 2025 → FIDC R$ 220 mi 2026. Vapti (verde): ano 1 histórico (R$ 0,85 mi) → ano 2 dívida R$ 3–10 mi → ano 3 FIDC R$ 10–30 mi → anos 4–5 rodada R$ 15–40 mi → anos 4–6 janela de venda. Selo “Projeção”.",
+   "secao_site": "10 Crescimento"
+  },
+  {
+   "id": "V21",
+   "nome": "O que se vende",
+   "conteudo": "Carteira (vale o valor de face) × motor de originação (canal, análise, clientes que voltam — vale múltiplo). Janela de venda: anos 4 a 6.",
+   "secao_site": "10 Crescimento"
+  },
+  {
+   "id": "V22",
+   "nome": "Piloto de 90 dias",
+   "conteudo": "Metas: >80% pagas no vencimento · atraso >30 dias <10% · recontratação >50% · custo do 1º saque <R$ 20. Parada: atraso >20% em uma safra · custo >R$ 35 · reclamação formal de cobrança · recontratação <30%.",
+   "secao_site": "11 Piloto"
+  },
+  {
+   "id": "V23",
+   "nome": "Cinco decisões",
+   "conteudo": "1 Estrutura BaaS · 2 Advogado e contador · 3 Cotar parceiras · 4 Piloto de 90 dias · 5 Aporte de R$ 1 mi.",
+   "secao_site": "12 Decisões"
+  },
+  {
+   "id": "V24",
+   "nome": "Card final",
+   "conteudo": "Marca Vapti + “Vamos?” + aviso: “Projeções são hipóteses com premissas declaradas, não promessa de resultado. Estrutura sujeita a parecer jurídico e contábil.” (5 segundos).",
+   "secao_site": "13 Fechamento"
+  }
+ ],
+ "frases": [
+  {
+   "id": "F001",
+   "ato": "A1",
+   "inicio_s": 0.0,
+   "duracao_s": 1.8,
+   "fala": "Quatrocentos reais.",
+   "enfase": "Quatrocentos",
+   "pausa_antes": 0.0,
+   "pausa_depois": 1.0,
+   "layout": "L5",
+   "visuais": [],
+   "visual": "Começa no preto. “R$ 400” surge gigante atrás de você, desenhado em traço verde que se preenche no ritmo da fala.",
+   "tela": "R$ 400",
+   "selo": "",
+   "som": "Pad entra. Um grave curto no “reais”.",
+   "gesto": "Nenhum. Olhar firme na lente."
+  },
+  {
+   "id": "F002",
+   "ato": "A1",
+   "inicio_s": 2.0,
+   "duracao_s": 6.0,
+   "fala": "Pra muita gente, é isso que separa um dia de trabalho de um dia perdido.",
+   "enfase": "dia perdido",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L1",
+   "visuais": [],
+   "visual": "O 400 recua e desfoca atrás de você. Dos lados surgem “dia de trabalho” (verde) e “dia perdido” (coral); o segundo se apaga devagar.",
+   "tela": "dia de trabalho × dia perdido",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F003",
+   "ato": "A1",
+   "inicio_s": 8.3,
+   "duracao_s": 3.2,
+   "fala": "É o motorista que precisa abastecer pra rodar.",
+   "enfase": "abastecer",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V02"
+   ],
+   "visual": "No painel, um ícone de bomba de combustível abre a linha de um dia de trabalho; o marcador do tanque enche.",
+   "tela": "Motorista: combustível",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F004",
+   "ato": "A1",
+   "inicio_s": 11.8,
+   "duracao_s": 4.8,
+   "fala": "É o barbeiro que precisa repor material antes do fim de semana.",
+   "enfase": "repor material",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V02"
+   ],
+   "visual": "Ao lado entra o ícone de tesoura; a linha vira uma semana com a sexta-feira em destaque.",
+   "tela": "Barbeiro: material",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F005",
+   "ato": "A1",
+   "inicio_s": 16.8,
+   "duracao_s": 2.8,
+   "fala": "Eles recebem todo dia, ou toda semana.",
+   "enfase": "todo dia",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V02"
+   ],
+   "visual": "Barras pequenas e irregulares entram uma por dia, em verde, formando o caixa do autônomo.",
+   "tela": "Recebe por dia ou por semana",
+   "selo": "Ilustrativo",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F006",
+   "ato": "A1",
+   "inicio_s": 19.9,
+   "duracao_s": 5.6,
+   "fala": "Mas o crédito tradicional olha pra eles como se ganhassem por mês, com holerite.",
+   "enfase": "por mês",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V02"
+   ],
+   "visual": "Um bloco mensal rígido, cinza, desce sobre as barras diárias e não encaixa. Um ícone de holerite ganha um X discreto.",
+   "tela": "Crédito tradicional: renda mensal + holerite",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F007",
+   "ato": "A1",
+   "inicio_s": 25.7,
+   "duracao_s": 4.8,
+   "fala": "E aí o dinheiro não chega na hora em que faz falta.",
+   "enfase": "na hora",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V02"
+   ],
+   "visual": "No meio da semana, o espaço sem barras pisca em coral: o buraco no caixa.",
+   "tela": "O buraco no caixa",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F008",
+   "ato": "A1",
+   "inicio_s": 30.8,
+   "duracao_s": 5.1,
+   "fala": "São mais de vinte e quatro milhões de trabalhadores autônomos no Brasil.",
+   "enfase": "vinte e quatro milhões",
+   "pausa_antes": 0.3,
+   "pausa_depois": 0.0,
+   "layout": "L5",
+   "visuais": [
+    "V03"
+   ],
+   "visual": "Contador de 0 a 24.000.000 atrás de você; um mapa do Brasil feito de pontos acende de baixo para cima.",
+   "tela": "24 milhões de autônomos (IBGE)",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F009",
+   "ato": "A1",
+   "inicio_s": 36.1,
+   "duracao_s": 6.0,
+   "fala": "A Vapti nasce pra ser o lugar a quem eles recorrem quando falta aquele valor.",
+   "enfase": "Vapti",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L1",
+   "visuais": [
+    "V01",
+    "V02"
+   ],
+   "visual": "O buraco do caixa é preenchido por um bloco verde com a marca Vapti; o logotipo assenta no canto superior e fica ali até o fim.",
+   "tela": "Vapti",
+   "selo": "",
+   "som": "Primeira resolução musical.",
+   "gesto": ""
+  },
+  {
+   "id": "F010",
+   "ato": "A2",
+   "inicio_s": 42.4,
+   "duracao_s": 3.2,
+   "fala": "E isso não é uma aposta no escuro.",
+   "enfase": "não é",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L1",
+   "visuais": [],
+   "visual": "O fundo escuro ganha luz: um degradê sutil entra e a tela muda para o tema de dados.",
+   "tela": "",
+   "selo": "",
+   "som": "Batida entra aqui.",
+   "gesto": ""
+  },
+  {
+   "id": "F011",
+   "ato": "A2",
+   "inicio_s": 45.8,
+   "duracao_s": 3.6,
+   "fala": "Uma empresa brasileira já provou esse modelo: a Zippi.",
+   "enfase": "já provou",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V04"
+   ],
+   "visual": "A linha do tempo 2019 → 2026 se desenha vazia. “Zippi” aparece só como texto, em cinza neutro, sem logotipo.",
+   "tela": "Zippi — a referência",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F012",
+   "ato": "A2",
+   "inicio_s": 49.7,
+   "duracao_s": 6.0,
+   "fala": "Ela começou em 2019, com um cheque de cento e vinte e cinco mil dólares.",
+   "enfase": "cento e vinte e cinco mil",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V04"
+   ],
+   "visual": "O marco 2019 acende com a etiqueta “Seed Y Combinator · US$ 125 mil”.",
+   "tela": "2019 · US$ 125 mil",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F013",
+   "ato": "A2",
+   "inicio_s": 55.9,
+   "duracao_s": 4.4,
+   "fala": "Em 2021, lançou um crédito semanal para autônomos, pago pelo Pix.",
+   "enfase": "semanal",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V04"
+   ],
+   "visual": "Marco 2021: um cartão gira e mostra “fatura semanal · paga até quarta”.",
+   "tela": "2021 · crédito semanal via Pix",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F014",
+   "ato": "A2",
+   "inicio_s": 60.6,
+   "duracao_s": 4.8,
+   "fala": "Só em 2022, liberou duzentos e setenta e cinco milhões de reais.",
+   "enfase": "duzentos e setenta e cinco milhões",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V04"
+   ],
+   "visual": "Contador até R$ 275 mi; a barra de 2022 cresce até nove vezes a de 2021, com a etiqueta “9x”.",
+   "tela": "2022 · R$ 275 mi liberados · 9x",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F015",
+   "ato": "A2",
+   "inicio_s": 65.6,
+   "duracao_s": 4.0,
+   "fala": "Hoje, já são mais de sete bilhões e meio concedidos.",
+   "enfase": "sete bilhões e meio",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L5",
+   "visuais": [
+    "V06"
+   ],
+   "visual": "“R$ 7,6 bi” gigante atrás de você, contagem rápida.",
+   "tela": "R$ 7,6 bi concedidos",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F016",
+   "ato": "A2",
+   "inicio_s": 69.9,
+   "duracao_s": 5.2,
+   "fala": "E o mercado estima que ela já valha uns oitenta milhões de dólares.",
+   "enfase": "oitenta milhões",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V06"
+   ],
+   "visual": "Entra o card “≈ US$ 80 mi” ao lado do anterior, com a etiqueta pequena “estimativa de mercado (Dealroom)”.",
+   "tela": "≈ US$ 80 mi (estimativa de mercado)",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F017",
+   "ato": "A2",
+   "inicio_s": 75.3,
+   "duracao_s": 4.6,
+   "fala": "Mas o dado que mais importa pra nós é outro.",
+   "enfase": "outro",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.6,
+   "layout": "L1",
+   "visuais": [],
+   "visual": "Os cards saem. Tela limpa e um leve zoom em você.",
+   "tela": "",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F018",
+   "ato": "A2",
+   "inicio_s": 80.2,
+   "duracao_s": 3.2,
+   "fala": "A Zippi não cresceu emprestando o próprio dinheiro.",
+   "enfase": "próprio",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [],
+   "visual": "Um reservatório “capital próprio” com um teto baixo; o fluxo de dinheiro bate no teto.",
+   "tela": "Capital próprio tem teto",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F019",
+   "ato": "A2",
+   "inicio_s": 83.6,
+   "duracao_s": 4.0,
+   "fala": "Ela cresceu com fundos de investimento comprando a carteira dela.",
+   "enfase": "fundos",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V05"
+   ],
+   "visual": "De fora da tela entram canos de um fundo (FIDC) que enchem o reservatório da carteira.",
+   "tela": "FIDC: fundos compram a carteira",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F020",
+   "ato": "A2",
+   "inicio_s": 87.9,
+   "duracao_s": 5.6,
+   "fala": "Sessenta e seis milhões em 2024. Oitenta em 2025. Duzentos e vinte em 2026.",
+   "enfase": "Duzentos e vinte",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V05"
+   ],
+   "visual": "Três barras sobem, uma em cada número falado: 66, 80, 220. A última passa do enquadramento.",
+   "tela": "FIDC: R$ 66 mi · R$ 80 mi · R$ 220 mi",
+   "selo": "",
+   "som": "",
+   "gesto": "Pode marcar o ritmo dos três números com a mão."
+  },
+  {
+   "id": "F021",
+   "ato": "A2",
+   "inicio_s": 93.7,
+   "duracao_s": 3.6,
+   "fala": "Esse é o caminho que a gente vai seguir.",
+   "enfase": "caminho",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L1",
+   "visuais": [
+    "V01"
+   ],
+   "visual": "As barras se fundem numa seta que aponta para a marca Vapti.",
+   "tela": "O caminho da Vapti",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F022",
+   "ato": "A3",
+   "inicio_s": 97.5,
+   "duracao_s": 0.8,
+   "fala": "Funciona assim.",
+   "enfase": "assim",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V07"
+   ],
+   "visual": "Um celular entra deslizando pela direita, com a tela apagada.",
+   "tela": "",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F023",
+   "ato": "A3",
+   "inicio_s": 98.6,
+   "duracao_s": 3.6,
+   "fala": "O cliente tem um limite, e saca quando precisa.",
+   "enfase": "saca",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V07"
+   ],
+   "visual": "A tela acende: “Seu limite: R$ 600”. Um toque em “Sacar R$ 400”.",
+   "tela": "Limite rotativo",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F024",
+   "ato": "A3",
+   "inicio_s": 102.4,
+   "duracao_s": 2.8,
+   "fala": "Ele pede por mensagem, até mandando áudio.",
+   "enfase": "áudio",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V07"
+   ],
+   "visual": "Conversa de mensagens com balões genéricos. Um áudio com forma de onda é enviado; o assistente responde em seguida.",
+   "tela": "Pedido por mensagem ou áudio",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F025",
+   "ato": "A3",
+   "inicio_s": 105.5,
+   "duracao_s": 6.8,
+   "fala": "Recebe um link e segue numa tela com barra de progresso, até o Pix cair na conta.",
+   "enfase": "barra de progresso",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V07"
+   ],
+   "visual": "Transição do chat para a plataforma. A barra de 7 etapas avança: dados, Open Finance, análise, proposta, aceite, Pix Automático, Pix recebido.",
+   "tela": "7 etapas até o Pix",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F026",
+   "ato": "A3",
+   "inicio_s": 112.5,
+   "duracao_s": 4.8,
+   "fala": "E vê tudo antes de aceitar: quanto recebe, quanto paga e quando.",
+   "enfase": "antes de aceitar",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V07"
+   ],
+   "visual": "Tela de proposta. Três linhas se destacam em sequência: “Recebe R$ 400”, “Paga 4 × R$ 120”, “Datas”. No rodapé, o nome da instituição parceira como credora.",
+   "tela": "Recebe · Paga · Quando",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F027",
+   "ato": "A3",
+   "inicio_s": 117.6,
+   "duracao_s": 5.2,
+   "fala": "Um saque de quatrocentos reais vira quatro parcelas semanais de cento e vinte.",
+   "enfase": "quatro parcelas",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V08"
+   ],
+   "visual": "R$ 400 se divide em quatro blocos de R$ 100 + R$ 20 de juros, que se encaixam num calendário de quatro semanas.",
+   "tela": "R$ 400 → 4 × R$ 120 por semana",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F028",
+   "ato": "A3",
+   "inicio_s": 123.0,
+   "duracao_s": 6.8,
+   "fala": "Quem prefere pagar por dia tem o plano de catorze dias: trinta e um reais por dia.",
+   "enfase": "catorze dias",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V08"
+   ],
+   "visual": "O calendário vira uma grade de 14 quadradinhos de R$ 31,43.",
+   "tela": "Plano de 14 dias: R$ 31,43 por dia",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F029",
+   "ato": "A3",
+   "inicio_s": 130.1,
+   "duracao_s": 4.8,
+   "fala": "E o pagamento é automático, com o Pix Automático do Banco Central.",
+   "enfase": "automático",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V09"
+   ],
+   "visual": "Um botão “Autorizar Pix Automático” recebe um único toque; selo “autorizado”.",
+   "tela": "Pix Automático (Banco Central)",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F030",
+   "ato": "A3",
+   "inicio_s": 135.2,
+   "duracao_s": 6.8,
+   "fala": "O cliente autoriza uma vez, e o sistema tenta de novo até três vezes se faltar saldo.",
+   "enfase": "três vezes",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V09"
+   ],
+   "visual": "Três tentativas animadas: 1 ✕, 2 ✕, 3 ✓.",
+   "tela": "Até 3 novas tentativas",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F031",
+   "ato": "A3",
+   "inicio_s": 142.2,
+   "duracao_s": 4.0,
+   "fala": "Quitou, o limite volta. E com o tempo, ele cresce.",
+   "enfase": "cresce",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V07"
+   ],
+   "visual": "A barra do limite se enche de novo e depois sobe de R$ 600 para R$ 800.",
+   "tela": "O limite volta e cresce",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F032",
+   "ato": "A4",
+   "inicio_s": 146.5,
+   "duracao_s": 3.6,
+   "fala": "Agora, a parte que faz o cliente querer ficar.",
+   "enfase": "querer ficar",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L1",
+   "visuais": [],
+   "visual": "Transição colorida: o fundo assume a paleta dos níveis.",
+   "tela": "",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F033",
+   "ato": "A4",
+   "inicio_s": 150.3,
+   "duracao_s": 3.6,
+   "fala": "A Vapti tem níveis: Entrada, Bronze, Prata e Ouro.",
+   "enfase": "Entrada, Bronze, Prata e Ouro",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V10"
+   ],
+   "visual": "Uma escada de quatro degraus se monta, um degrau a cada nome falado.",
+   "tela": "Entrada · Bronze · Prata · Ouro",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F034",
+   "ato": "A4",
+   "inicio_s": 154.2,
+   "duracao_s": 5.6,
+   "fala": "Quem paga em dia sobe de nível. E a cada nível, a taxa cai.",
+   "enfase": "a taxa cai",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V10"
+   ],
+   "visual": "Um marcador sobe a escada; ao lado de cada degrau, o número da taxa desce.",
+   "tela": "Paga em dia → sobe → a taxa cai",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F035",
+   "ato": "A4",
+   "inicio_s": 160.0,
+   "duracao_s": 5.2,
+   "fala": "Começa em seis por cento por semana, e chega a quatro no Ouro.",
+   "enfase": "quatro no Ouro",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V10"
+   ],
+   "visual": "Rótulos 6% → 5% → 4,5% → 4% por semana, com a taxa efetiva ao mês em letra menor embaixo (45,8% → 29,5%).",
+   "tela": "6% → 4% por semana (45,8% → 29,5% ao mês)",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F036",
+   "ato": "A4",
+   "inicio_s": 165.4,
+   "duracao_s": 6.0,
+   "fala": "A partir do Prata, o limite volta à medida que ele paga, sem precisar zerar.",
+   "enfase": "sem precisar zerar",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V10",
+    "V07"
+   ],
+   "visual": "No celular, a barra do limite volta em pedaços a cada parcela paga.",
+   "tela": "Prata e Ouro: o limite volta conforme paga",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F037",
+   "ato": "A4",
+   "inicio_s": 171.7,
+   "duracao_s": 5.2,
+   "fala": "No Ouro, ele ganha uma reserva de emergência pré-aprovada, liberada em segundos.",
+   "enfase": "reserva de emergência",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V10",
+    "V07"
+   ],
+   "visual": "Card dourado “Reserva de emergência” com um cronômetro de segundos.",
+   "tela": "Ouro: reserva de emergência",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F038",
+   "ato": "A4",
+   "inicio_s": 177.1,
+   "duracao_s": 4.8,
+   "fala": "E quem indica amigos que pagam em dia também sobe mais rápido.",
+   "enfase": "pagam em dia",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [],
+   "visual": "Dois avatares genéricos conectados por uma linha. Quando o indicado paga (✓), o marcador de quem indicou avança um passo.",
+   "tela": "Indicação que acelera o nível",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F039",
+   "ato": "A4",
+   "inicio_s": 182.2,
+   "duracao_s": 4.0,
+   "fala": "Tudo com regra clara, na tela, pra todo mundo ver.",
+   "enfase": "regra clara",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V11"
+   ],
+   "visual": "Quadro “Regras do jogo” com quatro itens que se marcam um a um.",
+   "tela": "Regras visíveis",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F040",
+   "ato": "A4",
+   "inicio_s": 186.4,
+   "duracao_s": 4.7,
+   "fala": "A gente premia quem paga bem. Nunca quem se endivida mais.",
+   "enfase": "Nunca",
+   "pausa_antes": 0.3,
+   "pausa_depois": 0.0,
+   "layout": "L1",
+   "visuais": [
+    "V11"
+   ],
+   "visual": "Duas expressões: “paga bem” com ✓ verde e “endivida mais” riscado em coral.",
+   "tela": "Premia quem paga bem — nunca quem deve mais",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F041",
+   "ato": "A4",
+   "inicio_s": 191.4,
+   "duracao_s": 7.6,
+   "fala": "Isso é o certo a fazer, e é exatamente o que um investidor vai querer ver lá na frente.",
+   "enfase": "investidor",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L1",
+   "visuais": [
+    "V11"
+   ],
+   "visual": "Um selo “Jogo justo” assenta ao lado do seu ombro.",
+   "tela": "",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F042",
+   "ato": "A5",
+   "inicio_s": 199.2,
+   "duracao_s": 5.4,
+   "fala": "Agora, a pergunta que define tudo: como isso funciona dentro da lei.",
+   "enfase": "dentro da lei",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.6,
+   "layout": "L1",
+   "visuais": [],
+   "visual": "A música cai; o fundo escurece; um ícone sutil de balança aparece.",
+   "tela": "Dentro da lei",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F043",
+   "ato": "A5",
+   "inicio_s": 204.9,
+   "duracao_s": 9.2,
+   "fala": "Emprestar como empresa comum não dá: pra quem não é instituição financeira, a lei limita os juros a doze por cento ao ano.",
+   "enfase": "doze por cento ao ano",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V12"
+   ],
+   "visual": "Card 1 “Empresa comum” entra com “12% ao ano” e recebe um ✕.",
+   "tela": "Empresa comum: juros limitados a 12% ao ano",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F044",
+   "ato": "A5",
+   "inicio_s": 214.3,
+   "duracao_s": 4.0,
+   "fala": "A ESC, a Empresa Simples de Crédito, parecia o caminho.",
+   "enfase": "parecia",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V12"
+   ],
+   "visual": "Card 2 “ESC” entra com um ponto de interrogação.",
+   "tela": "ESC?",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F045",
+   "ato": "A5",
+   "inicio_s": 218.6,
+   "duracao_s": 8.4,
+   "fala": "Mas ela não atende pessoa física, só funciona na própria cidade e nas vizinhas, e não pode receber dinheiro de fundos.",
+   "enfase": "não pode receber",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V12"
+   ],
+   "visual": "Três cadeados se fecham no card ESC, um por trava falada: “sem pessoa física”, “só a cidade”, “sem fundos”.",
+   "tela": "Sem pessoa física · só a cidade · sem fundos",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F046",
+   "ato": "A5",
+   "inicio_s": 227.2,
+   "duracao_s": 4.8,
+   "fala": "Ela travaria a gente justamente quando a operação começasse a dar certo.",
+   "enfase": "travaria",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V12"
+   ],
+   "visual": "Um teto baixa sobre o card ESC com a etiqueta “R$ 4,8 mi por ano”.",
+   "tela": "Teto: R$ 4,8 mi por ano",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F047",
+   "ato": "A5",
+   "inicio_s": 232.3,
+   "duracao_s": 3.6,
+   "fala": "Então a gente vai fazer como a Zippi fez.",
+   "enfase": "como a Zippi fez",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L1",
+   "visuais": [
+    "V12"
+   ],
+   "visual": "Card 3 “BaaS” entra com ✓ e uma luz verde.",
+   "tela": "O modelo da Zippi",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F048",
+   "ato": "A5",
+   "inicio_s": 236.1,
+   "duracao_s": 4.0,
+   "fala": "A Vapti cuida do cliente, da análise e da cobrança.",
+   "enfase": "cliente, da análise e da cobrança",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V13"
+   ],
+   "visual": "O diagrama de fluxo começa: bloco Vapti com três funções que acendem no ritmo da fala.",
+   "tela": "Vapti: cliente · análise · cobrança",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F049",
+   "ato": "A5",
+   "inicio_s": 240.4,
+   "duracao_s": 5.2,
+   "fala": "Uma instituição autorizada pelo Banco Central emite o contrato e libera o Pix.",
+   "enfase": "autorizada pelo Banco Central",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V13"
+   ],
+   "visual": "Acende o bloco “Instituição parceira (credora)”, com a seta “contrato + Pix” até o cliente.",
+   "tela": "Parceira autorizada: contrato + Pix",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F050",
+   "ato": "A5",
+   "inicio_s": 245.8,
+   "duracao_s": 5.2,
+   "fala": "E a Vapti compra esse crédito com o próprio capital, no mesmo dia.",
+   "enfase": "compra",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V13"
+   ],
+   "visual": "Seta de volta “cessão da CCB” da parceira para a Vapti, com o ícone de R$ 1 mi.",
+   "tela": "A Vapti compra o crédito (cessão)",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F051",
+   "ato": "A5",
+   "inicio_s": 251.3,
+   "duracao_s": 4.4,
+   "fala": "Isso se chama BaaS, e está regulamentado desde novembro de 2025.",
+   "enfase": "regulamentado",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V13"
+   ],
+   "visual": "Um carimbo “Resolução Conjunta nº 16 · 28/11/2025” marca o diagrama.",
+   "tela": "BaaS · Resolução Conjunta 16/2025",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F052",
+   "ato": "A5",
+   "inicio_s": 255.9,
+   "duracao_s": 5.6,
+   "fala": "Resultado: Brasil inteiro, pessoa física e MEI, e a porta aberta para os fundos.",
+   "enfase": "porta aberta",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L1",
+   "visuais": [
+    "V13"
+   ],
+   "visual": "O mapa do Brasil acende inteiro; ícones de pessoa física e MEI; uma porta se abre com “FIDC” do outro lado.",
+   "tela": "Nacional · PF e MEI · fundos",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F053",
+   "ato": "A6",
+   "inicio_s": 261.8,
+   "duracao_s": 1.2,
+   "fala": "Vamos aos números.",
+   "enfase": "números",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L1",
+   "visuais": [],
+   "visual": "Transição para o tema de dados: uma grade sutil entra no fundo.",
+   "tela": "",
+   "selo": "",
+   "som": "A batida volta, discreta.",
+   "gesto": ""
+  },
+  {
+   "id": "F054",
+   "ato": "A6",
+   "inicio_s": 263.2,
+   "duracao_s": 6.4,
+   "fala": "A cinco por cento por semana, um saque de quatrocentos reais custa oitenta reais de juros.",
+   "enfase": "oitenta reais",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V14"
+   ],
+   "visual": "Equação visual que se monta: R$ 400 × 5% × 4 semanas = R$ 80.",
+   "tela": "R$ 400 · 5% por semana · 4 semanas = R$ 80",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F055",
+   "ato": "A6",
+   "inicio_s": 269.9,
+   "duracao_s": 4.4,
+   "fala": "Isso dá trinta e sete e meio por cento ao mês.",
+   "enfase": "trinta e sete e meio",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L5",
+   "visuais": [
+    "V14"
+   ],
+   "visual": "“37,5% ao mês” gigante atrás de você.",
+   "tela": "37,5% ao mês (taxa efetiva)",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F056",
+   "ato": "A6",
+   "inicio_s": 274.5,
+   "duracao_s": 6.4,
+   "fala": "A Zippi fica em dezoito. A gente cobra mais porque atende quem ela recusa, inclusive negativado.",
+   "enfase": "quem ela recusa",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V14"
+   ],
+   "visual": "Barras lado a lado: Zippi 18,3% em cinza e Vapti 37,5% em verde, com a legenda “inclui público negativado”.",
+   "tela": "Zippi 18,3% × Vapti 37,5% ao mês",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F057",
+   "ato": "A6",
+   "inicio_s": 281.2,
+   "duracao_s": 6.8,
+   "fala": "E é por isso que a taxa cai por nível: o bom pagador tem motivo pra ficar.",
+   "enfase": "motivo pra ficar",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V14",
+    "V10"
+   ],
+   "visual": "A barra da Vapti se divide em quatro (Entrada 45,8% → Ouro 29,5%), todas ainda acima da barra da Zippi.",
+   "tela": "Ouro: 29,5% — ainda ~60% acima da Zippi",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F058",
+   "ato": "A6",
+   "inicio_s": 288.2,
+   "duracao_s": 6.4,
+   "fala": "Com um milhão de reais, a carteira gira cerca de um milhão e meio por mês.",
+   "enfase": "um milhão e meio",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V15"
+   ],
+   "visual": "KPI “Capital R$ 1 mi” se transforma em “Sacado por mês R$ 1,47 mi”.",
+   "tela": "R$ 1 mi → R$ 1,47 mi sacados por mês",
+   "selo": "Projeção",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F059",
+   "ato": "A6",
+   "inicio_s": 294.9,
+   "duracao_s": 4.0,
+   "fala": "Isso projeta três milhões e meio de receita por ano.",
+   "enfase": "três milhões e meio",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L5",
+   "visuais": [
+    "V15"
+   ],
+   "visual": "“R$ 3,54 mi por ano” gigante atrás de você.",
+   "tela": "R$ 3,54 mi de receita por ano",
+   "selo": "Projeção",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F060",
+   "ato": "A6",
+   "inicio_s": 299.1,
+   "duracao_s": 6.8,
+   "fala": "E uma margem perto de cento e trinta mil reais por mês, antes de equipe e impostos.",
+   "enfase": "cento e trinta mil",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V15"
+   ],
+   "visual": "Cascata que se monta: receita R$ 294,7 mil − perda R$ 117,9 mil − custos R$ 47,9 mil = margem R$ 128,9 mil.",
+   "tela": "Margem ≈ R$ 129 mil/mês (antes de equipe e impostos)",
+   "selo": "Projeção",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F061",
+   "ato": "A6",
+   "inicio_s": 306.2,
+   "duracao_s": 2.9,
+   "fala": "Mas presta atenção nesse número aqui.",
+   "enfase": "esse número",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.5,
+   "layout": "L2",
+   "visuais": [
+    "V16"
+   ],
+   "visual": "Tudo escurece; um holofote ilumina o painel.",
+   "tela": "",
+   "selo": "",
+   "som": "",
+   "gesto": "Aponte para o SEU lado esquerdo, onde fica o painel na tela."
+  },
+  {
+   "id": "F062",
+   "ato": "A6",
+   "inicio_s": 309.3,
+   "duracao_s": 6.0,
+   "fala": "Se a perda passar de dezesseis vírgula setenta e cinco por cento, essa margem zera.",
+   "enfase": "zera",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V16"
+   ],
+   "visual": "A curva da margem desce conforme a perda sobe e cruza o zero em 16,75%; o ponto pulsa em coral.",
+   "tela": "Perda acima de 16,75% → margem zero",
+   "selo": "Projeção",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F063",
+   "ato": "A6",
+   "inicio_s": 315.6,
+   "duracao_s": 5.2,
+   "fala": "O que decide esse negócio não é a taxa. É a perda.",
+   "enfase": "É a perda",
+   "pausa_antes": 0.4,
+   "pausa_depois": 0.0,
+   "layout": "L1",
+   "visuais": [
+    "V16"
+   ],
+   "visual": "Duas palavras: “taxa” pequena e “PERDA” grande.",
+   "tela": "Quem decide é a perda",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F064",
+   "ato": "A6",
+   "inicio_s": 321.0,
+   "duracao_s": 5.2,
+   "fala": "Por isso o piloto existe: pra medir a perda real antes de crescer.",
+   "enfase": "antes de crescer",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V22"
+   ],
+   "visual": "Uma régua de 90 dias com um termômetro de perda ao lado.",
+   "tela": "Piloto: medir antes de crescer",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F065",
+   "ato": "A6",
+   "inicio_s": 326.5,
+   "duracao_s": 6.4,
+   "fala": "No segundo ano, com dívida estruturada financiando a carteira, ela vai a três vírgula quatro milhões.",
+   "enfase": "três vírgula quatro",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V17"
+   ],
+   "visual": "Três degraus — R$ 0,85 mi, R$ 3,4 mi, R$ 12,75 mi —; o segundo acende.",
+   "tela": "Ano 2: carteira de R$ 3,4 mi",
+   "selo": "Projeção",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F066",
+   "ato": "A6",
+   "inicio_s": 333.1,
+   "duracao_s": 5.2,
+   "fala": "E a margem projetada passa de quatrocentos e sessenta mil reais por mês.",
+   "enfase": "quatrocentos e sessenta mil",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L5",
+   "visuais": [
+    "V17"
+   ],
+   "visual": "“R$ 465 mil por mês” gigante atrás de você.",
+   "tela": "≈ R$ 465 mil de margem por mês",
+   "selo": "Projeção",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F067",
+   "ato": "A7",
+   "inicio_s": 338.6,
+   "duracao_s": 2.4,
+   "fala": "Cada centavo de custo foi pensado.",
+   "enfase": "centavo",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V18"
+   ],
+   "visual": "Título “Custo por saque” com uma lupa passando por cima.",
+   "tela": "Custo por saque",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F068",
+   "ato": "A7",
+   "inicio_s": 341.2,
+   "duracao_s": 6.4,
+   "fala": "Em mensagem, cada saque custaria um real e cinco centavos. Com a jornada certa, vinte centavos.",
+   "enfase": "vinte centavos",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V18"
+   ],
+   "visual": "Uma barra de R$ 1,05 encolhe até R$ 0,20 enquanto 30 balões de mensagem viram 5.",
+   "tela": "R$ 1,05 → R$ 0,20 por saque",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F069",
+   "ato": "A7",
+   "inicio_s": 347.9,
+   "duracao_s": 7.6,
+   "fala": "A consulta de crédito sai de mais de quinze reais no balcão pra dois ou três reais por saque.",
+   "enfase": "dois ou três",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V18"
+   ],
+   "visual": "Funil de quatro camadas; o custo cai em degraus: R$ 15,99 → R$ 8,33 → R$ 2 a 3.",
+   "tela": "Consulta de crédito: R$ 15,99 → R$ 2 a 3",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F070",
+   "ato": "A7",
+   "inicio_s": 355.7,
+   "duracao_s": 2.9,
+   "fala": "Agora, o que pode dar errado.",
+   "enfase": "dar errado",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.5,
+   "layout": "L1",
+   "visuais": [
+    "V19"
+   ],
+   "visual": "A paleta muda para um coral discreto. Tom sério.",
+   "tela": "Riscos",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F071",
+   "ato": "A7",
+   "inicio_s": 358.9,
+   "duracao_s": 4.8,
+   "fala": "A gente depende de uma instituição parceira. Por isso vamos cotar três.",
+   "enfase": "três",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V19"
+   ],
+   "visual": "Card de risco “Dependência da parceira” vira a mitigação “3 cotações”.",
+   "tela": "Risco: parceira → cotar 3",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F072",
+   "ato": "A7",
+   "inicio_s": 363.9,
+   "duracao_s": 5.6,
+   "fala": "A taxa é o dobro da referência, e isso pede transparência total no contrato.",
+   "enfase": "transparência total",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V19"
+   ],
+   "visual": "Card “Taxa ~2x a Zippi” vira “custo em reais na tela + taxa cai por nível”.",
+   "tela": "Risco: taxa alta → transparência",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F073",
+   "ato": "A7",
+   "inicio_s": 369.8,
+   "duracao_s": 4.8,
+   "fala": "A regra do BaaS é nova. Nada é assinado sem parecer jurídico.",
+   "enfase": "parecer jurídico",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V19"
+   ],
+   "visual": "Card “Regra nova” vira “parecer antes de assinar”.",
+   "tela": "Risco: regra nova → parecer jurídico",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F074",
+   "ato": "A7",
+   "inicio_s": 374.8,
+   "duracao_s": 6.0,
+   "fala": "E leva de dois a quatro meses pra operar. Por isso as conversas começam já.",
+   "enfase": "começam já",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V19"
+   ],
+   "visual": "Card “Prazo de 2 a 4 meses” vira “começar agora”.",
+   "tela": "Risco: prazo → começar já",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F075",
+   "ato": "A8",
+   "inicio_s": 381.1,
+   "duracao_s": 2.0,
+   "fala": "E onde isso pode chegar?",
+   "enfase": "chegar",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L1",
+   "visuais": [],
+   "visual": "A câmera “sobe” para uma visão de horizonte; duas trilhas aparecem lá embaixo.",
+   "tela": "",
+   "selo": "",
+   "som": "A música começa a crescer.",
+   "gesto": ""
+  },
+  {
+   "id": "F076",
+   "ato": "A8",
+   "inicio_s": 383.3,
+   "duracao_s": 4.8,
+   "fala": "A Zippi levou cerca de três anos, do lançamento ao primeiro fundo.",
+   "enfase": "três anos",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V20"
+   ],
+   "visual": "Trilha Zippi em cinza: lançamento 2021 → FIDC 2024, com a chave “três anos”.",
+   "tela": "Zippi: 3 anos até o primeiro FIDC",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F077",
+   "ato": "A8",
+   "inicio_s": 388.4,
+   "duracao_s": 2.0,
+   "fala": "A nossa régua é parecida.",
+   "enfase": "parecida",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V20"
+   ],
+   "visual": "A trilha Vapti, em verde, se alinha logo abaixo, ano a ano.",
+   "tela": "",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F078",
+   "ato": "A8",
+   "inicio_s": 390.6,
+   "duracao_s": 3.2,
+   "fala": "Ano um: gerar histórico, com o capital próprio.",
+   "enfase": "histórico",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V20"
+   ],
+   "visual": "Marco “Ano 1 · carteira R$ 0,85 mi · 12 meses de safra”.",
+   "tela": "Ano 1 · histórico",
+   "selo": "Projeção",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F079",
+   "ato": "A8",
+   "inicio_s": 394.1,
+   "duracao_s": 2.0,
+   "fala": "Ano dois: primeira dívida estruturada.",
+   "enfase": "dívida",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V20"
+   ],
+   "visual": "Marco “Ano 2 · dívida de R$ 3 a 10 mi”.",
+   "tela": "Ano 2 · dívida estruturada",
+   "selo": "Projeção",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F080",
+   "ato": "A8",
+   "inicio_s": 396.3,
+   "duracao_s": 2.8,
+   "fala": "Ano três: um fundo comprando a carteira.",
+   "enfase": "fundo",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V20"
+   ],
+   "visual": "Marco “Ano 3 · FIDC de R$ 10 a 30 mi”.",
+   "tela": "Ano 3 · FIDC",
+   "selo": "Projeção",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F081",
+   "ato": "A8",
+   "inicio_s": 399.4,
+   "duracao_s": 4.4,
+   "fala": "Anos quatro e cinco: rodada de investimento, se os números sustentarem.",
+   "enfase": "se os números sustentarem",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V20"
+   ],
+   "visual": "Marco “Anos 4–5 · rodada de R$ 15 a 40 mi”, com a condição em destaque.",
+   "tela": "Anos 4–5 · rodada (se os números sustentarem)",
+   "selo": "Projeção",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F082",
+   "ato": "A8",
+   "inicio_s": 404.0,
+   "duracao_s": 5.6,
+   "fala": "E entre o quarto e o sexto ano, a janela pra vender a operação.",
+   "enfase": "vender",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V20",
+    "V21"
+   ],
+   "visual": "Uma janela iluminada se abre sobre os anos 4 a 6 da trilha.",
+   "tela": "Janela de venda: anos 4 a 6",
+   "selo": "Projeção",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F083",
+   "ato": "A8",
+   "inicio_s": 409.9,
+   "duracao_s": 8.0,
+   "fala": "O que se vende não é a carteira. É o motor: o canal, a análise e os clientes que voltam.",
+   "enfase": "o motor",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V21"
+   ],
+   "visual": "A pilha “carteira” desbota; um motor de três engrenagens gira: canal, análise, clientes que voltam.",
+   "tela": "O que vale múltiplo: o motor",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F084",
+   "ato": "A8",
+   "inicio_s": 418.1,
+   "duracao_s": 5.6,
+   "fala": "E esse motor é o que a gente leva pra montar a próxima carteira.",
+   "enfase": "próxima carteira",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L1",
+   "visuais": [
+    "V21"
+   ],
+   "visual": "O motor se duplica e uma segunda carteira nasce ao lado.",
+   "tela": "A próxima carteira",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F085",
+   "ato": "A9",
+   "inicio_s": 424.0,
+   "duracao_s": 3.2,
+   "fala": "Pra começar, a gente precisa de cinco decisões.",
+   "enfase": "cinco",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V23"
+   ],
+   "visual": "Checklist de cinco itens aparece vazio.",
+   "tela": "Cinco decisões",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F086",
+   "ato": "A9",
+   "inicio_s": 427.4,
+   "duracao_s": 4.8,
+   "fala": "Aprovar a estrutura sem ESC. Chamar advogado e contador. Cotar as parceiras.",
+   "enfase": "estrutura sem ESC",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V23"
+   ],
+   "visual": "Itens 1, 2 e 3 se marcam um a um, cada um no verbo da sua frase curta (Aprovar, Chamar, Cotar).",
+   "tela": "1 Estrutura · 2 Advogado e contador · 3 Parceiras",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F087",
+   "ato": "A9",
+   "inicio_s": 432.5,
+   "duracao_s": 4.8,
+   "fala": "Aprovar o piloto de noventa dias, com critério de parada definido antes.",
+   "enfase": "definido antes",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L3",
+   "visuais": [
+    "V23",
+    "V22"
+   ],
+   "visual": "Item 4 se marca; ao lado, um mini semáforo verde, amarelo e vermelho.",
+   "tela": "4 Piloto de 90 dias",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F088",
+   "ato": "A9",
+   "inicio_s": 437.5,
+   "duracao_s": 2.8,
+   "fala": "E confirmar o aporte de um milhão.",
+   "enfase": "um milhão",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L2",
+   "visuais": [
+    "V23"
+   ],
+   "visual": "Item 5 se marca; “R$ 1 mi” acende em verde.",
+   "tela": "5 Aporte de R$ 1 mi",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F089",
+   "ato": "A9",
+   "inicio_s": 440.6,
+   "duracao_s": 2.8,
+   "fala": "A Zippi provou que esse mercado existe.",
+   "enfase": "existe",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L1",
+   "visuais": [],
+   "visual": "As duas trilhas ficam desfocadas no fundo.",
+   "tela": "",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F090",
+   "ato": "A9",
+   "inicio_s": 443.6,
+   "duracao_s": 5.2,
+   "fala": "A Vapti vai provar que dá pra fazer melhor, com quem mais precisa.",
+   "enfase": "melhor",
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.0,
+   "layout": "L1",
+   "visuais": [
+    "V24"
+   ],
+   "visual": "O logotipo Vapti cresce atrás de você.",
+   "tela": "Vapti",
+   "selo": "",
+   "som": "",
+   "gesto": ""
+  },
+  {
+   "id": "F091",
+   "ato": "A9",
+   "inicio_s": 449.1,
+   "duracao_s": 2.5,
+   "fala": "Vamos?",
+   "enfase": "Vamos",
+   "pausa_antes": 0.6,
+   "pausa_depois": 1.5,
+   "layout": "L1",
+   "visuais": [
+    "V24"
+   ],
+   "visual": "Sorriso. Corte para o card final com o aviso de projeção por 5 segundos.",
+   "tela": "Vamos?",
+   "selo": "",
+   "som": "Resolução musical final.",
+   "gesto": "Sorriso aberto, olhar na lente até o fim."
+  }
+ ]
+}

@@ -37,7 +37,7 @@ export const config = {
   slogan: "Capital de giro na velocidade do Pix",
   /** Capa genérica (padrão da seção 11 do briefing, sem resposta do usuário). */
   cliente: "Apresentação para os sócios investidores",
-  apresentador: "[A CONFIRMAR]",
+  apresentador: "Jeferson",
   papelApresentador: "Coordenador do projeto",
   data: "16 de outubro de 2026",
   versao: "Documento de trabalho · outubro de 2026",

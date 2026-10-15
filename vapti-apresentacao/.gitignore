@@ -2,3 +2,7 @@ node_modules
 dist
 *.tsbuildinfo
 .DS_Store
+video/build/
+video/.venv/
+video/entrada/*
+!video/entrada/LEIA-ME.md

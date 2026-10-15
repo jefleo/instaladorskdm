@@ -9,7 +9,15 @@
     "test": "vitest run",
     "typecheck": "tsc -b",
     "entregas": "npm run build && node scripts/entregas.mjs",
-    "qa": "node scripts/qa.mjs"
+    "qa": "node scripts/qa.mjs",
+    "video:dev": "vite -c vite.video.config.ts",
+    "video:build": "vite build -c vite.video.config.ts",
+    "video:voz": "node video/scripts/voz.mjs",
+    "video:timeline": "node video/scripts/timeline.mjs",
+    "video:audio": "node video/scripts/audio.mjs",
+    "video:render": "node video/scripts/render.mjs",
+    "video:rascunho": "node video/scripts/timeline.mjs && npm run video:build && node video/scripts/render.mjs --rascunho",
+    "video": "npm run video:voz && npm run video:timeline && npm run video:audio && npm run video:build && npm run video:render"
   },
   "dependencies": {
     "@fontsource/bricolage-grotesque": "^5.2.10",
