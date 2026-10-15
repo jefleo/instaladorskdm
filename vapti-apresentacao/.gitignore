@@ -6,3 +6,4 @@ video/build/
 video/.venv/
 video/entrada/*
 !video/entrada/LEIA-ME.md
+video/modelos/
