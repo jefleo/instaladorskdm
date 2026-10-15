@@ -50,6 +50,9 @@ const nPassos = estrutura.fluxo.length;
 const nCaminhos = caminhos.opcoes.length;
 const nDecisoes = decisoes.lista.length;
 const [fidc24, fidc25, fidc26] = zippi.fidc;
+/** Primeira letra minúscula, só quando a palavra não é sigla (preserva "R$", "FIDC", "Pix", "Meta"). */
+const minusc = (t: string): string => (/^[A-ZÀ-Ý][a-zà-ÿ]/.test(t) ? t[0].toLowerCase() + t.slice(1) : t);
+const artigoBase: Record<string, string> = { Patrimônio: "o patrimônio", Lucro: "o lucro", Receita: "a receita" };
 const valorZippi = `${zippi.valorEstimado.rotulo} (estimativa do Dealroom, terceiros)`;
 
 /* ------------------------------------------------------------------ */
@@ -88,7 +91,7 @@ export const secoes: Secao[] = [
     blocos: [
       { titulo: "Caixa irregular", texto: "Motorista e barbeiro recebem pouco e todo dia. Um dia fraco abre um buraco no meio da semana." },
       { titulo: "Crédito que não chega", texto: "O crédito tradicional pede holerite. O autônomo não tem. Se está negativado, a porta fecha de vez." },
-      { titulo: projeto.autonomosBrasil.rotulo, texto: `de trabalhadores autônomos no Brasil. Fonte: ${projeto.autonomosBrasil.fonte}.` },
+      { titulo: projeto.autonomosBrasil.rotulo.replace(/^m/, "M"), texto: `de trabalhadores autônomos no Brasil. Fonte: ${projeto.autonomosBrasil.fonte}.` },
       {
         titulo: "A resposta da Vapti",
         texto: `Ter sempre a quem recorrer. Saques de ${projeto.saqueMin.rotulo} a ${projeto.saqueMax.rotulo}, com ticket médio de ${projeto.ticketMedioMin.rotulo} a ${projeto.ticketMedioMax.rotulo}.`,
@@ -132,7 +135,7 @@ export const secoes: Secao[] = [
     id: "02",
     nome: "A prova",
     titulo: "A Zippi provou o mercado",
-    subtitulo: "Mesmo público, mesmo caminho: originadora com instituição parceira, depois dívida e FIDC para a carteira.",
+    subtitulo: "Público vizinho, mesmo caminho: originadora com instituição parceira, depois dívida e FIDC para a carteira.",
     blocos: [
       { titulo: "O começo", texto: caminhos.fatoDecisivo },
       { titulo: "A escala", texto: `${zippi.concedido.rotulo} concedidos. Cerca de ${zippi.autonomosApp.rotulo} autônomos no app. Fonte: Finsiders e App Store.` },
@@ -184,11 +187,11 @@ export const secoes: Secao[] = [
     blocos: [
       {
         titulo: "Como funciona",
-        texto: `Saque de ${projeto.saqueMin.rotulo} a ${projeto.saqueMax.rotulo}, liberado por Pix. Juros só sobre o valor sacado.`,
+        texto: `Saque de ${projeto.saqueMin.rotulo} a ${projeto.saqueMax.rotulo}, liberado por Pix. Juros sobre o valor sacado, não sobre o limite.`,
       },
       {
         titulo: "Dois jeitos de pagar",
-        texto: `${produto.parcelasSemanais.rotulo} parcelas semanais de ${preco.exemplo.parcela.rotulo}, a ${BASE}. Ou ${plano14.dias} dias de ${plano14.parcela.rotulo} (${plano14.efetivaMes.rotulo} ao mês).`,
+        texto: `${produto.parcelasSemanais.rotulo} parcelas semanais de ${preco.exemplo.parcela.rotulo}, a ${BASE}. Ou ${plano14.dias} parcelas diárias de ${plano14.parcela.rotulo}: ${plano14.juros.rotulo} de juros em ${R400} (${plano14.efetivaMes.rotulo} ao mês).`,
       },
       {
         titulo: "Pix Automático",
@@ -207,7 +210,7 @@ export const secoes: Secao[] = [
     },
     alts: {
       V07: `Protótipo de celular: conversa com áudio e link; plataforma com barra de ${nEtapas} etapas (${produto.jornada7.join(", ")}); painel com limite, nível e próxima parcela. Dados fictícios.`,
-      V08: `${R400} sacados viram ${produto.parcelasSemanais.rotulo} parcelas semanais de ${preco.exemplo.parcela.rotulo}: ${preco.exemplo.amortizacao.rotulo} do valor mais ${preco.exemplo.jurosParcela.rotulo} de juros. Taxa efetiva: ${preco.exemplo.efetivaMes.rotulo} ao mês. Alternativa: ${plano14.dias} parcelas diárias de ${plano14.parcela.rotulo}, ${plano14.efetivaMes.rotulo} ao mês.`,
+      V08: `${R400} sacados viram ${produto.parcelasSemanais.rotulo} parcelas semanais de ${preco.exemplo.parcela.rotulo}: ${preco.exemplo.amortizacao.rotulo} do valor mais ${preco.exemplo.jurosParcela.rotulo} de juros. Taxa efetiva: ${preco.exemplo.efetivaMes.rotulo} ao mês. Alternativa: ${plano14.dias} parcelas diárias de ${plano14.parcela.rotulo}, ${plano14.juros.rotulo} de juros em ${R400}, ${plano14.efetivaMes.rotulo} ao mês.`,
       V09: `Pix Automático: autorização única e até ${produto.pixRetentativas.rotulo} novas tentativas se faltar saldo; a primeira e a segunda falham, a terceira passa.`,
     },
     notas: {
@@ -229,7 +232,7 @@ export const secoes: Secao[] = [
         },
         {
           pergunta: "O que impede o cliente de se endividar em cadeia?",
-          resposta: `As travas: ${produto.travas[0].toLowerCase()} ${produto.travas[1]} ${produto.travas[3]}`,
+          resposta: `As travas: ${minusc(produto.travas[0])} ${produto.travas[1]} ${produto.travas[3]}`,
         },
       ],
     },
@@ -260,7 +263,7 @@ export const secoes: Secao[] = [
     },
     alts: {
       V10: `Escada de ${niveis.length} níveis: ${niveis
-        .map((nv) => `${nv.nome}, ${nv.comoChega.toLowerCase()}, ${nv.taxaSemanal.rotulo} por semana, ${nv.efetivaMes.rotulo} ao mês, ${nv.jurosExemplo.rotulo} de juros em ${R400}, limite volta ${nv.limiteVolta.toLowerCase()}`)
+        .map((nv) => `${nv.nome}, ${minusc(nv.comoChega)}, ${nv.taxaSemanal.rotulo} por semana, ${nv.efetivaMes.rotulo} ao mês, ${nv.jurosExemplo.rotulo} de juros em ${R400}, limite volta ${minusc(nv.limiteVolta)}`)
         .join("; ")}. ${nOuro.nome}: ${nOuro.extra}.`,
       V11: `Quatro princípios: ${gamificacao.principios.join(" ")}`,
     },
@@ -300,7 +303,7 @@ export const secoes: Secao[] = [
         texto: `Empresa comum: juros limitados a ${caminhos.usuraAoAno.rotulo}. ESC: sem pessoa física, só a cidade, sem fundos. BaaS: nacional e sem teto.`,
       },
       { titulo: "Quem é quem", texto: "A parceira é a credora: emite a CCB e libera o Pix. A Vapti cuida do cliente, da análise e da cobrança." },
-      { titulo: "O dinheiro não passa pela Vapti", texto: "O cliente paga por Pix Automático na conta da parceira ou do fundo. Nunca na conta da Vapti." },
+      { titulo: "O pagamento nunca cai na conta da Vapti", texto: "O cliente paga por Pix Automático na conta da parceira ou do fundo. Nunca na conta da Vapti." },
       { titulo: "De onde vem a receita", texto: "Dos juros das CCBs que a Vapti compra. A parceira aparece identificada no app, no contrato e no comprovante." },
     ],
     visuais: ["V12", "V13"],
@@ -310,7 +313,7 @@ export const secoes: Secao[] = [
     },
     alts: {
       V12: `${nCaminhos} caminhos. ${caminhos.opcoes.map((o) => `${o.nome}: ${o.ok ? "viável" : "descartado"} — ${o.motivos.join("; ")}`).join(". ")}.`,
-      V13: `Fluxo em ${nPassos} passos: ${estrutura.fluxo.map((p) => `${p.passo}. ${p.quem}: ${p.texto}`).join(" ")} Quem financia a carteira: ${estrutura.financiadores.map((f) => `fase ${f.fase}, ${f.quem.toLowerCase()}`).join("; ")}.`,
+      V13: `Fluxo em ${nPassos} passos: ${estrutura.fluxo.map((p) => `${p.passo}. ${p.quem}: ${p.texto}`).join(" ")} Quem financia a carteira: ${estrutura.financiadores.map((f) => `fase ${f.fase}, ${minusc(f.quem)}`).join("; ")}.`,
     },
     notas: {
       tempo: "2:00",
@@ -355,7 +358,7 @@ export const secoes: Secao[] = [
       { titulo: "Sobre o sacado", texto: `Cobrar sobre o valor sacado rende ${preco.maisJurosSacadoVsSaldo.rotulo} mais juros do que cobrar sobre o saldo.` },
       {
         titulo: "Contra a referência",
-        texto: `A Zippi fica em cerca de ${preco.zippiEfetivaMes.rotulo} ao mês. No cenário-base, a Vapti cobra cerca de ${preco.vezesZippiBase.rotulo} isso.`,
+        texto: `A Zippi cobra a partir de ${preco.zippiTaxaSemanal.rotulo} por semana sobre o valor usado, o que equivale a ${preco.zippiEfetivaMes.rotulo} ao mês. No cenário-base, a Vapti cobra cerca de ${preco.vezesZippiBase.rotulo} isso.`,
       },
       { titulo: "O limite do preço", texto: "O STJ revisa taxas muito acima do mercado. O dobro é defensável pelo risco do público; o triplo, não." },
     ],
@@ -372,7 +375,7 @@ export const secoes: Secao[] = [
       topicos: [
         `Fazer a conta em voz alta: ${BASE}.`,
         `Sobre o sacado rende ${preco.maisJurosSacadoVsSaldo.rotulo} mais do que sobre o saldo.`,
-        `Por nível: ${niveis.map((nv) => `${nv.nome} ${nv.efetivaMes.rotulo}`).join(" · ")} ao mês. Zippi: ${preco.zippiEfetivaMes.rotulo}.`,
+        `Por nível: ${niveis.map((nv) => `${nv.nome} ${nv.efetivaMes.rotulo}`).join(" · ")} ao mês. Zippi, a partir de ${preco.zippiTaxaSemanal.rotulo} por semana: ${preco.zippiEfetivaMes.rotulo} ao mês.`,
         preco.cuidados[0],
         preco.cuidados[1],
         preco.cuidados[3],
@@ -437,7 +440,7 @@ export const secoes: Secao[] = [
       perguntas: [
         {
           pergunta: "Que perda vocês esperam?",
-          resposta: `Ainda não sabemos, e não vamos chutar. O piloto mede. Critério de parada: ${piloto.parada[0].toLowerCase()}.`,
+          resposta: `Ainda não sabemos, e não vamos chutar. O piloto mede. Critério de parada: ${minusc(piloto.parada[0])}.`,
         },
         {
           pergunta: `${fase1.margemMes.rotulo} por mês é lucro?`,
@@ -452,7 +455,7 @@ export const secoes: Secao[] = [
     id: "08",
     nome: "Eficiência",
     titulo: "Cada centavo desenhado",
-    subtitulo: "Bureau, mensagem e cobrança pensados para custar centavos por saque.",
+    subtitulo: "Bureau, mensagem e cobrança desenhados para baixar o custo de cada saque.",
     blocos: [
       {
         titulo: "Bureau em camadas",
@@ -473,7 +476,7 @@ export const secoes: Secao[] = [
       V18: "Estimativas. Fontes: Serasa Experian (preço de balcão) e Nosso Meio (cobrança na API do WhatsApp).",
     },
     alts: {
-      V18: `WhatsApp: de ${eficiencia.msgsAntes.rotulo} mensagens (${eficiencia.custoMsgAntes.rotulo}) para ${eficiencia.msgsDepois.rotulo} (${eficiencia.custoMsgDepois.rotulo}) por saque. Bureau: ${eficiencia.serasaBalcaoMin.rotulo} no balcão, ${eficiencia.custoAprovadoComFunil.rotulo} por aprovado com o funil, ${eficiencia.bureauMaduroMin.rotulo} a ${eficiencia.bureauMaduroMax.rotulo} por saque na carteira madura.`,
+      V18: `WhatsApp: de ${eficiencia.msgsAntes.rotulo} mensagens (${eficiencia.custoMsgAntes.rotulo}) para ${eficiencia.msgsDepoisFaixa} (cerca de ${eficiencia.custoMsgDepois.rotulo}) por saque. Bureau: ${eficiencia.serasaBalcaoMin.rotulo} no balcão, ${eficiencia.custoAprovadoComFunil.rotulo} por aprovado com o funil, ${eficiencia.bureauMaduroMin.rotulo} a ${eficiencia.bureauMaduroMax.rotulo} por saque na carteira madura.`,
     },
     notas: {
       tempo: "1:00",
@@ -507,8 +510,8 @@ export const secoes: Secao[] = [
     blocos: [
       { titulo: "Ganhamos alcance", texto: `${vantagens[0]} ${vantagens[1]}` },
       { titulo: "Ganhamos um ativo", texto: `${vantagens[6]} ${vantagens[3]}` },
-      { titulo: "Pode dar errado: a perda", texto: `${riscos[0].risco}. Mitigação: ${riscos[0].mitigacao.toLowerCase()}.` },
-      { titulo: "Pode dar errado: a parceira", texto: `${riscos[1].risco}. Mitigação: ${riscos[1].mitigacao.toLowerCase()}.` },
+      { titulo: "Pode dar errado: a perda", texto: `${riscos[0].risco}. Mitigação: ${minusc(riscos[0].mitigacao)}.` },
+      { titulo: "Pode dar errado: a parceira", texto: `${riscos[1].risco}. Mitigação: ${minusc(riscos[1].mitigacao)}.` },
     ],
     visuais: ["V19"],
     legendas: {
@@ -522,11 +525,11 @@ export const secoes: Secao[] = [
       fraseChave: "Honestidade é parte da tese: cada risco já tem mitigação.",
       topicos: [
         "Ler as vantagens sem pressa, uma por linha.",
-        `Maior risco: ${riscos[0].risco.toLowerCase()}.`,
-        `${riscos[4].risco}. Mitigação: ${riscos[4].mitigacao.toLowerCase()}.`,
-        `${riscos[6].risco}. Mitigação: ${riscos[6].mitigacao.toLowerCase()}.`,
-        `${riscos[3].risco}. Mitigação: ${riscos[3].mitigacao.toLowerCase()}.`,
-        `${riscos[9].risco}. Mitigação: ${riscos[9].mitigacao.toLowerCase()}.`,
+        `Maior risco: ${minusc(riscos[0].risco)}.`,
+        `${riscos[4].risco}. Mitigação: ${minusc(riscos[4].mitigacao)}.`,
+        `${riscos[6].risco}. Mitigação: ${minusc(riscos[6].mitigacao)}.`,
+        `${riscos[3].risco}. Mitigação: ${minusc(riscos[3].mitigacao)}.`,
+        `${riscos[9].risco}. Mitigação: ${minusc(riscos[9].mitigacao)}.`,
       ],
       perguntas: [
         {
@@ -548,19 +551,19 @@ export const secoes: Secao[] = [
     titulo: "Três anos até o primeiro fundo",
     subtitulo: "Projeção: o ano 1 gera histórico, o ano 2 traz dívida e o ano 3, o FIDC.",
     blocos: [
-      { titulo: "Ano 1 · histórico", texto: `${regua[1].vapti}. Capital externo: ${regua[1].capital.toLowerCase()}.` },
+      { titulo: "Ano 1 · projeção: gerar histórico", texto: `${regua[1].vapti}. Capital externo: ${minusc(regua[1].capital)}.` },
       { titulo: "Anos 2 e 3 · projeção", texto: `${regua[2].capital}. Depois, ${regua[3].capital}.` },
-      { titulo: "O que a gestora olha", texto: `${captacao.gestoraOlha[0]}, ${captacao.gestoraOlha[1].toLowerCase()} e ${captacao.gestoraOlha[2].split(" (")[0].toLowerCase()}.` },
-      { titulo: "O que se vende", texto: `${captacao.oQueSeVende.motor} Janela: ${captacao.janela.anos.toLowerCase()}.` },
+      { titulo: "O que a gestora olha", texto: `${captacao.gestoraOlha[0]}, ${minusc(captacao.gestoraOlha[1])} e ${minusc(captacao.gestoraOlha[2].split(" (")[0])}.` },
+      { titulo: "O que se vende", texto: `${captacao.oQueSeVende.motor} Janela: ${minusc(captacao.janela.anos)}.` },
     ],
     visuais: ["V20", "V21"],
     legendas: {
-      V20: `Projeção. Vapti em verde: hipóteses de ordem de grandeza. Zippi em cinza: fatos (Finsiders, LatamList).`,
-      V21: `${captacao.oQueSeVende.carteira} Janela de venda: ${captacao.janela.anos.toLowerCase()}.`,
+      V20: `Projeção. Vapti em verde: hipóteses de ordem de grandeza. Zippi em cinza: fatos (Dealroom, Exame, Finsiders, LatamList).`,
+      V21: `${captacao.oQueSeVende.carteira} Janela de venda: ${minusc(captacao.janela.anos)}.`,
     },
     alts: {
       V20: `Projeção em duas trilhas por ano. Zippi, fatos: ${regua.map((r) => r.zippi).join("; ")}. Vapti, hipóteses: ${regua.map((r) => `ano ${r.ano}, ${r.vapti}, capital: ${r.capital}`).join("; ")}.`,
-      V21: `Dois blocos. Carteira: ${captacao.oQueSeVende.carteira} Motor de originação: ${captacao.oQueSeVende.motor} Janela de venda: ${captacao.janela.anos.toLowerCase()}, com ${captacao.janela.condicoes.join(", ").toLowerCase()}.`,
+      V21: `Dois blocos. Carteira: ${captacao.oQueSeVende.carteira} Motor de originação: ${captacao.oQueSeVende.motor} Janela de venda: ${minusc(captacao.janela.anos)}, com ${captacao.janela.condicoes.map(minusc).join(", ")}.`,
     },
     notas: {
       tempo: "2:00",
@@ -568,10 +571,10 @@ export const secoes: Secao[] = [
       topicos: [
         "Projeção: a coluna da Vapti são hipóteses de ordem de grandeza.",
         `Trilha Zippi: lançou em 2021, primeiro FIDC em 2024. Trilha Vapti, projeção: FIDC no ano 3.`,
-        `Gestora de FIDC olha: ${captacao.gestoraOlha.join("; ").toLowerCase()}.`,
-        `Valuation: ${captacao.valuation.map((v) => `${v.multiplo} o ${v.base.toLowerCase()} (${v.quando.toLowerCase()})`).join("; ")}.`,
+        `Gestora de FIDC olha: ${captacao.gestoraOlha.map(minusc).join("; ")}.`,
+        `Valuation: ${captacao.valuation.map((v) => `${v.multiplo} ${artigoBase[v.base] ?? v.base} (${minusc(v.quando)})`).join("; ")}.`,
         captacao.alertaMultiplo,
-        `Janela de venda: ${captacao.janela.anos.toLowerCase()}, com ${captacao.janela.condicoes.join(", ").toLowerCase()}. ${captacao.janela.nota}`,
+        `Janela de venda: ${minusc(captacao.janela.anos)}, com ${captacao.janela.condicoes.map(minusc).join(", ")}. ${captacao.janela.nota}`,
         captacao.novaCarteira,
       ],
       perguntas: [
@@ -581,7 +584,7 @@ export const secoes: Secao[] = [
         },
         {
           pergunta: "Por que não captar já?",
-          resposta: `Sem ${captacao.gestoraOlha[0].toLowerCase()}, ninguém compra a carteira. Por isso o ano 1 usa só o capital próprio.`,
+          resposta: `Sem ${minusc(captacao.gestoraOlha[0])}, ninguém compra a carteira. Por isso o ano 1 usa só o capital próprio.`,
         },
       ],
     },
@@ -595,7 +598,7 @@ export const secoes: Secao[] = [
     subtitulo: `${piloto.segmento}, ${piloto.praca}, até ${piloto.carteiraMax.rotulo} de carteira.`,
     blocos: [
       { titulo: "Metas", texto: `${piloto.metas[0]}. ${piloto.metas[1]}. ${piloto.metas[3]}.` },
-      { titulo: "Critérios de parada", texto: `Definidos antes: ${piloto.parada[0].toLowerCase()}; ${piloto.parada[1].toLowerCase()}; ${piloto.parada[3].toLowerCase()}.` },
+      { titulo: "Critérios de parada", texto: `Definidos antes: ${minusc(piloto.parada[0])}; ${minusc(piloto.parada[1])}; ${minusc(piloto.parada[3])}.` },
       { titulo: "Para escalar", texto: `${piloto.escala.join(", ")}. ${piloto.escalaNota}` },
       { titulo: "Por que assim", texto: "O piloto transforma a maior dúvida, a perda, em dado medido antes de colocar mais capital." },
     ],
@@ -610,10 +613,10 @@ export const secoes: Secao[] = [
       tempo: "1:00",
       fraseChave: "Paramos se der errado, e os critérios estão escritos antes de começar.",
       topicos: [
-        `Escopo: ${piloto.segmento.toLowerCase()}, ${piloto.praca}, até ${piloto.carteiraMax.rotulo}.`,
-        `Metas operacionais: ${piloto.metas[4].toLowerCase()}; ${piloto.metas[5].toLowerCase()}; ${piloto.metas[6].toLowerCase()}.`,
-        `Custo: ${piloto.metas[2].toLowerCase()}.`,
-        `Parada inclui: ${piloto.parada[2].toLowerCase()}.`,
+        `Escopo: ${minusc(piloto.segmento)}, ${piloto.praca}, até ${piloto.carteiraMax.rotulo}.`,
+        `Metas operacionais: ${minusc(piloto.metas[4])}; ${minusc(piloto.metas[5])}; ${minusc(piloto.metas[6])}.`,
+        `Custo: ${minusc(piloto.metas[2])}.`,
+        `Parada inclui: ${minusc(piloto.parada[2])}.`,
         `Escala: ${piloto.escalaNota}`,
       ],
       perguntas: [

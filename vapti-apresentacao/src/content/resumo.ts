@@ -30,6 +30,7 @@ export const resumo = {
   decisoesTitulo: `${decisoes.lista.length} decisões para hoje`,
   decisoes: decisoes.lista.map((d) => d.texto),
   riscosTitulo: "Riscos principais",
-  riscos: [riscos[0], riscos[1], riscos[6]].map((r) => `${r.risco}. Mitigação: ${r.mitigacao.toLowerCase()}.`),
+  riscos: [riscos[0], riscos[1], riscos[6]].map((r) => `${r.risco}. Mitigação: ${r.mitigacao[0].toLowerCase() + r.mitigacao.slice(1)}.`),
+  fontes: "Fontes completas no site e no PDF.",
   aviso,
 } as const;

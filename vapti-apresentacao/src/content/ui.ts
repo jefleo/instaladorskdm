@@ -219,7 +219,7 @@ export const prototipo = {
     efetiva: ex.efetivaMes.rotulo,
     jurosRotulo: "Juros em reais",
     juros: ex.juros.rotulo,
-    custoTotalRotulo: "Custo total em reais",
+    custoTotalRotulo: "Total a pagar",
     custoTotal: ex.total.rotulo,
     nivel: `Nível ${nBronze.nome}`,
     botao: "Aceitar proposta",
@@ -284,7 +284,7 @@ export const prototipo = {
   },
 
   atraso: {
-    titulo: "Tudo bem, acontece.",
+    titulo: "Lembrete da sua parcela",
     lembrete: `Sua parcela de ${ex.parcela.rotulo} venceu ontem. Você tem ${atraso.toleranciaDias} de tolerância.`,
     bloqueio: "Novos saques voltam assim que a parcela estiver em dia.",
     encargos: `Se passar da tolerância: multa de até ${atraso.multaMax.rotulo} da parcela e juros de mora de até ${atraso.moraMaxMes.rotulo}.`,
@@ -292,7 +292,7 @@ export const prototipo = {
     pagarTudo: `Pagar ${ex.parcela.rotulo} agora`,
     pagarParte: "Pagar uma parte agora",
     pagarParteExemplo: `Ex.: ${ficticio.pagamentoParcial} hoje, o resto depois`,
-    pagarParteOk: `Recebemos ${ficticio.pagamentoParcial}. Obrigado!`,
+    pagarParteOk: `Pagamento de ${ficticio.pagamentoParcial} recebido pela ${credora}.`,
     reparcelar: "Ver proposta de reparcelamento",
     reparcelarNota: `A partir do ${atraso.diaReparcelamento.rotulo} de atraso, a oferta de reparcelamento aparece automaticamente.`,
     falar: "Falar com uma pessoa",

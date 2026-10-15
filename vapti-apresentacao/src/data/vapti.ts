@@ -54,7 +54,7 @@ export const projeto = {
   ticketMedioMin: n(350, "R$ 350", "R$", "premissa", B("4.1")),
   ticketMedioMax: n(450, "R$ 450", "R$", "premissa", B("4.1")),
   saqueMedio: n(400, "R$ 400", "R$", "premissa", B("4.1 e 4.8")),
-  autonomosBrasil: n(24_000_000, "24 milhões", "un", "fato", "IBGE, citado por Startups.com.br"),
+  autonomosBrasil: n(24_000_000, "mais de 24 milhões", "un", "fato", "IBGE, citado por Startups.com.br"),
   praca: "Grande Natal (RN)",
   publico: ["Motoristas de aplicativo", "Barbeiros", "Prestadores de serviço"],
   canais: ["Mensagem pela API oficial do WhatsApp", "Plataforma web própria", "Pix para liberar e para receber"],
@@ -258,7 +258,7 @@ export const gamificacao = {
   principios: [
     "Premia pagamento e organização, nunca volume de dívida.",
     "Regras sempre visíveis.",
-    "Nada aleatório: sem sorteio, sem caixa-surpresa.",
+    "Nada aleatório: nenhum benefício depende de sorte.",
     "Sinal de dependência reduz o limite em vez de vender mais.",
   ],
   zippiReferencia: "A própria Zippi mantém uma frente de gamificação de pagamentos e débito automático, segundo vaga publicada por ela.",
@@ -469,7 +469,8 @@ export const eficiencia = {
   whatsFranquia: n(1_000, "1.000", "un", "fato", B("4.9 — mensagens de serviço por mês")),
   whatsJanelaAnuncio: n(72, "72 horas", "horas", "fato", B("4.9 — Click-to-WhatsApp")),
   msgsAntes: n(30, "30", "un", "estimativa", B("4.9")),
-  msgsDepois: n(5, "5", "un", "estimativa", B("4.9 — 4 a 6 mensagens cobradas por saque")),
+  /** Ponto médio derivado da faixa "4 a 6" do briefing — para gráfico; na tela, exibir `msgsDepoisFaixa`. */
+  msgsDepois: n(5, "4 a 6", "un", "estimativa", B("4.9 — 4 a 6 mensagens cobradas por saque")),
   msgsDepoisFaixa: "4 a 6",
   custoMsgAntes: n(1.05, "R$ 1,05", "R$", "estimativa", B("4.9")),
   custoMsgDepois: n(0.2, "R$ 0,20", "R$", "estimativa", B("4.9")),
@@ -512,8 +513,8 @@ export const zippi = {
   ],
   timeline: [
     { quando: "set/2019", texto: "Seed do Y Combinator: US$ 125 mil" },
-    { quando: "out/2021", texto: "Crédito semanal via Pix" },
-    { quando: "2022", texto: "R$ 275 mi liberados (9x o ano anterior)" },
+    { quando: "out/2021", texto: "Lança o cartão de crédito semanal" },
+    { quando: "2022", texto: "R$ 275 mi liberados (operação 9x maior que no ano anterior)" },
     { quando: "abr/2024", texto: "R$ 1 bi acumulado em transações" },
     { quando: "2024", texto: "Primeiro FIDC: R$ 66 mi" },
     { quando: "2025", texto: "FIDC de R$ 80 mi; crescimento acima de 100%" },
@@ -715,5 +716,5 @@ export const numerosChave = [
   { rotulo: "Receita por ano", num: fases[0].receitaAno },
   { rotulo: "Margem por mês (perda de 8%)", num: fases[0].margem8 },
   { rotulo: "Perda de equilíbrio", num: fases[0].perdaEquilibrio },
-  { rotulo: "Taxa efetiva ao mês: base · Ouro", num: preco.exemplo.efetivaMes, extra: preco.tabela[0].efetivaSacado },
+  { rotulo: "Taxa efetiva ao mês: base · Ouro (R$ 80 · R$ 64 de juros em R$ 400)", num: preco.exemplo.efetivaMes, extra: preco.tabela[0].efetivaSacado },
 ] as const;
