@@ -1,9 +1,21 @@
-import type { CSSProperties, ReactNode } from "react";
+import { useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { Selo, TituloSecao } from "../components/base";
 import type { Bloco as BlocoConteudo, Secao, VisualId } from "../content/tipos";
 import { semAnimacao } from "../lib/modo";
 import { useExibicao } from "./contexto";
 import { semMarcaProjecao } from "./numero";
+import { secoes } from "../content/secoes";
+
+/** Seção pelo id ("00" a "13"). */
+export function secaoPorId(id: string): Secao {
+  const s = secoes.find((x) => x.id === id);
+  if (!s) throw new Error(`Seção ${id} não encontrada`);
+  return s;
+}
+
+export interface PropsSecao {
+  parte: number;
+}
 
 /* -------------------------------------------------------------------------- */
 /* Moldura de uma tela                                                         */
@@ -20,15 +32,18 @@ export interface SlideProps {
   className?: string;
   corpoClassName?: string;
   estilo?: CSSProperties;
+  /** Frase de destaque no lugar do subtítulo (telas de continuação). */
+  destaque?: ReactNode;
   children?: ReactNode;
 }
 
-export function Slide({ secao, parte, cabecalho = "topo", subtitulo, className, corpoClassName, estilo, children }: SlideProps) {
+export function Slide({ secao, parte, cabecalho = "topo", subtitulo, className, corpoClassName, estilo, destaque, children }: SlideProps) {
   const exibicao = useExibicao();
   const leitura = exibicao === "leitura";
   const animar = exibicao === "palco" && !semAnimacao();
   const continua = leitura && parte > 0;
   const comSub = (subtitulo ?? parte === 0) && Boolean(secao.subtitulo);
+  const lateral = comSub ? secao.subtitulo : destaque;
   return (
     <article
       className={`slide ${leitura ? "slide--leitura" : "slide--fixo"} ${continua ? "slide--continua" : ""} ${className ?? ""}`}
@@ -37,9 +52,9 @@ export function Slide({ secao, parte, cabecalho = "topo", subtitulo, className, 
       style={estilo}
     >
       {cabecalho === "topo" && !continua ? (
-        <div className={`slide-cab ${comSub ? "" : "slide-cab--so-titulo"} ${animar ? "entrar" : ""}`}>
+        <div className={`slide-cab ${lateral ? "" : "slide-cab--so-titulo"} ${animar ? "entrar" : ""}`}>
           <TituloSecao numero={secao.id} nome={secao.nome} titulo={secao.titulo} como={secao.id === "00" ? "h1" : "h2"} />
-          {comSub ? <p className="slide-cab__sub">{secao.subtitulo}</p> : null}
+          {lateral ? <div className="slide-cab__sub">{lateral}</div> : null}
         </div>
       ) : null}
       <div className={`slide-corpo ${animar ? "entrar" : ""} ${corpoClassName ?? ""}`} style={animar ? { animationDelay: "90ms" } : undefined}>
@@ -131,12 +146,21 @@ export interface FiguraProps {
   selo?: "projecao" | "ilustrativo" | "prototipo";
   /** Esconde a legenda (quando o próprio visual já mostra). */
   semLegenda?: boolean;
+  /** O visual já desenha legenda, selo e texto alternativo (gráficos de src/components/viz). */
+  proprio?: boolean;
   className?: string;
   estilo?: CSSProperties;
   children: ReactNode;
 }
 
-export function Figura({ secao, visual, selo, semLegenda, className, estilo, children }: FiguraProps) {
+export function Figura({ secao, visual, selo, semLegenda, proprio, className, estilo, children }: FiguraProps) {
+  if (proprio) {
+    return (
+      <Encaixe className={`figura ${className ?? ""}`} estilo={estilo} visual={visual}>
+        {children}
+      </Encaixe>
+    );
+  }
   const legenda = secao.legendas[visual];
   const alt = secao.alts[visual];
   return (
@@ -173,5 +197,63 @@ export function Rotulo({ children, tom = "texto-3", className }: { children: Rea
     <p className={`font-mono text-apoio font-medium uppercase ${cor} ${className ?? ""}`} style={{ letterSpacing: "0.1em", lineHeight: 1.2 }}>
       {children}
     </p>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* Encaixe: no palco, reduz o visual para caber na altura disponível           */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Os gráficos definem a própria altura. No palco (1920×1080), se o gráfico for
+ * mais alto que o espaço da tela, ele é reduzido por escala, nunca cortado.
+ * Na leitura, nada muda: rolagem livre.
+ */
+export function Encaixe({ children, className, estilo, visual }: { children: ReactNode; className?: string; estilo?: CSSProperties; visual?: string }) {
+  const exibicao = useExibicao();
+  const fora = useRef<HTMLDivElement>(null);
+  const dentro = useRef<HTMLDivElement>(null);
+  const [escala, setEscala] = useState(1);
+  const fixo = exibicao !== "leitura";
+
+  useLayoutEffect(() => {
+    if (!fixo) return;
+    const f = fora.current;
+    const d = dentro.current;
+    if (!f || !d) return;
+    let atual = 1;
+    let ajustes = 0;
+    const medir = () => {
+      const disponivel = f.clientHeight;
+      const natural = d.offsetHeight;
+      if (!disponivel || !natural) return;
+      // altura natural medida na largura compensada (100% / escala): a escala visual é disponível ÷ natural
+      const escolhida = Math.min(1, Math.floor((disponivel / natural) * 1000) / 1000);
+      if (Math.abs(escolhida - atual) > 0.005 && ajustes < 24) {
+        ajustes += 1;
+        atual = escolhida;
+        setEscala(escolhida);
+      }
+    };
+    medir();
+    const ro = new ResizeObserver(medir);
+    ro.observe(f);
+    ro.observe(d);
+    return () => ro.disconnect();
+  }, [fixo]);
+
+  if (!fixo) {
+    return (
+      <div className={className} style={estilo} data-visual={visual}>
+        {children}
+      </div>
+    );
+  }
+  return (
+    <div ref={fora} className={`encaixe ${className ?? ""}`} style={estilo} data-visual={visual} data-escala={escala.toFixed(3)}>
+      <div ref={dentro} style={escala < 1 ? { width: `${100 / escala}%`, transform: `scale(${escala})`, transformOrigin: "top left" } : undefined}>
+        {children}
+      </div>
+    </div>
   );
 }

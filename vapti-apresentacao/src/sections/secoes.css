@@ -211,3 +211,29 @@
   padding-top: 0.34em;
   padding-bottom: 0.34em;
 }
+
+/* ---- Encaixe no palco ----------------------------------------------------- */
+.encaixe {
+  position: relative;
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: hidden;
+}
+.slide--fixo .dividir.encher {
+  grid-template-rows: minmax(0, 1fr);
+  align-items: stretch;
+}
+.slide--fixo .dividir.encher > *,
+.slide--fixo .grade-2.encher > * {
+  min-height: 0;
+}
+.slide--fixo .grade-2.encher {
+  grid-template-rows: minmax(0, 1fr);
+}
+.coluna {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  gap: var(--esp-6);
+}

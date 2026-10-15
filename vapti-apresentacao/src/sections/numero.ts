@@ -25,9 +25,9 @@ export const minusc = (s: string): string => (s ? s.charAt(0).toLowerCase() + s.
 
 /** Remove o marcador " · projeção" de um título quando o selo já diz isso. */
 export function semMarcaProjecao(titulo: string): { titulo: string; projecao: boolean } {
-  const m = /\s*·\s*projeção\s*$/i.exec(titulo);
-  if (!m) return { titulo, projecao: false };
-  return { titulo: titulo.slice(0, m.index), projecao: true };
+  const re = /\s*·\s*projeção/i;
+  if (!re.test(titulo)) return { titulo, projecao: false };
+  return { titulo: titulo.replace(re, ""), projecao: true };
 }
 
 /** Domínio de uma URL, sem "www.". */
