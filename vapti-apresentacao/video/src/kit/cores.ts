@@ -33,13 +33,16 @@ export const COR: Record<Tom, string> = {
 /** `rgb(r g b / a)` de um tom. Ex.: `rgba("verde", 0.3)`. */
 export const rgba = (tom: keyof typeof RGB, a: number): string => `rgb(${RGB[tom]} / ${Math.max(0, Math.min(1, a)).toFixed(3)})`;
 
-/** Brilho (text-shadow) suave na cor do tom; `forca` 0..1. Barato: sem filter. */
+/**
+ * Brilho (text-shadow) suave na cor do tom; `forca` 0..1. Uma sombra só, raio curto:
+ * em texto enorme o custo cresce com a área — para o brilho amplo use <Halo> atrás.
+ */
 export const brilhoTexto = (tom: Tom, forca = 1): string =>
-  forca <= 0.01 ? "none" : `0 0 ${Math.round(18 + 22 * forca)}px ${rgba(tom, 0.32 * forca)}, 0 0 ${Math.round(60 + 40 * forca)}px ${rgba(tom, 0.14 * forca)}`;
+  forca <= 0.01 ? "none" : `0 0 ${Math.round(14 + 16 * forca)}px ${rgba(tom, 0.34 * forca)}`;
 
 /** Brilho (box-shadow) em volta de caixas na cor do tom. */
 export const brilhoCaixa = (tom: Tom, forca = 1): string =>
-  forca <= 0.01 ? "" : `0 0 ${Math.round(24 + 30 * forca)}px ${rgba(tom, 0.22 * forca)}, 0 0 ${Math.round(90 + 50 * forca)}px ${rgba(tom, 0.1 * forca)}`;
+  forca <= 0.01 ? "" : `0 0 ${Math.round(28 + 34 * forca)}px ${rgba(tom, 0.24 * forca)}`;
 
 /** Sombra de profundidade (cartões, celular): suave e longa. */
 export const SOMBRA_PROFUNDA = "0 1px 0 rgb(255 255 255 / 0.06) inset, 0 40px 90px -30px rgb(0 0 0 / 0.85), 0 18px 40px -20px rgb(0 0 0 / 0.6)";

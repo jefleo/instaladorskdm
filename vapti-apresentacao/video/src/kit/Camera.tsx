@@ -10,7 +10,7 @@
  */
 import { createContext, useContext, type CSSProperties, type ReactNode } from "react";
 import { useFilme } from "./contexto";
-import { ease, lerp, prog, ruido, type Curva } from "./tempo";
+import { ease, lerp, prog, ruido, type Easing } from "./tempo";
 
 /** Estado da câmera. x/y positivos = a câmera anda para a direita/baixo (a cena vai ao contrário). */
 export interface PoseCamera {
@@ -25,7 +25,7 @@ export interface PoseCamera {
 /** Chave de câmera em tempo ABSOLUTO; `curva` vale para o trecho que CHEGA nesta chave. */
 export interface ChaveCamera extends PoseCamera {
   t: number;
-  curva?: Curva;
+  curva?: Easing;
 }
 
 interface PoseCompleta {
@@ -83,7 +83,7 @@ export interface CameraProps {
   t0?: number;
   t1?: number;
   /** Curva do movimento (padrão inOutSine: lento nas pontas, como um dolly). */
-  curva?: Curva;
+  curva?: Easing;
   /** Alternativa a de/para: chaves absolutas (têm prioridade). */
   chaves?: ChaveCamera[];
   /**

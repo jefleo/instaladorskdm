@@ -175,3 +175,14 @@ export function acharEnfase(tokens, enfase) {
   }
   return null;
 }
+
+// Pronúncia para o Kokoro (pt-BR): só o texto enviado ao TTS muda; legenda e falas.json seguem com a grafia original.
+const PRONUNCIA_KOKORO = [
+  [/\bZippi\b/g, "Zípi"], [/\bVapti\b/g, "Vápiti"], [/\bBaaS\b/g, "Bás"], [/\bESC\b/g, "ê ésse cê"],
+  [/\bMEI\b/g, "mêi"], [/\bDealroom\b/g, "Dílrum"], [/\bFIDC\b/g, "fídic"], [/\bCCB\b/g, "cê cê bê"], [/\bPix\b/g, "Píkis"],
+];
+export function textoParaKokoro(texto) {
+  let t = expandirNumeros(texto);
+  for (const [re, sub] of PRONUNCIA_KOKORO) t = t.replace(re, sub);
+  return t;
+}

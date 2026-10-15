@@ -7,7 +7,7 @@
  */
 
 /** Função de easing: recebe 0..1 e devolve (em geral) 0..1. */
-export type Curva = (p: number) => number;
+export type Easing = (p: number) => number;
 
 /** Limita `x` ao intervalo [a, b]. */
 export const clamp = (x: number, a: number, b: number): number => (x < a ? a : x > b ? b : x);
@@ -31,7 +31,7 @@ export function prog(t: number, t0: number, t1: number): number {
  * Mapeia `t` de [t0, t1] para [v0, v1] com easing opcional.
  * Ex.: `mapear(t, 2, 2.4, 40, 0, ease.outCubic)` → deslocamento que assenta em 0.
  */
-export function mapear(t: number, t0: number, t1: number, v0: number, v1: number, curva: Curva = linear): number {
+export function mapear(t: number, t0: number, t1: number, v0: number, v1: number, curva: Easing = linear): number {
   return lerp(v0, v1, curva(prog(t, t0, t1)));
 }
 
@@ -39,13 +39,13 @@ export function mapear(t: number, t0: number, t1: number, v0: number, v1: number
 /* Curvas                                                              */
 /* ------------------------------------------------------------------ */
 
-const linear: Curva = (p) => p;
+const linear: Easing = (p) => p;
 
 /**
  * Bézier cúbica no estilo CSS (x1, y1, x2, y2), resolvida por Newton + bisseção.
  * Determinista e barata; use para casar com o `--ease-saida` do site.
  */
-export function bezier(x1: number, y1: number, x2: number, y2: number): Curva {
+export function bezier(x1: number, y1: number, x2: number, y2: number): Easing {
   const cx = 3 * x1;
   const bx = 3 * (x2 - x1) - cx;
   const ax = 1 - cx - bx;
@@ -155,7 +155,7 @@ export const stagger = (i: number, passo: number, inicio = 0): number => inicio 
  * Envelope de presença 0..1: entra em [t0, t0 + entrada], fica, sai em [t1 − saida, t1].
  * Use para opacidade de elementos que vivem numa janela. `t1 = Infinity` = nunca sai.
  */
-export function envelope(t: number, t0: number, t1: number, entrada = 0.35, saida = 0.35, curva: Curva = ease.outCubic): number {
+export function envelope(t: number, t0: number, t1: number, entrada = 0.35, saida = 0.35, curva: Easing = ease.outCubic): number {
   const a = curva(prog(t, t0, t0 + entrada));
   const b = Number.isFinite(t1) ? 1 - ease.inOutSine(prog(t, t1 - saida, t1)) : 1;
   return Math.min(a, b);

@@ -4,82 +4,75 @@
  */
 import type { CSSProperties } from "react";
 import { useFilme } from "./contexto";
-import { rgba, RGB, type Tom } from "./cores";
+import { rgba, type Tom } from "./cores";
 import { clamp01, hash, mulberry32, oscilar, quadro } from "./tempo";
+import { LADO_GRAO, texturaGrao, texturaRadial, texturaVinheta } from "./texturas";
 
 /* ------------------------------------------------------------------ */
 /* Grão                                                                */
 /* ------------------------------------------------------------------ */
 
-const LADO_GRAO = 256;
-let texturaGrao: string | null = null;
+export interface GraoProps {
+  /** Multiplicador da intensidade (padrão 1 = pontos de no máximo ~±0,1 de alfa; ≤ 1). */
+  forca?: number;
+}
 
 /**
- * Gera UMA vez (na carga) o mosaico de grão: PNG 256×256 com pontos claros e escuros
- * de alfa baixo (média ≈ neutra, não clareia o preto). Semente fixa: sempre o mesmo PNG.
+ * Grão de filme: o mosaico (gerado uma vez, `texturaGrao`) é deslocado a cada quadro
+ * por um hash de `floor(t * fps)` — determinista, sem feTurbulence.
  */
-export function gerarTexturaGrao(): string {
-  if (texturaGrao) return texturaGrao;
-  const c = document.createElement("canvas");
-  c.width = LADO_GRAO;
-  c.height = LADO_GRAO;
-  const ctx = c.getContext("2d");
-  if (!ctx) return "";
-  const img = ctx.createImageData(LADO_GRAO, LADO_GRAO);
-  const r = mulberry32(20261016);
-  for (let i = 0; i < LADO_GRAO * LADO_GRAO; i++) {
-    // Soma de 3 uniformes ≈ gaussiana em −1..1
-    const n = (r() + r() + r()) / 1.5 - 1;
-    const claro = n > 0;
-    const v = claro ? 255 : 0;
-    const a = Math.min(255, Math.round(Math.abs(n) * (claro ? 210 : 255)));
-    img.data[i * 4] = v;
-    img.data[i * 4 + 1] = v;
-    img.data[i * 4 + 2] = v;
-    img.data[i * 4 + 3] = a;
-  }
-  ctx.putImageData(img, 0, 0);
-  texturaGrao = c.toDataURL("image/png");
-  return texturaGrao;
-}
-
-/** Garante a textura decodificada antes do primeiro quadro (usado no `pronto`). */
-export async function prepararGrao(): Promise<void> {
-  const url = gerarTexturaGrao();
-  if (!url) return;
-  const img = new Image();
-  img.src = url;
-  try {
-    await img.decode();
-  } catch {
-    /* sem decode: o navegador decodifica no primeiro uso */
-  }
-}
-
-export interface GraoProps {
-  /** Opacidade da camada (padrão 0,1). */
-  forca?: number;
-  /** Escala do grão (padrão 1,5: grão de ~1,5 px, sobrevive à compressão H.264). */
-  escala?: number;
-}
-
-/** Grão de filme: o mosaico é deslocado a cada quadro por `floor(t * fps)` (determinista). */
-export function Grao({ forca = 0.1, escala = 1.5 }: GraoProps) {
+export function Grao({ forca = 1 }: GraoProps) {
   const { t, fps, rascunho } = useFilme();
   if (rascunho) return null;
   const q = quadro(t, fps);
-  const lado = LADO_GRAO * escala;
-  const dx = hash(q, 11) % lado;
-  const dy = hash(q, 23) % lado;
+  const dx = hash(q, 11) % LADO_GRAO;
+  const dy = hash(q, 23) % LADO_GRAO;
   return (
     <div
       aria-hidden="true"
       className="pointer-events-none absolute inset-0"
       style={{
-        backgroundImage: `url(${gerarTexturaGrao()})`,
-        backgroundSize: `${lado}px ${lado}px`,
+        backgroundImage: `url(${texturaGrao()})`,
         backgroundPosition: `${dx}px ${dy}px`,
-        opacity: forca,
+        opacity: forca >= 1 ? undefined : forca,
+      }}
+    />
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Halo (brilho radial barato)                                         */
+/* ------------------------------------------------------------------ */
+
+export interface HaloProps {
+  tom?: Tom;
+  /** Centro em px do contêiner. */
+  x: number;
+  y: number;
+  /** Largura e altura da elipse (px). */
+  w: number;
+  h?: number;
+  /** Opacidade no centro, 0..1. */
+  intensidade?: number;
+  style?: CSSProperties;
+}
+
+/** Brilho radial suave (textura pré-desenhada): use atrás de números, celulares, marcas. */
+export function Halo({ tom = "verde", x, y, w, h = w, intensidade = 0.2, style }: HaloProps) {
+  if (intensidade <= 0.002) return null;
+  return (
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute"
+      style={{
+        left: x - w / 2,
+        top: y - h / 2,
+        width: w,
+        height: h,
+        backgroundImage: `url(${texturaRadial(tom)})`,
+        backgroundSize: "100% 100%",
+        opacity: clamp01(intensidade),
+        ...style,
       }}
     />
   );
@@ -92,19 +85,15 @@ export function Grao({ forca = 0.1, escala = 1.5 }: GraoProps) {
 export interface VinhetaProps {
   /** Escurecimento nas bordas, 0..1 (padrão 0,55). */
   forca?: number;
-  /** Raio livre no centro, em % (padrão 52). */
-  centro?: number;
 }
 
-/** Vinheta: escurece as bordas e concentra o olhar no centro. */
-export function Vinheta({ forca = 0.55, centro = 52 }: VinhetaProps) {
+/** Vinheta: escurece as bordas e concentra o olhar no centro (textura pré-desenhada). */
+export function Vinheta({ forca = 0.55 }: VinhetaProps) {
   return (
     <div
       aria-hidden="true"
       className="pointer-events-none absolute inset-0"
-      style={{
-        background: `radial-gradient(ellipse 75% 80% at 50% 48%, transparent ${centro}%, rgb(4 6 9 / ${(forca * 0.55).toFixed(3)}) ${centro + 26}%, rgb(4 6 9 / ${forca.toFixed(3)}) 100%)`,
-      }}
+      style={{ backgroundImage: `url(${texturaVinheta()})`, backgroundSize: "100% 100%", opacity: clamp01(forca) }}
     />
   );
 }
@@ -121,25 +110,22 @@ export interface GraduacaoProps {
   intensidade?: number;
 }
 
-const GRADUACAO: Record<TomGraduacao, string> = {
-  frio: [
-    "radial-gradient(ellipse 60% 55% at 12% 0%, rgb(143 184 255 / 0.085), transparent 70%)",
-    "linear-gradient(180deg, rgb(143 184 255 / 0.03), transparent 45%, rgb(8 14 30 / 0.16))",
-  ].join(", "),
-  quente: [
-    "radial-gradient(ellipse 55% 50% at 92% 4%, rgb(255 176 112 / 0.075), transparent 70%)",
-    "linear-gradient(180deg, rgb(255 190 140 / 0.02), transparent 50%, rgb(30 16 8 / 0.14))",
-  ].join(", "),
-  neutro: [
-    "radial-gradient(ellipse 70% 50% at 50% -5%, rgb(242 244 247 / 0.045), transparent 70%)",
-    "linear-gradient(180deg, transparent 55%, rgb(4 6 9 / 0.14))",
-  ].join(", "),
+/** Luz ambiente de cada tom: um brilho radial (textura) num canto + gradiente linear vertical. */
+const GRADUACAO: Record<TomGraduacao, { tom: Tom; x: number; y: number; w: number; h: number; a: number; linear: string }> = {
+  frio: { tom: "azul", x: 230, y: 0, w: 2300, h: 1300, a: 0.09, linear: "linear-gradient(180deg, rgb(143 184 255 / 0.03), transparent 45%, rgb(8 14 30 / 0.16))" },
+  quente: { tom: "coral", x: 1770, y: 40, w: 2100, h: 1100, a: 0.06, linear: "linear-gradient(180deg, rgb(255 190 140 / 0.02), transparent 50%, rgb(30 16 8 / 0.14))" },
+  neutro: { tom: "texto", x: 960, y: -60, w: 2700, h: 1100, a: 0.05, linear: "linear-gradient(180deg, transparent 55%, rgb(4 6 9 / 0.14))" },
 };
 
 /** Graduação de cor da cena: luz ambiente fria, quente ou neutra (sem blend-mode). */
 export function Graduacao({ tom = "neutro", intensidade = 1 }: GraduacaoProps) {
   if (intensidade <= 0.001) return null;
-  return <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: GRADUACAO[tom], opacity: clamp01(intensidade) }} />;
+  const g = GRADUACAO[tom];
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: g.linear, opacity: clamp01(intensidade) }}>
+      <Halo tom={g.tom} x={g.x} y={g.y} w={g.w} h={g.h} intensidade={g.a} />
+    </div>
+  );
 }
 
 /* ------------------------------------------------------------------ */
@@ -170,23 +156,11 @@ export function Respiracao({ tom = "verde", x = 960, y = 540, raio = 520, intens
   const { t } = useFilme();
   if (opacidade <= 0.001) return null;
   const s = oscilar(t, periodo, fase);
-  const a = intensidade * (0.78 + 0.22 * s);
+  const a = intensidade * (0.78 + 0.22 * s) * opacidade;
   const esc = 1 + 0.035 * s;
-  return (
-    <div
-      aria-hidden="true"
-      className="pointer-events-none absolute"
-      style={{
-        left: x - raio,
-        top: y - raio,
-        width: raio * 2,
-        height: raio * 2,
-        transform: `scale(${esc.toFixed(4)}, ${(esc * achatar).toFixed(4)})`,
-        background: `radial-gradient(circle, rgb(${RGB[tom]} / ${a.toFixed(3)}) 0%, rgb(${RGB[tom]} / ${(a * 0.45).toFixed(3)}) 32%, rgb(${RGB[tom]} / ${(a * 0.12).toFixed(3)}) 55%, transparent 72%)`,
-        opacity: opacidade,
-      }}
-    />
-  );
+  // a textura cai a zero na borda: o raio útil é ~70% do lado
+  const lado = raio * 2 * 1.25 * esc;
+  return <Halo tom={tom} x={x} y={y} w={lado} h={lado * achatar} intensidade={a} />;
 }
 
 /* ------------------------------------------------------------------ */
@@ -266,7 +240,9 @@ export function Poeira({ n = 36, bokeh = 5, seed = 7, tom = "texto", area, veloc
               width: p.r * 2,
               height: p.r * 2,
               transform: `translate3d(${(x - p.r).toFixed(1)}px, ${(y - p.r).toFixed(1)}px, 0)`,
-              background: `radial-gradient(circle, ${rgba(tom, a)} 0%, ${rgba(tom, a * 0.5)} 45%, transparent 70%)`,
+              backgroundImage: `url(${texturaRadial(tom)})`,
+              backgroundSize: "100% 100%",
+              opacity: Math.min(1, a * 1.2),
             }}
           />
         );

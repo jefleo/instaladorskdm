@@ -8,6 +8,7 @@ export * from "./cores";
 export * from "./contexto";
 export * from "./Camera";
 export * from "./acabamento";
+export * from "./texturas";
 export * from "./tipografia";
 export * from "./Selo";
 export * from "./MarcaVapti";

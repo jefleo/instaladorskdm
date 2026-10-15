@@ -9,7 +9,8 @@ import { formatBRL, formatInt, formatMi, formatPct } from "../../../src/lib/form
 import { useFilme } from "./contexto";
 import { brilhoTexto, COR, rgba, type Tom } from "./cores";
 import { frasePorId, type Frase } from "../timeline";
-import { ease, prog, type Curva } from "./tempo";
+import { ease, prog, type Easing } from "./tempo";
+import { texturaRadial } from "./texturas";
 
 /* ------------------------------------------------------------------ */
 /* Utilidades de texto                                                 */
@@ -115,6 +116,8 @@ export interface PalavraProps {
   /** Cor do texto (padrão "texto") e do destaque (padrão "verde"). */
   tom?: Tom;
   tomDestaque?: Tom;
+  /** Cor CSS livre para as palavras sem destaque (tem prioridade sobre `tom`). */
+  cor?: string;
   /** Estilo de entrada (padrão "mascara": sobe de dentro de uma janela). */
   modo?: ModoEntrada;
   /** Duração da entrada de cada palavra (padrão 0,55 s). */
@@ -144,6 +147,7 @@ export function Palavra({
   destaque,
   tom = "texto",
   tomDestaque = "verde",
+  cor,
   modo = "mascara",
   dur = 0.55,
   saida,
@@ -205,7 +209,7 @@ export function Palavra({
                   display: "inline-block",
                   transform,
                   opacity,
-                  color: ehDestaque ? COR[tomDestaque] : COR[tom],
+                  color: ehDestaque ? COR[tomDestaque] : (cor ?? COR[tom]),
                   textShadow: forca > 0 ? brilhoTexto(tomDestaque, forca) : undefined,
                   willChange: "transform",
                 }}
@@ -328,7 +332,7 @@ export function Rotulo({ texto, em, saida, tom = "verde", destaque, traco = true
           }}
         />
       ) : null}
-      <Palavra texto={texto} em={em + (traco ? 0.12 : 0)} passo={0.06} modo="subir" dur={0.5} destaque={destaque ?? false} tomDestaque={tom} tom={eyebrow ? "texto" : "texto"} style={{ color: eyebrow ? "var(--cor-texto-2)" : undefined }} />
+      <Palavra texto={texto} em={em + (traco ? 0.12 : 0)} passo={0.06} modo="subir" dur={0.5} destaque={destaque ?? false} tomDestaque={tom} cor={eyebrow ? "var(--cor-texto-2)" : "var(--cor-texto)"} />
     </div>
   );
 }
@@ -374,7 +378,7 @@ export interface NumeroProps {
   /** Texto final exato (ex.: `num.rotulo`), mostrado a partir de `tParada`. */
   final?: string;
   /** Curva da contagem (padrão outCubic: desacelera até parar). */
-  curva?: Curva;
+  curva?: Easing;
   /** Tamanho em px (padrão 168, o KPI-herói). */
   tamanho?: number;
   tom?: Tom;
@@ -452,6 +456,7 @@ export function Numero({
       className={className}
       data-num
       style={{
+        position: "relative",
         display: "inline-grid",
         justifyItems: justificar,
         fontFamily: "var(--fonte-mono)",
@@ -469,6 +474,23 @@ export function Numero({
         ...style,
       }}
     >
+      {/* brilho amplo atrás do número (textura, barato) */}
+      {forca > 0.01 ? (
+        <span
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            left: "-18%",
+            right: "-18%",
+            top: "-45%",
+            bottom: "-45%",
+            backgroundImage: `url(${texturaRadial(tom)})`,
+            backgroundSize: "100% 100%",
+            opacity: Math.min(1, 0.16 * forca),
+            pointerEvents: "none",
+          }}
+        />
+      ) : null}
       {/* O texto final, invisível, reserva a largura e evita "pulos" durante a contagem */}
       <span aria-hidden="true" style={{ gridArea: "1 / 1", visibility: "hidden" }}>
         {render(textoFinal)}

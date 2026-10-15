@@ -6,7 +6,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import { MolduraCelular } from "../../../src/components/base/MolduraCelular";
 import { useFilme } from "./contexto";
-import { rgba } from "./cores";
+import { Halo } from "./acabamento";
 import { ease, prog, spring } from "./tempo";
 
 /** Proporção da tela da moldura (390 × 844) e borda (12 px a 390). */
@@ -49,20 +49,7 @@ export function CelularMoldura({ em, saida, largura = 360, x, y, giro = -7, bril
   const brilhoX = 30 + ry * 2.2;
   return (
     <div className={className} style={{ ...posicao, width: aparelhoL, perspective: 1800, opacity: o * (1 - q), ...style }}>
-      {brilho > 0 ? (
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            left: "50%",
-            top: "50%",
-            width: aparelhoL * 2.4,
-            height: aparelhoL * 3.2,
-            transform: "translate(-50%, -50%)",
-            background: `radial-gradient(ellipse, ${rgba("verde", 0.14 * brilho)} 0%, ${rgba("verde", 0.05 * brilho)} 40%, transparent 68%)`,
-          }}
-        />
-      ) : null}
+      {brilho > 0 ? <Halo tom="verde" x={aparelhoL / 2} y={alturaCelular(largura) / 2} w={aparelhoL * 2.6} h={aparelhoL * 3.4} intensidade={0.2 * brilho} /> : null}
       <div
         style={{
           transform: `translate3d(0, ${(u * 120).toFixed(2)}px, 0) rotateY(${ry.toFixed(3)}deg) rotateX(${(2 + u * 6).toFixed(3)}deg)`,

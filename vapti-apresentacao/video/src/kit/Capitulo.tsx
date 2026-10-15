@@ -45,7 +45,7 @@ export function Capitulo({ texto, em, dur = CAPITULO.duracao }: CapituloProps) {
   const pTraco = ease.saida(prog(t, em, em + 0.5));
   const pNum = ease.saida(prog(t, em + 0.12, em + 0.62));
   const pTit = ease.saida(prog(t, em + 0.22, em + 0.8));
-  const sobe = (1 - ease.inOutSine(prog(t, em + dur, em + dur + 0.4))) * 0 + ease.inOutSine(prog(t, em + dur, em + dur + 0.4)) * -8;
+  const sobe = ease.inOutSine(prog(t, em + dur, em + dur + 0.4)) * -8;
   return (
     <div
       aria-hidden="true"

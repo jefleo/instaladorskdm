@@ -6,7 +6,7 @@
 import { useId, type CSSProperties, type ReactNode } from "react";
 import { useFilme } from "./contexto";
 import { brilhoCaixa, COR, rgba, SOMBRA_PROFUNDA, type Tom } from "./cores";
-import { clamp01, ease, prog, spring, type Curva as CurvaEase } from "./tempo";
+import { clamp01, ease, prog, spring, type Easing } from "./tempo";
 
 /* ------------------------------------------------------------------ */
 /* <Tracado> — path SVG que se desenha                                 */
@@ -19,7 +19,7 @@ export interface TracadoProps {
   em: number;
   /** Duração do desenho (padrão 0,9 s). */
   dur?: number;
-  curva?: CurvaEase;
+  curva?: Easing;
   /** Força o progresso 0..1 (ignora em/dur). */
   progresso?: number;
   tom?: Tom;
@@ -137,7 +137,7 @@ export interface CurvaProps {
   em: number;
   /** Duração do desenho (padrão 1,4 s). */
   dur?: number;
-  curva?: CurvaEase;
+  curva?: Easing;
   /** Força o progresso 0..1. */
   progresso?: number;
   tom?: Tom;
@@ -251,8 +251,8 @@ export function Barra({ valor, max, comprimento, espessura = 56, orientacao = "v
       }
     : {
         background: vertical
-          ? `linear-gradient(180deg, ${rgba(c, 1)} 0%, ${rgba(c, 0.86)} 100%)`
-          : `linear-gradient(90deg, ${rgba(c, 0.86)} 0%, ${rgba(c, 1)} 100%)`,
+          ? `linear-gradient(180deg, ${rgba(c, 1)} 0%, ${rgba(c, 0.8)} 45%, ${rgba(c, 0.5)} 100%)`
+          : `linear-gradient(90deg, ${rgba(c, 0.5)} 0%, ${rgba(c, 0.8)} 55%, ${rgba(c, 1)} 100%)`,
         boxShadow: [`0 1px 0 rgb(255 255 255 / 0.35) inset`, brilhoCaixa(tom, halo * Math.min(1, g))].filter(Boolean).join(", "),
       };
   return (
@@ -385,9 +385,10 @@ export function Grade({ tipo = "pauta", passo = 64, em, dur = 1.2, opacidade = 1
           backgroundPosition: `0px ${off.toFixed(2)}px`,
           transform: "rotateX(76deg)",
           transformOrigin: "50% 0%",
-          maskImage: "linear-gradient(180deg, transparent 0%, #000 30%, #000 100%)",
         }}
       />
+      {/* some no horizonte: gradiente por cima (mais barato que mask-image) */}
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, var(--cor-tinta) 0%, rgb(14 17 22 / 0) 38%)" }} />
     </div>
   );
 }
