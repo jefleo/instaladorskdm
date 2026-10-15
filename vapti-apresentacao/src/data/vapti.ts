@@ -27,6 +27,9 @@ const n = (valor: number, rotulo: string, unidade: Unidade, tipo: Tipo, fonte: s
 });
 
 const B = (secao: string) => `Briefing ${secao}`;
+/** Adendo de 15/10/2026, aprovado pelo dono do projeto (docs/ADENDO-15-10.md). */
+const AD = (origem: string) => `Adendo 15/10 — ${origem}`;
+const IN513 = "IN BCB nº 513/2024";
 
 /* ------------------------------------------------------------------ */
 /* Configuração da apresentação                                        */
@@ -148,7 +151,27 @@ export const produto = {
   planosDiarios: [7, 14, 20] as const,
   planoDiarioRecomendado: 14,
   pixRetentativas: n(3, "3", "un", "fato", B("4.4")),
-  pixAvisoDias: n(10, "10 dias", "dias", "fato", B("4.4")),
+  /**
+   * Antecedência da cobrança do Pix Automático: a instrução vai ao banco do cliente
+   * de 2 a 10 dias corridos antes do vencimento (o "10 dias" do briefing é o máximo).
+   * O valor numérico é o máximo; na tela, use o rótulo da faixa.
+   */
+  pixAvisoDias: n(10, "2 a 10 dias", "dias", "fato", AD(`${IN513}; Jovem Pan`)),
+  pixAvisoMinDias: n(2, "2 dias", "dias", "fato", AD(`${IN513}; Jovem Pan`)),
+  pixAvisoMaxDias: n(10, "10 dias", "dias", "fato", AD(`${IN513}; Jovem Pan`)),
+  /** Periodicidades do Pix Automático. A mais curta é a semanal: não existe diária. */
+  pixPeriodicidades: ["semanal", "mensal", "trimestral", "semestral", "anual"] as const,
+  pixPeriodicidadeMinima: "semanal",
+  pixFonte: AD(`${IN513}; Jovem Pan; Finsiders`),
+  /** Calendário das novas tentativas: não definido no briefing. */
+  pixRetentativasCalendario: "[A CONFIRMAR com a parceira] calendário das retentativas",
+  /** Tarifa: o pagador não paga; o recebedor paga conforme a tabela da instituição (sem valor público). */
+  pixTarifaPagador: "Sem tarifa para quem paga",
+  pixTarifaRecebedor: "Quem recebe (a parceira ou o fundo) paga conforme a tabela da instituição",
+  pixTarifaValor: "Valor não divulgado em fonte pública; entra na cotação da parceira [A CONFIRMAR]",
+  /** Plano diário: não cabe no Pix Automático (periodicidade mínima semanal). */
+  planoDiarioPagamento: "QR Pix diário, sem débito automático",
+  planoDiarioArranjo: "QR Pix ou Pix Cobrança por parcela, pela régua, ou outro arranjo a definir com a parceira [A CONFIRMAR]",
   pixDesde: "junho de 2025",
   capacidadeMaxRenda: n(0.15, "15%", "%", "premissa", B("4.4")),
   percentilPeriodoRuim: n(20, "percentil 20", "un", "premissa", B("4.4")),
@@ -615,6 +638,8 @@ export const riscos = [
   { risco: "Fraude no cadastro digital", mitigacao: "Biometria, antifraude, Open Finance; limite inicial baixo" },
   { risco: "Dependência do WhatsApp e da Meta", mitigacao: "A plataforma própria carrega a jornada; o WhatsApp fica nas pontas" },
   { risco: "Capital próprio limitado no ano 1", mitigacao: "Fase 2 com dívida assim que houver 12 meses de safra" },
+  /* Adendo 15/10: a periodicidade mínima do Pix Automático é semanal (IN BCB nº 513/2024). */
+  { risco: "Plano diário não cabe no Pix Automático (periodicidade mínima semanal)", mitigacao: "Plano semanal como padrão; diário via QR Pix e régua; confirmar com a parceira" },
 ] as const;
 
 /* ------------------------------------------------------------------ */
@@ -643,6 +668,56 @@ export const piloto = {
   ],
   escala: ["Atraso abaixo de 10%", "Recontratação acima de 50%", "Custo dentro da meta"],
   escalaNota: "Os três juntos. Aí aumenta o capital e abre o segundo segmento.",
+  /** As metas e paradas acima, em número (para o plano de ação). */
+  num: {
+    pagasNoVencimento: n(0.8, "80%", "%", "premissa", B("4.13 — meta")),
+    atraso30Meta: n(0.1, "10%", "%", "premissa", B("4.13 — meta")),
+    atraso30Parada: n(0.2, "20%", "%", "premissa", B("4.13 — parada")),
+    custoPrimeiroSaque: n(20, "R$ 20", "R$", "premissa", B("4.13 — meta")),
+    custoRecontratacao: n(8, "R$ 8", "R$", "premissa", B("4.13 — meta")),
+    custoParada: n(35, "R$ 35", "R$", "premissa", B("4.13 — parada")),
+    recontratacaoMeta: n(0.5, "50%", "%", "premissa", B("4.13 — meta")),
+    recontratacaoParada: n(0.3, "30%", "%", "premissa", B("4.13 — parada")),
+  },
+} as const;
+
+/* ------------------------------------------------------------------ */
+/* Plano de ação (seção 11) — marcos da régua de cobrança              */
+/* Fonte: Briefing 4.4, 4.7 e 4.8; Pix Automático pelo Adendo 15/10.    */
+/* ------------------------------------------------------------------ */
+
+/** Dias em relação ao vencimento (D0). Negativo = antes; positivo = atraso. */
+export const reguaCobranca = {
+  programacaoDe: n(-produto.pixAvisoMaxDias.valor, "D−10", "dias", "fato", produto.pixAvisoDias.fonte),
+  programacaoAte: n(-produto.pixAvisoMinDias.valor, "D−2", "dias", "fato", produto.pixAvisoDias.fonte),
+  vencimento: n(0, "D0", "dias", "fato", B("4.4")),
+  toleranciaDe: n(1, "D+1", "dias", "premissa", B("4.7 — tolerância de 1 a 2 dias")),
+  toleranciaAte: n(2, "D+2", "dias", "premissa", B("4.7 — tolerância de 1 a 2 dias")),
+  encargos: n(3, "D+3", "dias", "premissa", B("4.7 — encargos depois da tolerância")),
+  reparcelamento: n(atraso.diaReparcelamento.valor, "D+7", "dias", "premissa", B("4.7 — 7º dia de atraso")),
+  acompanhamentoDe: n(8, "D+8", "dias", "premissa", B("4.8 — faixa de roll rate 8–30")),
+  acompanhamentoAte: n(30, "D+30", "dias", "premissa", B("4.8 e 4.13 — atraso acima de 30 dias")),
+} as const;
+
+/* ------------------------------------------------------------------ */
+/* Simulador do cliente final (tela 06c)                               */
+/* ------------------------------------------------------------------ */
+
+export const simuladorCliente = {
+  valorMin: projeto.saqueMin,
+  valorMax: projeto.saqueMax,
+  passo: n(50, "R$ 50", "R$", "premissa", "Adendo 15/10 — passo do simulador do cliente"),
+  valorInicial: projeto.saqueMedio,
+  /** Planos na ordem da tela: 4 semanas, depois os diários (14 é o recomendado). */
+  planos: [
+    { id: "s4", tipo: "semanal", parcelas: produto.parcelasSemanais.valor },
+    { id: "d14", tipo: "diario", parcelas: produto.planosDiarios[1] },
+    { id: "d7", tipo: "diario", parcelas: produto.planosDiarios[0] },
+    { id: "d20", tipo: "diario", parcelas: produto.planosDiarios[2] },
+  ] as const,
+  nivelInicial: "bronze" as Nivel["id"],
+  /** Plano diário: taxa equivalente de 5% por semana (Briefing 4.5), igual em todos os níveis [A CONFIRMAR]. */
+  taxaDiario: preco.exemplo.taxa,
 } as const;
 
 /* ------------------------------------------------------------------ */
@@ -672,6 +747,9 @@ export const decisoes = {
   pendenciasProduto: [
     "Confirmar com a parceira se o rotativo semanal com Pix Automático cabe no catálogo dela.",
     "Acesso ao Open Finance via parceira.",
+    /* Adendo 15/10 */
+    "Plano diário fora do Pix Automático (mínimo semanal): QR Pix por parcela ou outro arranjo. [A CONFIRMAR]",
+    "Tarifa do Pix Automático para quem recebe e calendário das 3 novas tentativas. [A CONFIRMAR]",
   ],
   /** Próximas 4 semanas — o briefing não traz cronograma detalhado. */
   proximas4Semanas: "[A CONFIRMAR] cronograma semana a semana",
@@ -704,6 +782,10 @@ export const fontes = [
   { titulo: "TechCrunch — política de IA na API do WhatsApp", url: "https://techcrunch.com/2025/10/18/whatssapp-changes-its-terms-to-bar-general-purpose-chatbots-from-its-platform/" },
   { titulo: "Serasa Experian — preços de consulta", url: "https://www.serasaexperian.com.br/solucoes/consulta-de-cnpj-serasa-experian" },
   { titulo: "Zenvia — soluções para o setor financeiro", url: "https://zenvia.com/segmentos/financeiro/" },
+  /* Adendo 15/10 — Pix Automático */
+  { titulo: "IN BCB nº 513/2024 — regulamento do Pix Automático", url: "https://www.normasbrasil.com.br/norma/instrucao-normativa-513-2024_463899.html" },
+  { titulo: "Jovem Pan — regras do Pix Automático", url: "https://jovempan.com.br/?p=51212" },
+  { titulo: "Finsiders — a corrida dos bancos pelo Pix Automático", url: "https://finsidersbrasil.com.br/reportagem-exclusiva-fintechs/a-corrida-de-bancos-e-fintechs-para-se-adiantar-ao-pix-automatico/" },
 ] as const;
 
 export const aviso =

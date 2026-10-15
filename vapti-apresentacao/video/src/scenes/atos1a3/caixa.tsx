@@ -212,7 +212,7 @@ export function CaixaIrregular({ tempos: T }: { tempos: TemposCaixa }) {
         </div>
       ) : null}
       {/* selo colado ao gráfico */}
-      <div style={{ position: "absolute", right: 14, top: -10 }}>
+      <div style={{ position: "absolute", right: 14, top: 716 }}>
         <Selo tipo="ilustrativo" em={T.selo} />
       </div>
       {/* bloco verde que preenche o buraco (F009) */}

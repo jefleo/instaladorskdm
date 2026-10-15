@@ -192,23 +192,23 @@ function ZippiHoje() {
   const fundoCartao = { position: "absolute", borderRadius: 22, background: "linear-gradient(180deg, rgb(33 41 52 / 0.94), rgb(22 27 34 / 0.96))", border: "1px solid rgb(255 255 255 / 0.075)", boxShadow: "0 40px 90px -30px rgb(0 0 0 / 0.85)" } as const;
   return (
     <div className="absolute inset-0" style={{ opacity: sai, transform: `translate(0, ${desce.toFixed(1)}px)` }}>
-      <Halo tom="azul" x={mix(960, 900, vira)} y={mix(470, 530, vira)} w={mix(1500, 700, vira)} h={mix(700, 420, vira)} intensidade={0.08} />
+      <Halo tom="azul" x={mix(960, 1200, vira)} y={mix(470, 530, vira)} w={mix(1500, 700, vira)} h={mix(700, 420, vira)} intensidade={0.08} />
       {/* cartão 1 (o número gigante encolhe para dentro dele) */}
-      <div style={{ ...fundoCartao, left: 680, top: 390, width: 440, height: 300, opacity: cartao, transform: `scale(${(0.94 + 0.06 * cartao).toFixed(4)})` }} />
+      <div style={{ ...fundoCartao, left: 640, top: 390, width: 440, height: 300, opacity: cartao, transform: `scale(${(0.94 + 0.06 * cartao).toFixed(4)})` }} />
       <div style={{ ...eyebrow, position: "absolute", left: 960 - 300, top: mix(250, 300, vira), width: 600, textAlign: "center", opacity: surge(t, f15.tE - 0.4, 0.4) * (1 - vira) }}>Zippi · hoje</div>
-      <div style={{ position: "absolute", left: mix(960, 900, vira), top: mix(470, 500, vira), transform: `translate(-50%, -50%) scale(${mix(1, 0.34, vira).toFixed(4)})` }}>
-        <Numero valor={zippi.concedido.valor} final={zippi.concedido.rotulo} formato={fmtBi} tParada={tParada} dur={tParada - f15.tE + 0.15} tamanho={330} tom="texto" alinhar="centro" em={f15.tE - 0.45} brilho={0.15} />
+      <div style={{ position: "absolute", left: mix(960, 860, vira), top: mix(470, 500, vira), transform: `translate(-50%, -50%) scale(${mix(1, 0.34, vira).toFixed(4)})` }}>
+        <Numero valor={zippi.concedido.valor} final={zippi.concedido.rotulo} formato={fmtBi} tParada={tParada} dur={tParada - f15.tE + 0.45} tamanho={330} tom="texto" alinhar="centro" em={f15.tE - 0.45} brilho={0.15} />
       </div>
-      <div style={{ ...titulo, position: "absolute", left: mix(960, 900, vira) - 400, top: mix(680, 590, vira), width: 800, textAlign: "center", fontSize: mix(80, 40, vira), color: "var(--cor-texto-2)", opacity: surge(t, tPal(f15.f, "concedidos") - 0.05, 0.45) }}>concedidos</div>
+      <div style={{ ...titulo, position: "absolute", left: mix(960, 860, vira) - 400, top: mix(680, 590, vira), width: 800, textAlign: "center", fontSize: mix(80, 40, vira), color: "var(--cor-texto-2)", opacity: surge(t, tPal(f15.f, "concedidos") - 0.05, 0.45) }}>concedidos</div>
       {/* cartão 2: ≈ US$ 80 mi · estimativa de terceiros (Dealroom) */}
       {t > tOitenta - 0.5 ? (
         <>
-          <div style={{ ...fundoCartao, left: 1180, top: 390 + (1 - mola(t, tOitenta - 0.35)) * 40, width: 580, height: 300, padding: "40px 44px", opacity: surge(t, tOitenta - 0.35, 0.35) }}>
+          <div style={{ ...fundoCartao, left: 1140, top: 390 + (1 - mola(t, tOitenta - 0.35)) * 40, width: 580, height: 300, padding: "40px 44px", opacity: surge(t, tOitenta - 0.35, 0.35) }}>
             <Numero valor={zippi.valorEstimado.valor} final={zippi.valorEstimado.rotulo} formato={fmtUsMi} tParada={tParada80} dur={tParada80 - tOitenta + 0.1} tamanho={104} tom="texto" escalaUnidade={0.5} em={tOitenta - 0.2} />
             <div style={{ ...titulo, fontSize: 40, marginTop: 30, color: "var(--cor-texto-2)" }}>valor estimado</div>
           </div>
-          <div style={abs(1180, 714)}>
-            <Selo tipo="estimativa" rotulo="Estimativa de terceiros (Dealroom)" em={tPal(f16.f, "estimativa") - 0.1} />
+          <div style={abs(1140, 714)}>
+            <Selo tipo="estimativa" rotulo="Estimativa de terceiros (Dealroom)" tamanho={26} em={tPal(f16.f, "estimativa") - 0.1} />
           </div>
         </>
       ) : null}
@@ -301,8 +301,8 @@ function Reservatorio() {
 
 const BASE_FIDC = 870;
 const K_FIDC = 4.3 / 1e6; // px por real (geometria)
-const XS_FIDC = [520, 900, 1280];
-const W_FIDC = 150;
+const XS_FIDC = [480, 860, 1240];
+const W_FIDC = 180;
 const SETA = { de: [250, 840] as [number, number], para: [1130, 486] as [number, number] };
 
 function Fidc() {

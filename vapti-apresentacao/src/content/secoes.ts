@@ -4,6 +4,7 @@
  */
 import type { Secao } from "./tipos";
 import {
+  atraso,
   aviso,
   avisoCurto,
   captacao,
@@ -24,6 +25,7 @@ import {
   produto,
   projeto,
   regua,
+  reguaCobranca,
   riscos,
   vantagens,
   zippi,
@@ -76,7 +78,7 @@ export const secoes: Secao[] = [
       topicos: [
         "Agradecer o tempo e o interesse dos sócios.",
         `${config.marca} vem de “vapt-vupt”: capital de giro na velocidade do Pix.`,
-        `Roteiro: problema, prova, produto, estrutura, números, riscos e ${nDecisoes} decisões.`,
+        `Roteiro: problema, prova, produto, estrutura, números, riscos, plano de ação e ${nDecisoes} decisões.`,
         "Avisar que toda projeção traz o selo e as premissas a um clique.",
       ],
     },
@@ -191,11 +193,11 @@ export const secoes: Secao[] = [
       },
       {
         titulo: "Dois jeitos de pagar",
-        texto: `${produto.parcelasSemanais.rotulo} parcelas semanais de ${preco.exemplo.parcela.rotulo}, a ${BASE}. Ou ${plano14.dias} parcelas diárias de ${plano14.parcela.rotulo}: ${plano14.juros.rotulo} de juros em ${R400} (${plano14.efetivaMes.rotulo} ao mês).`,
+        texto: `${produto.parcelasSemanais.rotulo} parcelas semanais de ${preco.exemplo.parcela.rotulo}, a ${BASE}. Ou ${plano14.dias} parcelas diárias de ${plano14.parcela.rotulo} por QR Pix: ${plano14.juros.rotulo} de juros em ${R400} (${plano14.efetivaMes.rotulo} ao mês).`,
       },
       {
         titulo: "Pix Automático",
-        texto: `O cliente autoriza uma vez. Se faltar saldo, até ${produto.pixRetentativas.rotulo} novas tentativas. Ele vê o valor ${produto.pixAvisoDias.rotulo} antes.`,
+        texto: `No plano semanal, o cliente autoriza uma vez. Cada cobrança é programada de ${produto.pixAvisoDias.rotulo} antes; ele vê o valor no app do banco. Se faltar saldo, até ${produto.pixRetentativas.rotulo} novas tentativas.`,
       },
       {
         titulo: "Parcela que cabe",
@@ -206,12 +208,12 @@ export const secoes: Secao[] = [
     legendas: {
       V07: "Protótipo com dados fictícios. A instituição parceira aparece como credora.",
       V08: `Exemplo de ${R400}: ${BASE}.`,
-      V09: `Pix Automático, do Banco Central, em operação desde ${produto.pixDesde}. Fonte: B3 Bora Investir.`,
+      V09: `Pix Automático, do Banco Central, em operação desde ${produto.pixDesde}. Fontes: B3 Bora Investir, IN BCB nº 513/2024 e Jovem Pan.`,
     },
     alts: {
       V07: `Protótipo de celular: conversa com áudio e link; plataforma com barra de ${nEtapas} etapas (${produto.jornada7.join(", ")}); painel com limite, nível e próxima parcela. Dados fictícios.`,
-      V08: `${R400} sacados viram ${produto.parcelasSemanais.rotulo} parcelas semanais de ${preco.exemplo.parcela.rotulo}: ${preco.exemplo.amortizacao.rotulo} do valor mais ${preco.exemplo.jurosParcela.rotulo} de juros. Taxa efetiva: ${preco.exemplo.efetivaMes.rotulo} ao mês. Alternativa: ${plano14.dias} parcelas diárias de ${plano14.parcela.rotulo}, ${plano14.juros.rotulo} de juros em ${R400}, ${plano14.efetivaMes.rotulo} ao mês.`,
-      V09: `Pix Automático: autorização única e até ${produto.pixRetentativas.rotulo} novas tentativas se faltar saldo; a primeira e a segunda falham, a terceira passa.`,
+      V08: `${R400} sacados viram ${produto.parcelasSemanais.rotulo} parcelas semanais de ${preco.exemplo.parcela.rotulo}, pagas por Pix Automático: ${preco.exemplo.amortizacao.rotulo} do valor mais ${preco.exemplo.jurosParcela.rotulo} de juros. Taxa efetiva: ${preco.exemplo.efetivaMes.rotulo} ao mês. Alternativa: ${plano14.dias} parcelas diárias de ${plano14.parcela.rotulo}, pagas por ${produto.planoDiarioPagamento}; ${plano14.juros.rotulo} de juros em ${R400}, ${plano14.efetivaMes.rotulo} ao mês.`,
+      V09: `Pix Automático, só no plano semanal: autorização única; cada cobrança programada de ${produto.pixAvisoDias.rotulo} antes do vencimento; até ${produto.pixRetentativas.rotulo} novas tentativas se faltar saldo (a primeira e a segunda falham, a terceira passa). Não existe periodicidade diária: o plano diário é pago por QR Pix.`,
     },
     notas: {
       tempo: "2:00",
@@ -219,7 +221,8 @@ export const secoes: Secao[] = [
       topicos: [
         "Mostrar o protótipo: conversa, link, barra de etapas até o Pix cair.",
         "A instituição parceira aparece como credora na proposta e no comprovante.",
-        `Padrão: ${produto.parcelasSemanais.rotulo} parcelas semanais. Alternativa: plano diário de ${produto.planosDiarios.join(", ")} dias; recomendado ${produto.planoDiarioRecomendado}.`,
+        `Padrão: ${produto.parcelasSemanais.rotulo} parcelas semanais, por Pix Automático. Alternativa: plano diário de ${produto.planosDiarios.join(", ")} dias, por QR Pix; recomendado ${produto.planoDiarioRecomendado}.`,
+        `Pix Automático: cada cobrança é programada de ${produto.pixAvisoDias.rotulo} antes; o cliente vê o valor no app do banco. Não existe periodicidade diária.`,
         `Limite volta quando o saldo zera. Nos níveis ${nPrata.nome} e ${nOuro.nome}, volta conforme o cliente paga.`,
         `Análise: Open Finance, ${produto.percentilPeriodoRuim.rotulo} dos últimos ${produto.janelaAnaliseDias.rotulo}. Bureau só no primeiro saque.`,
         `Travas: ${produto.travas.slice(0, 3).join(" ")}`,
@@ -229,6 +232,10 @@ export const secoes: Secao[] = [
         {
           pergunta: "E se o cliente cancelar o Pix Automático?",
           resposta: "Ele pode, até 23h59 da véspera. Tratamos como sinal de risco e gatilho de contato. O QR Pix fica como alternativa.",
+        },
+        {
+          pergunta: "O plano diário também é débito automático?",
+          resposta: `Não. A periodicidade mais curta do Pix Automático é a ${produto.pixPeriodicidadeMinima} (IN BCB nº 513/2024). O diário é pago por QR Pix, com a régua; o arranjo final, a confirmar com a parceira.`,
         },
         {
           pergunta: "O que impede o cliente de se endividar em cadeia?",
@@ -303,7 +310,7 @@ export const secoes: Secao[] = [
         texto: `Empresa comum: juros limitados a ${caminhos.usuraAoAno.rotulo}. ESC: sem pessoa física, só a cidade, sem fundos. BaaS: nacional e sem teto.`,
       },
       { titulo: "Quem é quem", texto: "A parceira é a credora: emite a CCB e libera o Pix. A Vapti cuida do cliente, da análise e da cobrança." },
-      { titulo: "O pagamento nunca cai na conta da Vapti", texto: "O cliente paga por Pix Automático na conta da parceira ou do fundo. Nunca na conta da Vapti." },
+      { titulo: "O pagamento nunca cai na conta da Vapti", texto: "O cliente paga por Pix Automático (no diário, por QR Pix) na conta da parceira ou do fundo. Nunca na conta da Vapti." },
       { titulo: "De onde vem a receita", texto: "Dos juros das CCBs que a Vapti compra. A parceira aparece identificada no app, no contrato e no comprovante." },
     ],
     visuais: ["V12", "V13"],
@@ -370,7 +377,7 @@ export const secoes: Secao[] = [
       V14: `Conta do cenário-base: ${R400} vezes ${preco.exemplo.taxa.rotulo} vezes ${produto.parcelasSemanais.rotulo} semanas dá ${preco.exemplo.juros.rotulo}, ou ${preco.exemplo.efetivaMes.rotulo} ao mês. Barras de taxa efetiva ao mês: Zippi ${preco.zippiEfetivaMes.rotulo} em cinza; Vapti ${niveis.map((nv) => `${nv.nome} ${nv.efetivaMes.rotulo}`).join(", ")}.`,
     },
     notas: {
-      tempo: "1:30",
+      tempo: "2:00",
       fraseChave: "Cobramos o dobro da referência e mostramos o custo em reais em toda tela.",
       topicos: [
         `Fazer a conta em voz alta: ${BASE}.`,
@@ -379,6 +386,7 @@ export const secoes: Secao[] = [
         preco.cuidados[0],
         preco.cuidados[1],
         preco.cuidados[3],
+        `Simulador do cliente (06c): ${R400}, ${produto.parcelasSemanais.rotulo} semanas, ${nBronze.nome} → ${produto.parcelasSemanais.rotulo} × ${preco.exemplo.parcela.rotulo}, ${preco.exemplo.juros.rotulo} de juros, ${preco.exemplo.efetivaMes.rotulo} ao mês. Deixe o investidor trocar valor, plano e nível.`,
       ],
       perguntas: [
         {
@@ -485,7 +493,7 @@ export const secoes: Secao[] = [
         `Bureau: balcão a partir de ${eficiencia.serasaBalcaoMin.rotulo}; por API, ${eficiencia.apiMin.rotulo} a ${eficiencia.apiMax.rotulo}. Funil em camadas corta pela metade.`,
         `WhatsApp: desde 01/10/2026 a Meta cobra também respostas, ${eficiencia.whatsMsg.rotulo} por mensagem. Jornada redesenhada.`,
         `Fornecedores oficiais a cotar: ${eficiencia.fornecedoresWhats.join(", ")}. Verificação na Meta: ${eficiencia.verificacaoMetaSemanas}.`,
-        "Pix Automático: grátis para quem paga; o custo de quem recebe depende da instituição.",
+        `Pix Automático: grátis para quem paga; quem recebe paga conforme a instituição. Valor não público: entra na cotação da parceira. [A CONFIRMAR]`,
         "Painel “Como medimos”: safra, roll rate, PD × LGD × EAD, recontratação, custo por saque.",
       ],
       perguntas: [
@@ -593,6 +601,61 @@ export const secoes: Secao[] = [
   /* 11 ---------------------------------------------------------------- */
   {
     id: "11",
+    nome: "Plano de ação",
+    titulo: "Como chegar às metas, passo a passo",
+    subtitulo: "Três frentes: atrair barato, cobrar com respeito e usar o Pix Automático onde ele cabe.",
+    blocos: [
+      {
+        titulo: "Aquisição barata",
+        texto: `Primeiro quem já é cliente: recontratar dispensa bureau. Depois indicação, pontos parceiros e anúncio na praça. Meta: 1º saque abaixo de ${piloto.num.custoPrimeiroSaque.rotulo}.`,
+      },
+      {
+        titulo: "Cobrança e follow-up",
+        texto: `Uma régua de ${reguaCobranca.programacaoDe.rotulo} a ${reguaCobranca.acompanhamentoAte.rotulo}: lembrar, tolerar, aceitar parte e reparcelar no ${atraso.diaReparcelamento.rotulo}. Meta: mais de ${piloto.num.pagasNoVencimento.rotulo} pagas no vencimento.`,
+      },
+      {
+        titulo: "Pix Automático onde cabe",
+        texto: `No semanal, sim; no diário, não: a periodicidade mais curta é a ${produto.pixPeriodicidadeMinima}. ${produto.pixTarifaPagador}; a tarifa de quem recebe entra na cotação.`,
+      },
+      {
+        titulo: "Métrica-guia",
+        texto: `Custo direto do 1º saque abaixo de ${piloto.num.custoPrimeiroSaque.rotulo}. Custo de aquisição, conversão e orçamento por canal: [A CONFIRMAR] no piloto.`,
+      },
+    ],
+    visuais: [],
+    legendas: {},
+    alts: {},
+    notas: {
+      tempo: "2:00",
+      fraseChave: "Cada meta do piloto tem um passo concreto: atrair barato, cobrar com respeito e usar o Pix Automático onde ele cabe.",
+      topicos: [
+        "Use as teclas 1, 2 e 3 (ou clique nas abas) para ir direto a cada frente.",
+        `Aquisição: recontratação primeiro (meta acima de ${piloto.num.recontratacaoMeta.rotulo}); indicação que acelera o nível de quem indica; pontos parceiros com QR; anúncio que abre conversa na praça; funil em camadas antes do bureau.`,
+        `Não temos custo de aquisição por canal: o piloto mede. A métrica-guia é o custo direto do 1º saque abaixo de ${piloto.num.custoPrimeiroSaque.rotulo}.`,
+        `Cobrança: clicar nos marcos da régua, de ${reguaCobranca.programacaoDe.rotulo} a ${reguaCobranca.acompanhamentoAte.rotulo}. Tom humano, regras fixas de horário e nunca falar com terceiros.`,
+        `Multa de até ${atraso.multaMax.rotulo} e mora de até ${atraso.moraMaxMes.rotulo}: são sinal, não receita.`,
+        `Pix Automático: só no semanal. Cada cobrança é programada de ${produto.pixAvisoDias.rotulo} antes. O diário vai por QR Pix.`,
+      ],
+      perguntas: [
+        {
+          pergunta: "Quanto custa trazer um cliente?",
+          resposta: `Ainda não sabemos, e não vamos chutar. A meta é custo direto do 1º saque abaixo de ${piloto.num.custoPrimeiroSaque.rotulo}; o piloto mede canal por canal.`,
+        },
+        {
+          pergunta: "Por que o diário não usa Pix Automático?",
+          resposta: `Porque o Pix Automático não tem periodicidade diária: a mais curta é a ${produto.pixPeriodicidadeMinima} (IN BCB nº 513/2024). O diário vai por QR Pix, com a régua. O arranjo final, a confirmar com a parceira.`,
+        },
+        {
+          pergunta: "Quanto custa o Pix Automático?",
+          resposta: `${produto.pixTarifaPagador}. ${produto.pixTarifaRecebedor}. ${produto.pixTarifaValor}.`,
+        },
+      ],
+    },
+  },
+
+  /* 12 ---------------------------------------------------------------- */
+  {
+    id: "12",
     nome: "Piloto",
     titulo: `${piloto.dias.rotulo} para medir antes de crescer`,
     subtitulo: `${piloto.segmento}, ${piloto.praca}, até ${piloto.carteiraMax.rotulo} de carteira.`,
@@ -628,9 +691,9 @@ export const secoes: Secao[] = [
     },
   },
 
-  /* 12 ---------------------------------------------------------------- */
+  /* 13 ---------------------------------------------------------------- */
   {
-    id: "12",
+    id: "13",
     nome: "Decisões",
     titulo: "Cinco decisões para começar",
     subtitulo: `${nDecisoes} decisões hoje. Depois, advogado, contador e cotações correm em paralelo.`,
@@ -670,9 +733,9 @@ export const secoes: Secao[] = [
     },
   },
 
-  /* 13 ---------------------------------------------------------------- */
+  /* 14 ---------------------------------------------------------------- */
   {
-    id: "13",
+    id: "14",
     nome: "Fontes e aviso",
     titulo: "Cada número tem origem declarada",
     subtitulo: `${fontes.length} fontes, consultadas em outubro de 2026.`,

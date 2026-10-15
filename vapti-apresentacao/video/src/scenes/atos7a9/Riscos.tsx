@@ -385,8 +385,8 @@ const LEQUE = [
   { x: 330, y: 40, r: 10 },
 ];
 const poseLeque = (i: number) => ({ cx: 960 + LEQUE[i].x, cy: 690 + LEQUE[i].y, s: 0.46, r: LEQUE[i].r, o: 0.75 });
-const poseBaralho = (k: number) => ({ cx: 1240 + 24 * k, cy: 530 - 16 * k, s: 1 - 0.035 * k, r: 0, o: k < 0.5 ? 1 : Math.max(0, 0.7 - 0.14 * k) });
-const MARCADOR = (i: number) => ({ cx: 143 + 62 * i, cy: 291 });
+const poseBaralho = (k: number) => ({ cx: 1240 + 24 * k, cy: 530 - 16 * k, s: 1 - 0.035 * k, r: 0, o: Math.max(0, 1 - 0.3 * Math.min(k, 1) - 0.14 * Math.max(0, k - 1)) });
+const MARCADOR = (i: number) => ({ cx: 173 + 62 * i, cy: 291 });
 const misturaPose = (a: ReturnType<typeof poseLeque>, b: ReturnType<typeof poseLeque>, p: number) => ({ cx: mix(a.cx, b.cx, p), cy: mix(a.cy, b.cy, p), s: mix(a.s, b.s, p), r: mix(a.r, b.r, p), o: mix(a.o, b.o, p) });
 
 export function Riscos() {
@@ -428,7 +428,7 @@ export function Riscos() {
             if (t < f70.t0 + 0.3 + 0.12 * i) return null;
             // posição no baralho: sobe uma casa a cada carta resolvida antes desta
             let k = i;
-            for (let j = 0; j < i; j++) k -= ease.inOutCubic(prog(t, tps[j].tOut, tps[j].tOut + 0.75));
+            for (let j = 0; j < i; j++) k -= ease.inOutCubic(prog(t, tps[j].tOut, tps[j].tOut + 0.6));
             const pLeque = ease.inOutCubic(prog(t, tps[0].tIn + 0.06 * i, tps[0].tIn + 0.06 * i + 0.95));
             let pose = misturaPose(poseLeque(i), poseBaralho(k), pLeque);
             pose = { ...pose, cy: pose.cy + (1 - entra) * 140, o: pose.o * clamp01(entra * 1.5) };
@@ -436,9 +436,10 @@ export function Riscos() {
             if (pVoa >= 1) return null;
             if (pVoa > 0) {
               const m = MARCADOR(i);
-              pose = { cx: mix(pose.cx, m.cx, pVoa), cy: mix(pose.cy, m.cy, pVoa), s: mix(pose.s, 0.045, pVoa), r: mix(0, -6, pVoa), o: 1 - ease.inCubic(clamp01((pVoa - 0.55) / 0.45)) };
+              const pS = ease.outCubic(pVoa);
+              pose = { cx: mix(pose.cx, m.cx, pVoa), cy: mix(pose.cy, m.cy, pVoa), s: mix(pose.s, 0.045, pS), r: mix(0, -6, pVoa), o: 1 - ease.inOutSine(clamp01((pVoa - 0.2) / 0.6)) };
             }
-            const frente = clamp01(1 - k * 1.6) * pLeque;
+            const frente = clamp01(1 - k * 1.25) * pLeque;
             const u = prog(t, tp.tFlip, tp.tFlip + 0.42);
             const flipX = Math.max(0.015, Math.abs(Math.cos(Math.PI * u)));
             const verso = u >= 0.5;
@@ -492,7 +493,7 @@ export function Riscos() {
       </Camera>
 
       {/* Coluna esquerda (L2): rótulo, marcadores 1–4, risco → mitigação */}
-      <div style={{ position: "absolute", left: 120, top: 178, opacity: ease.inOutSine(prog(t, tps[0].tIn + 0.5, tps[0].tIn + 0.95)) }}>
+      <div style={{ position: "absolute", left: 150, top: 178, opacity: ease.inOutSine(prog(t, tps[0].tIn + 0.5, tps[0].tIn + 0.95)) }}>
         <p style={{ margin: 0, fontFamily: "var(--fonte-titulo)", fontWeight: 800, fontSize: 52, letterSpacing: "-0.03em", color: "var(--cor-texto)" }}>Riscos</p>
       </div>
       {tps.map((tp, i) => {
@@ -536,7 +537,7 @@ export function Riscos() {
         const emMitig = i === 3 ? tp.tE - 0.05 : tp.tFlip;
         if (t < emRisco - 0.1 || (saida !== undefined && t > saida + 0.5)) return null;
         return (
-          <div key={i} style={{ position: "absolute", left: 120, top: 352, width: 560, fontFamily: "var(--fonte-titulo)", fontWeight: 800, fontSize: 70, lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          <div key={i} style={{ position: "absolute", left: 150, top: 352, width: 560, fontFamily: "var(--fonte-titulo)", fontWeight: 800, fontSize: 70, lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             <Palavra texto={risco} em={emRisco} tom="coral" destaque={false} saida={saida} />
             <svg width={60} height={70} style={{ display: "block", margin: "22px 0 14px 10px", overflow: "visible" }} aria-hidden="true">
               <Tracado d="M20 4 L20 58 M6 44 L20 58 L34 44" em={tp.tFlip + 0.1} dur={0.35} tom="verde" espessura={5} saida={saida} />

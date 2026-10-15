@@ -54,6 +54,7 @@ export const atalhos = {
   abrirAjuda: "Ver atalhos",
   itens: [
     { teclas: ["→", "Espaço", "PageDown"], acao: "Avançar" },
+    { teclas: ["1", "2", "3"], acao: "Abas do plano de ação (seção 11)" },
     { teclas: ["←", "PageUp"], acao: "Voltar" },
     { teclas: ["Home", "End"], acao: "Primeira e última tela" },
     { teclas: ["N"], acao: "Mostrar ou esconder as notas do apresentador" },
@@ -230,7 +231,7 @@ export const prototipo = {
       { nome: produto.jornada7[4], texto: `Li e aceito o contrato com a ${credora}.`, botao: "Aceitar" },
       {
         nome: produto.jornada7[5],
-        texto: `Autorize uma vez. Você vê o valor ${produto.pixAvisoDias.rotulo} antes e pode cancelar até a véspera.`,
+        texto: `Plano semanal: autorize uma vez. Cada cobrança é programada de ${produto.pixAvisoDias.rotulo} antes; você vê o valor no app do banco e pode cancelar até a véspera.`,
         botao: "Autorizar Pix Automático",
       },
       { nome: produto.jornada7[6], texto: `${R400} na sua conta. Pix enviado pela ${credora}.`, botao: "Ver meu painel" },
@@ -272,7 +273,8 @@ export const prototipo = {
       datasRotulo: "Datas",
       recebedorRotulo: "Quem recebe",
       recebedor: credora,
-      aviso: `Você vê o valor ${produto.pixAvisoDias.rotulo} antes de cada débito.`,
+      aviso: `Cada cobrança é programada de ${produto.pixAvisoDias.rotulo} antes; você vê o valor no app do banco.`,
+      soSemanal: `Só no plano semanal. No plano diário, você paga por QR Pix a cada parcela.`,
       cancelar: "Pode cancelar a autorização até 23h59 da véspera.",
       retentativas: `Se faltar saldo, até ${produto.pixRetentativas.rotulo} novas tentativas.`,
       acelera: "Ativar o Pix Automático acelera o seu progresso de nível.",
@@ -579,6 +581,8 @@ export const viz = {
     semanal: `Padrão: ${produto.parcelasSemanais.rotulo} parcelas semanais`,
     semanalCurto: "Semanal",
     diario: (dias: number) => `Alternativa: plano diário de ${dias} dias`,
+    diarioPagamento: `Pago por ${produto.planoDiarioPagamento}.`,
+    semanalPagamento: "Pago por Pix Automático.",
     diarioCurto: "Diário",
     recomendado: "Recomendado",
     outrosPrazos: (prazos: string) => `Também em ${prazos} dias.`,
@@ -603,7 +607,7 @@ export const viz = {
     titulo: "Pix Automático: autoriza uma vez, cobra no vencimento",
     passos: [
       { titulo: "Autorização única", texto: "O cliente autoriza uma vez, na contratação." },
-      { titulo: `Aviso ${produto.pixAvisoDias.rotulo} antes`, texto: "O cliente vê o valor antes de cada cobrança." },
+      { titulo: `Programada ${produto.pixAvisoDias.rotulo} antes`, texto: "Cada cobrança vai ao banco do cliente; ele vê o valor no app do banco." },
       { titulo: "Vencimento", texto: "A cobrança cai na conta da parceira ou do fundo." },
       { titulo: `Até ${produto.pixRetentativas.rotulo} novas tentativas`, texto: "Se faltar saldo, o Pix tenta de novo." },
     ],
@@ -615,6 +619,12 @@ export const viz = {
       texto: "Vira sinal de risco e gatilho de contato.",
     },
     alternativa: "QR Pix como alternativa.",
+    soSemanal: {
+      titulo: `Só no plano semanal.`,
+      texto: `A periodicidade mais curta do Pix Automático é a ${produto.pixPeriodicidadeMinima}; não existe diária. O plano diário é pago por QR Pix.`,
+    },
+    custo: `${produto.pixTarifaPagador}. ${produto.pixTarifaRecebedor}: ${produto.pixTarifaValor.charAt(0).toLowerCase()}${produto.pixTarifaValor.slice(1)}.`,
+    calendario: `Retentativas: ${produto.pixRetentativasCalendario}.`,
   },
 
   fluxo: {

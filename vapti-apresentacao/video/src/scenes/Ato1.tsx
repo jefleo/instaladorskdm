@@ -184,7 +184,7 @@ function MarcaViajante({ cx, cy }: { cx: number; cy: number }) {
   const tE = f9.tE;
   const tCanto = tMarcaCanto(tl);
   const tSobe = Math.max(tE + 1.6, tCanto - 1.25);
-  if (t < tE + 0.15 || t > tCanto + 0.5) return null;
+  if (t < tE + 0.25 || t > tCanto + 0.5) return null;
   const S0 = 64;
   const s0 = S0 / MARCA_CANTO.tamanho;
   // posição do canto superior direito da marca na partida (centrada no bloco)
@@ -193,14 +193,14 @@ function MarcaViajante({ cx, cy }: { cx: number; cy: number }) {
   const yTop0 = cy - (ALTURA_MARCA_EM * S0) / 2;
   const xDir1 = 1920 - MARCA_CANTO.direita;
   const yTop1 = MARCA_CANTO.topo;
-  const p = ease.inOutCubic(prog(t, tSobe, tCanto));
+  const p = ease.inOutCubic(prog(t, tSobe, tCanto - 0.32));
   // arco: sobe um pouco antes de ir para o canto
   const arco = Math.sin(Math.PI * p) * -60;
   const dx = mix(xDir0, xDir1, p) - xDir1;
   const dy = mix(yTop0, yTop1, p) + arco - yTop1;
   const s = mix(s0, 1, p);
-  const entrada = surge(t, tE + 0.15, 0.35);
-  const saida = 1 - ease.inOutSine(prog(t, tCanto - 0.05, tCanto + 0.25));
+  const entrada = surge(t, tE + 0.25, 0.35);
+  const saida = 1 - ease.inOutSine(prog(t, tCanto - 0.3, tCanto + 0.02));
   const cor = ease.inOutSine(prog(t, tSobe - 0.1, tSobe + 0.35));
   void wCanto;
   return (
@@ -214,7 +214,7 @@ function MarcaViajante({ cx, cy }: { cx: number; cy: number }) {
 /* Ato                                                                  */
 /* ------------------------------------------------------------------ */
 
-const PAINEL = { x: 760, y: 190 };
+const PAINEL = { x: 760, y: 170 };
 
 export default function Ato1() {
   const { t, tl } = useFilme();
@@ -229,7 +229,7 @@ export default function Ato1() {
   const tCanto = tMarcaCanto(tl);
 
   // caixa: recua na F008 e volta centrada na F009
-  const recua = ease.inOutCubic(prog(t, f8.t0 - 0.2, f8.t0 + 0.5));
+  const recua = ease.inOutCubic(prog(t, f8.t0 - 0.35, f8.t0 + 0.2));
   const volta = ease.inOutCubic(prog(t, f8.t1 - 0.15, f9.t0 + 0.2));
   const vidaCaixa = Math.max(1 - recua, volta);
   const desloca = volta > 0 ? -275 : 0; // centraliza o painel na F009 (L1)
@@ -270,7 +270,7 @@ export default function Ato1() {
 
       {/* F003–F007 e F009: caixa irregular */}
       <Plano de={f3.t0 - 0.2} ate={Infinity} entrada={0.5}>
-        <Camera chaves={[{ t: f3.t0, zoom: 1.0 }, { t: f7.tProxima, zoom: 1.04, x: 14 }, { t: f8.t1, zoom: 1.0, x: 0 }]} deriva={3} seed={5}>
+        <Camera chaves={[{ t: f3.t0, zoom: 1.0 }, { t: f7.tProxima, zoom: 1.04, x: 14 }, { t: f8.t1, zoom: 1.0, x: 0 }, { t: tCanto + 0.8, zoom: 1.035, y: -4 }]} deriva={3} seed={5}>
           <Camada z={2.5}>
             <Respiracao tom="verde" x={1260} y={560} raio={640} intensidade={0.06 * (1 - recua)} periodo={8} />
             <Halo tom="coral" x={PAINEL.x + RET_BURACO.x + RET_BURACO.w / 2} y={560} w={700} h={760} intensidade={0.12 * ease.outCubic(prog(t, f7.tE, f7.tE + 0.6)) * (1 - recua)} />
@@ -300,27 +300,19 @@ export default function Ato1() {
       {t > f9.t0 - 0.4 ? <Halo tom="verde" x={cxBloco} y={cyBloco} w={900} h={900} intensidade={0.2 * envelope(t, f9.tE, tCanto + 0.8, 0.5, 0.8)} /> : null}
       <PlacaMarca cx={cxBloco} cy={cyBloco} />
       <MarcaViajante cx={cxBloco} cy={cyBloco} />
-      {t > f9.tE ? <BrilhoVupt t0={f9.tE} x={cxBloco} y={cyBloco} /> : null}
     </div>
   );
 }
 
 /** Placa escura dentro do bloco verde, onde a marca nasce (contraste). */
 function PlacaMarca({ cx, cy }: { cx: number; cy: number }) {
-  const { t } = useFilme();
+  const { t, tl } = useFilme();
   const f9 = useFrase("F009");
-  const s = spring(t - f9.tE - 0.1, { k: 220, d: 20 });
-  if (s <= 0.001) return null;
+  const s = spring(t - f9.tE - 0.22, { k: 220, d: 20 });
+  const tSobe = Math.max(f9.tE + 1.6, tMarcaCanto(tl) - 1.25);
+  const sai = 1 - ease.inOutSine(prog(t, tSobe + 0.1, tSobe + 0.6));
+  if (s <= 0.001 || sai <= 0) return null;
   const w = LARGURA_MARCA_EM * 64 + 34;
   const h = 64 * 1.25 + 10;
-  return <div style={{ position: "absolute", left: cx - w / 2, top: cy - h / 2, width: w, height: h, borderRadius: 14, background: "var(--cor-tinta)", boxShadow: "0 10px 30px -8px rgb(0 0 0 / 0.6)", transform: `scale(${(0.7 + 0.3 * s).toFixed(4)})`, opacity: Math.min(1, s * 2) }} />;
-}
-
-/** Rastro curto do bloco quando cai no buraco. */
-function BrilhoVupt({ t0, x, y }: { t0: number; x: number; y: number }) {
-  const { t } = useFilme();
-  const s = spring(t - t0, { k: 200, d: 20 });
-  const a = Math.max(0, 1 - (t - t0) * 1.6);
-  if (a <= 0) return null;
-  return <div style={{ position: "absolute", left: x - 260, top: y - 6, width: 520, height: 12, borderRadius: 4, background: COR.verde, opacity: a * 0.6, transform: `scaleX(${(0.4 + 1.4 * s).toFixed(3)}) skewX(-24deg)`, boxShadow: `0 0 30px ${rgba("verde", 0.6)}` }} />;
+  return <div style={{ position: "absolute", left: cx - w / 2, top: cy - h / 2, width: w, height: h, borderRadius: 14, background: "var(--cor-tinta)", boxShadow: "0 10px 30px -8px rgb(0 0 0 / 0.6)", transform: `scale(${(0.7 + 0.3 * s).toFixed(4)})`, opacity: Math.min(1, s * 2) * sai }} />;
 }

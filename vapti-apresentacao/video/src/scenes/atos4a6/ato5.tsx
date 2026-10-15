@@ -560,11 +560,11 @@ function Nacional({ t, tm }: { t: number; tm: { t0: number; brasil: number; pess
       <div style={estiloPorta}>
         <Surge em={tm.t0 + 0.4} dy={20} style={{ position: "absolute", inset: 0 }}>
           <div style={{ position: "absolute", inset: 0, borderRadius: "14px 14px 0 0", background: `linear-gradient(180deg, ${rgba("verde", 0.08 + 0.3 * luz)}, ${rgba("verde", 0.03 + 0.12 * luz)})`, boxShadow: `0 0 ${(80 * luz).toFixed(0)}px ${rgba("verde", 0.35 * luz)}`, border: "4px solid rgb(242 244 247 / 0.35)" }} />
-          <div style={{ position: "absolute", inset: 0, display: "grid", placeItems: "center", opacity: luz }}>
+          <div style={{ position: "absolute", inset: 0, paddingLeft: 24, display: "grid", placeItems: "center", opacity: luz }}>
             <span style={{ ...ESTILO_TITULO, fontSize: 92, color: "var(--cor-verde)", textShadow: `0 0 30px ${rgba("verde", 0.5)}` }}>FIDC</span>
           </div>
           {/* folha da porta: gira em torno da dobradiça (esquerda) */}
-          <div style={{ position: "absolute", left: 4, top: 4, bottom: 0, width: 322, transformOrigin: "0 50%", transform: `perspective(1400px) rotateY(${(-78 * porta).toFixed(2)}deg)`, background: "linear-gradient(90deg, rgb(44 54 68), rgb(30 37 47))", border: "2px solid rgb(242 244 247 / 0.18)", borderRadius: "10px 10px 0 0" }}>
+          <div style={{ position: "absolute", left: 4, top: 4, bottom: 0, width: 322, transformOrigin: "0 50%", transform: `perspective(1400px) rotateY(${(-87 * porta).toFixed(2)}deg)`, background: "linear-gradient(90deg, rgb(44 54 68), rgb(30 37 47))", border: "2px solid rgb(242 244 247 / 0.18)", borderRadius: "10px 10px 0 0" }}>
             <div style={{ position: "absolute", right: 30, top: "52%", width: 16, height: 46, borderRadius: 8, background: "rgb(242 244 247 / 0.5)" }} />
           </div>
         </Surge>

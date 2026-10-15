@@ -272,3 +272,51 @@ export function efetivaPlanoDiario(
   for (let d = 1; d <= dias; d++) fluxo.push({ dia: d, valor: parcela });
   return taxaEfetivaMensal(fluxo);
 }
+
+/* ------------------------------------------------------------------ */
+/* Simulador do cliente final (um saque)                               */
+/* ------------------------------------------------------------------ */
+
+export interface SaqueCliente {
+  /** Quantidade de parcelas. */
+  parcelas: number;
+  /** Valor de cada parcela (todas iguais). */
+  parcela: number;
+  /** Juros totais em reais. */
+  juros: number;
+  /** Total pago: valor + juros. */
+  total: number;
+  /** Taxa efetiva ao mês (TIR, 30 dias). */
+  efetivaMes: number;
+  /** Dias corridos de cada parcela, contados do saque. */
+  dias: number[];
+}
+
+/**
+ * Um saque do cliente, do jeito que ele paga:
+ * - semanal: 4 parcelas nos dias 7, 14, 21 e 28, com 25% do valor + juros da semana sobre o sacado;
+ * - diário: N parcelas iguais nos dias 1..N, juros = valor × taxa/7 × N (Briefing 4.5).
+ */
+export function simularSaqueCliente(p: { valor: number; tipo: "semanal" | "diario"; parcelas: number; taxaSemanal: number }): SaqueCliente {
+  if (p.tipo === "semanal") {
+    const parcela = p.valor * AMORTIZACAO + p.valor * p.taxaSemanal;
+    const juros = p.valor * p.taxaSemanal * PARCELAS;
+    return {
+      parcelas: PARCELAS,
+      parcela,
+      juros,
+      total: p.valor + juros,
+      efetivaMes: efetivaSemanalSobreSacado(p.taxaSemanal, p.valor),
+      dias: Array.from({ length: PARCELAS }, (_, k) => (k + 1) * DIAS_SEMANA),
+    };
+  }
+  const { juros, parcela } = planoDiario(p.parcelas, p.taxaSemanal, p.valor);
+  return {
+    parcelas: p.parcelas,
+    parcela,
+    juros,
+    total: p.valor + juros,
+    efetivaMes: efetivaPlanoDiario(p.parcelas, p.taxaSemanal, p.valor),
+    dias: Array.from({ length: p.parcelas }, (_, k) => k + 1),
+  };
+}

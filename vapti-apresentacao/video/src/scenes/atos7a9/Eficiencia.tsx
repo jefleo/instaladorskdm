@@ -39,7 +39,7 @@ const BH = 56;
 const GX = 20;
 const GY = 22;
 const GRADE_X = 1040;
-const GRADE_Y = 440;
+const GRADE_Y = 510;
 const N_ANTES = ef.msgsAntes.valor;
 const FICAM = [2, 7, 15, 16, 22, 27].slice(0, FAIXA[1]);
 const ordemSaida = (() => {
@@ -126,8 +126,8 @@ export function Eficiencia() {
   const vaiEyebrow = ease.inOutCubic(prog(t, f68.t0 - 0.25, f68.t0 + 0.55));
   const lP = ease.inOutSine(prog(t, e67 + 0.55, f67.t1 + 0.05));
   const lQ = ease.inOutCubic(prog(t, f67.t1 + 0.05, f68.t0 + 0.9));
-  const lensX = mix(mix(150, 610, lP), 1330, lQ);
-  const lensY = mix(385 + 100 * lP - 40 * Math.sin(Math.PI * lP), 600, lQ);
+  const lensX = mix(mix(190, 560, lP), 1330, lQ);
+  const lensY = mix(mix(382, 468, lP), 660, lQ);
   const lensO = envelope(t, e67 + 0.3, f68.t0 + 0.75, 0.35, 0.45);
   const titulo = (em: number) => <Titulo texto="Custo por saque" em={em} tamanho={104} largura={560} destaque={false} />;
 
@@ -187,7 +187,7 @@ export function Eficiencia() {
               left: TITULO_POS.x,
               top: TITULO_POS.y,
               opacity: 1 - ease.inOutSine(prog(t, f68.t0 + 0.05, f68.t0 + 0.5)),
-              transform: `translate(${(40 * vaiEyebrow).toFixed(2)}px, ${(-100 * vaiEyebrow).toFixed(2)}px) scale(${(1 - 0.62 * vaiEyebrow).toFixed(4)})`,
+              transform: `translate(${(40 * vaiEyebrow).toFixed(2)}px, ${(-30 * vaiEyebrow).toFixed(2)}px) scale(${(1 - 0.62 * vaiEyebrow).toFixed(4)})`,
               transformOrigin: "0 0",
             }}
           >
@@ -195,22 +195,22 @@ export function Eficiencia() {
           </div>
 
           {/* Custo: eyebrow, número, barra */}
-          <div style={{ position: "absolute", left: 160, top: 232 }}>
+          <div style={{ position: "absolute", left: 160, top: 302 }}>
             <Rotulo texto="Custo por saque" em={f68.t0 + 0.15} tom="azul" tamanho={34} />
           </div>
-          <div style={{ position: "absolute", left: 160, top: 300, opacity: vidaA }}>
+          <div style={{ position: "absolute", left: 160, top: 370, opacity: vidaA }}>
             <Numero valor={ef.custoMsgAntes.valor} final={ef.custoMsgAntes.rotulo} formato="brl" tParada={tParaA} dur={1.0} tamanho={168} tom="azul" em={f68.t0 + 0.4} brilho={0.25} />
           </div>
           {t >= tC0 - 0.1 ? (
-            <div style={{ position: "absolute", left: 160, top: 300, opacity: 1 - vidaA }}>
+            <div style={{ position: "absolute", left: 160, top: 370, opacity: 1 - vidaA }}>
               <Numero valor={ef.custoMsgDepois.valor} de={ef.custoMsgAntes.valor} final={ef.custoMsgDepois.rotulo} formato="brl" tParada={tParaB} dur={tParaB - tC0} tamanho={168} tom="verde" />
             </div>
           ) : null}
-          <div style={{ position: "absolute", left: 164, top: 470 }}>
+          <div style={{ position: "absolute", left: 164, top: 540 }}>
             <Selo tipo="estimativa" em={tParaA + 0.1} tamanho={24} />
           </div>
           {/* barra */}
-          <div style={{ position: "absolute", left: 160, top: 540, width: BARRA_MAX, height: 76 }}>
+          <div style={{ position: "absolute", left: 160, top: 616, width: BARRA_MAX, height: 76 }}>
             <div
               style={{
                 position: "absolute",
@@ -247,14 +247,14 @@ export function Eficiencia() {
           </div>
 
           {/* Mensagens: rótulo, contagem, balões */}
-          <div style={{ position: "absolute", left: GRADE_X, top: 232 }}>
+          <div style={{ position: "absolute", left: GRADE_X, top: 302 }}>
             <Rotulo texto="Mensagens por saque" em={tMsg - 0.05} tom="azul" tamanho={34} />
           </div>
-          <div style={{ position: "absolute", left: GRADE_X, top: 296, opacity: vidaA }}>
+          <div style={{ position: "absolute", left: GRADE_X, top: 366, opacity: vidaA }}>
             <Numero valor={N_ANTES} formato="int" tParada={tMsg + 1.1} dur={1.0} tamanho={112} tom="azul" em={tMsg} brilho={0.2} />
           </div>
           {t >= tC0 - 0.1 ? (
-            <div style={{ position: "absolute", left: GRADE_X, top: 296, opacity: 1 - vidaA }}>
+            <div style={{ position: "absolute", left: GRADE_X, top: 366, opacity: 1 - vidaA }}>
               <Numero valor={FAIXA[1]} de={N_ANTES} final={ef.msgsDepoisFaixa} formato={(v) => String(Math.max(FAIXA[1], Math.round(v)))} tParada={tParaB} dur={tParaB - tC0} tamanho={112} tom="verde" />
             </div>
           ) : null}
