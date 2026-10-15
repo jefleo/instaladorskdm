@@ -9,13 +9,13 @@ import { Miniatura } from "./Palco";
 export function Grade({ atual, onIr, onFechar }: { atual: number; onIr: (i: number) => void; onFechar: () => void }) {
   const lista = useRef<HTMLOListElement>(null);
   useEffect(() => {
-    const b = lista.current?.querySelectorAll<HTMLButtonElement>("button")[atual];
+    const b = lista.current?.querySelectorAll<HTMLButtonElement>(".miniatura-botao")[atual];
     b?.focus();
     b?.scrollIntoView({ block: "center" });
   }, [atual]);
 
   const mover = (e: KeyboardEvent<HTMLOListElement>) => {
-    const botoes = Array.from(lista.current?.querySelectorAll<HTMLButtonElement>("button") ?? []);
+    const botoes = Array.from(lista.current?.querySelectorAll<HTMLButtonElement>(".miniatura-botao") ?? []);
     const i = botoes.indexOf(document.activeElement as HTMLButtonElement);
     if (i < 0) return;
     const topo0 = botoes[0].offsetTop;

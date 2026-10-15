@@ -1,11 +1,13 @@
 import { Celular } from "../components/prototipo";
 import { PixRetentativas, PlanosPagamento } from "../components/viz";
+import { useExibicao } from "./contexto";
 import { Bloco, Cabecalho, Encaixe, Figura, Slide, secaoPorId, type PropsSecao } from "./Slide";
 
 /** 03 — O produto: protótipo (V07), planos (V08) e Pix Automático (V09). */
 export function Secao03Produto({ parte }: PropsSecao) {
   const secao = secaoPorId("03");
   const [b0, b1, b2, b3] = secao.blocos;
+  const impressao = useExibicao() === "impressao";
   if (parte === 0) {
     return (
       <Slide secao={secao} parte={parte} cabecalho="nenhum">
@@ -20,7 +22,7 @@ export function Secao03Produto({ parte }: PropsSecao) {
             </div>
           </div>
           <Encaixe className="figura flex flex-col items-center" visual="V07">
-            <Celular inicio="conversa" />
+            {impressao ? <Celular inicio="jornada" etapa={3} /> : <Celular inicio="conversa" />}
           </Encaixe>
         </div>
         <p className="sr-only-vapti">{secao.alts.V07}</p>
