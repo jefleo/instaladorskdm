@@ -132,7 +132,7 @@ export function Bloco({ bloco, projecao, estilo = "traco", tom = "neutro", grand
   return (
     <div className={`${caixa} ${className ?? ""}`} style={estilo === "traco" ? { borderColor: BARRA[tom] } : undefined}>
       {titulo ? (
-        <h3 className="flex flex-wrap items-center gap-x-[0.6em] gap-y-[0.3em] font-titulo text-corpo-g font-bold text-texto" style={{ lineHeight: 1.15, letterSpacing: "-0.015em" }}>
+        <h3 className={`flex flex-wrap items-center gap-x-[0.6em] gap-y-[0.3em] font-titulo ${grande ? "text-h3" : "text-corpo-g"} font-bold text-texto`} style={{ lineHeight: 1.15, letterSpacing: "-0.015em" }}>
           <span>{titulo}</span>
           {comSelo ? <Selo tipo="projecao" /> : null}
         </h3>
@@ -160,15 +160,17 @@ export interface FiguraProps {
   semLegenda?: boolean;
   /** O visual já desenha legenda, selo e texto alternativo (gráficos de src/components/viz). */
   proprio?: boolean;
+  /** No palco, centraliza o visual na altura disponível quando ele cabe sem redução. */
+  centro?: boolean;
   className?: string;
   estilo?: CSSProperties;
   children: ReactNode;
 }
 
-export function Figura({ secao, visual, selo, semLegenda, proprio, className, estilo, children }: FiguraProps) {
+export function Figura({ secao, visual, selo, semLegenda, proprio, centro, className, estilo, children }: FiguraProps) {
   if (proprio) {
     return (
-      <Encaixe className={`figura ${className ?? ""}`} estilo={estilo} visual={visual}>
+      <Encaixe className={`figura ${className ?? ""}`} estilo={estilo} visual={visual} centro={centro}>
         {children}
       </Encaixe>
     );
@@ -221,7 +223,20 @@ export function Rotulo({ children, tom = "texto-3", className }: { children: Rea
  * mais alto que o espaço da tela, ele é reduzido por escala (centralizado), nunca cortado.
  * Na leitura, nada muda: rolagem livre.
  */
-export function Encaixe({ children, className, estilo, visual }: { children: ReactNode; className?: string; estilo?: CSSProperties; visual?: string }) {
+export function Encaixe({
+  children,
+  className,
+  estilo,
+  visual,
+  centro,
+}: {
+  children: ReactNode;
+  className?: string;
+  estilo?: CSSProperties;
+  visual?: string;
+  /** Centraliza na vertical quando o conteúdo cabe sem redução (evita sobra só embaixo). */
+  centro?: boolean;
+}) {
   const exibicao = useExibicao();
   const fora = useRef<HTMLDivElement>(null);
   const dentro = useRef<HTMLDivElement>(null);
@@ -255,7 +270,13 @@ export function Encaixe({ children, className, estilo, visual }: { children: Rea
     );
   }
   return (
-    <div ref={fora} className={`encaixe ${className ?? ""}`} style={estilo} data-visual={visual} data-escala={escala.toFixed(3)}>
+    <div
+      ref={fora}
+      className={`encaixe ${centro && escala >= 1 ? "encaixe--centro" : ""} ${className ?? ""}`}
+      style={estilo}
+      data-visual={visual}
+      data-escala={escala.toFixed(3)}
+    >
       <div ref={dentro} style={escala < 1 ? { transform: `scale(${escala})`, transformOrigin: "top center" } : undefined}>
         {children}
       </div>

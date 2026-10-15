@@ -79,14 +79,21 @@ export function CurvaMargemPerda({ compacto = false, legenda = true, className }
 
             <path d={areaAcima} style={{ fill: "var(--cor-verde)", fillOpacity: 0.1, ...entrada(ativo, animar, "fade", 250, 300) }} />
             <path d={areaAbaixo} style={{ fill: "var(--cor-coral)", fillOpacity: 0.24, ...entrada(ativo, animar, "fade", 300, 300) }} />
+            {/* "Margem negativa" em duas linhas: cabe entre o equilíbrio e a borda sem reduzir a fonte */}
             <text
               x={x(p1) - f * 0.3}
-              y={y(0) - f * 0.55}
+              y={y(0) - f * 1.65}
               textAnchor="end"
               className="fill-coral font-texto font-semibold"
-              style={{ fontSize: f * 0.9, ...entrada(ativo, animar, "fade", 350, 300) }}
+              style={{ fontSize: f, ...entrada(ativo, animar, "fade", 350, 300) }}
             >
-              {x(p1) - x(eq) > f * 8 ? viz.curva.negativa : ""}
+              {x(p1) - x(eq) > f * 5.5
+                ? viz.curva.negativa.split(" ").map((p, i) => (
+                    <tspan key={p} x={x(p1) - f * 0.3} dy={i === 0 ? 0 : f * 1.15}>
+                      {p}
+                    </tspan>
+                  ))
+                : ""}
             </text>
 
             {/* equilíbrio */}
@@ -137,7 +144,7 @@ export function CurvaMargemPerda({ compacto = false, legenda = true, className }
                       <text x={tx + f * 0.6} y={ty + f * 1.25} className="fill-texto font-mono font-bold" style={{ fontSize: f }}>
                         {comMenos(formatMi(pf.margem))}
                       </text>
-                      <text x={tx + f * 0.6} y={ty + f * 2.4} className="fill-texto-3 font-texto" style={{ fontSize: f * 0.85 }}>
+                      <text x={tx + f * 0.6} y={ty + f * 2.4} className="fill-texto-3 font-texto" style={{ fontSize: f }}>
                         {viz.curva.perdaDe(pctCurto(pf.perda))}
                       </text>
                     </g>

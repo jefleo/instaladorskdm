@@ -62,6 +62,7 @@
   --fs-corpo: 26px;
   --fs-apoio: 22px;       /* mínimo absoluto de conteúdo */
   --fs-eyebrow: 22px;
+  --fs-selo: 18px;        /* piso do selo "sm" (etiqueta, não texto corrido) */
 
   --lh-justo: 0.92;
   --lh-titulo: 1.02;
@@ -159,6 +160,7 @@ html[data-modo="claro"] {
     --fs-corpo: 19px;
     --fs-apoio: 16px;
     --fs-eyebrow: 15px;
+    --fs-selo: 13px;
     --palco-margem: 48px;
     --palco-topo: 56px;
   }
@@ -177,6 +179,7 @@ html[data-modo="claro"] {
     --fs-corpo: 16px;
     --fs-apoio: 14px;
     --fs-eyebrow: 13px;
+    --fs-selo: 12px;
     --palco-margem: 20px;
     --palco-topo: 32px;
     --raio-3: 16px;

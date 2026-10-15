@@ -168,6 +168,7 @@ export function Simulador({ compacto = false, className }: VizProps = {}) {
             rotMin={formatTaxa(faixas.taxa.min)}
             rotMax={formatTaxa(faixas.taxa.max)}
           />
+          <div style={{ gridColumn: "1 / -1" }}>
           <Controle
             rotulo={txt.controles.perda}
             valor={pctCurto(perda)}
@@ -180,7 +181,8 @@ export function Simulador({ compacto = false, className }: VizProps = {}) {
             rotMin={pctCurto(faixas.perda.min)}
             rotMax={pctCurto(faixas.perda.max)}
           />
-          <fieldset className="m-0 border-0 p-0">
+          </div>
+          <fieldset className="m-0 border-0 p-0" style={{ gridColumn: "1 / -1" }}>
             <legend className="mb-[0.4em] text-corpo font-semibold text-texto-2">{txt.controles.fase}</legend>
             <div className="grid grid-cols-3 gap-[0.5em]">
               {txt.fases.map((f) => {
@@ -192,12 +194,12 @@ export function Simulador({ compacto = false, className }: VizProps = {}) {
                     aria-pressed={ativo}
                     onClick={() => setFase(f.fase)}
                     onKeyDown={naoPropagarAtivacao}
-                    className={`rounded-2 border-2 px-[0.5em] py-[0.45em] text-left text-apoio leading-tight transition-colors ${
+                    className={`min-w-0 rounded-2 border-2 px-[0.7em] py-[0.5em] text-left text-apoio leading-tight transition-colors ${
                       ativo ? "border-verde bg-verde-suave text-texto" : "border-borda bg-superficie text-texto-2 hover:border-borda-forte"
                     }`}
                   >
-                    <span className="block font-mono font-bold">{f.rotulo.split(" · ")[0]}</span>
-                    <span className="block text-texto-3">{f.rotulo.split(" · ")[1]}</span>
+                    <span className="block whitespace-nowrap font-mono font-bold">{f.rotulo.split(" · ")[0]}</span>
+                    <span className="block whitespace-nowrap text-texto-3">{f.rotulo.split(" · ")[1]}</span>
                   </button>
                 );
               })}

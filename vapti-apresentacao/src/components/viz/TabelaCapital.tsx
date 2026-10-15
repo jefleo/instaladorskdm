@@ -61,7 +61,7 @@ export function TabelaCapital({ compacto = false, className }: VizProps = {}) {
   const subconjunto = chaves.length < Object.keys(todas).length;
 
   const estilo: CSSProperties = modo === "largo" ? ({ ["--fs-corpo" as string]: "var(--fs-apoio)" } as CSSProperties) : {};
-  const aperto = modo === "largo" ? "[&_td]:!px-[0.5em] [&_th]:!px-[0.5em]" : modo === "estreito" ? "[&_td]:!px-[0.4em] [&_th]:!px-[0.4em]" : "";
+  const aperto = modo === "largo" ? "[&_td]:!px-[0.5em] [&_th]:!px-[0.5em] [&_td]:whitespace-nowrap" : modo === "estreito" ? "[&_td]:!px-[0.4em] [&_th]:!px-[0.4em]" : "";
 
   return (
     <div ref={ref} className={`w-full font-texto ${className ?? ""}`}>

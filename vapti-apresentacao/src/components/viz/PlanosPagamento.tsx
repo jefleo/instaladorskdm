@@ -43,7 +43,7 @@ export function PlanosPagamento({ compacto = false, legenda = true, className }:
     <div className="min-w-0">
       <p className="flex flex-wrap items-center gap-[0.5em] font-texto text-corpo font-semibold text-texto">
         {titulo}
-        {tag ? <span className="rounded-full border border-verde-borda bg-verde-suave px-[0.55em] py-[0.15em] font-mono text-[max(12px,0.62em)] uppercase tracking-[0.08em] text-verde">{tag}</span> : null}
+        {tag ? <span className="rounded-full border border-verde-borda bg-verde-suave px-[0.55em] py-[0.15em] font-mono text-[length:max(var(--fs-selo),0.62em)] uppercase tracking-[0.08em] text-verde">{tag}</span> : null}
       </p>
       <p className="mt-[0.15em] font-mono text-h3 font-bold tracking-[-0.03em] text-texto">{grande}</p>
       {linhas.map((l) => (
@@ -92,7 +92,7 @@ export function PlanosPagamento({ compacto = false, legenda = true, className }:
                   <circle cx={x(0)} cy={l.base} r={f * 0.42} className="stroke-tinta" strokeWidth={3} style={{ fill: "var(--cor-verde)" }} />
                 </g>
               ))}
-              <text x={x(0)} y={base1 + f * 1.5} textAnchor="start" className="fill-texto-2 font-texto" style={{ fontSize: f * 0.9 }}>
+              <text x={x(0)} y={base1 + f * 1.5} textAnchor="start" className="fill-texto-2 font-texto" style={{ fontSize: f }}>
                 {viz.planos.saque}
               </text>
               {/* semanal: 4 barras empilhadas (valor + juros) */}
@@ -113,10 +113,10 @@ export function PlanosPagamento({ compacto = false, legenda = true, className }:
                     ) : null}
                     {i === 0 && rotulosLaterais ? (
                       <>
-                        <text x={cx - bwSem / 2 - f * 0.4} y={base1 - hv / 2} dy="0.35em" textAnchor="end" className="fill-texto-2 font-texto" style={{ fontSize: f * 0.9 }}>
+                        <text x={cx - bwSem / 2 - f * 0.4} y={base1 - hv / 2} dy="0.35em" textAnchor="end" className="fill-texto-2 font-texto" style={{ fontSize: f }}>
                           {ex.amortizacao.rotulo} {viz.planos.valorSerie}
                         </text>
-                        <text x={cx - bwSem / 2 - f * 0.4} y={base1 - hv - hj / 2} dy="0.35em" textAnchor="end" className="fill-texto-2 font-texto" style={{ fontSize: f * 0.9 }}>
+                        <text x={cx - bwSem / 2 - f * 0.4} y={base1 - hv - hj / 2} dy="0.35em" textAnchor="end" className="fill-texto-2 font-texto" style={{ fontSize: f }}>
                           {ex.jurosParcela.rotulo} {viz.planos.jurosSerie}
                         </text>
                       </>

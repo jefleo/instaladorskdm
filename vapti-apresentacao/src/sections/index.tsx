@@ -25,7 +25,7 @@ const REGISTRO: Record<string, { Componente: ComponentType<PropsSecao>; partes: 
   "00": { Componente: Secao00Capa, partes: 1 },
   "01": { Componente: Secao01Problema, partes: 2 },
   "02": { Componente: Secao02Prova, partes: 2 },
-  "03": { Componente: Secao03Produto, partes: 2 },
+  "03": { Componente: Secao03Produto, partes: 3 },
   "04": { Componente: Secao04Gamificacao, partes: 2 },
   "05": { Componente: Secao05Estrutura, partes: 3 },
   "06": { Componente: Secao06Preco, partes: 2 },

@@ -37,7 +37,7 @@ const ESTILO: Record<TipoSelo, string> = {
 export function Selo({ tipo, premissas, tituloPremissas = "Premissas", rotulo, tamanho = "md", className }: SeloProps) {
   const texto = rotulo ?? ROTULO[tipo];
   const base = `inline-flex items-center gap-[0.45em] whitespace-nowrap font-mono font-medium uppercase leading-none ${
-    tamanho === "md" ? "text-apoio px-[0.7em] py-[0.42em]" : "text-[max(13px,0.7em)] px-[0.6em] py-[0.38em]"
+    tamanho === "md" ? "text-apoio px-[0.7em] py-[0.42em]" : "text-[length:max(var(--fs-selo),0.7em)] px-[0.6em] py-[0.38em]"
   } ${ESTILO[tipo]}`;
   const conteudo = (
     <>

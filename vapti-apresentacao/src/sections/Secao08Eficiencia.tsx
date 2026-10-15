@@ -24,7 +24,7 @@ export function Secao08Eficiencia({ parte }: PropsSecao) {
   }
   if (parte === 1) {
     return (
-      <Slide secao={secao} parte={parte}>
+      <Slide secao={secao} parte={parte} corpoClassName="justify-center">
         <div className="grade-3" style={{ ["--vao" as string]: "var(--esp-7)" }}>
           {b0 ? <Bloco bloco={b0} tom="azul" grande /> : null}
           {b1 ? <Bloco bloco={b1} tom="verde" grande /> : null}

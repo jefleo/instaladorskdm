@@ -8,9 +8,9 @@ Como rodar: `npm run entregas` (build, entregas e QA) ou `npm run qa` (só os te
 | Arquivo | Tamanho | Conferência |
 | --- | --- | --- |
 | `entregas/vapti-apresentacao.html` | 1,22 MB | Arquivo único: 0 `<script src>`, 0 `<link stylesheet>`, nenhum http(s) em @import/url() |
-| `entregas/vapti-apresentacao.pdf` | 1,1 MB | 35 páginas de 1920×1080 (16:9), uma tela por página, modo claro |
+| `entregas/vapti-apresentacao.pdf` | 1,1 MB | 36 páginas de 1920×1080 (16:9), uma tela por página, modo claro |
 | `entregas/vapti-resumo.pdf` | 96 KB | 1 página A4 |
-| `entregas/qa/1920x1080/*.png` | 35 capturas | Todas as telas (o nome do arquivo é o id da rota: 00, 01, 01b… 13c) |
+| `entregas/qa/1920x1080/*.png` | 36 capturas | Todas as telas (o nome do arquivo é o id da rota: 00, 01, 01b… 13c) |
 | `entregas/qa/1440x900/`, `entregas/qa/1280x720/` | 8 capturas cada | Telas 00, 03, 04, 07, 07c, 09, 10 e 12 |
 | `entregas/qa/390x844/` | topo.png (2x), pagina-inteira.png | Modo leitura no celular |
 | `entregas/qa/simulador-extremo.png`, `prototipo-03.png`, `prototipo-prototipo.png` | | Estado final dos testes do simulador e do protótipo |
@@ -58,3 +58,39 @@ Depois das correções rodaram `npx tsc -b` (ok), `npx vitest run` (135/135), `n
 - **Baixa:** tela 07c com cerca de 25% do palco vazio embaixo. Os botões de fase quebram mal ("Meses 0–" / "12").
 - **Baixa:** no modo leitura em 390 px, a tabela das três fases (07f) e a Tabela A precisam de rolagem lateral dentro do próprio bloco. A página não rola na horizontal.
 - **Informativo:** o celular da 03 está em tamanho real de app (11–17 px), o que é coerente com um protótipo.
+
+## Revisão visual (diretor de arte)
+
+Revisão das 35 telas originais em 1920×1080, do PDF claro (pdftoppm a 40 dpi, folha de contato) e do resumo A4. Depois das correções o deck tem **36 telas / 36 páginas** (a 03b foi dividida); o resumo continua com 1 página.
+
+### O que vi
+- **Ar de template:** várias telas de continuação repetem o mesmo título de 76 px e trazem três ou quatro blocos de texto com barra lateral (06b, 08b, 05c, 10b). Funciona, mas é a fórmula de sempre, e o título se repete três a seis vezes por seção (07 aparece seis vezes).
+- **Hierarquia:** no `Bloco grande` (01b, 02b, 06b, 08b), o título do bloco e o corpo tinham o mesmo tamanho (32 px); só o negrito separava um do outro. Na 03b havia dois visuais competindo numa só tela, sem um protagonista. Na 10c, o destaque "O que se vende" fica pequeno, solto à direita do título.
+- **Leitura a 3 m:** o corpo da 03b caía para cerca de 18 px por causa da redução. A tabela da 07f (20,8 px), o "Margem negativa" da 07b (19,8 px), a dica da curva (18,7 px) e o "Saque" e os rótulos laterais da V08 (19,8 px) ficavam abaixo do mínimo. Os selos "sm" tinham de 13 a 16 px. Na Tabela A (07d), os números quebravam em duas linhas ("127,5 / mil").
+- **Equilíbrio:** sobrava 20–35% do palco vazio embaixo em 06b, 08b, 10c, 07c, 07d e 07e. Na 07c, os botões de fase quebravam ("Meses 0–" / "12").
+
+### Correções feitas
+| Problema | Correção | Arquivo |
+| --- | --- | --- |
+| 03b reduzida a ~0,81 | Dividida em **03b (V08, planos de pagamento)** e **03c (V09, Pix Automático)**, cada uma com o cabeçalho completo, o visual centralizado e a escala um degrau acima no palco (`.ampliar`). As notas são por seção e não mudam; as rotas são geradas pelo registro | `src/sections/index.tsx` (03: 3 partes), `src/sections/Secao03Produto.tsx` |
+| Visual sozinho com sobra embaixo | `Encaixe`/`Figura` ganharam a opção `centro`: centraliza na altura só quando o conteúdo cabe sem redução. Também criei a classe `.ampliar` (apoio 26, corpo 30, corpo-g 36, h3 56), que vale só em `.slide--fixo` | `src/sections/Slide.tsx`, `src/sections/secoes.css` |
+| 07c: simulador com vazio e botões quebrando | "Perda" e "Fase" passaram a ocupar a linha inteira dos controles; os botões de fase têm o período em linha própria, sem quebra (`whitespace-nowrap`); o simulador fica centralizado. Conferi também o estado extremo (alerta), que cabe sem redução | `src/components/viz/Simulador.tsx`, `src/sections/Secao07Numeros.tsx` |
+| 07d: números quebrando | `td` sem quebra no modo largo; tabela centralizada | `src/components/viz/TabelaCapital.tsx` |
+| 07f a 20,8 px | A coluna dos rótulos passou de 34% para 42%, e nenhuma linha quebra mais. A tabela cabe sem redução (22 px ou mais) | `src/sections/visuais/Medidas.tsx` |
+| 07b "Margem negativa" 19,8 px | Agora a 22 px, em duas linhas, entre o equilíbrio e a borda. A dica da curva passou de 0,85f para f | `src/components/viz/CurvaMargemPerda.tsx` |
+| V08: "Saque" e rótulos laterais a 0,9f | Agora a 1f (22 px ou mais) | `src/components/viz/PlanosPagamento.tsx` |
+| Selos de 13 a 16 px | Novo token `--fs-selo` (18 px no palco, 13 px no tablet, 12 px no celular, 9 px na folha A4). Vale para o Selo "sm", a etiqueta ESTIMATIVA e a tag RECOMENDADO | `src/styles/tokens.css`, `src/components/base/Selo.tsx`, `src/components/viz/comum.tsx`, `src/components/viz/PlanosPagamento.tsx`, `src/shell/shell.css` |
+| 07e com sobra | V17 centralizado e um degrau acima (`ampliar`) | `src/sections/Secao07Numeros.tsx` |
+| 06b, 08b, 10c com sobra | Corpo centralizado na altura (`corpoClassName="justify-center"`) | `Secao06Preco.tsx`, `Secao08Eficiencia.tsx`, `Secao10Crescimento.tsx` |
+| Bloco grande sem hierarquia | O título do bloco grande passou de 32 para 44 px (`text-h3`); o corpo continua com 32 px | `src/sections/Slide.tsx` |
+
+Nenhum número, dado ou texto de conteúdo foi alterado. Os selos continuam em pílula discreta, Zippi segue em cinza e só em texto, e as vantagens e os riscos continuam com o mesmo peso. `semAnimacao()` e o modo claro de impressão continuam como antes, conferidos no PDF.
+
+**Verificação:** `npx tsc -b` ok; `npx vitest run` 135/135; `npm run entregas` e `npm run qa` sem erros: console 0, rede 0, teclado ok (35 passos), 0 cortes e 0 textos fora do palco em 1920, simulador sem falhas, protótipo ok, rolagem horizontal de 0 px em 390. Abaixo de 22 px no palco ficaram só o celular da 03 (mock em tamanho real) e os selos de 18 px (etiquetas). As 3 sobreposições são as mesmas, já aceitas.
+
+### O que ficou
+- 03, celular em escala real (11–17 px): é um mock de protótipo, aceito.
+- O título da seção se repete em todas as telas de continuação. Uma alternativa seria usar o cabeçalho "linha" a partir da segunda tela, mas isso muda o ritmo do deck inteiro e fica como decisão do orquestrador.
+- 06b, 08b e 10c continuam sendo telas de texto, só reequilibradas. Para ganharem força, precisariam de um visual próprio.
+- 08b e 06b: "R$ 1,05" e "R$ 16,67" quebram entre "R$" e o número. A correção é um espaço não separável nos textos de `src/content`, que não alterei.
+- 03c: os títulos "Autorização única" e "Aviso 10 dias antes" quebram em duas linhas com a escala ampliada. Está legível, aceito.

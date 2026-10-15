@@ -21,7 +21,7 @@ export function Secao06Preco({ parte }: PropsSecao) {
     );
   }
   return (
-    <Slide secao={secao} parte={parte}>
+    <Slide secao={secao} parte={parte} corpoClassName="justify-center">
       <div className="grade-2" style={{ ["--vao" as string]: "var(--esp-7) var(--esp-8)" }}>
         {secao.blocos.map((b, i) => (
           <Bloco key={b.titulo ?? i} bloco={b} tom={i === 3 ? "coral" : i === 2 ? "cinza" : "verde"} grande />

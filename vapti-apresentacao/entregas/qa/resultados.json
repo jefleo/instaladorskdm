@@ -1,16 +1,16 @@
 {
-  "quando": "2026-10-15T10:40:17.352Z",
+  "quando": "2026-10-15T10:56:52.509Z",
   "testes": {
     "medicoes1920": {
       "10": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 15.4,
+        "menorFonte": 18,
         "pequenas": [
           {
             "el": "span",
             "texto": "PROJEÇÃO",
-            "px": 15.4
+            "px": 18
           }
         ],
         "contraste": [],
@@ -56,12 +56,12 @@
       "01": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 15.4,
+        "menorFonte": 18,
         "pequenas": [
           {
             "el": "span",
             "texto": "ILUSTRATIVO",
-            "px": 15.4
+            "px": 18
           }
         ],
         "contraste": [],
@@ -158,7 +158,7 @@
           {
             "el": "span",
             "texto": "PROTÓTIPO",
-            "px": 12.9
+            "px": 18
           },
           {
             "el": "span.font-mono.text-[0.8em].text-verde",
@@ -193,227 +193,26 @@
       "03b": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 13.1,
+        "menorFonte": 18.1,
         "pequenas": [
-          {
-            "el": "p.font-texto.text-corpo.font-semibold",
-            "texto": "Um saque de R$ 400, dois jeitos de pagar",
-            "px": 21
-          },
-          {
-            "el": "p.font-texto.text-apoio.text-texto-3",
-            "texto": "Recebe R$ 400 · 5% por semana sobre o valor sacado",
-            "px": 17.8
-          },
-          {
-            "el": "p.flex.flex-wrap.items-center",
-            "texto": "Padrão: 4 parcelas semanais",
-            "px": 21.1
-          },
-          {
-            "el": "p.font-texto.text-apoio.leading-snug",
-            "texto": "R$ 100 do valor + R$ 20 de juros por semana",
-            "px": 17.8
-          },
-          {
-            "el": "p.font-texto.text-apoio.leading-snug",
-            "texto": "R$ 80 de juros no total · 37,5% ao mês",
-            "px": 17.8
-          },
-          {
-            "el": "p.flex.flex-wrap.items-center",
-            "texto": "Alternativa: plano diário de 14 dias RECOMENDADO",
-            "px": 21.1
-          },
           {
             "el": "span.rounded-full.border.border-verde-borda",
             "texto": "RECOMENDADO",
-            "px": 13.1
-          },
-          {
-            "el": "p.font-texto.text-apoio.leading-snug",
-            "texto": "R$ 40,00 de juros no total · 47,2% ao mês",
-            "px": 17.8
-          },
-          {
-            "el": "p.font-texto.text-apoio.leading-snug",
-            "texto": "Também em 7 ou 20 dias.",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto-3.font-texto",
-            "texto": "Parcela (R$)",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto-2.font-texto.font-semibold",
-            "texto": "Semanal",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto-2.font-texto.font-semibold",
-            "texto": "Diário",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto-2.font-texto",
-            "texto": "Saque",
-            "px": 16
-          },
-          {
-            "el": "text.fill-texto.font-mono.font-bold",
-            "texto": "R$ 120",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto.font-mono.font-bold",
-            "texto": "R$ 120",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto.font-mono.font-bold",
-            "texto": "R$ 120",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto.font-mono.font-bold",
-            "texto": "R$ 120",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto.font-mono.font-bold",
-            "texto": "14 × R$ 31,43",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto-3.font-mono",
-            "texto": "0",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto-3.font-mono",
-            "texto": "7",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto-3.font-mono",
-            "texto": "14",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto-3.font-mono",
-            "texto": "21",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto-3.font-mono",
-            "texto": "28",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto-3.font-texto",
-            "texto": "Dias corridos desde o saque",
-            "px": 17.8
-          },
-          {
-            "el": "figcaption.mt-[0.9em].font-texto.text-apoio",
-            "texto": "Exemplo de R$ 400: 5,0% por semana = 37,5% ao mês = R$ 80 de juros em ",
-            "px": 17.8
-          },
-          {
-            "el": "p.flex.items-center.gap-[0.45em]",
-            "texto": "01",
-            "px": 19.3
-          },
-          {
-            "el": "p.mt-[0.3em].text-apoio.leading-snug",
-            "texto": "O cliente autoriza uma vez, na contratação.",
-            "px": 19.3
-          },
-          {
-            "el": "p.flex.items-center.gap-[0.45em]",
-            "texto": "02",
-            "px": 19.3
-          },
-          {
-            "el": "p.mt-[0.3em].text-apoio.leading-snug",
-            "texto": "O cliente vê o valor antes de cada cobrança.",
-            "px": 19.3
-          },
-          {
-            "el": "p.flex.items-center.gap-[0.45em]",
-            "texto": "03",
-            "px": 19.3
-          },
-          {
-            "el": "p.mt-[0.3em].text-apoio.leading-snug",
-            "texto": "A cobrança cai na conta da parceira ou do fundo.",
-            "px": 19.3
-          },
-          {
-            "el": "p.flex.items-center.gap-[0.45em]",
-            "texto": "04",
-            "px": 19.3
-          },
-          {
-            "el": "p.mt-[0.3em].text-apoio.leading-snug",
-            "texto": "Se faltar saldo, o Pix tenta de novo.",
-            "px": 19.3
-          },
-          {
-            "el": "span.font-mono",
-            "texto": "1",
-            "px": 19.6
-          },
-          {
-            "el": "span.text-texto-2",
-            "texto": "Sem saldo",
-            "px": 19.2
-          },
-          {
-            "el": "span.font-mono",
-            "texto": "2",
-            "px": 19.6
-          },
-          {
-            "el": "span.text-texto-2",
-            "texto": "Sem saldo",
-            "px": 19.2
-          },
-          {
-            "el": "span.font-mono",
-            "texto": "3",
-            "px": 19.6
-          },
-          {
-            "el": "span.text-texto-2",
-            "texto": "Pago",
-            "px": 19.2
-          },
-          {
-            "el": "p.text-apoio.leading-snug.text-texto-2",
-            "texto": "Cancelou até 23h59 da véspera? Vira sinal de risco e gatilho de contat",
-            "px": 19.3
-          },
-          {
-            "el": "strong.font-semibold.text-texto",
-            "texto": "Cancelou até 23h59 da véspera?",
-            "px": 19.3
-          },
-          {
-            "el": "p.text-apoio.text-texto-3",
-            "texto": "QR Pix como alternativa.",
-            "px": 19.3
-          },
-          {
-            "el": "figcaption.mt-[0.9em].font-texto.text-apoio",
-            "texto": "Pix Automático, do Banco Central, em operação desde junho de 2025. Fon",
-            "px": 19.3
+            "px": 18.1
           }
         ],
         "contraste": [],
         "sobrepostos": [],
-        "nTextos": 53
+        "nTextos": 30
+      },
+      "03c": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 26
       },
       "04": {
         "cortes": [],
@@ -463,12 +262,12 @@
       "06": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 16.2,
+        "menorFonte": 18,
         "pequenas": [
           {
             "el": "span.inline-flex.items-center.gap-[0.4em]",
             "texto": "ESTIMATIVA",
-            "px": 16.2
+            "px": 18
           }
         ],
         "contraste": [],
@@ -487,12 +286,12 @@
       "07": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 15.4,
+        "menorFonte": 18,
         "pequenas": [
           {
             "el": "span",
             "texto": "PROJEÇÃO",
-            "px": 15.4
+            "px": 18
           }
         ],
         "contraste": [],
@@ -502,17 +301,12 @@
       "07b": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 15.4,
+        "menorFonte": 18,
         "pequenas": [
           {
             "el": "span",
             "texto": "PROJEÇÃO",
-            "px": 15.4
-          },
-          {
-            "el": "text.fill-coral.font-texto.font-semibold",
-            "texto": "Margem negativa",
-            "px": 19.8
+            "px": 18
           }
         ],
         "contraste": [],
@@ -532,17 +326,17 @@
             "frac": 0.25
           }
         ],
-        "nTextos": 30
+        "nTextos": 32
       },
       "07c": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 15.4,
+        "menorFonte": 18,
         "pequenas": [
           {
             "el": "span",
             "texto": "PROJEÇÃO",
-            "px": 15.4
+            "px": 18
           }
         ],
         "contraste": [
@@ -572,12 +366,12 @@
       "07d": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 15.4,
+        "menorFonte": 18,
         "pequenas": [
           {
             "el": "span",
             "texto": "PROJEÇÃO",
-            "px": 15.4
+            "px": 18
           }
         ],
         "contraste": [],
@@ -587,12 +381,12 @@
       "07e": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 15.4,
+        "menorFonte": 18.2,
         "pequenas": [
           {
             "el": "span",
             "texto": "PROJEÇÃO",
-            "px": 15.4
+            "px": 18.2
           }
         ],
         "contraste": [],
@@ -602,54 +396,8 @@
       "07f": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 20.8,
-        "pequenas": [
-          {
-            "el": "th.sticky.top-0.z-10",
-            "texto": "PROJEÇÃO",
-            "px": 20.8
-          },
-          {
-            "el": "th.sticky.top-0.z-10",
-            "texto": "FASE 1 Meses 0–12",
-            "px": 20.8
-          },
-          {
-            "el": "span.block.normal-case.text-texto-3",
-            "texto": "Meses 0–12",
-            "px": 20.8
-          },
-          {
-            "el": "th.sticky.top-0.z-10",
-            "texto": "FASE 2 Meses 12–24",
-            "px": 20.8
-          },
-          {
-            "el": "span.block.normal-case.text-texto-3",
-            "texto": "Meses 12–24",
-            "px": 20.8
-          },
-          {
-            "el": "th.sticky.top-0.z-10",
-            "texto": "FASE 3 Ano 3",
-            "px": 20.8
-          },
-          {
-            "el": "span.block.normal-case.text-texto-3",
-            "texto": "Ano 3",
-            "px": 20.8
-          },
-          {
-            "el": "span",
-            "texto": "PROJEÇÃO",
-            "px": 20.8
-          },
-          {
-            "el": "span",
-            "texto": "As três fases. Projeção a 5,0% por semana = 37,5% ao mês = R$ 80 de ju",
-            "px": 20.8
-          }
-        ],
+        "menorFonte": 21.7,
+        "pequenas": [],
         "contraste": [],
         "sobrepostos": [],
         "nTextos": 63
@@ -657,22 +405,22 @@
       "08": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 13.6,
+        "menorFonte": 18,
         "pequenas": [
           {
             "el": "span.inline-flex.items-center.gap-[0.4em]",
             "texto": "ESTIMATIVA",
-            "px": 13.6
+            "px": 18
           },
           {
             "el": "span.inline-flex.items-center.gap-[0.4em]",
             "texto": "ESTIMATIVA",
-            "px": 13.6
+            "px": 18
           },
           {
             "el": "span.inline-flex.items-center.gap-[0.4em]",
             "texto": "ESTIMATIVA",
-            "px": 13.6
+            "px": 18
           }
         ],
         "contraste": [],
@@ -777,12 +525,12 @@
       "10": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 15.4,
+        "menorFonte": 18,
         "pequenas": [
           {
             "el": "span",
             "texto": "PROJEÇÃO",
-            "px": 15.4
+            "px": 18
           }
         ],
         "contraste": [],
@@ -828,12 +576,12 @@
       "01": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 15.4,
+        "menorFonte": 18,
         "pequenas": [
           {
             "el": "span",
             "texto": "ILUSTRATIVO",
-            "px": 15.4
+            "px": 18
           }
         ],
         "contraste": [],
@@ -1090,7 +838,7 @@
           {
             "el": "span",
             "texto": "PROTÓTIPO",
-            "px": 12.9
+            "px": 18
           }
         ],
         "contraste": [],
@@ -1157,227 +905,26 @@
       "03b": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 13.1,
+        "menorFonte": 18.1,
         "pequenas": [
-          {
-            "el": "p.font-texto.text-corpo.font-semibold",
-            "texto": "Um saque de R$ 400, dois jeitos de pagar",
-            "px": 21
-          },
-          {
-            "el": "p.font-texto.text-apoio.text-texto-3",
-            "texto": "Recebe R$ 400 · 5% por semana sobre o valor sacado",
-            "px": 17.8
-          },
-          {
-            "el": "p.flex.flex-wrap.items-center",
-            "texto": "Padrão: 4 parcelas semanais",
-            "px": 21
-          },
-          {
-            "el": "p.font-texto.text-apoio.leading-snug",
-            "texto": "R$ 100 do valor + R$ 20 de juros por semana",
-            "px": 17.8
-          },
-          {
-            "el": "p.font-texto.text-apoio.leading-snug",
-            "texto": "R$ 80 de juros no total · 37,5% ao mês",
-            "px": 17.8
-          },
-          {
-            "el": "p.flex.flex-wrap.items-center",
-            "texto": "Alternativa: plano diário de 14 dias RECOMENDADO",
-            "px": 21
-          },
           {
             "el": "span.rounded-full.border.border-verde-borda",
             "texto": "RECOMENDADO",
-            "px": 13.1
-          },
-          {
-            "el": "p.font-texto.text-apoio.leading-snug",
-            "texto": "R$ 40,00 de juros no total · 47,2% ao mês",
-            "px": 17.8
-          },
-          {
-            "el": "p.font-texto.text-apoio.leading-snug",
-            "texto": "Também em 7 ou 20 dias.",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto-3.font-texto",
-            "texto": "Parcela (R$)",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto-2.font-texto.font-semibold",
-            "texto": "Semanal",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto-2.font-texto.font-semibold",
-            "texto": "Diário",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto-2.font-texto",
-            "texto": "Saque",
-            "px": 16
-          },
-          {
-            "el": "text.fill-texto.font-mono.font-bold",
-            "texto": "R$ 120",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto.font-mono.font-bold",
-            "texto": "R$ 120",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto.font-mono.font-bold",
-            "texto": "R$ 120",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto.font-mono.font-bold",
-            "texto": "R$ 120",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto.font-mono.font-bold",
-            "texto": "14 × R$ 31,43",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto-3.font-mono",
-            "texto": "0",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto-3.font-mono",
-            "texto": "7",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto-3.font-mono",
-            "texto": "14",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto-3.font-mono",
-            "texto": "21",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto-3.font-mono",
-            "texto": "28",
-            "px": 17.8
-          },
-          {
-            "el": "text.fill-texto-3.font-texto",
-            "texto": "Dias corridos desde o saque",
-            "px": 17.8
-          },
-          {
-            "el": "figcaption.mt-[0.9em].font-texto.text-apoio",
-            "texto": "Exemplo de R$ 400: 5,0% por semana = 37,5% ao mês = R$ 80 de juros em ",
-            "px": 17.8
-          },
-          {
-            "el": "p.flex.items-center.gap-[0.45em]",
-            "texto": "01",
-            "px": 19.3
-          },
-          {
-            "el": "p.mt-[0.3em].text-apoio.leading-snug",
-            "texto": "O cliente autoriza uma vez, na contratação.",
-            "px": 19.3
-          },
-          {
-            "el": "p.flex.items-center.gap-[0.45em]",
-            "texto": "02",
-            "px": 19.3
-          },
-          {
-            "el": "p.mt-[0.3em].text-apoio.leading-snug",
-            "texto": "O cliente vê o valor antes de cada cobrança.",
-            "px": 19.3
-          },
-          {
-            "el": "p.flex.items-center.gap-[0.45em]",
-            "texto": "03",
-            "px": 19.3
-          },
-          {
-            "el": "p.mt-[0.3em].text-apoio.leading-snug",
-            "texto": "A cobrança cai na conta da parceira ou do fundo.",
-            "px": 19.3
-          },
-          {
-            "el": "p.flex.items-center.gap-[0.45em]",
-            "texto": "04",
-            "px": 19.3
-          },
-          {
-            "el": "p.mt-[0.3em].text-apoio.leading-snug",
-            "texto": "Se faltar saldo, o Pix tenta de novo.",
-            "px": 19.3
-          },
-          {
-            "el": "span.font-mono",
-            "texto": "1",
-            "px": 19.6
-          },
-          {
-            "el": "span.text-texto-2",
-            "texto": "Sem saldo",
-            "px": 19.2
-          },
-          {
-            "el": "span.font-mono",
-            "texto": "2",
-            "px": 19.6
-          },
-          {
-            "el": "span.text-texto-2",
-            "texto": "Sem saldo",
-            "px": 19.2
-          },
-          {
-            "el": "span.font-mono",
-            "texto": "3",
-            "px": 19.6
-          },
-          {
-            "el": "span.text-texto-2",
-            "texto": "Pago",
-            "px": 19.2
-          },
-          {
-            "el": "p.text-apoio.leading-snug.text-texto-2",
-            "texto": "Cancelou até 23h59 da véspera? Vira sinal de risco e gatilho de contat",
-            "px": 19.3
-          },
-          {
-            "el": "strong.font-semibold.text-texto",
-            "texto": "Cancelou até 23h59 da véspera?",
-            "px": 19.3
-          },
-          {
-            "el": "p.text-apoio.text-texto-3",
-            "texto": "QR Pix como alternativa.",
-            "px": 19.3
-          },
-          {
-            "el": "figcaption.mt-[0.9em].font-texto.text-apoio",
-            "texto": "Pix Automático, do Banco Central, em operação desde junho de 2025. Fon",
-            "px": 19.3
+            "px": 18.1
           }
         ],
         "contraste": [],
         "sobrepostos": [],
-        "nTextos": 53
+        "nTextos": 30
+      },
+      "03c": {
+        "cortes": [],
+        "fora": [],
+        "menorFonte": 21.7,
+        "pequenas": [],
+        "contraste": [],
+        "sobrepostos": [],
+        "nTextos": 26
       },
       "04": {
         "cortes": [],
@@ -1427,12 +974,12 @@
       "06": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 16.2,
+        "menorFonte": 18,
         "pequenas": [
           {
             "el": "span.inline-flex.items-center.gap-[0.4em]",
             "texto": "ESTIMATIVA",
-            "px": 16.2
+            "px": 18
           }
         ],
         "contraste": [],
@@ -1451,12 +998,12 @@
       "07": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 15.4,
+        "menorFonte": 18,
         "pequenas": [
           {
             "el": "span",
             "texto": "PROJEÇÃO",
-            "px": 15.4
+            "px": 18
           }
         ],
         "contraste": [],
@@ -1466,17 +1013,12 @@
       "07b": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 15.4,
+        "menorFonte": 18,
         "pequenas": [
           {
             "el": "span",
             "texto": "PROJEÇÃO",
-            "px": 15.4
-          },
-          {
-            "el": "text.fill-coral.font-texto.font-semibold",
-            "texto": "Margem negativa",
-            "px": 19.8
+            "px": 18
           }
         ],
         "contraste": [],
@@ -1496,17 +1038,17 @@
             "frac": 0.25
           }
         ],
-        "nTextos": 30
+        "nTextos": 32
       },
       "07c": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 15.4,
+        "menorFonte": 18,
         "pequenas": [
           {
             "el": "span",
             "texto": "PROJEÇÃO",
-            "px": 15.4
+            "px": 18
           }
         ],
         "contraste": [
@@ -1536,12 +1078,12 @@
       "07d": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 15.4,
+        "menorFonte": 18,
         "pequenas": [
           {
             "el": "span",
             "texto": "PROJEÇÃO",
-            "px": 15.4
+            "px": 18
           }
         ],
         "contraste": [],
@@ -1551,12 +1093,12 @@
       "07e": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 15.4,
+        "menorFonte": 18.2,
         "pequenas": [
           {
             "el": "span",
             "texto": "PROJEÇÃO",
-            "px": 15.4
+            "px": 18.2
           }
         ],
         "contraste": [],
@@ -1566,54 +1108,8 @@
       "07f": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 20.8,
-        "pequenas": [
-          {
-            "el": "th.sticky.top-0.z-10",
-            "texto": "PROJEÇÃO",
-            "px": 20.8
-          },
-          {
-            "el": "th.sticky.top-0.z-10",
-            "texto": "FASE 1 Meses 0–12",
-            "px": 20.8
-          },
-          {
-            "el": "span.block.normal-case.text-texto-3",
-            "texto": "Meses 0–12",
-            "px": 20.8
-          },
-          {
-            "el": "th.sticky.top-0.z-10",
-            "texto": "FASE 2 Meses 12–24",
-            "px": 20.8
-          },
-          {
-            "el": "span.block.normal-case.text-texto-3",
-            "texto": "Meses 12–24",
-            "px": 20.8
-          },
-          {
-            "el": "th.sticky.top-0.z-10",
-            "texto": "FASE 3 Ano 3",
-            "px": 20.8
-          },
-          {
-            "el": "span.block.normal-case.text-texto-3",
-            "texto": "Ano 3",
-            "px": 20.8
-          },
-          {
-            "el": "span",
-            "texto": "PROJEÇÃO",
-            "px": 20.8
-          },
-          {
-            "el": "span",
-            "texto": "As três fases. Projeção a 5,0% por semana = 37,5% ao mês = R$ 80 de ju",
-            "px": 20.8
-          }
-        ],
+        "menorFonte": 21.7,
+        "pequenas": [],
         "contraste": [],
         "sobrepostos": [],
         "nTextos": 63
@@ -1621,22 +1117,22 @@
       "08": {
         "cortes": [],
         "fora": [],
-        "menorFonte": 13.6,
+        "menorFonte": 18,
         "pequenas": [
           {
             "el": "span.inline-flex.items-center.gap-[0.4em]",
             "texto": "ESTIMATIVA",
-            "px": 13.6
+            "px": 18
           },
           {
             "el": "span.inline-flex.items-center.gap-[0.4em]",
             "texto": "ESTIMATIVA",
-            "px": 13.6
+            "px": 18
           },
           {
             "el": "span.inline-flex.items-center.gap-[0.4em]",
             "texto": "ESTIMATIVA",
-            "px": 13.6
+            "px": 18
           }
         ],
         "contraste": [],
@@ -1738,7 +1234,7 @@
       "rolagemHorizontalPx": 0
     },
     "teclado": {
-      "passos": 34,
+      "passos": 35,
       "falhas": [],
       "console": []
     },
@@ -2679,7 +2175,7 @@
       }
     ],
     "arquivoUnico": {
-      "bytes": 1278605,
+      "bytes": 1279338,
       "mb": 1.22,
       "abaixoDe5MB": true,
       "referenciasExternas": [],
@@ -2703,6 +2199,7 @@
     "02b",
     "03",
     "03b",
+    "03c",
     "04",
     "04b",
     "05",
@@ -2739,7 +2236,7 @@
     "cortes1920": 0,
     "foraDoPalco1920": 0,
     "sobrepostos1920": 3,
-    "fontesAbaixo22": 81,
+    "fontesAbaixo22": 29,
     "menorFonte1920": 11,
     "contraste1920": 1,
     "cortesPrint": 9,

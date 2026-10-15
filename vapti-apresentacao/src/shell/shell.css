@@ -357,6 +357,7 @@
 
 /* ---- Folha A4 do resumo --------------------------------------------------- */
 .folha {
+  --fs-selo: 9px; /* A4: o selo volta ao tamanho de etiqueta de papel */
   box-sizing: border-box;
   width: 210mm;
   height: 297mm;

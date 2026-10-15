@@ -68,7 +68,7 @@ Total: cerca de 20 minutos. As notas completas de cada tela (tópicos e pergunta
 1. **O HTML não abre ou trava:** abra `entregas/vapti-apresentacao.pdf` em tela cheia. São as mesmas telas, em modo claro, uma por página. Sem o simulador, mostre a curva margem × perda (07b) e a Tabela A (07d).
 2. **Sem computador:** use o resumo A4 (`entregas/vapti-resumo.pdf`) impresso, com os 6 números-chave, a estrutura e as 5 decisões.
 3. **A TV corta as bordas:** a apresentação se ajusta a qualquer resolução. Se a TV estiver com "overscan", troque o modo de imagem para "Ajustar à tela" ou "Just scan".
-4. **Para mandar depois:** no próprio HTML, o botão "Leitura" mostra tudo em rolagem contínua, inclusive no celular. Envie o HTML ou o PDF.
+4. **Para mandar depois:** no próprio HTML, o botão "Modo leitura" mostra tudo em rolagem contínua, inclusive no celular. Envie o HTML ou o PDF.
 
 ## O que ainda falta antes da reunião
 

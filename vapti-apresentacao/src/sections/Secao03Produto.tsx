@@ -3,7 +3,7 @@ import { PixRetentativas, PlanosPagamento } from "../components/viz";
 import { useExibicao } from "./contexto";
 import { Bloco, Cabecalho, Encaixe, Figura, Slide, secaoPorId, type PropsSecao } from "./Slide";
 
-/** 03 — O produto: protótipo (V07), planos (V08) e Pix Automático (V09). */
+/** 03 — O produto: protótipo (V07, 03), planos (V08, 03b) e Pix Automático (V09, 03c). */
 export function Secao03Produto({ parte }: PropsSecao) {
   const secao = secaoPorId("03");
   const [b0, b1, b2, b3] = secao.blocos;
@@ -29,20 +29,18 @@ export function Secao03Produto({ parte }: PropsSecao) {
       </Slide>
     );
   }
+  // 03b: planos de pagamento (V08). 03c: Pix Automático (V09). Uma ideia por tela, corpo ≥ 22 px.
   return (
-    <Slide secao={secao} parte={parte} cabecalho="linha">
-      <div className="grade-2 encher" style={{ ["--vao" as string]: "var(--esp-8)" }}>
-        <div className="coluna">
-          <Figura secao={secao} visual="V08" proprio>
-            <PlanosPagamento />
-          </Figura>
-        </div>
-        <div className="coluna">
-          <Figura secao={secao} visual="V09" proprio>
-            <PixRetentativas />
-          </Figura>
-        </div>
-      </div>
+    <Slide secao={secao} parte={parte}>
+      {parte === 1 ? (
+        <Figura secao={secao} visual="V08" proprio centro className="ampliar">
+          <PlanosPagamento />
+        </Figura>
+      ) : (
+        <Figura secao={secao} visual="V09" proprio centro className="ampliar">
+          <PixRetentativas />
+        </Figura>
+      )}
     </Slide>
   );
 }

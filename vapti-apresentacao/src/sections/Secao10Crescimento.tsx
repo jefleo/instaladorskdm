@@ -31,7 +31,7 @@ export function Secao10Crescimento({ parte }: PropsSecao) {
     );
   }
   return (
-    <Slide secao={secao} parte={parte} destaque={b3 ? <>{b3.titulo}</> : null}>
+    <Slide secao={secao} parte={parte} destaque={b3 ? <>{b3.titulo}</> : null} corpoClassName="justify-center">
       <Figura secao={secao} visual="V21">
         <OQueSeVende />
       </Figura>

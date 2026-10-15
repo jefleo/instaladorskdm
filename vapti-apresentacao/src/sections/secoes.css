@@ -222,6 +222,24 @@
   min-height: 0;
   overflow: hidden;
 }
+/* Visual sozinho na tela: no palco, a escala sobe um degrau para ocupar o espaço */
+.slide--fixo .ampliar {
+  --fs-apoio: 26px;
+  --fs-corpo: 30px;
+  --fs-corpo-g: 36px;
+  --fs-h3: 56px;
+}
+
+/* Conteúdo que cabe inteiro: centralizado na altura (a sobra não fica só embaixo) */
+.encaixe--centro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.encaixe--centro > * {
+  flex: none;
+}
+
 .slide--fixo .dividir.encher {
   grid-template-rows: minmax(0, 1fr);
   align-items: stretch;

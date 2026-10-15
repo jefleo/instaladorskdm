@@ -73,7 +73,7 @@ export function TabelaFases() {
           destaque={destaque}
           chaveLinha={(l) => l.chave}
           colunas={[
-            { chave: "rotulo", titulo: r.metrica, largura: "34%" },
+            { chave: "rotulo", titulo: r.metrica, largura: "42%" },
             ...fases.map((f, i) => ({
               chave: `f${f.fase}`,
               titulo: (

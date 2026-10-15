@@ -156,7 +156,7 @@ export function EtiquetaEstimativa({ texto = viz.estimativa, className }: { text
   return (
     <span
       data-etiqueta="estimativa"
-      className={`inline-flex items-center gap-[0.4em] whitespace-nowrap rounded-full border border-dashed border-borda-forte px-[0.6em] py-[0.32em] align-middle font-mono text-[max(12px,0.62em)] font-medium uppercase leading-none tracking-[0.08em] text-texto-2 ${className ?? ""}`}
+      className={`inline-flex items-center gap-[0.4em] whitespace-nowrap rounded-full border border-dashed border-borda-forte px-[0.6em] py-[0.32em] align-middle font-mono text-[length:max(var(--fs-selo),0.62em)] font-medium uppercase leading-none tracking-[0.08em] text-texto-2 ${className ?? ""}`}
     >
       <Icone icone={EqualApproximately} tamanho="1em" />
       {texto}
