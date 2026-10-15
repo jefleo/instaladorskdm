@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "test": "vitest run",
     "typecheck": "tsc -b",
-    "entregas": "npm run build && node scripts/entregas.mjs"
+    "entregas": "npm run build && node scripts/entregas.mjs",
+    "qa": "node scripts/qa.mjs"
   },
   "dependencies": {
     "@fontsource/bricolage-grotesque": "^5.2.10",
