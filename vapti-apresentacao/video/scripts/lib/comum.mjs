@@ -105,6 +105,9 @@ export function lerWav(p) {
     const ini = pos + 8;
     if (id === "fmt ") {
       fmt = { formato: b.readUInt16LE(ini), canais: b.readUInt16LE(ini + 2), sr: b.readUInt32LE(ini + 4), bits: b.readUInt16LE(ini + 14) };
+      // WAVE_FORMAT_EXTENSIBLE (0xFFFE): o formato real está nos 2 primeiros bytes do subformato (GUID em ini+24).
+      // Sem isto, float32 do ffmpeg era lido como inteiro e a voz saía destruída.
+      if (fmt.formato === 0xfffe && tam >= 26) fmt.formato = b.readUInt16LE(ini + 24);
     } else if (id === "data") {
       if (ini + tam > b.length) tam = b.length - ini;
       dados = b.subarray(ini, ini + tam);

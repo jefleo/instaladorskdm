@@ -132,7 +132,7 @@ export function SimuladorCliente({ compacto = false, className }: VizProps = {})
                     className={botao(ativo && !diario, diario)}
                   >
                     <span className="block whitespace-nowrap font-semibold">{nv.nome}</span>
-                    <span className="block whitespace-nowrap font-mono">{nv.taxaSemanal.rotulo}</span>
+                    <span className="block whitespace-nowrap font-mono">{txt.aoMes(nv.efetivaMes.rotulo)}</span>
                   </button>
                 );
               })}
@@ -159,6 +159,31 @@ export function SimuladorCliente({ compacto = false, className }: VizProps = {})
               </button>
             ) : null}
             <p className="text-apoio leading-snug text-texto-3">{txt.exemplo}</p>
+          </div>
+          {/* O mesmo saque em cada nível */}
+          <div>
+            <p className="text-corpo font-semibold text-texto-2">{txt.porNivel}</p>
+            <p className="text-apoio text-texto-3">{txt.porNivelNota(valorTexto, produto.parcelasSemanais.rotulo)}</p>
+            <ul className="mt-[0.4em] flex list-none flex-col gap-[0.35em] p-0" aria-hidden="true">
+              {porNivel.map(({ nivel: nv, juros, rot: rn }) => {
+                const ativo = !diario && nv.id === idNivel;
+                return (
+                  <li key={nv.id} className="grid items-center gap-x-[0.7em] text-apoio" style={{ gridTemplateColumns: "5.2em minmax(0, 1fr) 9.5em" }}>
+                    <span className={ativo ? "font-semibold text-texto" : "text-texto-2"}>{nv.nome}</span>
+                    <span className="relative h-[0.8em] rounded-full bg-superficie-3">
+                      <span
+                        className={`absolute inset-y-0 left-0 rounded-full transition-[width] duration-200 ${ativo ? "bg-verde" : "bg-verde-borda"}`}
+                        style={{ width: `${(juros / jurosMax) * 100}%` }}
+                      />
+                    </span>
+                    <span className={`whitespace-nowrap text-right font-mono ${ativo ? "font-bold text-texto" : "text-texto-2"}`}>
+                      {rn.juros} · {rn.efetiva}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+            {diario ? <p className="mt-[0.3em] text-apoio text-texto-3">{txt.porNivelDiario}</p> : null}
           </div>
         </div>
 
@@ -211,31 +236,6 @@ export function SimuladorCliente({ compacto = false, className }: VizProps = {})
             <p className="mt-[0.3em] text-apoio text-texto-3">{txt.calendarioNota}</p>
           </div>
 
-          {/* O mesmo saque em cada nível */}
-          <div>
-            <p className="text-corpo font-semibold text-texto-2">{txt.porNivel}</p>
-            <p className="text-apoio text-texto-3">{txt.porNivelNota(valorTexto, produto.parcelasSemanais.rotulo)}</p>
-            <ul className="mt-[0.4em] flex list-none flex-col gap-[0.35em] p-0" aria-hidden="true">
-              {porNivel.map(({ nivel: nv, juros, rot: rn }) => {
-                const ativo = !diario && nv.id === idNivel;
-                return (
-                  <li key={nv.id} className="grid items-center gap-x-[0.7em] text-apoio" style={{ gridTemplateColumns: "5.2em minmax(0, 1fr) 9.5em" }}>
-                    <span className={ativo ? "font-semibold text-texto" : "text-texto-2"}>{nv.nome}</span>
-                    <span className="relative h-[0.8em] rounded-full bg-superficie-3">
-                      <span
-                        className={`absolute inset-y-0 left-0 rounded-full transition-[width] duration-200 ${ativo ? "bg-verde" : "bg-verde-borda"}`}
-                        style={{ width: `${(juros / jurosMax) * 100}%` }}
-                      />
-                    </span>
-                    <span className={`whitespace-nowrap text-right font-mono ${ativo ? "font-bold text-texto" : "text-texto-2"}`}>
-                      {rn.juros} · {rn.efetiva}
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
-            {diario ? <p className="mt-[0.3em] text-apoio text-texto-3">{txt.porNivelDiario}</p> : null}
-          </div>
         </div>
       </div>
       <TabelaSr

@@ -642,7 +642,7 @@ export const viz = {
       texto: `A periodicidade mais curta do Pix Automático é a ${produto.pixPeriodicidadeMinima}; não existe diária. O plano diário é pago por QR Pix.`,
     },
     custo: `${produto.pixTarifaPagador}. ${produto.pixTarifaRecebedor}: ${produto.pixTarifaValor.charAt(0).toLowerCase()}${produto.pixTarifaValor.slice(1)}.`,
-    calendario: `Retentativas: ${produto.pixRetentativasCalendario}.`,
+    calendario: `Até ${produto.pixRetentativas.rotulo} novas tentativas; ${produto.pixRetentativasCalendarioFrase}.`,
   },
 
   fluxo: {
@@ -804,6 +804,7 @@ export const simuladorClienteTxt = {
     diario: `Pago por ${produto.planoDiarioPagamento}.`,
   } as Record<string, string>,
   recomendado: "Recomendado",
+  aoMes: (v: string) => `${v} ao mês`,
   diarioNivel: `No plano diário, a taxa equivale a ${preco.exemplo.taxa.rotulo} por semana e não varia por nível. [A CONFIRMAR]`,
   resultados: {
     parcelas: "Parcelas",

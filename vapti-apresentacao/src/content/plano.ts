@@ -112,7 +112,7 @@ export const planoAcao = {
         id: "vencimento",
         quando: rc.vencimento.rotulo,
         titulo: "Vencimento",
-        oque: `O Pix Automático debita. Se faltar saldo, até ${produto.pixRetentativas.rotulo} novas tentativas (${produto.pixRetentativasCalendario}). Cancelar a autorização é sinal de risco e gatilho de contato.`,
+        oque: `O Pix Automático debita. Se faltar saldo, até ${produto.pixRetentativas.rotulo} novas tentativas (${produto.pixRetentativasCalendarioFrase}). Cancelar a autorização é sinal de risco e gatilho de contato.`,
         canal: "Pix Automático · comprovante na plataforma",
         tom: "Confirmação, sem cobrança.",
         exemploTexto: `“Recebemos sua parcela de ${parcelaEx}. Obrigado, ${nome}!”`,
@@ -199,7 +199,7 @@ export const planoAcao = {
       de: rc.programacaoDe.rotulo,
       ate: rc.programacaoAte.rotulo,
       d0: rc.vencimento.rotulo,
-      retentativas: `Se faltar saldo: até ${produto.pixRetentativas.rotulo} novas tentativas. ${produto.pixRetentativasCalendario}.`,
+      retentativas: `Se faltar saldo: até ${produto.pixRetentativas.rotulo} novas tentativas; ${produto.pixRetentativasCalendarioFrase}.`,
     },
     quemPaga: {
       titulo: "Quem paga o quê",

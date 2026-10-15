@@ -7,3 +7,4 @@ video/.venv/
 video/entrada/*
 !video/entrada/LEIA-ME.md
 video/modelos/
+entregas/*.mp4

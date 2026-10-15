@@ -165,6 +165,8 @@ export const produto = {
   pixFonte: AD(`${IN513}; Jovem Pan; Finsiders`),
   /** Calendário das novas tentativas: não definido no briefing. */
   pixRetentativasCalendario: "[A CONFIRMAR com a parceira] calendário das retentativas",
+  /** O mesmo, para meio de frase. */
+  pixRetentativasCalendarioFrase: "calendário das retentativas: [A CONFIRMAR com a parceira]",
   /** Tarifa: o pagador não paga; o recebedor paga conforme a tabela da instituição (sem valor público). */
   pixTarifaPagador: "Sem tarifa para quem paga",
   pixTarifaRecebedor: "Quem recebe (a parceira ou o fundo) paga conforme a tabela da instituição",

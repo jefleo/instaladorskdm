@@ -76,7 +76,7 @@ export function PixRetentativas({ compacto = false, legenda = true, className }:
           </div>
           <p className="text-apoio text-texto-3">{viz.pix.alternativa}</p>
         </div>
-        <div className={`mt-[1em] grid gap-[1em] ${horizontal ? "grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]" : "grid-cols-1"}`}>
+        <div className={`mt-[1em] grid items-start gap-[1em] ${horizontal ? "grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]" : "grid-cols-1"}`}>
           <div
             className="flex items-start gap-[0.6em] rounded-3 border-2 border-azul-borda bg-azul-suave px-[0.9em] py-[0.7em]"
             style={entrada(ativo, animar, "subir", 420, 300)}
