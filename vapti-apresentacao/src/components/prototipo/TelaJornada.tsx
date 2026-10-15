@@ -7,6 +7,7 @@ import { motion } from "motion/react";
 import {
   ArrowRight,
   BellRing,
+  CalendarRange,
   CalendarX2,
   Check,
   Landmark,
@@ -415,6 +416,7 @@ function EtapaAceite({ aceito, setAceito }: { aceito: boolean; setAceito: (v: bo
 function EtapaPix() {
   const x = e.pix;
   const avisosPix = [
+    { icone: CalendarRange, texto: x.soSemanal },
     { icone: BellRing, texto: x.aviso },
     { icone: CalendarX2, texto: x.cancelar },
     { icone: RefreshCw, texto: x.retentativas },

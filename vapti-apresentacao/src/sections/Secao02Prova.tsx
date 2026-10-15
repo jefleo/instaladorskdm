@@ -1,16 +1,18 @@
 import { BarrasFidc, LinhaTempoZippi } from "../components/viz";
 import { NumerosZippi } from "./visuais/NumerosZippi";
+import { useExibicao } from "./contexto";
 import { Bloco, Figura, Slide, secaoPorId, type PropsSecao } from "./Slide";
 
 /** 02 — A prova: linha do tempo (V04), números (V06) e FIDC (V05). Zippi sempre em cinza, só texto. */
 export function Secao02Prova({ parte }: PropsSecao) {
   const secao = secaoPorId("02");
   const [b0, , b2, b3] = secao.blocos;
+  const exibicao = useExibicao();
   if (parte === 0) {
     return (
       <Slide secao={secao} parte={parte}>
         <Figura secao={secao} visual="V04" proprio>
-          <LinhaTempoZippi />
+          <LinhaTempoZippi interativo={exibicao === "palco" || exibicao === "leitura"} />
         </Figura>
         <Figura secao={secao} visual="V06">
           <NumerosZippi horizontal />

@@ -64,7 +64,7 @@ export function texturaVinheta(): string {
       const dx = (x / 511 - 0.5) / 0.75;
       const dy = (y / 287 - 0.48) / 0.8;
       const d = Math.sqrt(dx * dx + dy * dy) * 2;
-      const u = Math.min(1, Math.max(0, (d - 0.52) / 0.62));
+      const u = Math.min(1, Math.max(0, (d - 0.8) / 0.7)); // centro e colunas L2 livres; só os cantos escurecem
       const a = u * u * (3 - 2 * u);
       const i = (y * 512 + x) * 4;
       img.data[i] = 4;

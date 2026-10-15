@@ -16,18 +16,19 @@ export function NumerosZippi({ horizontal = false }: { horizontal?: boolean }) {
       {itens.map((i) => (
         <li
           key={i.rotulo}
-          className="flex flex-wrap items-end justify-between gap-x-[var(--esp-6)] gap-y-[var(--esp-3)] rounded-3 border border-cinza-borda bg-cinza-suave px-[1.1em] py-[0.8em]"
+          className="flex min-w-0 flex-col items-start gap-[var(--esp-3)] rounded-3 border border-cinza-borda bg-cinza-suave px-[1.1em] py-[0.8em]"
         >
           <Kpi valor={i.num.valor} formatar={formatadorDe(i.num)} rotulo={i.rotulo} tom="cinza" tamanho="p" />
           {i.estimativa ? (
+            /* Etiqueta obrigatória do valor estimado: quebra linha em vez de vazar da borda do cartão. */
             <span
-              className="mb-[0.3em] inline-flex items-center whitespace-nowrap rounded-full border border-dashed border-cinza px-[0.8em] py-[0.35em] font-mono text-apoio uppercase text-texto-2"
-              style={{ letterSpacing: "0.06em", lineHeight: 1.1 }}
+              className="mt-auto inline-block max-w-full rounded-2 border border-dashed border-cinza px-[0.7em] py-[0.35em] font-mono text-apoio uppercase text-texto-2"
+              style={{ letterSpacing: "0.04em", lineHeight: 1.25, textWrap: "balance" }}
             >
               {i.nota}
             </span>
           ) : (
-            <span className="mb-[0.35em] text-apoio text-texto-3">{i.nota}</span>
+            <span className="mt-auto text-apoio text-texto-3">{i.nota}</span>
           )}
         </li>
       ))}

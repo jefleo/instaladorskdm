@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowRight, Bell, CalendarClock, Check, Repeat, ShieldCheck, TriangleAlert, X } from "lucide-react";
+import { ArrowDown, ArrowRight, Bell, CalendarClock, CalendarRange, Check, Repeat, ShieldCheck, TriangleAlert, X } from "lucide-react";
 import { produto } from "../../data/vapti";
 import { viz } from "../../content/ui";
 import { Icone } from "../base";
@@ -6,7 +6,7 @@ import { entrada, Figura, useViz, type VizProps } from "./comum";
 
 const ICONES = [ShieldCheck, Bell, CalendarClock, Repeat];
 
-/** V09 — Pix Automático: autorização única + até 3 novas tentativas (1 ✕, 2 ✕, 3 ✓). Sem logotipo: só texto. */
+/** V09 — Pix Automático (só no plano semanal): autorização única, cobrança programada 2 a 10 dias antes, até 3 novas tentativas (1 ✕, 2 ✕, 3 ✓). Sem logotipo: só texto. */
 export function PixRetentativas({ compacto = false, legenda = true, className }: VizProps = {}) {
   const { ref, largura, ativo, animar } = useViz();
   const horizontal = !compacto && largura >= 1100;
@@ -75,6 +75,21 @@ export function PixRetentativas({ compacto = false, legenda = true, className }:
             </p>
           </div>
           <p className="text-apoio text-texto-3">{viz.pix.alternativa}</p>
+        </div>
+        <div className={`mt-[1em] grid gap-[1em] ${horizontal ? "grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]" : "grid-cols-1"}`}>
+          <div
+            className="flex items-start gap-[0.6em] rounded-3 border-2 border-azul-borda bg-azul-suave px-[0.9em] py-[0.7em]"
+            style={entrada(ativo, animar, "subir", 420, 300)}
+          >
+            <Icone icone={CalendarRange} tamanho="1.2em" className="mt-[0.1em] flex-none text-azul" />
+            <p className="text-apoio leading-snug text-texto-2">
+              <strong className="font-semibold text-texto">{viz.pix.soSemanal.titulo}</strong> {viz.pix.soSemanal.texto}
+            </p>
+          </div>
+          <div className="flex flex-col gap-[0.4em] text-apoio leading-snug text-texto-3" style={entrada(ativo, animar, "fade", 480, 300)}>
+            <p>{viz.pix.custo}</p>
+            <p>{viz.pix.calendario}</p>
+          </div>
         </div>
       </div>
     </Figura>

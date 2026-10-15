@@ -16,6 +16,7 @@ import {
   simularFase,
   type NumeroFase,
   type ResultadoSimulacao,
+  type SaqueCliente,
 } from "../../lib/modelo";
 
 const cacheFmt = new Map<string, Intl.NumberFormat>();
@@ -195,5 +196,27 @@ export function linhaTabelaCapital(capital: number): LinhaCapital {
     margem12: formatMi(simular({ capital, taxaSemanal: t5, perda: p12 }).margemMes),
     clientesComSaldo: formatInt(base.clientesComSaldo),
     saquesMes: formatInt(base.saquesMes),
+  };
+}
+
+/* ------------------------------------------------------------------ */
+/* Simulador do cliente final                                          */
+/* ------------------------------------------------------------------ */
+
+/** Reais de um saque: sem centavos quando a conta é exata; com centavos no plano diário (como na tabela 4.5). */
+export function formatReaisSaque(v: number, sempreCentavos = false): string {
+  const exato = Math.abs(v * 100 - Math.round(v) * 100) < 0.5;
+  return formatBRL(v, sempreCentavos || !exato ? 2 : 0);
+}
+
+/** Rótulos de um saque do cliente: "4 × R$ 120", "R$ 80", "R$ 480", "37,5%". */
+export function rotulosSaqueCliente(r: SaqueCliente, tipo: "semanal" | "diario") {
+  const c = tipo === "diario";
+  return {
+    parcela: formatReaisSaque(r.parcela, c),
+    parcelas: `${r.parcelas} × ${formatReaisSaque(r.parcela, c)}`,
+    juros: formatReaisSaque(r.juros, c),
+    total: formatReaisSaque(r.total, c),
+    efetiva: formatPct(r.efetivaMes),
   };
 }

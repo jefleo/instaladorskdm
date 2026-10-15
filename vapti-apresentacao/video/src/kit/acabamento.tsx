@@ -103,12 +103,12 @@ export function Halo({ tom = "verde", x, y, w, h = w, intensidade = 0.2, escala 
 /* ------------------------------------------------------------------ */
 
 export interface VinhetaProps {
-  /** Escurecimento nas bordas, 0..1 (padrão 0,55). */
+  /** Escurecimento nas bordas, 0..1 (padrão 0,45). */
   forca?: number;
 }
 
 /** Vinheta: escurece as bordas e concentra o olhar no centro (textura pré-desenhada). */
-export function Vinheta({ forca = 0.55 }: VinhetaProps) {
+export function Vinheta({ forca = 0.45 }: VinhetaProps) {
   return (
     <div
       aria-hidden="true"

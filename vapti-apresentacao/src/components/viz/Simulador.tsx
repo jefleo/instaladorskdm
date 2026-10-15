@@ -14,7 +14,7 @@ const naoPropagarAtivacao = (e: KeyboardEvent) => {
   if (e.key === " " || e.key === "Enter" || e.key.startsWith("Arrow")) e.stopPropagation();
 };
 
-const CSS_RANGE = `
+export const CSS_RANGE = `
 .vz-range { -webkit-appearance: none; appearance: none; width: 100%; height: 2.2em; background: transparent; cursor: pointer; margin: 0; }
 .vz-range:focus { outline: none; }
 .vz-range::-webkit-slider-runnable-track { height: 0.42em; border-radius: 999px; background: linear-gradient(to right, var(--cor-verde) var(--vz-p), var(--cor-superficie-3) var(--vz-p)); }

@@ -13,3 +13,4 @@ export { Eficiencia } from "./Eficiencia";
 export { ReguaDuasTrilhas } from "./ReguaDuasTrilhas";
 export { Simulador } from "./Simulador";
 export { TabelaCapital } from "./TabelaCapital";
+export { SimuladorCliente } from "./SimuladorCliente";

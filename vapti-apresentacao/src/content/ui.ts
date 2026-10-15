@@ -564,6 +564,24 @@ export const viz = {
     titulo: `${zippi.nome} · marcos públicos`,
     quando: "Quando",
     marco: "Marco",
+    instrucao: "Clique em um marco para ver os números e a fonte.",
+    fonteRotulo: "Fonte",
+    /** Detalhe de cada marco de zippi.timeline (mesma ordem). Só fatos com fonte. */
+    detalhes: [
+      { texto: `Seed de ${zippi.seed.rotulo} no Y Combinator, avaliada em ${zippi.seedValuation.rotulo}.`, fonte: "Dealroom" },
+      { texto: `Lança o cartão de crédito semanal. Preço público hoje: a partir de ${preco.zippiTaxaSemanal.rotulo} por semana sobre o valor usado.`, fonte: "TI Inside; Startups.com.br" },
+      {
+        texto: `${zippi.liberado2022.rotulo} liberados (${zippi.crescimento2022.rotulo} o ano anterior), ${zippi.transacoes2022.rotulo} transações, ticket de ${zippi.ticket2022.rotulo}. Série A de ${zippi.serieA.rotulo} e debênture de ${zippi.debenture2022.rotulo}.`,
+        fonte: "Finsiders; Exame",
+      },
+      { texto: `${zippi.acumuladoAbr2024.rotulo} acumulado em transações de crédito.`, fonte: "Finsiders" },
+      { texto: `Primeiro FIDC, de ${zippi.fidc[0].valor.rotulo}: a dívida passa a financiar a carteira.`, fonte: "Finsiders" },
+      { texto: `FIDC de ${zippi.fidc[1].valor.rotulo}, crescimento acima de 100% e ${zippi.clientesAtivos2025.rotulo} clientes ativos.`, fonte: "LatamList" },
+      {
+        texto: `FIDC de ${zippi.fidc[2].valor.rotulo}, a terceira captação. ${zippi.concedido.rotulo} concedidos; a própria Zippi projeta movimentar ${zippi.projecao2026.rotulo} em 2026.`,
+        fonte: "Finsiders",
+      },
+    ],
   },
 
   fidc: {
@@ -767,6 +785,41 @@ export const viz = {
     saques: "Saques/mês",
     unidade: `Valores em R$, exceto clientes e saques. Margem antes de equipe, tecnologia e impostos. ${preco.tabela.filter((_, i) => i !== 1).map(rotuloTaxa).join("; ")}.`,
   },
+} as const;
+
+/* ------------------------------------------------------------------ */
+/* Simulador do cliente final (tela 06c)                               */
+/* ------------------------------------------------------------------ */
+
+export const simuladorClienteTxt = {
+  titulo: "Um saque, do jeito que o cliente vê",
+  subtitulo: "Preço proposto no briefing (4.5 e 4.6). Toda conta sai do modelo.",
+  valor: "Valor do saque",
+  plano: "Plano",
+  nivel: "Nível",
+  planos: { s4: "4 semanas", d14: "14 dias", d7: "7 dias", d20: "20 dias" } as Record<string, string>,
+  pagamento: { semanal: "Pix Automático", diario: "QR Pix diário" } as Record<string, string>,
+  pagamentoLongo: {
+    semanal: "Pago por Pix Automático: autoriza uma vez.",
+    diario: `Pago por ${produto.planoDiarioPagamento}.`,
+  } as Record<string, string>,
+  recomendado: "Recomendado",
+  diarioNivel: `No plano diário, a taxa equivale a ${preco.exemplo.taxa.rotulo} por semana e não varia por nível. [A CONFIRMAR]`,
+  resultados: {
+    parcelas: "Parcelas",
+    juros: "Juros",
+    total: "Total a pagar",
+    efetiva: "Taxa efetiva ao mês",
+  },
+  calendario: "Calendário das parcelas",
+  calendarioNota: "Dias corridos desde o saque. Cada marca é uma parcela.",
+  diaParcela: (d: number, v: string) => `Dia ${d}: parcela de ${v}`,
+  porNivel: "O mesmo saque em cada nível",
+  porNivelNota: (valor: string, semanas: string) => `Juros de ${valor} em ${semanas} semanas, por nível`,
+  porNivelDiario: "Plano diário: não varia por nível. [A CONFIRMAR]",
+  exemplo: `Exemplo do briefing: ${projeto.saqueMedio.rotulo}, ${produto.parcelasSemanais.rotulo} semanas, nível ${niveis[1].nome} = ${produto.parcelasSemanais.rotulo} × ${preco.exemplo.parcela.rotulo}, ${preco.exemplo.juros.rotulo} de juros, ${preco.exemplo.efetivaMes.rotulo} ao mês.`,
+  restaurar: "Voltar ao exemplo",
+  tabela: "Juros do mesmo saque em cada nível",
 } as const;
 
 /**

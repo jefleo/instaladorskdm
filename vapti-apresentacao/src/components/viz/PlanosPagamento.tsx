@@ -67,11 +67,12 @@ export function PlanosPagamento({ compacto = false, legenda = true, className }:
               {linhaInfo(viz.planos.semanal, viz.planos.parcelas(n, ex.parcela.rotulo), [
                 viz.planos.composicao,
                 `${viz.planos.juros(ex.juros.rotulo)} · ${viz.planos.efetiva(efSemanal)}`,
+                viz.planos.semanalPagamento,
               ])}
               {linhaInfo(
                 viz.planos.diario(dias),
                 viz.planos.parcelas(dias, rd.parcela),
-                [`${viz.planos.juros(rd.juros)} · ${viz.planos.efetiva(rd.efetiva)}`, viz.planos.outrosPrazos(outros)],
+                [`${viz.planos.juros(rd.juros)} · ${viz.planos.efetiva(rd.efetiva)}`, `${viz.planos.diarioPagamento} ${viz.planos.outrosPrazos(outros)}`],
                 viz.planos.recomendado,
               )}
             </div>
