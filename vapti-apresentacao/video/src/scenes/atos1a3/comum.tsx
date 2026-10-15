@@ -62,10 +62,11 @@ export function ChaveL2({
   destaque,
   tomDestaque = "verde",
   tom = "texto",
-  tamanho = 84,
+  tamanho = 96,
   top = 300,
   largura = 540,
   passo = 0.12,
+  tempos,
 }: {
   eyebrow?: string;
   titulo: string;
@@ -79,6 +80,8 @@ export function ChaveL2({
   top?: number;
   largura?: number;
   passo?: number;
+  /** Instante de entrada de cada palavra do título (sobrepõe `passo`). */
+  tempos?: number[];
 }) {
   const { t } = useFilme();
   if (t < em - 0.05) return null;
@@ -98,7 +101,7 @@ export function ChaveL2({
       ) : null}
       <h2 style={{ margin: 0, fontFamily: "var(--fonte-titulo)", fontWeight: 800, fontSize: tamanho, lineHeight: 1.02, letterSpacing: "-0.035em", textWrap: "balance" }}>
         {ws.map((w, i) => {
-          const te = tt + i * passo;
+          const te = tempos?.[i] ?? tt + i * passo;
           const p = prog(t, te, te + 0.6);
           const e = ease.outExpo(p);
           const ehD = dest.has(normalizar(w));

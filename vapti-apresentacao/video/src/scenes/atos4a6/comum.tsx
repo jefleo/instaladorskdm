@@ -292,7 +292,7 @@ export function poseEmChaves(t: number, chaves: ({ t: number } & Pose)[], curva:
   let acc: Pose = {};
   for (const c of chaves) {
     acc = { ...acc, ...c };
-    cheias.push({ ...acc });
+    cheias.push({ ...acc, t: c.t });
   }
   if (!cheias.length) return {};
   if (t <= cheias[0].t) return cheias[0];

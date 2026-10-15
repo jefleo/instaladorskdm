@@ -6,13 +6,14 @@
  * o limite volta em pedaços (F036); a reserva dourada do Ouro (F037); a indicação faz o
  * marcador de quem indicou subir (F038); regras visíveis (F039–F040); selo "Jogo justo" (F041).
  */
+import type { ReactNode } from "react";
 import { Scale, Umbrella, Unlink } from "lucide-react";
-import { gamificacao, niveis } from "../../../../src/data/vapti";
+import { gamificacao, niveis, projeto } from "../../../../src/data/vapti";
 import {
   Camada,
   Camera,
   Cartao,
-  COR,
+
   ease,
   estadoFrase,
   lerp,
@@ -52,7 +53,7 @@ const LARG = 270;
 const ALTURAS = [130, 240, 350, 460];
 const cxDegrau = (i: number) => i * PASSO + LARG / 2;
 /** y local do número da taxa semanal (sobe com a taxa: a linha DESCE do Entrada ao Ouro). */
-const yTaxa = (taxa: number) => -(600 + ((taxa - 0.04) / 0.02) * 240);
+const yTaxa = (taxa: number) => -(650 + ((taxa - 0.04) / 0.02) * 230);
 
 /** Princípios do jogo justo (texto de vapti.ts, encurtado só no recorte). */
 const REGRA_ALEATORIO = gamificacao.principios[2].split(":")[0];
@@ -108,9 +109,9 @@ export default function Ato4() {
   const pose = poseEmChaves(t, [
     { t: f33.t0, x: 375, y: 880, s: 1, o: 1 },
     { t: f34.t0 - 0.1, x: 375, y: 880, s: 1 },
-    { t: f34.t0 + 0.7, x: 780, y: 900, s: 0.86 },
-    { t: f35.t0 - 0.05, x: 780, y: 900, s: 0.86 },
-    { t: f35.t0 + 0.7, x: 560, y: 930, s: 0.86 },
+    { t: f34.t0 + 0.7, x: 800, y: 935, s: 0.8 },
+    { t: f35.t0 - 0.05, x: 800, y: 935, s: 0.8 },
+    { t: f35.t0 + 0.7, x: 600, y: 935, s: 0.8 },
     { t: f36.t0 - 0.05, o: 1 },
     { t: f36.t0 + 0.5, o: 0 },
     { t: f38.t0 - 0.3, x: 1010, y: 860, s: 0.62, o: 0 },
@@ -126,7 +127,7 @@ export default function Ato4() {
   else if (t < hop2) marc = hop(0, 1, hop1);
   else if (t < hop3) marc = hop(1, 2, hop2);
   else marc = hop(2, 3, hop3);
-  const marcVis = Math.min(ease.outCubic(prog(t, f34.t0 + 0.15, f34.t0 + 0.5)), 1 - prog(t, f36.t0 - 0.1, f36.t0 + 0.3));
+  const marcVis = Math.min(ease.outCubic(prog(t, f34.t0 + 0.15, f34.t0 + 0.5)), 1 - prog(t, f35.t0 + 0.2, f35.t0 + 0.6));
   const marcA = t < tSobe38 ? { a: 1, b: 1, p: 0 } : hop(1, 2, tSobe38);
   const avatarVis = vida(t, f38.t0 + 0.2, f39.t0 + 0.4);
 
@@ -171,7 +172,7 @@ export default function Ato4() {
       {dentro(t, f32.t0 - 0.5, f34.t0) ? (
         <Camada z={0}>
           {niveis.map((n, i) => {
-            const ent = ease.saida(prog(t, f32.t0 + 0.25 + i * 0.16, f32.t0 + 0.85 + i * 0.16));
+            const ent = ease.saida(prog(t, f32.t0 - 0.1 + i * 0.22, f32.t0 + 0.5 + i * 0.22));
             const m = ease.inOutCubic(prog(t, tNome[i] - 0.5, tNome[i] + 0.05));
             const x0 = 960 - 2 * 170 + i * 170 + 15;
             const y0 = 650;
@@ -320,7 +321,7 @@ export default function Ato4() {
           <Cartao em={f39.t0 + 0.15} x={760} y={330} largura={1000} altura={330} padding="56px 60px" tom="verde" brilho={0.15} saida={f40.t0 - 0.25}>
             <div style={{ display: "flex", flexDirection: "column", gap: 44 }}>
               {[REGRA_ALEATORIO, REGRA_LIMITE].map((txt, k) => {
-                const tr = f39.tE + 0.5 + k * 0.95;
+                const tr = f39.tE + 0.2 + k * 0.85;
                 return (
                   <div key={k} style={{ display: "flex", alignItems: "center", gap: 30 }}>
                     <Check em={tr + 0.2} tamanho={76} />
@@ -376,7 +377,7 @@ function Marcador({ a, b, p, opacidade, t }: { a: number; b: number; p: number; 
 
 /** Linha tracejada verde da taxa: desce do Entrada ao Ouro (coordenadas locais). */
 function LinhaTaxa({ em, t, saida }: { em: number; t: number; saida: number }) {
-  const pts = niveis.map((n, i) => [cxDegrau(i), yTaxa(n.taxaSemanal.valor) + 30] as const);
+  const pts = niveis.map((n, i) => [cxDegrau(i), yTaxa(n.taxaSemanal.valor) - 95] as const);
   const p = ease.inOutCubic(prog(t, em, em + 1.0));
   const q = 1 - ease.inOutSine(prog(t, saida - 0.1, saida + 0.35));
   if (p <= 0.001 || q <= 0.001) return null;
@@ -411,20 +412,20 @@ function RotuloTaxa({ i, em, saida, destaque, principal }: { i: number; em: numb
 
 /** Legenda das três linhas de F035, à esquerda do Entrada (coordenadas locais). */
 function Legenda35({ em, saida, y }: { em: number; saida: number; y: number }) {
-  const linha = { ...ESTILO_ROTULO, fontSize: 36, textAlign: "right" as const, color: "var(--cor-texto-3)" };
+  const linha = { ...ESTILO_ROTULO, fontSize: 38, textAlign: "right" as const, color: "var(--cor-texto-2)" };
   return (
     <Surge em={em} saida={saida} dx={-20} dy={0} style={{ position: "absolute", left: -360, top: y - 46, width: 300, display: "flex", flexDirection: "column", gap: 6 }}>
-      <span style={{ ...linha, height: 92, lineHeight: "92px", color: "var(--cor-texto-2)" }}>por semana</span>
+      <span style={{ ...linha, height: 92, lineHeight: "92px", color: "var(--cor-texto)" }}>por semana</span>
       <span style={{ ...linha, height: 46, lineHeight: "46px" }}>ao mês</span>
       <span style={{ ...linha, height: 46, lineHeight: "46px" }}>
-        juros · <span style={{ ...ESTILO_MONO, fontWeight: 600 }}>{niveis[0].jurosExemplo.rotulo.replace(/\d+/, "") + "400"}</span>
+        juros · <span style={{ ...ESTILO_MONO, fontWeight: 600 }}>{projeto.saqueMedio.rotulo}</span>
       </span>
     </Surge>
   );
 }
 
 /** Coluna esquerda do L2: eyebrow com pontos de nível + título. */
-function EsquerdaL2({ t, eyebrow, pontos, emEyebrow, saida, children }: { t: number; eyebrow: string; pontos: string[]; emEyebrow: number; saida: number; children: React.ReactNode }) {
+function EsquerdaL2({ t, eyebrow, pontos, emEyebrow, saida, children }: { t: number; eyebrow: string; pontos: string[]; emEyebrow: number; saida: number; children: ReactNode }) {
   const o = 1 - ease.inOutSine(prog(t, saida, saida + 0.4));
   return (
     <div style={{ position: "absolute", left: 120, top: 300, width: 580, opacity: o }}>
@@ -555,8 +556,7 @@ function Indicacao({ t, marc, vis, f38 }: { t: number; marc: { a: number; b: num
   return (
     <div style={{ position: "absolute", left: 0, top: 0, opacity: vis }}>
       <svg width={10} height={10} style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }}>
-        <path d={linha} fill="none" stroke="rgb(242 244 247 / 0.35)" strokeWidth={5} strokeDasharray="4 14" strokeLinecap="round" opacity={pl > 0 ? 1 : 0} pathLength={1} style={{ strokeDasharray: undefined }} />
-        <path d={linha} fill="none" stroke="var(--cor-tinta)" strokeWidth={9} pathLength={1} strokeDasharray="1 1" strokeDashoffset={-pl} />
+        <path d={linha} fill="none" stroke="rgb(242 244 247 / 0.4)" strokeWidth={5} strokeLinecap="round" pathLength={1} strokeDasharray="1 1" strokeDashoffset={1 - pl} />
       </svg>
       {pp > 0 && pp < 1 ? <div style={{ position: "absolute", left: px - 16, top: py - 16, width: 32, height: 32, borderRadius: "50%", background: "var(--cor-verde)", boxShadow: `0 0 26px ${rgba("verde", 0.8)}` }} /> : null}
       {/* quem indica */}
@@ -570,9 +570,9 @@ function Indicacao({ t, marc, vis, f38 }: { t: number; marc: { a: number; b: num
         <div style={{ position: "absolute", right: -30, top: -30 }}>{t >= f38.tE ? <Check em={f38.tE} tamanho={70} cheio /> : null}</div>
       </div>
       {/* nenhuma dívida muda de dono */}
-      <Surge em={f38.sobe + 0.55} dy={12} style={{ position: "absolute", left: bx - 120, top: 40, display: "flex", alignItems: "center", gap: 16 * k, transform: `scale(${k.toFixed(3)})`, transformOrigin: "0 0" }}>
-        <Unlink size={34} color="var(--cor-texto-2)" strokeWidth={2} />
-        <span style={{ ...ESTILO_ROTULO, fontSize: 32 }}>sem transferir dívida</span>
+      <Surge em={f38.sobe + 0.55} dy={12} style={{ position: "absolute", left: bx - 120, top: 40, display: "flex", alignItems: "center", gap: 16 * k }}>
+        <Unlink size={34 * k} color="var(--cor-texto-2)" strokeWidth={2} />
+        <span style={{ ...ESTILO_ROTULO, fontSize: 32 * k }}>sem transferir dívida</span>
       </Surge>
     </div>
   );
@@ -585,12 +585,12 @@ function Premia({ t, f40, saida }: { t: number; f40: { t0: number; tE: number; b
   const nunca = spring(t - f40.tE, { k: 260, d: 16 });
   const apagar = 1 - 0.45 * risco;
   return (
-    <div style={{ position: "absolute", left: 300, top: 320, opacity: 1 - q, transform: `translate(0, ${(-50 * q).toFixed(1)}px) scale(${(1 - 0.08 * q).toFixed(4)})`, transformOrigin: "50% 0%" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 36, ...ESTILO_TITULO, fontSize: 104 }}>
+    <div style={{ position: "absolute", left: 250, top: 330, opacity: 1 - q, transform: `translate(0, ${(-50 * q).toFixed(1)}px) scale(${(1 - 0.08 * q).toFixed(4)})`, transformOrigin: "50% 0%" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 36, ...ESTILO_TITULO, fontSize: 96 }}>
         <Check em={f40.bem + 0.05} tamanho={96} />
         <Palavra texto="Premia quem paga bem" frase="F040" destaque="paga bem" brilho={0.7} />
       </div>
-      <div style={{ display: "flex", alignItems: "center", gap: 36, marginTop: 40, ...ESTILO_TITULO, fontSize: 104 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 36, marginTop: 40, ...ESTILO_TITULO, fontSize: 96 }}>
         <Xis em={f40.endivida + 0.25} tamanho={96} />
         <span style={{ display: "inline-block", transform: `scale(${(t >= f40.tE ? 0.86 + 0.14 * nunca : 1).toFixed(4)})`, transformOrigin: "0% 70%" }}>
           <Palavra texto="Nunca" frase="F040" tomDestaque="coral" brilho={0.9} />
