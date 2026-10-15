@@ -57,7 +57,7 @@ export function MotorCena() {
   const G = { x: 1415, y: 520 };
   const A = { x: mix(G.x, 680, vai), y: mix(G.y, 600, vai), s: mix(1, 0.56, vai) };
   const B = { x: mix(680, 1250, copia), y: 600, s: 0.56 };
-  const pilhaA = { x: mix(820, 190, vai), y: mix(420, 540, vai) };
+  const pilhaA = { x: mix(700, 190, vai), y: mix(420, 540, vai) };
   const saiEsq = ease.inOutSine(prog(t, f84.t0 - 0.2, f84.t0 + 0.4));
 
   return (
@@ -68,8 +68,8 @@ export function MotorCena() {
         </Camada>
         <Camada z={0}>
           {/* a carteira: vale o valor de face */}
-          <Pilha x={pilhaA.x} y={pilhaA.y} largura={mix(320, 250, vai)} total={8} visiveis={Math.min(8, Math.max(0, (t - f83.t0 - 0.1) * 14))} tom={desbota > 0.5 ? "cinza" : "azul"} opacidade={mix(1, 0.3, desbota)} />
-          <div style={{ position: "absolute", left: 820, top: 640, opacity: (1 - desbota) * envelope(t, f83.t0 + 0.2, Infinity, 0.4) }}>
+          <Pilha x={pilhaA.x} y={pilhaA.y} largura={mix(320, 250, vai)} total={8} visiveis={Math.min(8, Math.max(0, (t - f83.t0 - 0.3) * 14))} tom={desbota > 0.5 ? "cinza" : "azul"} opacidade={mix(1, 0.3, desbota)} />
+          <div style={{ position: "absolute", left: 700, top: 640, opacity: (1 - desbota) * envelope(t, f83.t0 + 0.4, Infinity, 0.4) }}>
             <p style={{ margin: 0, fontFamily: "var(--fonte-titulo)", fontWeight: 800, fontSize: 44, letterSpacing: "-0.03em" }}>Carteira</p>
             <p style={{ margin: "6px 0 0", fontSize: 30, fontWeight: 600, color: "var(--cor-texto-2)" }}>{FACE}</p>
           </div>

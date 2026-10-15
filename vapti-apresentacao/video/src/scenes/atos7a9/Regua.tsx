@@ -63,7 +63,7 @@ export function Regua() {
   const f83 = useFrase("F083");
 
   // Saída: a câmera atravessa a janela (F083)
-  const atravessa = ease.inCubic(prog(t, f83.t0 - 0.25, f83.t0 + 0.65));
+  const atravessa = ease.inCubic(prog(t, f83.t0 - 0.35, f83.t0 + 0.4));
   if (atravessa >= 1) return null;
 
   const s1 = ease.inOutCubic(prog(t, f76.t0 - 0.1, f76.t0 + 1.25)); // desce até a régua
@@ -103,8 +103,8 @@ export function Regua() {
         {/* céu e horizonte */}
         <Camada z={2}>
           <Halo tom="azul" x={960} y={560} w={2600} h={700} intensidade={0.1} />
-          <Halo tom="verde" x={960} y={560} w={1500 + 500 * ease.outCubic(prog(t, f75.tE - 0.1, f75.tE + 1.2))} h={260} intensidade={0.05 + 0.14 * envelope(t, f75.tE - 0.1, f76.t0 + 1.2, 0.8, 0.8)} />
-          <div style={{ position: "absolute", left: -200, top: 559, width: 2320, height: 2, background: `linear-gradient(90deg, transparent, ${rgba("texto", 0.35)} 30%, ${rgba("texto", 0.35)} 70%, transparent)`, opacity: 1 - 0.7 * s1 }} />
+          <Halo tom="verde" x={960} y={560} w={1500 + 500 * ease.outCubic(prog(t, f75.tE - 0.1, f75.tE + 1.2))} h={260} intensidade={0.07 + 0.24 * envelope(t, f75.tE - 0.25, f76.t0 + 1.2, 0.9, 0.8)} />
+          <div style={{ position: "absolute", left: -200, top: 559, width: 2320, height: 2, background: `linear-gradient(90deg, transparent, ${rgba("texto", 0.5)} 30%, ${rgba("texto", 0.5)} 70%, transparent)`, opacity: 1 - 0.7 * s1 }} />
         </Camada>
         <Camada z={1.2} opacidade={mix(1, 0.32, s1)}>
           <Grade tipo="chao" horizonte={560} passo={70} em={ato.inicio - 0.3} dur={1.2} deriva={-8} opacidade={1.1} />
