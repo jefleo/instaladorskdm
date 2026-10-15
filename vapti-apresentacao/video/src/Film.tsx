@@ -195,9 +195,6 @@ export function Film({ tl, cenas, t, rascunho = false, legenda = false, marcaDes
 
         {passagem && troca !== null ? <Passagem p={pTroca} /> : null}
 
-        {!cardCobre ? <Capitulo key={atoAtual.id} texto={atoAtual.capitulo} em={emCapitulo} /> : null}
-        <MarcaCanto em={tMarcaCanto(tl, marcaDesde)} ate={c0} />
-
         {t >= c0 - 0.01 ? <CardFinal t0={c0} t1={c1} /> : null}
 
         {troca !== null ? (
@@ -209,6 +206,9 @@ export function Film({ tl, cenas, t, rascunho = false, legenda = false, marcaDes
           <Graduacao tom={tomPara} />
         )}
         <Vinheta />
+        {/* orientação acima da vinheta (legível nos cantos), abaixo do grão */}
+        {!cardCobre ? <Capitulo key={atoAtual.id} texto={atoAtual.capitulo} em={emCapitulo} /> : null}
+        <MarcaCanto em={tMarcaCanto(tl, marcaDesde)} ate={c0} />
         <Grao />
         {legenda ? <Legenda /> : null}
         {preto > 0.001 ? <div className="absolute inset-0" style={{ background: "#000", opacity: preto }} /> : null}

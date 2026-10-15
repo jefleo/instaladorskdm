@@ -502,7 +502,7 @@ export function Numero({
           style={{
             gridArea: "2 / 1",
             justifySelf: "stretch",
-            height: "0.045em",
+            height: "0.024em",
             minHeight: 3,
             marginTop: "0.12em",
             background: COR[tom],

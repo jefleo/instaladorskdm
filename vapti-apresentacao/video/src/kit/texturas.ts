@@ -104,7 +104,7 @@ export function texturaGrao(): string {
       const q = Math.round(v * 4) / 4;
       const claro = q > 0;
       // alfa já final (≈ ±0,1 no máximo): a camada não precisa de `opacity`
-      const a = Math.round(Math.abs(q) * (claro ? 21 : 26));
+      const a = Math.round(Math.abs(q) * (claro ? 19 : 22));
       for (let yy = 0; yy < celula; yy++) {
         for (let xx = 0; xx < celula; xx++) {
           const i = ((cy * celula + yy) * LADO_GRAO + cx * celula + xx) * 4;

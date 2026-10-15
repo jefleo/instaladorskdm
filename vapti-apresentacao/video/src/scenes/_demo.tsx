@@ -101,9 +101,9 @@ function Demo() {
     <Camera
       chaves={[
         { t: 0.8, zoom: 1 },
-        { t: 2.8, zoom: 1.035 },
-        { t: 5.2, zoom: 1.06, x: 24 },
-        { t: 8, zoom: 1.09, x: 40, y: -8 },
+        { t: 2.8, zoom: 1.03 },
+        { t: 5.2, zoom: 1.01, x: 8 },
+        { t: 8, zoom: 1.04, x: 14, y: -6 },
       ]}
       deriva={5}
     >
@@ -115,7 +115,7 @@ function Demo() {
       </Camada>
 
       {/* L5: número gigante com profundidade */}
-      <Camada z={lerp(0.4, 1.8, recuo)} desfoque={lerp(0, 5, recuo)} opacidade={vidaNumero * lerp(1, 0.22, recuo)}>
+      <Camada z={lerp(0.4, 1.8, recuo)} desfoque={lerp(0, 5, recuo)} opacidade={vidaNumero * lerp(1, 0.13, recuo)}>
         <div className="absolute inset-x-0 flex justify-center" style={{ top: 250 }}>
           <Numero valor={projeto.saqueMedio.valor} final={projeto.saqueMedio.rotulo} formato="brl0" tParada={e1.tE + 0.75} dur={0.75} tamanho={400} alinhar="centro" sublinhar />
         </div>
@@ -178,11 +178,11 @@ function Demo() {
           <Curva pontos={CURVA} largura={940} altura={400} em={d3.t0 + 0.4} dur={1.8} style={{ position: "absolute", left: 70, top: 250 }}>
             <line x1={0} x2={940} y1={ZERO_Y} y2={ZERO_Y} stroke="var(--cor-borda-forte)" strokeWidth={2} strokeDasharray="6 8" opacity={ease.outCubic(prog(t, d3.t0 + 0.3, d3.t0 + 0.8))} />
           </Curva>
-          <div className="absolute" style={{ left: 700, top: 560 }}>
+          <div className="absolute" style={{ left: 820, top: 590 }}>
             <Numero valor={fase1.perdaEquilibrio.valor} final={fase1.perdaEquilibrio.rotulo} formato="pct2" tParada={e3.tE + 0.4} dur={0.6} tamanho={44} tom="coral" em={e3.tE - 0.2} escalaUnidade={0.7} />
           </div>
         </Cartao>
-        <Seta de={[880, 760]} para={[756, 668]} curvatura={-0.25} em={e3.tE - 0.1} tom="coral" />
+        <Seta de={[960, 768]} para={[866, 690]} curvatura={0.3} em={e3.tE - 0.1} tom="coral" />
         <CelularMoldura em={d3.t0 + 0.35} x={1330} y={130} largura={330}>
           <div className="flex h-full flex-col" style={{ padding: "64px 26px 30px", gap: 18 }}>
             <MarcaVapti tamanho={34} />
@@ -206,7 +206,7 @@ function Demo() {
       </Camada>
       {/* rodapé L3 — rótulo com o texto da tela */}
       <div className="absolute" style={{ left: ZONAS.L3.rotulo.x, top: ZONAS.L3.rotulo.y + 6 }}>
-        <Rotulo texto="Quem decide é a perda" em={e3.tE + 0.1} destaque="perda" tom="coral" saida={d3.tProxima === Infinity ? 7.95 : d3.tProxima} />
+        <Rotulo texto="Quem decide é a perda" em={d3.t0 + 0.9} destaque="perda" tom="coral" saida={d3.tProxima === Infinity ? 7.95 : d3.tProxima} />
       </div>
     </Camera>
   );

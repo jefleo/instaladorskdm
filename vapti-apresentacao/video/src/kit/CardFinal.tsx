@@ -20,7 +20,7 @@ export function CardFinal({ t0, t1 }: CardFinalProps) {
   const { t } = useFilme();
   const vida = envelope(t, t0, Infinity, 0.6);
   if (vida <= 0.001) return null;
-  const pAviso = ease.outCubic(prog(t, t0 + 1.3, t0 + 2.0));
+  const pAviso = ease.outCubic(prog(t, t0 + 0.5, t0 + 1.1));
   // push-in muito lento ao longo dos 5 s
   const z = 1 + 0.025 * ease.inOutSine(prog(t, t0, t1));
   return (
