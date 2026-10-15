@@ -141,7 +141,7 @@ export function VisaoGeral({ blocos, interativo }: { blocos: readonly { titulo?:
                 <span className="plano-aba__tecla" aria-hidden="true">
                   {a.tecla}
                 </span>
-                <span className="font-titulo text-h3 font-bold leading-tight text-texto">{a.nome}</span>
+                <span className="font-titulo text-subtitulo font-bold leading-tight text-texto">{a.nome}</span>
               </span>
               <span className="mt-[0.5em] block text-corpo leading-snug text-texto-2">{b?.texto}</span>
               <span className="mt-[0.9em] block">
@@ -176,7 +176,7 @@ export function VisaoGeral({ blocos, interativo }: { blocos: readonly { titulo?:
           );
         })}
       </ol>
-      {guia ? <MetricaGuia nota={guia.texto} /> : null}
+      {guia ? <MetricaGuia /> : null}
       {interativo ? <p className="text-apoio text-texto-3">{P.dicaTeclas}</p> : null}
     </div>
   );
@@ -206,15 +206,10 @@ function MetricaGuia({ nota }: { nota?: string }) {
 
 export function PainelAquisicao({ estatico }: { estatico: boolean }) {
   const A = P.aquisicao;
-  const [abertos, setAbertos] = useState<Set<number>>(() => new Set([0]));
+  // Um canal aberto por vez: a tela da apresentação nunca transborda.
+  const [aberto, setAberto] = useState<number | null>(0);
   const base = useId();
-  const alternar = (i: number) =>
-    setAbertos((s) => {
-      const n = new Set(s);
-      if (n.has(i)) n.delete(i);
-      else n.add(i);
-      return n;
-    });
+  const alternar = (i: number) => setAberto((a) => (a === i ? null : i));
 
   return (
     <div className="flex flex-col gap-[var(--esp-4)]">
@@ -229,7 +224,7 @@ export function PainelAquisicao({ estatico }: { estatico: boolean }) {
       </div>
       <div className="plano-canais -mt-[var(--esp-4)]" role="list">
         {A.canais.map((c, i) => {
-          const aberto = estatico || abertos.has(i);
+          const estaAberto = estatico || aberto === i;
           const idCorpo = `${base}-c${i}`;
           const cabeca = (
             <>
@@ -238,25 +233,25 @@ export function PainelAquisicao({ estatico }: { estatico: boolean }) {
                 <span className="block font-titulo text-corpo font-bold leading-tight text-texto">{c.titulo}</span>
                 <span className="block text-apoio leading-snug text-texto-2">{c.porque}</span>
               </span>
-              {!estatico ? <Icone icone={ChevronDown} tamanho="1.1em" className={`plano-canal__seta flex-none text-texto-3 ${aberto ? "rotate-180" : ""}`} /> : null}
+              {!estatico ? <Icone icone={ChevronDown} tamanho="1.1em" className={`plano-canal__seta flex-none text-texto-3 ${estaAberto ? "rotate-180" : ""}`} /> : null}
             </>
           );
           return (
             <div
               key={c.titulo}
               role="listitem"
-              className={`plano-canal ${aberto ? "plano-canal--aberto" : ""} ${estatico ? "" : "plano-canal--clicavel"}`}
+              className={`plano-canal ${estaAberto ? "plano-canal--aberto" : ""} ${estatico ? "" : "plano-canal--clicavel"}`}
               onClick={estatico ? undefined : () => alternar(i)}
             >
               {estatico ? (
                 <div className="plano-canal__cabeca">{cabeca}</div>
               ) : (
-                <button type="button" className="plano-canal__cabeca" aria-expanded={aberto} aria-controls={idCorpo}>
+                <button type="button" className="plano-canal__cabeca" aria-expanded={estaAberto} aria-controls={idCorpo}>
                   {cabeca}
                 </button>
               )}
               <div id={idCorpo} className="plano-canal__corpo">
-                {aberto ? (
+                {estaAberto ? (
                   <>
                     <p className="text-apoio leading-snug text-texto">
                       <span className="plano-so-estreito font-semibold text-texto-2">{A.comoFazer}: </span>
@@ -268,9 +263,7 @@ export function PainelAquisicao({ estatico }: { estatico: boolean }) {
                     </p>
                   </>
                 ) : (
-                  <p className="plano-canal__dica text-apoio text-texto-3">
-                    {A.comoFazer} · {A.oQueMedir}
-                  </p>
+                  <p className="plano-canal__dica text-apoio text-texto-3">{A.abrir}</p>
                 )}
               </div>
             </div>
@@ -330,6 +323,7 @@ export function PainelCobranca({ estatico }: { estatico: boolean }) {
           );
         })}
       </ol>
+      {faixaAtual !== null ? <p className="mt-[0.5em] text-apoio leading-snug text-texto-3">{C.rollAtual(C.rollFaixas[faixaAtual])}</p> : null}
     </div>
   );
 
@@ -455,7 +449,7 @@ export function PainelPix() {
         <div className="flex flex-col gap-[var(--esp-4)]">
           <Rotulo>{Px.ondeCabe}</Rotulo>
           {Px.planos.map((pl) => (
-            <div key={pl.nome} className={`flex items-start gap-[0.7em] rounded-3 border-2 px-[0.9em] py-[0.6em] ${pl.cabe ? "border-verde-borda bg-verde-suave" : "border-coral-borda bg-coral-suave"}`}>
+            <div key={pl.nome} className={`flex items-start gap-[0.7em] rounded-3 border-2 px-[0.9em] py-[0.55em] ${pl.cabe ? "border-verde-borda bg-verde-suave" : "border-coral-borda bg-coral-suave"}`}>
               <span className={`mt-[0.1em] grid size-[1.6em] flex-none place-items-center rounded-full text-corpo ${pl.cabe ? "bg-verde text-sobre-verde" : "bg-coral text-sobre-coral"}`}>
                 <Icone icone={pl.cabe ? Check : Xis} tamanho="1em" strokeWidth={2.6} />
               </span>
@@ -484,6 +478,19 @@ export function PainelPix() {
               <li className="text-apoio text-texto-3">{Px.minima}</li>
             </ul>
           </div>
+          <div>
+            <Rotulo>{Px.quemPaga.titulo}</Rotulo>
+            <dl className="m-0 mt-[0.35em] border-b border-borda">
+              {Px.quemPaga.linhas.map((l) => (
+                <div key={l.quem} className="grid gap-x-[1em] border-t border-borda py-[0.4em]" style={{ gridTemplateColumns: "minmax(0, 0.75fr) minmax(0, 1.25fr)" }}>
+                  <dt className="text-apoio font-semibold text-texto">{l.quem}</dt>
+                  <dd className="m-0 text-apoio leading-snug text-texto-2">{l.oque}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+        <div className="flex flex-col gap-[var(--esp-5)]">
           {/* Programação: janela de 2 a 10 dias antes do vencimento (fora de escala) */}
           <div className="rounded-3 border border-borda bg-superficie px-[0.9em] py-[0.6em]">
             <p className="text-corpo font-semibold text-texto">{g.titulo}</p>
@@ -501,34 +508,21 @@ export function PainelPix() {
             </div>
             <p className="mt-[0.5em] text-apoio leading-snug text-texto-3">{g.retentativas}</p>
           </div>
-        </div>
-        <div className="flex flex-col gap-[var(--esp-5)]">
-          <div>
-            <Rotulo>{Px.quemPaga.titulo}</Rotulo>
-            <dl className="m-0 mt-[0.35em] border-b border-borda">
-              {Px.quemPaga.linhas.map((l) => (
-                <div key={l.quem} className="grid gap-x-[1em] border-t border-borda py-[0.5em]" style={{ gridTemplateColumns: "minmax(0, 0.8fr) minmax(0, 1.2fr)" }}>
-                  <dt className="text-apoio font-semibold text-texto">{l.quem}</dt>
-                  <dd className="m-0 text-apoio leading-snug text-texto-2">{l.oque}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
           <div>
             <p className="flex items-center gap-[0.5em]">
               <Icone icone={CircleHelp} tamanho="1.1em" className="text-azul" />
               <Rotulo tom="azul">{Px.perguntas.titulo}</Rotulo>
             </p>
-            <ol className="m-0 mt-[0.35em] flex list-none flex-col gap-[0.35em] p-0">
+            <ol className="m-0 mt-[0.35em] flex list-none flex-col gap-[0.3em] p-0">
               {Px.perguntas.itens.map((q, i) => (
-                <li key={q} className="grid gap-x-[0.6em] text-apoio leading-snug text-texto" style={{ gridTemplateColumns: "1.6em minmax(0, 1fr)" }}>
+                <li key={q} className="grid gap-x-[0.6em] text-apoio leading-snug text-texto" style={{ gridTemplateColumns: "1.4em minmax(0, 1fr)" }}>
                   <span className="font-mono font-bold text-azul">{i + 1}</span>
                   <span>{q}</span>
                 </li>
               ))}
             </ol>
           </div>
-          <p className="mt-auto text-apoio text-texto-3">{Px.fonte}</p>
+          <p className="text-apoio text-texto-3">{Px.fonte}</p>
         </div>
       </div>
     </div>

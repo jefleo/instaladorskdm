@@ -449,6 +449,10 @@ div.plano-canal__cabeca {
   top: 50%;
   border-top: 2px dashed var(--cor-borda-forte);
 }
+.plano-regua > li:last-child .plano-marco__ponto::before {
+  right: auto;
+  width: 1.4em;
+}
 .plano-marco__ponto::after {
   content: "";
   position: absolute;
@@ -461,7 +465,11 @@ div.plano-canal__cabeca {
   border-radius: 50%;
   background: var(--cor-tinta);
 }
-.plano-marco--alerta .plano-marco__ponto::after {
+.plano-marco--alerta .plano-regua > li:last-child .plano-marco__ponto::before {
+  right: auto;
+  width: 1.4em;
+}
+.plano-marco__ponto::after {
   border-color: var(--cor-coral);
 }
 .plano-marco--ativo {
@@ -469,14 +477,22 @@ div.plano-canal__cabeca {
   background: var(--cor-verde-suave);
   color: var(--cor-texto);
 }
-.plano-marco--ativo .plano-marco__ponto::after {
+.plano-marco--ativo .plano-regua > li:last-child .plano-marco__ponto::before {
+  right: auto;
+  width: 1.4em;
+}
+.plano-marco__ponto::after {
   background: var(--cor-verde);
 }
 .plano-marco--alerta.plano-marco--ativo {
   border-color: var(--cor-coral);
   background: var(--cor-coral-suave);
 }
-.plano-marco--alerta.plano-marco--ativo .plano-marco__ponto::after {
+.plano-marco--alerta.plano-marco--ativo .plano-regua > li:last-child .plano-marco__ponto::before {
+  right: auto;
+  width: 1.4em;
+}
+.plano-marco__ponto::after {
   background: var(--cor-coral);
 }
 .plano-detalhe {

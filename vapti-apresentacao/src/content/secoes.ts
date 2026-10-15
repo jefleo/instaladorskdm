@@ -607,11 +607,11 @@ export const secoes: Secao[] = [
     blocos: [
       {
         titulo: "Aquisição barata",
-        texto: `Primeiro quem já é cliente: recontratar dispensa bureau. Depois indicação, pontos parceiros e anúncio na praça. Meta: 1º saque abaixo de ${piloto.num.custoPrimeiroSaque.rotulo}.`,
+        texto: `Primeiro quem já é cliente: recontratar dispensa bureau. Depois indicação, pontos parceiros, anúncio na praça e funil antes do bureau.`,
       },
       {
         titulo: "Cobrança e follow-up",
-        texto: `Uma régua de ${reguaCobranca.programacaoDe.rotulo} a ${reguaCobranca.acompanhamentoAte.rotulo}: lembrar, tolerar, aceitar parte e reparcelar no ${atraso.diaReparcelamento.rotulo}. Meta: mais de ${piloto.num.pagasNoVencimento.rotulo} pagas no vencimento.`,
+        texto: `Uma régua de ${reguaCobranca.programacaoDe.rotulo} a ${reguaCobranca.acompanhamentoAte.rotulo}: lembrar, tolerar, aceitar parte e reparcelar no ${atraso.diaReparcelamento.rotulo}. Tom humano e regras fixas.`,
       },
       {
         titulo: "Pix Automático onde cabe",

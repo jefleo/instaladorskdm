@@ -38,6 +38,7 @@ export const planoAcao = {
     titulo: "Do canal mais barato ao mais caro",
     nota: "Ordem esperada de custo. O custo real de cada canal é medido no piloto.",
     instrucao: "Clique em um canal para ver como fazer e o que medir.",
+    abrir: "Ver como fazer e o que medir",
     canal: "Canal",
     comoFazer: "Como fazer",
     oQueMedir: "O que medir",
@@ -81,7 +82,7 @@ export const planoAcao = {
     guia: {
       rotulo: "Métrica-guia",
       valor: pn.custoPrimeiroSaque.rotulo,
-      texto: "Custo direto do 1º saque, meta do piloto (abaixo de)",
+      texto: "Meta do piloto para o custo direto do 1º saque",
       nota: "Custo de aquisição, conversão e orçamento por canal: [A CONFIRMAR] no piloto.",
     },
   },
@@ -167,7 +168,7 @@ export const planoAcao = {
     regras: atraso.regrasCobranca,
     rollTitulo: "Como medimos: roll rate",
     rollFaixas: rollRateFaixas,
-    rollAtual: "faixa deste marco",
+    rollAtual: (faixa: string) => `Em destaque, a faixa deste marco: ${faixa}.`,
   },
 
   pix: {
