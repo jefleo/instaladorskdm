@@ -3,13 +3,13 @@
  * Fontes: Briefing 4.4, 4.6, 4.7, 4.8, 4.9 e 4.13; Pix Automático pelo Adendo 15/10 (docs/ADENDO-15-10.md).
  * Todo número vem de src/data/vapti.ts. Onde falta número, "[A CONFIRMAR] no piloto".
  */
-import { atraso, eficiencia, gamificacao, piloto, produto, projeto, reguaCobranca, rollRateFaixas } from "../data/vapti";
+import { atraso, eficiencia, gamificacao, piloto, preco, produto, projeto, reguaCobranca, rollRateFaixas } from "../data/vapti";
 import { prototipo } from "./ui";
 
 const pn = piloto.num;
 const rc = reguaCobranca;
 const nome = prototipo.ficticio.nome;
-const parcelaEx = prototipo.proposta.parcelas.split(" × ")[1] ?? "";
+const parcelaEx = preco.exemplo.parcela.rotulo;
 const minusc = (t: string) => t.charAt(0).toLowerCase() + t.slice(1);
 
 export type IdAba = "aquisicao" | "cobranca" | "pix";
@@ -28,9 +28,9 @@ export const planoAcao = {
     abrir: (nomeAba: string) => `Abrir: ${nomeAba}`,
     metasRotulo: "Metas do piloto que move",
     metas: {
-      aquisicao: [`1º saque abaixo de ${pn.custoPrimeiroSaque.rotulo}`, `Recontratação acima de ${pn.recontratacaoMeta.rotulo}`],
-      cobranca: [`Mais de ${pn.pagasNoVencimento.rotulo} pagas no vencimento`, `Atraso acima de 30 dias abaixo de ${pn.atraso30Meta.rotulo}`],
-      pix: [`Mais de ${pn.pagasNoVencimento.rotulo} pagas no vencimento`, "Mais de 95% dos Pix conciliados"],
+      aquisicao: [`Custo direto do 1º saque abaixo de ${pn.custoPrimeiroSaque.rotulo}`, piloto.metas[3]],
+      cobranca: [piloto.metas[0], piloto.metas[1]],
+      pix: [piloto.metas[0], piloto.metas[5]],
     } as Record<IdAba, string[]>,
   },
 
@@ -190,13 +190,13 @@ export const planoAcao = {
     minima: `A mais curta é a ${produto.pixPeriodicidadeMinima}.`,
     programacao: {
       titulo: "Como funciona a programação",
-      texto: `A instrução de cobrança vai ao banco do cliente entre ${produto.pixAvisoMinDias.rotulo.replace(" dias", "")} e ${produto.pixAvisoMaxDias.rotulo} corridos antes do vencimento. No semanal, cada parcela é programada assim.`,
+      texto: `A instrução de cobrança vai ao banco do cliente entre ${produto.pixAvisoMinDias.valor} e ${produto.pixAvisoMaxDias.rotulo} corridos antes do vencimento. No semanal, cada parcela é programada assim.`,
       janela: "Janela de envio da cobrança",
       vencimento: "Vencimento",
       de: rc.programacaoDe.rotulo,
       ate: rc.programacaoAte.rotulo,
       d0: rc.vencimento.rotulo,
-      retentativas: `Se faltar saldo: até ${produto.pixRetentativas.rotulo} novas tentativas. ${produto.pixRetentativasCalendario.replace(/^\[A CONFIRMAR com a parceira\] c/, "C")} [A CONFIRMAR com a parceira].`,
+      retentativas: `Se faltar saldo: até ${produto.pixRetentativas.rotulo} novas tentativas. ${produto.pixRetentativasCalendario}.`,
     },
     quemPaga: {
       titulo: "Quem paga o quê",
