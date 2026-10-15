@@ -22,7 +22,7 @@ export function PlanosPagamento({ compacto = false, legenda = true, className }:
   const W = lado ? largura - wInfo - fs.apoio * 2 : largura;
   const f = fs.apoio;
   const ultimoDia = n * diasSemana;
-  const m = { t: f * 1.6, r: f * 1.2, b: f * 3.4, l: f * 0.6 };
+  const m = { t: f * 1.6, r: f * 2.4, b: f * 3.4, l: f * 4.6 };
   const linhaH = f * (compacto ? 5.5 : 7.4);
   const gapLinha = f * 2.6;
   const H = m.t + linhaH * 2 + gapLinha + m.b;
@@ -37,6 +37,7 @@ export function PlanosPagamento({ compacto = false, legenda = true, className }:
   const fracJuros = pd.juros / (preco.base.valor + pd.juros);
   const espacoRotulo = x(diasSemana) - bwSem / 2 - x(0);
   const rotulosLaterais = espacoRotulo > f * 8;
+  const todosValores = x(diasSemana) - x(0) > f * 0.62 * ex.parcela.rotulo.length + f;
 
   const linhaInfo = (titulo: string, grande: string, linhas: string[], tag?: string) => (
     <div className="min-w-0">
@@ -83,8 +84,8 @@ export function PlanosPagamento({ compacto = false, legenda = true, className }:
                 { base: base2, nome: viz.planos.diarioCurto },
               ].map((l) => (
                 <g key={l.nome}>
-                  <line x1={m.l} x2={W - m.r} y1={l.base} y2={l.base} className="stroke-borda-forte" strokeWidth={1} />
-                  <text x={W - m.r} y={l.base - linhaH + f * 1.1} textAnchor="end" className="fill-texto-2 font-texto font-semibold" style={{ fontSize: f }}>
+                  <line x1={x(0)} x2={W - m.r} y1={l.base} y2={l.base} className="stroke-borda-forte" strokeWidth={1} />
+                  <text x={0} y={l.base - linhaH / 2} dy="0.35em" textAnchor="start" className="fill-texto-2 font-texto font-semibold" style={{ fontSize: f }}>
                     {l.nome}
                   </text>
                   {/* saque no dia 0 (marcador, fora de escala) */}
@@ -105,9 +106,11 @@ export function PlanosPagamento({ compacto = false, legenda = true, className }:
                   <g key={d} style={estilo}>
                     <path d={barraV(cx - bwSem / 2, base1 - hv, bwSem, hv, 0)} style={{ fill: "var(--cor-azul)" }} />
                     <path d={barraV(cx - bwSem / 2, base1 - hv - hj, bwSem, hj - 2, 4)} style={{ fill: "var(--cor-verde)" }} />
-                    <text x={cx} y={base1 - hv - hj - f * 0.45} textAnchor="middle" className="fill-texto font-mono font-bold" style={{ fontSize: f }}>
-                      {ex.parcela.rotulo}
-                    </text>
+                    {i === 0 || todosValores ? (
+                      <text x={cx} y={base1 - hv - hj - f * 0.45} textAnchor="middle" className="fill-texto font-mono font-bold" style={{ fontSize: f }}>
+                        {ex.parcela.rotulo}
+                      </text>
+                    ) : null}
                     {i === 0 && rotulosLaterais ? (
                       <>
                         <text x={cx - bwSem / 2 - f * 0.4} y={base1 - hv / 2} dy="0.35em" textAnchor="end" className="fill-texto-2 font-texto" style={{ fontSize: f * 0.9 }}>
@@ -142,7 +145,7 @@ export function PlanosPagamento({ compacto = false, legenda = true, className }:
                   {d}
                 </text>
               ))}
-              <text x={(m.l + W - m.r) / 2} y={H - f * 0.3} textAnchor="middle" className="fill-texto-3 font-texto" style={{ fontSize: f }}>
+              <text x={(x(0) + W - m.r) / 2} y={H - f * 0.3} textAnchor="middle" className="fill-texto-3 font-texto" style={{ fontSize: f }}>
                 {viz.planos.eixoX}
               </text>
             </svg>

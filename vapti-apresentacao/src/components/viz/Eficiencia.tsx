@@ -131,7 +131,7 @@ export function Eficiencia({ compacto = false, legenda = true, className }: VizP
             ))}
             <div className="relative h-[1.3em]" style={{ gridColumn: "1 / -1" }} aria-hidden="true">
               {marcas.map((v) => (
-                <span key={v} className="absolute -translate-x-1/2 font-mono text-apoio text-texto-3" style={{ left: pct(v) }}>
+                <span key={v} className={`absolute font-mono text-apoio whitespace-nowrap text-texto-3 ${v === dom ? "-translate-x-full" : v === 0 ? "" : "-translate-x-1/2"}`} style={{ left: pct(v) }}>
                   {formatBRL(v, 0)}
                 </span>
               ))}

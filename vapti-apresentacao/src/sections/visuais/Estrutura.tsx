@@ -62,7 +62,7 @@ export function TresCaminhos() {
             >
               {o.nome}
             </h3>
-            <ul className="mt-[0.7em] space-y-[0.45em] text-corpo text-texto-2" style={{ lineHeight: 1.35 }}>
+            <ul className="mt-[0.8em] space-y-[0.6em] text-corpo-g text-texto-2" style={{ lineHeight: 1.3 }}>
               {o.motivos.map((m) => (
                 <Item key={m} tom={o.ok ? "verde" : "coral"}>
                   {m}

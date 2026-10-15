@@ -57,7 +57,7 @@ function Controle({
         <label htmlFor={id} className="text-corpo font-semibold text-texto-2">
           {rotulo}
         </label>
-        <output htmlFor={id} className="font-mono text-h3 font-bold tracking-[-0.03em] text-texto">
+        <output htmlFor={id} className="font-mono text-corpo-g font-bold tracking-[-0.03em] text-texto">
           {valor}
         </output>
       </div>
@@ -121,9 +121,9 @@ export function Simulador({ compacto = false, className }: VizProps = {}) {
   return (
     <section ref={ref} aria-labelledby={tituloId} className={`w-full font-texto text-texto ${className ?? ""}`}>
       <style>{CSS_RANGE}</style>
-      <div className="mb-[1em] flex flex-wrap items-center justify-between gap-[0.8em]">
+      <div className="mb-[0.8em] flex flex-wrap items-center justify-between gap-[0.8em]">
         <div>
-          <h3 id={tituloId} className="font-titulo text-h3 font-bold text-texto">
+          <h3 id={tituloId} className="font-titulo text-corpo-g font-bold text-texto">
             {txt.titulo}
           </h3>
           <p className="text-apoio text-texto-3">{txt.subtitulo}</p>
@@ -133,9 +133,9 @@ export function Simulador({ compacto = false, className }: VizProps = {}) {
         </span>
       </div>
 
-      <div className="grid items-start" style={{ gridTemplateColumns: largo ? "minmax(0, 0.9fr) minmax(0, 1.1fr)" : "1fr", gap: largo ? "3em" : "1.6em" }}>
+      <div className="grid items-start" style={{ gridTemplateColumns: largo ? "minmax(0, 1.2fr) minmax(0, 1fr)" : "1fr", gap: largo ? "2.6em" : "1.6em" }}>
         {/* Controles */}
-        <div className="flex flex-col gap-[1.1em]">
+        <div className="grid gap-x-[1.8em] gap-y-[1em]" style={{ gridTemplateColumns: largo ? "repeat(2, minmax(0, 1fr))" : "1fr" }}>
           <Controle
             rotulo={txt.controles.capital}
             valor={formatCapital(capital)}
@@ -154,7 +154,7 @@ export function Simulador({ compacto = false, className }: VizProps = {}) {
             valor={`${formatTaxa(taxa)}`}
             detalhe={
               <>
-                {viz.simulador.porSemana} <span className="font-mono font-bold text-texto">{viz.simulador.taxaDetalhe(efetivaMes(taxa), jurosEm400(taxa))}</span>
+                {viz.simulador.porSemana} <span className="font-semibold text-texto">{viz.simulador.taxaDetalhe(efetivaMes(taxa), jurosEm400(taxa))}</span>
               </>
             }
             min={faixas.taxa.min}
@@ -202,7 +202,7 @@ export function Simulador({ compacto = false, className }: VizProps = {}) {
             </div>
             {faseAtual ? <p className="mt-[0.45em] text-apoio leading-snug text-texto-3">{faseAtual.financiamento}</p> : null}
           </fieldset>
-          <div className="flex flex-wrap items-center gap-[0.8em]">
+          <div className="flex flex-wrap items-center gap-[0.8em]" style={{ gridColumn: "1 / -1" }}>
             <button
               type="button"
               onClick={() => {
@@ -223,8 +223,8 @@ export function Simulador({ compacto = false, className }: VizProps = {}) {
         </div>
 
         {/* Resultados */}
-        <div className="flex flex-col gap-[1em]">
-          <div className={`rounded-3 border-2 p-[1em] ${margemNegativa ? "border-coral-borda bg-coral-suave" : "border-verde-borda bg-verde-suave"}`}>
+        <div className="flex flex-col gap-[0.8em]">
+          <div className={`rounded-3 border-2 px-[1em] py-[0.7em] ${margemNegativa ? "border-coral-borda bg-coral-suave" : "border-verde-borda bg-verde-suave"}`}>
             <div className="flex flex-wrap items-center justify-between gap-[0.6em]">
               <p className="text-corpo font-semibold text-texto-2">{txt.resultados.margem}</p>
               <span
@@ -270,7 +270,7 @@ export function Simulador({ compacto = false, className }: VizProps = {}) {
             {saidas.map((s) => (
               <div key={s.rotulo} className="rounded-2 border border-borda bg-superficie px-[0.7em] py-[0.5em]">
                 <dt className="text-apoio leading-tight text-texto-3">{s.rotulo}</dt>
-                <dd className="m-0 font-mono text-corpo-g font-bold tracking-[-0.03em] text-texto">{s.valor}</dd>
+                <dd className="m-0 font-mono text-corpo font-bold tracking-[-0.03em] text-texto">{s.valor}</dd>
               </div>
             ))}
           </dl>

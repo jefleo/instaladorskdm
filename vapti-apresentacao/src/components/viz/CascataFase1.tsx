@@ -41,8 +41,8 @@ export function CascataFase1({ compacto = false, legenda = true, className }: Vi
         <ol className={`m-0 flex list-none p-0 ${largo ? "flex-row items-stretch" : "flex-col"}`}>
           {cadeia.map((c, i) => (
             <li key={c.nome} className={`flex ${largo ? "flex-row" : "flex-col"}`} style={{ flex: largo ? "1 1 0" : undefined }}>
-              <div className="w-full rounded-3 border border-borda bg-superficie px-[0.9em] py-[0.6em]" style={entrada(ativo, animar, "subir", i * 70, 300)}>
-                <p className="font-mono text-h3 font-bold tracking-[-0.03em] text-texto">{c.valor}</p>
+              <div className="w-full rounded-3 border border-borda bg-superficie px-[0.8em] py-[0.4em]" style={entrada(ativo, animar, "subir", i * 70, 300)}>
+                <p className="font-mono text-corpo-g font-bold tracking-[-0.03em] text-texto">{c.valor}</p>
                 <p className="text-apoio text-texto-2">{c.nome}</p>
               </div>
               {i < cadeia.length - 1 ? (
@@ -53,14 +53,14 @@ export function CascataFase1({ compacto = false, legenda = true, className }: Vi
             </li>
           ))}
         </ol>
-        <p className="my-[0.9em] flex items-center gap-[0.5em] text-apoio text-texto-3">
+        <p className="my-[0.6em] flex items-center gap-[0.5em] text-apoio text-texto-3">
           <Icone icone={ArrowDown} tamanho="1em" />
           {viz.cascata.receitaConta(premissas.taxaBase.rotulo)}
         </p>
 
         <div
-          className="grid items-center"
-          style={{ gridTemplateColumns: largo ? "minmax(0, 14em) minmax(0, 1fr) minmax(0, 11em)" : "minmax(0, 1fr) auto", columnGap: "1.2em", rowGap: largo ? "0.7em" : "0.25em" }}
+          className="grid items-center text-apoio"
+          style={{ gridTemplateColumns: largo ? "minmax(0, 16em) minmax(0, 1fr) minmax(0, 16em)" : "minmax(0, 1fr) auto", columnGap: "1.2em", rowGap: largo ? "0.55em" : "0.2em" }}
         >
           {passos.map((p, i) => {
             const barra = (
@@ -95,9 +95,14 @@ export function CascataFase1({ compacto = false, legenda = true, className }: Vi
                     {p.sinal}
                     {p.valor}
                   </p>
-                  {p.sub ? <p className="text-apoio leading-tight text-texto-3">{p.sub}</p> : null}
+                  {p.sub && largo ? <p className="text-apoio leading-tight text-texto-3">{p.sub}</p> : null}
                 </div>
                 {!largo ? barra : null}
+                {p.sub && !largo ? (
+                  <p className="text-apoio leading-tight text-texto-3" style={{ gridColumn: "1 / -1" }}>
+                    {p.sub}
+                  </p>
+                ) : null}
               </div>
             );
           })}

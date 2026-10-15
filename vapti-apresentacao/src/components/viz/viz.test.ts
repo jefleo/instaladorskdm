@@ -14,7 +14,6 @@ import {
   formatCapital,
   formatEquilibrio,
   jurosEm400,
-  jurosSobreSaldoEm400,
   linhaTabelaCapital,
   pctCurto,
   rotulosPlanoDiario,
@@ -116,9 +115,8 @@ describe("V08 e V14 — preço", () => {
       expect(jurosEm400(nv.taxaSemanal.valor)).toBe(nv.jurosExemplo.rotulo);
     }
   });
-  it("Zippi: 18,3% ao mês (sobre o saldo) e estimativa de R$ 40", () => {
+  it("Zippi: 18,3% ao mês (sobre o saldo)", () => {
     expect(efetivaSaldoMes(preco.zippiTaxaSemanal.valor)).toBe(preco.zippiEfetivaMes.rotulo);
-    expect(jurosSobreSaldoEm400(preco.zippiTaxaSemanal.valor)).toBe("R$ 40");
   });
   it("exemplo do cenário-base", () => {
     expect(efetivaMes(preco.exemplo.taxa.valor)).toBe(preco.exemplo.efetivaMes.rotulo);

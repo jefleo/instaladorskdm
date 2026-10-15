@@ -41,7 +41,7 @@ export function Secao07Numeros({ parte }: PropsSecao) {
       );
     case 2:
       return (
-        <Slide secao={secao} parte={parte}>
+        <Slide secao={secao} parte={parte} cabecalho="linha">
           <Encaixe className="figura">
             <Simulador />
           </Encaixe>
@@ -49,7 +49,7 @@ export function Secao07Numeros({ parte }: PropsSecao) {
       );
     case 3:
       return (
-        <Slide secao={secao} parte={parte}>
+        <Slide secao={secao} parte={parte} cabecalho="linha">
           <Encaixe className="figura">
             <TabelaCapital />
           </Encaixe>

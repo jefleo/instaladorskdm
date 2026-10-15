@@ -25,8 +25,8 @@ export interface SlideProps {
   secao: Secao;
   /** 0 = primeira tela da seção; 1 = "b"; 2 = "c"... */
   parte: number;
-  /** "topo": título e subtítulo no alto; "nenhum": a seção desenha o próprio cabeçalho. */
-  cabecalho?: "topo" | "nenhum";
+  /** "topo": título e subtítulo no alto; "linha": só número e nome (telas com visual alto); "nenhum": a seção desenha o próprio cabeçalho. */
+  cabecalho?: "topo" | "linha" | "nenhum";
   /** Mostra o subtítulo (padrão: só na primeira tela). */
   subtitulo?: boolean;
   className?: string;
@@ -55,6 +55,18 @@ export function Slide({ secao, parte, cabecalho = "topo", subtitulo, className, 
         <div className={`slide-cab ${lateral ? "" : "slide-cab--so-titulo"} ${animar ? "entrar" : ""}`}>
           <TituloSecao numero={secao.id} nome={secao.nome} titulo={secao.titulo} como={secao.id === "00" ? "h1" : "h2"} />
           {lateral ? <div className="slide-cab__sub">{lateral}</div> : null}
+        </div>
+      ) : null}
+      {cabecalho === "linha" && !continua ? (
+        <div className={`mb-[var(--esp-6)] flex flex-wrap items-baseline gap-x-[0.9em] gap-y-[0.2em] ${animar ? "entrar" : ""}`}>
+          <p className="flex items-center gap-[0.6em] font-mono text-eyebrow font-medium uppercase text-texto-2" style={{ letterSpacing: "var(--tracking-eyebrow)" }}>
+            <span className="text-verde">{secao.id}</span>
+            <span className="traco-vupt" aria-hidden="true" style={{ width: "1.1em", height: "0.22em" }} />
+            <span>{secao.nome}</span>
+          </p>
+          <h2 className="font-titulo text-corpo-g font-bold text-texto-2" style={{ letterSpacing: "-0.015em" }}>
+            {secao.titulo}
+          </h2>
         </div>
       ) : null}
       <div className={`slide-corpo ${animar ? "entrar" : ""} ${corpoClassName ?? ""}`} style={animar ? { animationDelay: "90ms" } : undefined}>
@@ -206,7 +218,7 @@ export function Rotulo({ children, tom = "texto-3", className }: { children: Rea
 
 /**
  * Os gráficos definem a própria altura. No palco (1920×1080), se o gráfico for
- * mais alto que o espaço da tela, ele é reduzido por escala, nunca cortado.
+ * mais alto que o espaço da tela, ele é reduzido por escala (centralizado), nunca cortado.
  * Na leitura, nada muda: rolagem livre.
  */
 export function Encaixe({ children, className, estilo, visual }: { children: ReactNode; className?: string; estilo?: CSSProperties; visual?: string }) {
@@ -221,19 +233,12 @@ export function Encaixe({ children, className, estilo, visual }: { children: Rea
     const f = fora.current;
     const d = dentro.current;
     if (!f || !d) return;
-    let atual = 1;
-    let ajustes = 0;
     const medir = () => {
       const disponivel = f.clientHeight;
-      const natural = d.offsetHeight;
+      const natural = d.offsetHeight; // altura de layout: o transform não altera
       if (!disponivel || !natural) return;
-      // altura natural medida na largura compensada (100% / escala): a escala visual é disponível ÷ natural
-      const escolhida = Math.min(1, Math.floor((disponivel / natural) * 1000) / 1000);
-      if (Math.abs(escolhida - atual) > 0.005 && ajustes < 24) {
-        ajustes += 1;
-        atual = escolhida;
-        setEscala(escolhida);
-      }
+      const nova = Math.min(1, Math.floor((disponivel / natural) * 1000) / 1000);
+      setEscala((atual) => (Math.abs(nova - atual) > 0.004 ? nova : atual));
     };
     medir();
     const ro = new ResizeObserver(medir);
@@ -251,7 +256,7 @@ export function Encaixe({ children, className, estilo, visual }: { children: Rea
   }
   return (
     <div ref={fora} className={`encaixe ${className ?? ""}`} style={estilo} data-visual={visual} data-escala={escala.toFixed(3)}>
-      <div ref={dentro} style={escala < 1 ? { width: `${100 / escala}%`, transform: `scale(${escala})`, transformOrigin: "top left" } : undefined}>
+      <div ref={dentro} style={escala < 1 ? { transform: `scale(${escala})`, transformOrigin: "top center" } : undefined}>
         {children}
       </div>
     </div>

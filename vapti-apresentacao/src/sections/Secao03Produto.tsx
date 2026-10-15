@@ -9,7 +9,7 @@ export function Secao03Produto({ parte }: PropsSecao) {
   if (parte === 0) {
     return (
       <Slide secao={secao} parte={parte} cabecalho="nenhum">
-        <div className="dividir encher" style={{ ["--colunas" as string]: "minmax(0, 1fr) minmax(0, 600px)", ["--vao" as string]: "var(--esp-8)" }}>
+        <div className="dividir encher" style={{ ["--colunas" as string]: "minmax(0, 1fr) minmax(0, 720px)", ["--vao" as string]: "var(--esp-8)" }}>
           <div className="coluna justify-between">
             <Cabecalho secao={secao} parte={parte} />
             <div className="grade-2" style={{ ["--vao" as string]: "var(--esp-6) var(--esp-7)" }}>
@@ -20,7 +20,7 @@ export function Secao03Produto({ parte }: PropsSecao) {
             </div>
           </div>
           <Encaixe className="figura flex flex-col items-center" visual="V07">
-            <Celular inicio="conversa" compacto />
+            <Celular inicio="conversa" />
           </Encaixe>
         </div>
         <p className="sr-only-vapti">{secao.alts.V07}</p>
@@ -28,7 +28,7 @@ export function Secao03Produto({ parte }: PropsSecao) {
     );
   }
   return (
-    <Slide secao={secao} parte={parte}>
+    <Slide secao={secao} parte={parte} cabecalho="linha">
       <div className="grade-2 encher" style={{ ["--vao" as string]: "var(--esp-8)" }}>
         <div className="coluna">
           <Figura secao={secao} visual="V08" proprio>

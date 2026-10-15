@@ -3,7 +3,7 @@ import { Icone, Selo, TabelaComparativa } from "../../components/base";
 import { comoMedimos, fases, fontes, rollRateFaixas, type Fase, type Num } from "../../data/vapti";
 import { rotulos } from "../../content/ui";
 import { dominio } from "../numero";
-import { Rotulo } from "../Slide";
+import { Encaixe, Rotulo } from "../Slide";
 
 /** Painel "Como medimos": as cinco medidas e as faixas de atraso acompanhadas. */
 export function ComoMedimos() {
@@ -65,8 +65,8 @@ export function TabelaFases() {
   }));
   const destaque = linhas.findIndex((l) => l.chave === r.destaque);
   return (
-    <div className="dividir" style={{ ["--colunas" as string]: "minmax(0, 2.3fr) minmax(0, 1fr)", ["--vao" as string]: "var(--esp-7)" }}>
-      <div className="min-w-0">
+    <div className="dividir encher" style={{ ["--colunas" as string]: "minmax(0, 2.7fr) minmax(0, 1fr)", ["--vao" as string]: "var(--esp-7)" }}>
+      <Encaixe className="min-w-0">
         <TabelaComparativa<LinhaFases>
           legenda={r.legenda}
           className="tabela-compacta"
@@ -76,7 +76,12 @@ export function TabelaFases() {
             { chave: "rotulo", titulo: r.metrica, largura: "34%" },
             ...fases.map((f, i) => ({
               chave: `f${f.fase}`,
-              titulo: `${r.fase(f.fase)} · ${f.periodo}`,
+              titulo: (
+                <>
+                  {r.fase(f.fase)}
+                  <span className="block normal-case text-texto-3">{f.periodo}</span>
+                </>
+              ),
               numerica: true,
               celula: (l: LinhaFases) => l.valores[i],
             })),
@@ -87,7 +92,7 @@ export function TabelaFases() {
           <Selo tipo="projecao" />
           <span>{r.legenda}</span>
         </p>
-      </div>
+      </Encaixe>
       <section aria-label={r.financiamento}>
         <Rotulo>{r.financiamento}</Rotulo>
         <ol className="mt-[var(--esp-3)] space-y-[0.7em]">

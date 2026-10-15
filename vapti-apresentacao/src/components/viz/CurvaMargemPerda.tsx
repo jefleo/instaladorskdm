@@ -18,7 +18,8 @@ export function CurvaMargemPerda({ compacto = false, legenda = true, className }
   const [foco, setFoco] = useState<number | null>(null);
 
   const f = fs.apoio;
-  const H = Math.round(Math.min(Math.max(W * 0.5, f * 15), f * (compacto ? 17 : 22.5)));
+  const H = Math.round(Math.min(Math.max(W * 0.5, f * 19), f * (compacto ? 17 : 22.5)));
+  const umaLinha = W < f * 45;
   const m = { t: f * 3.2, r: f * 1.2, b: f * 3.6, l: f * 3.2 };
   const p0 = pontos[0].perda;
   const p1 = pontos[pontos.length - 1].perda;
@@ -79,9 +80,9 @@ export function CurvaMargemPerda({ compacto = false, legenda = true, className }
             <path d={areaAcima} style={{ fill: "var(--cor-verde)", fillOpacity: 0.1, ...entrada(ativo, animar, "fade", 250, 300) }} />
             <path d={areaAbaixo} style={{ fill: "var(--cor-coral)", fillOpacity: 0.24, ...entrada(ativo, animar, "fade", 300, 300) }} />
             <text
-              x={(x(eq) + x(p1)) / 2}
-              y={y(0) + f * 1.3}
-              textAnchor="middle"
+              x={x(p1) - f * 0.3}
+              y={y(0) - f * 0.55}
+              textAnchor="end"
               className="fill-coral font-texto font-semibold"
               style={{ fontSize: f * 0.9, ...entrada(ativo, animar, "fade", 350, 300) }}
             >
@@ -95,7 +96,7 @@ export function CurvaMargemPerda({ compacto = false, legenda = true, className }
               y={m.t - f * 0.95}
               textAnchor={x(eq) + f * 6 > W ? "end" : "middle"}
               className="fill-texto font-mono font-bold"
-              style={{ fontSize: fs.corpo }}
+              style={{ fontSize: umaLinha ? f : fs.corpo }}
             >
               {rotEq}
             </text>
@@ -106,12 +107,20 @@ export function CurvaMargemPerda({ compacto = false, legenda = true, className }
             {marcados.map(({ p, r }, i) => (
               <g key={p} style={entrada(ativo, animar, "fade", 300 + i * 60, 300)}>
                 <circle cx={x(p)} cy={y(r.margemMes)} r={8} className="stroke-tinta" strokeWidth={3} style={{ fill: "var(--cor-verde)" }} />
-                <text x={x(p) + f * 0.6} y={y(r.margemMes) - f * 1.75} className="fill-texto-2 font-texto" style={{ fontSize: f }}>
-                  {viz.curva.perdaDe(pctCurto(p))}
-                </text>
-                <text x={x(p) + f * 0.6} y={y(r.margemMes) - f * 0.55} className="fill-texto font-mono font-bold" style={{ fontSize: fs.corpo }}>
-                  {formatMi(r.margemMes)}
-                </text>
+                {umaLinha ? (
+                  <text x={x(p) + f * 0.5} y={y(r.margemMes) - f * 0.6} className="fill-texto font-mono font-bold" style={{ fontSize: f }}>
+                    {pctCurto(p)}: {formatMi(r.margemMes)}
+                  </text>
+                ) : (
+                  <>
+                    <text x={x(p) + f * 0.6} y={y(r.margemMes) - f * 1.75} className="fill-texto-2 font-texto" style={{ fontSize: f }}>
+                      {viz.curva.perdaDe(pctCurto(p))}
+                    </text>
+                    <text x={x(p) + f * 0.6} y={y(r.margemMes) - f * 0.55} className="fill-texto font-mono font-bold" style={{ fontSize: fs.corpo }}>
+                      {formatMi(r.margemMes)}
+                    </text>
+                  </>
+                )}
               </g>
             ))}
 

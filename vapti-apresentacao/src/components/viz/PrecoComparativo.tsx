@@ -3,7 +3,7 @@ import { viz } from "../../content/ui";
 import { efetivaSemanalSobreSacado, efetivaSobreSaldo } from "../../lib/modelo";
 import { formatPct } from "../../lib/formato";
 import { EtiquetaEstimativa, entrada, Figura, TabelaSr, ticks, useViz, type VizProps } from "./comum";
-import { efetivaMes, efetivaSaldoMes, formatTaxa, jurosEm400, jurosSobreSaldoEm400 } from "./rotulos";
+import { efetivaMes, efetivaSaldoMes, formatTaxa, jurosEm400 } from "./rotulos";
 
 interface Linha {
   id: string;
@@ -21,7 +21,7 @@ export function PrecoComparativo({ compacto = false, legenda = true, className }
   const ex = preco.exemplo;
   const tz = preco.zippiTaxaSemanal.valor;
   const linhas: Linha[] = [
-    { id: "zippi", nome: zippi.nome, taxa: viz.precoComp.zippiTaxa, valor: efetivaSobreSaldo(tz), efetiva: efetivaSaldoMes(tz), juros: jurosSobreSaldoEm400(tz), zippi: true },
+    { id: "zippi", nome: zippi.nome, taxa: viz.precoComp.zippiTaxa, valor: efetivaSobreSaldo(tz), efetiva: efetivaSaldoMes(tz), juros: viz.precoComp.zippiJuros, zippi: true },
     ...niveis.map((nv) => ({
       id: nv.id,
       nome: viz.precoComp.nivel(nv.nome),
@@ -55,7 +55,7 @@ export function PrecoComparativo({ compacto = false, legenda = true, className }
     <Figura visual="V14" titulo={viz.precoComp.titulo} legenda={legenda} className={className}>
       <div ref={ref} className="w-full font-texto">
         {/* a conta do cenário-base */}
-        <p className="mb-[1em] flex flex-wrap items-center gap-x-[0.5em] gap-y-[0.4em] text-corpo-g" style={entrada(ativo, animar, "subir", 0, 300)}>
+        <p className="mb-[0.8em] flex flex-wrap items-center gap-x-[0.5em] gap-y-[0.4em] text-corpo-g" style={entrada(ativo, animar, "subir", 0, 300)}>
           {token(ex.sacado.rotulo)}
           {op(viz.precoComp.vezes)}
           {token(ex.taxa.rotulo, viz.precoComp.porSemana)}
@@ -68,22 +68,13 @@ export function PrecoComparativo({ compacto = false, legenda = true, className }
         </p>
 
         <div
-          className="relative grid items-center"
+          className="relative grid items-center text-apoio"
           style={{
-            gridTemplateColumns: largo ? "minmax(0, 15em) minmax(0, 1fr) minmax(0, 7.5em)" : "minmax(0, 1fr) auto",
+            gridTemplateColumns: largo ? "minmax(0, 21em) minmax(0, 1fr) minmax(0, 9em)" : "minmax(0, 1fr) auto",
             columnGap: "1.2em",
-            rowGap: largo ? "0.55em" : "0.3em",
+            rowGap: largo ? "0.45em" : "0.15em",
           }}
         >
-          {largo ? (
-            <>
-              <span />
-              <span className="text-right font-texto text-apoio text-texto-3" style={{ gridColumn: 2 }}>
-                {viz.precoComp.eixoX}
-              </span>
-              <span className="text-right font-texto text-apoio text-texto-3">{viz.precoComp.colunaJuros}</span>
-            </>
-          ) : null}
           {linhas.map((l, i) => {
             const cor = l.zippi ? "var(--cor-cinza)" : "var(--cor-verde)";
             const barra = (
@@ -105,13 +96,14 @@ export function PrecoComparativo({ compacto = false, legenda = true, className }
                     ...entrada(ativo, animar, "x", 120 + i * 60, 400),
                   }}
                 />
-                <span
-                  className="absolute top-1/2 -translate-y-1/2 pl-[0.45em] font-mono text-corpo font-bold whitespace-nowrap text-texto"
-                  style={{ left: pct(l.valor), ...entrada(ativo, animar, "fade", 300 + i * 60, 250) }}
-                >
-                  {l.efetiva}
-                  {!largo ? <span className="font-texto text-apoio font-normal text-texto-3"> {viz.precoComp.aoMes}</span> : null}
-                </span>
+                {largo ? (
+                  <span
+                    className="absolute top-1/2 -translate-y-1/2 pl-[0.45em] font-mono text-corpo font-bold whitespace-nowrap text-texto"
+                    style={{ left: pct(l.valor), ...entrada(ativo, animar, "fade", 300 + i * 60, 250) }}
+                  >
+                    {l.efetiva}
+                  </span>
+                ) : null}
               </div>
             );
             return (
@@ -121,12 +113,15 @@ export function PrecoComparativo({ compacto = false, legenda = true, className }
                     {l.nome}
                     {l.zippi ? <EtiquetaEstimativa /> : null}
                   </p>
-                  <p className="text-apoio leading-tight text-texto-3">{l.taxa}</p>
+                  <p className="text-apoio leading-tight text-texto-3">
+                    {l.taxa}
+                    {!largo ? ` · ${l.juros} ${viz.precoComp.emR400}` : null}
+                  </p>
                 </div>
                 {largo ? barra : null}
-                <p className={`text-right font-mono text-corpo font-bold ${l.zippi ? "text-texto-2" : "text-texto"}`} style={{ gridColumn: largo ? 3 : 2 }}>
-                  {l.juros}
-                  {!largo ? <span className="block font-texto text-apoio font-normal text-texto-3">{viz.precoComp.colunaJuros}</span> : null}
+                <p className={`text-right font-mono text-corpo font-bold whitespace-nowrap ${l.zippi ? "text-texto-2" : "text-texto"}`} style={{ gridColumn: largo ? 3 : 2 }}>
+                  {largo ? l.juros : l.efetiva}
+                  {!largo ? <span className="block font-texto text-apoio font-normal text-texto-3">{viz.precoComp.aoMes}</span> : null}
                 </p>
                 {!largo ? barra : null}
                 {l.zippi ? <span className="h-[0.5em]" style={{ gridColumn: "1 / -1" }} /> : null}
@@ -135,18 +130,19 @@ export function PrecoComparativo({ compacto = false, legenda = true, className }
           })}
           {largo ? (
             <>
-              <span />
-              <div className="relative h-[1.6em]" style={{ gridColumn: 2 }} aria-hidden="true">
+              <span className="self-start text-right font-texto text-apoio text-texto-3">{viz.precoComp.eixoX}</span>
+              <div className="relative h-[1.6em] self-start" style={{ gridColumn: 2 }} aria-hidden="true">
                 {marcas.map((v) => (
                   <span key={v} className="absolute top-[0.2em] -translate-x-1/2 font-mono text-apoio text-texto-3" style={{ left: pct(v) }}>
                     {formatPct(v, 0)}
                   </span>
                 ))}
               </div>
+              <span className="self-start text-right font-texto text-apoio leading-tight text-texto-3">{viz.precoComp.colunaJuros}</span>
             </>
           ) : null}
         </div>
-        <p className="mt-[0.8em] text-apoio text-texto-3">{viz.precoComp.zippiNota}</p>
+        <p className="mt-[0.6em] text-apoio text-texto-3">{viz.precoComp.zippiNota}</p>
       </div>
       <TabelaSr
         legenda={viz.precoComp.tabela}

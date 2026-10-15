@@ -29,8 +29,8 @@ function Painel({ nome, valores, largura, f, fTitulo, ativo, animar, atraso }: {
   atraso: number;
 }) {
   const W = largura;
-  const H = Math.round(f * 14);
-  const m = { t: f * 4.2, r: f * 0.3, b: f * 2.1, l: f * 3.4 };
+  const H = Math.round(f * 15);
+  const m = { t: f * 5.4, r: f * 0.3, b: f * 2.1, l: f * 4.2 };
   const pw = W - m.l - m.r;
   const ph = H - m.t - m.b;
   const banda = pw / valores.length;
@@ -59,7 +59,7 @@ function Painel({ nome, valores, largura, f, fTitulo, ativo, animar, atraso }: {
       <rect
         x={bx0 + 2}
         y={m.t - f * 0.2}
-        width={bx1 - bx0 - 4}
+        width={Math.max(bx1 - bx0 - 4, 0)}
         height={ph + f * 0.2}
         rx={10}
         className="stroke-coral"

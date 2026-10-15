@@ -88,7 +88,7 @@ export function MapaAutonomos({ compacto = false, legenda = true, className }: V
           </p>
           <p className="mt-[0.8em] max-w-[36ch] font-texto text-apoio text-texto-3">{viz.mapa.fonte}</p>
         </div>
-        <div className="relative mx-auto w-full" style={{ maxWidth: lado ? fs.apoio * 25 : fs.apoio * 22 }}>
+        <div className="relative mx-auto w-full" style={{ maxWidth: lado ? fs.apoio * 21.5 : fs.apoio * 22 }}>
           <svg role="img" aria-label={t.alt ?? viz.mapa.mapaAlt} viewBox={`0 0 ${VW} ${VH}`} className="block h-auto w-full">
             {PONTOS.map(([x, y], i) => (
               <circle key={i} cx={x} cy={y} r={PASSO * 0.3} style={{ fill: "var(--cor-azul)", fillOpacity: 0.55, ...entrada(ativo, animar, "fade", (x / VW) * 260, 240) }} />
@@ -96,10 +96,7 @@ export function MapaAutonomos({ compacto = false, legenda = true, className }: V
             <circle cx={natal[0]} cy={natal[1]} r={PASSO * 0.95} style={{ fill: "var(--cor-tinta)" }} />
             <circle cx={natal[0]} cy={natal[1]} r={PASSO * 0.62} style={{ fill: "var(--cor-verde)", ...entrada(ativo, animar, "fade", 320, 300) }} />
           </svg>
-          <p
-            className="absolute right-0 font-texto text-apoio font-semibold leading-tight text-texto"
-            style={{ top: `${(natal[1] / VH) * 100 + 4}%`, maxWidth: "11em", textAlign: "right", ...entrada(ativo, animar, "fade", 340, 300) }}
-          >
+          <p className="mt-[0.6em] font-texto text-apoio font-semibold leading-tight text-texto" style={entrada(ativo, animar, "fade", 340, 300)}>
             <span className="mr-[0.4em] inline-block size-[0.6em] rounded-full bg-verde align-middle" aria-hidden="true" />
             {viz.mapa.praca}
           </p>

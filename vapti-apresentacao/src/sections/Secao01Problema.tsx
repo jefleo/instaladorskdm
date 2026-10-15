@@ -31,16 +31,7 @@ export function Secao01Problema({ parte }: PropsSecao) {
           </Figura>
         </div>
         <div className="flex flex-col gap-[var(--esp-7)]">
-          {b2 ? (
-            <div className="border-l-[3px] border-azul pl-[0.85em]">
-              <p className="font-mono font-bold text-azul" style={{ fontSize: "var(--fs-kpi-p)", lineHeight: 1, letterSpacing: "-0.04em" }}>
-                {b2.titulo}
-              </p>
-              <p className="mt-[0.4em] text-corpo text-texto-2" style={{ lineHeight: 1.42 }}>
-                {b2.texto}
-              </p>
-            </div>
-          ) : null}
+          {b2 ? <Bloco bloco={b2} tom="azul" /> : null}
           {b3 ? <Bloco bloco={b3} tom="verde" grande /> : null}
         </div>
       </div>

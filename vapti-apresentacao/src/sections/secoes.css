@@ -208,8 +208,11 @@
 /* ---- Tabela compacta (linhas mais baixas no palco) ------------------------ */
 .tabela-compacta th,
 .tabela-compacta td {
-  padding-top: 0.34em;
-  padding-bottom: 0.34em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+}
+.tabela-compacta td {
+  white-space: nowrap;
 }
 
 /* ---- Encaixe no palco ----------------------------------------------------- */

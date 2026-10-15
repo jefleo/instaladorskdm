@@ -102,14 +102,6 @@ export function efetivaSaldoMes(taxa: number): string {
   return formatPct(efetivaSobreSaldo(taxa));
 }
 
-/**
- * Estimativa: juros de R$ 400 no mesmo plano de 4 semanas, cobrados sobre o saldo
- * (saldo médio de 62,5% do valor): 4% → "R$ 40".
- */
-export function jurosSobreSaldoEm400(taxa: number): string {
-  return formatBRL(receitaMes(R400 * premissas.saldoMedio.valor, taxa), 0);
-}
-
 /** Plano diário: parcela, juros e efetiva ao mês, formatados como na tabela 4.5. */
 export function rotulosPlanoDiario(dias: number) {
   const p = planoDiario(dias);

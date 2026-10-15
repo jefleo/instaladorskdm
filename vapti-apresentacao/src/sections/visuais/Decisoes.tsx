@@ -9,14 +9,14 @@ export function CincoDecisoes({ rotulo }: { rotulo?: string }) {
   return (
     <ol className="border-b border-borda" aria-label={rotulo}>
       {decisoes.lista.map((d, i) => (
-        <li key={d.titulo} className="decisao border-t border-borda py-[0.62em]">
+        <li key={d.titulo} className="decisao border-t border-borda py-[0.8em]">
           <span className="font-mono font-bold text-verde" style={{ fontSize: "var(--fs-kpi-p)", lineHeight: 0.9, letterSpacing: "-0.04em" }}>
             {i + 1}
           </span>
           <h3 className="font-titulo font-bold text-texto" style={{ fontSize: "var(--fs-subtitulo)", lineHeight: 1.12, letterSpacing: "-0.02em" }}>
             {d.titulo}
           </h3>
-          <p className="text-corpo text-texto-2" style={{ lineHeight: 1.38 }}>
+          <p className="text-corpo-g text-texto-2" style={{ lineHeight: 1.32 }}>
             {d.texto}
           </p>
         </li>
