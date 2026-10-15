@@ -1,0 +1,329 @@
+/* ==========================================================================
+   Vapti — tokens de design
+   Conceito: "sinal verde". Fundo tinta, números em mono como protagonistas,
+   um traço verde em movimento como assinatura (vapt-vupt).
+   Escala tipográfica pensada para o palco de 1920×1080; reduzida por
+   container query (container-name: secao) para tablet e celular.
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* ---- Paleta base (modo escuro, padrão) -------------------------------- */
+  --cor-tinta: #0e1116;          /* fundo */
+  --cor-superficie: #161b22;     /* cartões */
+  --cor-superficie-2: #1d242e;   /* superfície elevada */
+  --cor-superficie-3: #252d38;   /* hover / elevada 2 */
+  --cor-borda: #2a323d;
+  --cor-borda-forte: #3a4450;
+  --cor-texto: #f2f4f7;          /* 15,7:1 sobre superfície */
+  --cor-texto-2: #b4bcc7;        /* 9,0:1 sobre superfície */
+  --cor-texto-3: #8b95a1;        /* 5,7:1 sobre superfície — mínimo para legenda */
+
+  /* Semântica: cada cor tem um significado fixo */
+  --cor-verde: #b6f23a;          /* dinheiro entrando · Vapti */
+  --cor-coral: #ff7a45;          /* risco · alerta */
+  --cor-azul: #8fb8ff;           /* dado neutro */
+  --cor-cinza: #8b95a1;          /* Zippi e terceiros */
+
+  /* Fundos suaves (mesma opacidade para verde e coral = mesmo peso) */
+  --cor-verde-suave: rgb(182 242 58 / 0.09);
+  --cor-coral-suave: rgb(255 122 69 / 0.09);
+  --cor-azul-suave: rgb(143 184 255 / 0.09);
+  --cor-cinza-suave: rgb(139 149 161 / 0.10);
+  --cor-verde-borda: rgb(182 242 58 / 0.38);
+  --cor-coral-borda: rgb(255 122 69 / 0.38);
+  --cor-azul-borda: rgb(143 184 255 / 0.38);
+  --cor-cinza-borda: rgb(139 149 161 / 0.38);
+
+  /* Texto sobre preenchimento sólido de cor */
+  --cor-sobre-verde: #0e1116;
+  --cor-sobre-coral: #0e1116;
+  --cor-sobre-azul: #0e1116;
+  --cor-sobre-cinza: #0e1116;
+
+  --cor-foco: #b6f23a;
+  --cor-grade: rgb(242 244 247 / 0.045);   /* linhas de fundo do palco */
+
+  /* ---- Tipografia ------------------------------------------------------- */
+  --fonte-titulo: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --fonte-texto: "Manrope", system-ui, "Segoe UI", sans-serif;
+  --fonte-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Escala para o palco de 1920 px (legível a 3 m) */
+  --fs-kpi: 168px;        /* número-herói */
+  --fs-kpi-m: 112px;      /* KPI em grade */
+  --fs-kpi-p: 72px;       /* KPI de apoio */
+  --fs-display: 96px;     /* título-conclusão de abertura */
+  --fs-titulo: 76px;      /* título-conclusão de seção */
+  --fs-subtitulo: 36px;
+  --fs-h3: 44px;
+  --fs-corpo-g: 32px;
+  --fs-corpo: 26px;
+  --fs-apoio: 22px;       /* mínimo absoluto de conteúdo */
+  --fs-eyebrow: 22px;
+
+  --lh-justo: 0.92;
+  --lh-titulo: 1.02;
+  --lh-corpo: 1.42;
+  --tracking-titulo: -0.035em;
+  --tracking-kpi: -0.045em;
+  --tracking-eyebrow: 0.14em;
+
+  /* ---- Espaço ----------------------------------------------------------- */
+  --esp-1: 4px;
+  --esp-2: 8px;
+  --esp-3: 12px;
+  --esp-4: 16px;
+  --esp-5: 24px;
+  --esp-6: 32px;
+  --esp-7: 48px;
+  --esp-8: 64px;
+  --esp-9: 96px;
+  --esp-10: 128px;
+  --palco-margem: 120px;  /* respiro lateral do palco */
+  --palco-topo: 96px;
+
+  /* ---- Raios, sombras --------------------------------------------------- */
+  --raio-1: 6px;
+  --raio-2: 12px;
+  --raio-3: 20px;
+  --raio-4: 28px;
+  --raio-pilula: 999px;
+
+  --sombra-1: 0 1px 0 rgb(255 255 255 / 0.04) inset, 0 1px 2px rgb(0 0 0 / 0.4);
+  --sombra-2: 0 1px 0 rgb(255 255 255 / 0.05) inset, 0 12px 32px -12px rgb(0 0 0 / 0.6);
+  --sombra-3: 0 1px 0 rgb(255 255 255 / 0.06) inset, 0 28px 64px -20px rgb(0 0 0 / 0.75);
+
+  /* ---- Movimento -------------------------------------------------------- */
+  --dur-rapida: 200ms;
+  --dur-base: 300ms;
+  --dur-lenta: 400ms;
+  --dur-contagem: 1100ms;          /* contagem dos KPIs */
+  --ease-saida: cubic-bezier(0.22, 1, 0.36, 1);   /* entradas: chega rápido, assenta suave */
+  --ease-padrao: cubic-bezier(0.4, 0, 0.2, 1);
+  --deslocamento-entrada: 16px;
+}
+
+/* ---- Modo claro (impressão e conferência) -------------------------------- */
+html[data-modo="claro"] {
+  color-scheme: light;
+  --cor-tinta: #fafaf7;
+  --cor-superficie: #ffffff;
+  --cor-superficie-2: #f1f1ec;
+  --cor-superficie-3: #e8e8e1;
+  --cor-borda: #dcdcd4;
+  --cor-borda-forte: #c3c3b9;
+  --cor-texto: #12161c;          /* 17,4:1 */
+  --cor-texto-2: #3d4652;        /* 9,6:1 */
+  --cor-texto-3: #59626d;        /* 5,5:1 sobre #F1F1EC */
+
+  --cor-verde: #3f6a00;          /* 6,1:1 */
+  --cor-coral: #b23e0b;          /* 5,6:1 */
+  --cor-azul: #2456b5;           /* 6,0:1 */
+  --cor-cinza: #59626d;          /* 5,9:1 */
+
+  --cor-verde-suave: rgb(63 106 0 / 0.07);
+  --cor-coral-suave: rgb(178 62 11 / 0.07);
+  --cor-azul-suave: rgb(36 86 181 / 0.07);
+  --cor-cinza-suave: rgb(89 98 109 / 0.08);
+  --cor-verde-borda: rgb(63 106 0 / 0.42);
+  --cor-coral-borda: rgb(178 62 11 / 0.42);
+  --cor-azul-borda: rgb(36 86 181 / 0.42);
+  --cor-cinza-borda: rgb(89 98 109 / 0.42);
+
+  --cor-sobre-verde: #ffffff;
+  --cor-sobre-coral: #ffffff;
+  --cor-sobre-azul: #ffffff;
+  --cor-sobre-cinza: #ffffff;
+
+  --cor-foco: #2456b5;
+  --cor-grade: rgb(18 22 28 / 0.05);
+
+  --sombra-1: 0 1px 2px rgb(18 22 28 / 0.08);
+  --sombra-2: 0 10px 28px -14px rgb(18 22 28 / 0.22);
+  --sombra-3: 0 24px 56px -24px rgb(18 22 28 / 0.3);
+}
+
+/* ---- Escala responsiva por container (cada seção é um container "secao") -- */
+@container secao (max-width: 1100px) {
+  * {
+    --fs-kpi: 104px;
+    --fs-kpi-m: 72px;
+    --fs-kpi-p: 48px;
+    --fs-display: 64px;
+    --fs-titulo: 50px;
+    --fs-subtitulo: 25px;
+    --fs-h3: 30px;
+    --fs-corpo-g: 22px;
+    --fs-corpo: 19px;
+    --fs-apoio: 16px;
+    --fs-eyebrow: 15px;
+    --palco-margem: 48px;
+    --palco-topo: 56px;
+  }
+}
+
+@container secao (max-width: 600px) {
+  * {
+    --fs-kpi: 64px;
+    --fs-kpi-m: 48px;
+    --fs-kpi-p: 34px;
+    --fs-display: 42px;
+    --fs-titulo: 34px;
+    --fs-subtitulo: 19px;
+    --fs-h3: 23px;
+    --fs-corpo-g: 18px;
+    --fs-corpo: 16px;
+    --fs-apoio: 14px;
+    --fs-eyebrow: 13px;
+    --palco-margem: 20px;
+    --palco-topo: 32px;
+    --raio-3: 16px;
+    --raio-4: 20px;
+  }
+}
+
+/* ---- Tailwind v4: utilitários a partir dos tokens ------------------------ */
+@theme inline {
+  --color-tinta: var(--cor-tinta);
+  --color-superficie: var(--cor-superficie);
+  --color-superficie-2: var(--cor-superficie-2);
+  --color-superficie-3: var(--cor-superficie-3);
+  --color-borda: var(--cor-borda);
+  --color-borda-forte: var(--cor-borda-forte);
+  --color-texto: var(--cor-texto);
+  --color-texto-2: var(--cor-texto-2);
+  --color-texto-3: var(--cor-texto-3);
+  --color-verde: var(--cor-verde);
+  --color-coral: var(--cor-coral);
+  --color-azul: var(--cor-azul);
+  --color-cinza: var(--cor-cinza);
+  --color-verde-suave: var(--cor-verde-suave);
+  --color-coral-suave: var(--cor-coral-suave);
+  --color-azul-suave: var(--cor-azul-suave);
+  --color-cinza-suave: var(--cor-cinza-suave);
+  --color-verde-borda: var(--cor-verde-borda);
+  --color-coral-borda: var(--cor-coral-borda);
+  --color-azul-borda: var(--cor-azul-borda);
+  --color-cinza-borda: var(--cor-cinza-borda);
+
+  --font-titulo: var(--fonte-titulo);
+  --font-texto: var(--fonte-texto);
+  --font-sans: var(--fonte-texto);
+  --font-mono: var(--fonte-mono);
+
+  --text-kpi: var(--fs-kpi);
+  --text-kpi-m: var(--fs-kpi-m);
+  --text-kpi-p: var(--fs-kpi-p);
+  --text-display: var(--fs-display);
+  --text-titulo: var(--fs-titulo);
+  --text-subtitulo: var(--fs-subtitulo);
+  --text-h3: var(--fs-h3);
+  --text-corpo-g: var(--fs-corpo-g);
+  --text-corpo: var(--fs-corpo);
+  --text-apoio: var(--fs-apoio);
+  --text-eyebrow: var(--fs-eyebrow);
+
+  --radius-1: var(--raio-1);
+  --radius-2: var(--raio-2);
+  --radius-3: var(--raio-3);
+  --radius-4: var(--raio-4);
+
+  --shadow-1: var(--sombra-1);
+  --shadow-2: var(--sombra-2);
+  --shadow-3: var(--sombra-3);
+
+  --ease-saida: var(--ease-saida);
+}
+
+/* ---- Base ----------------------------------------------------------------- */
+@layer base {
+  html {
+    background: var(--cor-tinta);
+    color: var(--cor-texto);
+    font-family: var(--fonte-texto);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--cor-tinta);
+    color: var(--cor-texto);
+    line-height: var(--lh-corpo);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--fonte-titulo);
+    letter-spacing: var(--tracking-titulo);
+    line-height: var(--lh-titulo);
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+
+  /* Números: algarismos tabulares sempre que forem dados */
+  :where(.font-mono, code, kbd, samp, td, th, [data-num], .num) {
+    font-variant-numeric: tabular-nums;
+  }
+  ::selection {
+    background: var(--cor-verde);
+    color: var(--cor-sobre-verde);
+  }
+
+  /* Foco visível, nunca removido */
+  :focus-visible {
+    outline: 3px solid var(--cor-foco);
+    outline-offset: 3px;
+    border-radius: var(--raio-1);
+  }
+  :focus:not(:focus-visible) { outline: none; }
+}
+
+/* ---- Utilitários de assinatura ------------------------------------------ */
+@layer components {
+  /* Traço "vupt": barra curta inclinada usada antes de eyebrows e na marca */
+  .traco-vupt {
+    display: inline-block;
+    width: 1.6em;
+    height: 0.32em;
+    background: var(--cor-verde);
+    transform: skewX(-24deg);
+    border-radius: 2px;
+    flex: none;
+  }
+  /* Fundo de palco com pautas finas (lembram linhas de um extrato) */
+  .fundo-pauta {
+    background-color: var(--cor-tinta);
+    background-image: linear-gradient(to bottom, var(--cor-grade) 1px, transparent 1px);
+    background-size: 100% 64px;
+  }
+  .sr-only-vapti {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+  /* Entrada padrão em CSS (para quem não usa motion) */
+  .entrar {
+    animation: vapti-entrar var(--dur-lenta) var(--ease-saida) both;
+  }
+}
+
+@keyframes vapti-entrar {
+  from { opacity: 0; transform: translateY(var(--deslocamento-entrada)); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---- Menos movimento ---------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
