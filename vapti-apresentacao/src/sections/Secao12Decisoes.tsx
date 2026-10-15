@@ -1,9 +1,9 @@
 import { CincoDecisoes, PerguntasEspecialistas } from "./visuais/Decisoes";
 import { Bloco, Figura, Slide, secaoPorId, type PropsSecao } from "./Slide";
 
-/** 12 — Decisões (V23), perguntas ao advogado e ao contador, próximas 4 semanas. */
+/** 13 — Decisões (V23), perguntas ao advogado e ao contador, próximas 4 semanas. */
 export function Secao12Decisoes({ parte }: PropsSecao) {
-  const secao = secaoPorId("12");
+  const secao = secaoPorId("13");
   const b3 = secao.blocos[3];
   if (parte === 0) {
     return (

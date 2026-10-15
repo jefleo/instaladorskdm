@@ -6,7 +6,7 @@ import { useExibicao } from "./contexto";
 import { semMarcaProjecao } from "./numero";
 import { secoes } from "../content/secoes";
 
-/** Seção pelo id ("00" a "13"). */
+/** Seção pelo id ("00" a "14"). */
 export function secaoPorId(id: string): Secao {
   const s = secoes.find((x) => x.id === id);
   if (!s) throw new Error(`Seção ${id} não encontrada`);

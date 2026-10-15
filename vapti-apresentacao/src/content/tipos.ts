@@ -21,7 +21,7 @@ export interface Notas {
 }
 
 export interface Secao {
-  /** "00" a "13" — também é a rota (#/03). */
+  /** "00" a "14" — também é a rota (#/03). */
   id: string;
   /** Nome curto da seção, ex.: "O problema". */
   nome: string;

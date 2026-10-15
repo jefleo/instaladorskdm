@@ -258,3 +258,321 @@
   min-height: 0;
   gap: var(--esp-6);
 }
+
+/* ==========================================================================
+   Plano de ação (seção 11): abas, canais, régua de cobrança e Pix Automático
+   ========================================================================== */
+.plano-abas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--esp-3);
+}
+.plano-aba {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  min-width: 0;
+  padding: 0.5em 0.9em;
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio-3);
+  background: var(--cor-superficie);
+  color: var(--cor-texto-2);
+  font-family: var(--fonte-texto);
+  font-size: var(--fs-corpo);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.plano-aba:hover {
+  border-color: var(--cor-borda-forte);
+}
+.plano-aba--ativa,
+.plano-aba--ativa:hover {
+  border-color: var(--cor-verde);
+  background: var(--cor-verde-suave);
+  color: var(--cor-texto);
+}
+.plano-aba__tecla {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 1.7em;
+  height: 1.7em;
+  border: 1.5px solid var(--cor-borda-forte);
+  border-radius: var(--raio-2);
+  font-family: var(--fonte-mono);
+  font-size: var(--fs-apoio);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--cor-texto-2);
+}
+.plano-aba--ativa .plano-aba__tecla {
+  border-color: var(--cor-verde);
+  color: var(--cor-verde);
+}
+.plano-painel:focus-visible {
+  outline: 3px solid var(--cor-foco);
+  outline-offset: 6px;
+  border-radius: var(--raio-2);
+}
+
+/* Visão geral */
+.plano-cartao {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 1em 1.1em;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-3);
+  background: var(--cor-superficie);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+}
+.plano-cartao--botao {
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.plano-cartao--botao:hover {
+  border-color: var(--cor-verde-borda);
+  background: var(--cor-superficie-2);
+}
+
+/* Aba 1: canais (linha = cartão que abre "como fazer · o que medir") */
+.plano-canais {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--cor-borda);
+}
+.plano-canal {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr) minmax(0, 1fr);
+  column-gap: var(--esp-6);
+  align-items: start;
+  padding: 0.5em 0.6em;
+  border-top: 1px solid var(--cor-borda);
+  border-radius: var(--raio-2);
+}
+.plano-canal--cab {
+  border-top: 0;
+  padding-bottom: 0.2em;
+}
+.plano-canal--clicavel {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.plano-canal--clicavel:hover {
+  background: var(--cor-superficie);
+}
+.plano-canal--clicavel.plano-canal--aberto {
+  background: var(--cor-verde-suave);
+}
+.plano-canal__cabeca {
+  display: grid;
+  grid-template-columns: 2em minmax(0, 1fr) auto;
+  align-items: start;
+  column-gap: 0.4em;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+div.plano-canal__cabeca {
+  cursor: default;
+}
+.plano-canal__seta {
+  margin-top: 0.2em;
+  transition: transform 0.2s;
+}
+.plano-canal__corpo {
+  grid-column: 2 / 4;
+  display: grid;
+  grid-template-columns: subgrid;
+  align-items: start;
+}
+.plano-canal__dica {
+  grid-column: 1 / -1;
+  align-self: center;
+}
+.plano-so-estreito {
+  display: none;
+}
+
+/* Aba 2: régua de cobrança */
+.plano-regua {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.plano-marco {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: 0.45em 0.5em;
+  border: 2px solid transparent;
+  border-radius: var(--raio-2);
+  background: none;
+  color: var(--cor-texto-2);
+  font-family: var(--fonte-texto);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.plano-marco:hover {
+  background: var(--cor-superficie);
+}
+.plano-marco > span:first-child {
+  color: var(--cor-verde);
+}
+.plano-marco--alerta > span:first-child {
+  color: var(--cor-coral);
+}
+.plano-marco__ponto {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 0.9em;
+  margin: 0.35em 0;
+  font-size: var(--fs-corpo);
+}
+.plano-marco__ponto::before {
+  content: "";
+  position: absolute;
+  left: -0.6em;
+  right: -0.6em;
+  top: 50%;
+  border-top: 2px dashed var(--cor-borda-forte);
+}
+.plano-marco__ponto::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0.9em;
+  height: 0.9em;
+  box-sizing: border-box;
+  border: 3px solid var(--cor-verde);
+  border-radius: 50%;
+  background: var(--cor-tinta);
+}
+.plano-marco--alerta .plano-marco__ponto::after {
+  border-color: var(--cor-coral);
+}
+.plano-marco--ativo {
+  border-color: var(--cor-verde);
+  background: var(--cor-verde-suave);
+  color: var(--cor-texto);
+}
+.plano-marco--ativo .plano-marco__ponto::after {
+  background: var(--cor-verde);
+}
+.plano-marco--alerta.plano-marco--ativo {
+  border-color: var(--cor-coral);
+  background: var(--cor-coral-suave);
+}
+.plano-marco--alerta.plano-marco--ativo .plano-marco__ponto::after {
+  background: var(--cor-coral);
+}
+.plano-detalhe {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: var(--esp-6);
+}
+.plano-tabela th,
+.plano-tabela td {
+  padding: 0.35em 1em 0.35em 0;
+  border-top: 1px solid var(--cor-borda);
+  vertical-align: top;
+  font-size: var(--fs-apoio);
+  font-weight: inherit;
+  line-height: 1.35;
+}
+.plano-tabela thead th {
+  border-top: 0;
+  padding-bottom: 0.15em;
+}
+.plano-tabela tbody th {
+  width: 17%;
+  font-weight: 700;
+}
+.plano-tabela tbody td:nth-child(2) {
+  width: 50%;
+}
+
+/* Aba 3: janela de programação do Pix Automático (fora de escala) */
+.plano-janela {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 1.2fr);
+  gap: 0.5em;
+  font-size: var(--fs-apoio);
+}
+.plano-janela__faixa {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.2em 0.6em;
+  padding: 0.3em 0.6em;
+  border: 2px dashed var(--cor-azul-borda);
+  border-radius: var(--raio-2);
+  background: var(--cor-azul-suave);
+  color: var(--cor-texto);
+}
+.plano-janela__d0 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2em;
+  border: 2px solid var(--cor-verde);
+  border-radius: var(--raio-2);
+  color: var(--cor-texto);
+  line-height: 1.2;
+}
+
+@container secao (max-width: 1100px) {
+  .plano-abas {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .plano-canal {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.4em;
+  }
+  .plano-canal--cab {
+    display: none;
+  }
+  .plano-canal__corpo {
+    grid-column: 1;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.4em;
+    padding-left: 2.4em;
+  }
+  .plano-so-estreito {
+    display: inline;
+  }
+  .plano-regua {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: var(--esp-3);
+  }
+  .plano-marco__ponto::before {
+    display: none;
+  }
+  .plano-detalhe {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--esp-4);
+  }
+}
+@container secao (max-width: 600px) {
+  .plano-regua {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .plano-janela {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

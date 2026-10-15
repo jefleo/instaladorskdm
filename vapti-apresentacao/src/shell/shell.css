@@ -384,3 +384,7 @@
   container-name: secao;
   width: 100%;
 }
+/* Telas que no modo leitura não desenham nada (as abas do plano de ação ficam numa tela só). */
+.leitura-secao:empty {
+  display: none;
+}

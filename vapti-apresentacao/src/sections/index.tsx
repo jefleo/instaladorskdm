@@ -16,6 +16,7 @@ import { Secao10Crescimento } from "./Secao10Crescimento";
 import { Secao11Piloto } from "./Secao11Piloto";
 import { Secao12Decisoes } from "./Secao12Decisoes";
 import { Secao13Fontes } from "./Secao13Fontes";
+import { SecaoPlanoAcao, partesPlanoAcao } from "./SecaoPlanoAcao";
 import { idDaParte, type PropsSecao } from "./Slide";
 
 export { ContextoExibicao, useExibicao, type Exibicao } from "./contexto";
@@ -28,14 +29,15 @@ const REGISTRO: Record<string, { Componente: ComponentType<PropsSecao>; partes: 
   "03": { Componente: Secao03Produto, partes: 3 },
   "04": { Componente: Secao04Gamificacao, partes: 2 },
   "05": { Componente: Secao05Estrutura, partes: 3 },
-  "06": { Componente: Secao06Preco, partes: 2 },
+  "06": { Componente: Secao06Preco, partes: 3 },
   "07": { Componente: Secao07Numeros, partes: 6 },
   "08": { Componente: Secao08Eficiencia, partes: 3 },
   "09": { Componente: Secao09VantagensRiscos, partes: partesSecao09 },
   "10": { Componente: Secao10Crescimento, partes: 3 },
-  "11": { Componente: Secao11Piloto, partes: 1 },
-  "12": { Componente: Secao12Decisoes, partes: 2 },
-  "13": { Componente: Secao13Fontes, partes: 3 },
+  "11": { Componente: SecaoPlanoAcao, partes: partesPlanoAcao },
+  "12": { Componente: Secao11Piloto, partes: 1 },
+  "13": { Componente: Secao12Decisoes, partes: 2 },
+  "14": { Componente: Secao13Fontes, partes: 3 },
 };
 
 export interface SlideDef {
@@ -43,7 +45,7 @@ export interface SlideDef {
   id: string;
   secao: Secao;
   parte: number;
-  /** Índice da seção (0 a 13). */
+  /** Índice da seção (0 a 14). */
   indiceSecao: number;
   render: () => ReactNode;
 }

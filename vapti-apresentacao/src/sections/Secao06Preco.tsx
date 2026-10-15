@@ -1,7 +1,7 @@
-import { PrecoComparativo } from "../components/viz";
-import { Bloco, Cabecalho, Figura, Slide, secaoPorId, type PropsSecao } from "./Slide";
+import { PrecoComparativo, SimuladorCliente } from "../components/viz";
+import { Bloco, Cabecalho, Encaixe, Figura, Slide, secaoPorId, type PropsSecao } from "./Slide";
 
-/** 06 — Preço (V14) e a conta por trás dele. */
+/** 06 — Preço (V14), a conta por trás dele e o simulador do cliente final (06c). */
 export function Secao06Preco({ parte }: PropsSecao) {
   const secao = secaoPorId("06");
   if (parte === 0) {
@@ -17,6 +17,15 @@ export function Secao06Preco({ parte }: PropsSecao) {
             </Figura>
           </div>
         </div>
+      </Slide>
+    );
+  }
+  if (parte === 2) {
+    return (
+      <Slide secao={secao} parte={parte} cabecalho="linha">
+        <Encaixe className="figura" centro>
+          <SimuladorCliente />
+        </Encaixe>
       </Slide>
     );
   }

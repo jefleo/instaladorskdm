@@ -11,7 +11,7 @@ export const QA = resolve(ENTREGAS, "qa");
 export const URL_BASE = pathToFileURL(DIST).href;
 
 /** Telas-chave para capturas em 1440×900 e 1280×720. */
-export const TELAS_CHAVE = ["00", "03", "04", "07", "07c", "09", "10", "12"];
+export const TELAS_CHAVE = ["00", "02", "03", "04", "06c", "07", "07c", "09", "10", "11", "11c", "13"];
 
 const CANDIDATOS = [process.env.CHROMIUM_PATH, "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"].filter(Boolean);
 

@@ -3,12 +3,12 @@ import { CardFinal } from "./visuais/Capa";
 import { ListaFontes } from "./visuais/Medidas";
 import { Bloco, Slide, secaoPorId, type PropsSecao } from "./Slide";
 
-/** Divisão das fontes em duas telas. */
-const CORTE = Math.ceil(fontes.length / 2) + 1;
+/** Divisão das fontes em duas telas: a segunda divide espaço com o aviso (até 10 fontes). */
+const CORTE = Math.max(Math.ceil(fontes.length / 2) + 1, fontes.length - 10);
 
-/** 13 — Card final (V24), fontes com links e aviso. */
+/** 14 — Card final (V24), fontes com links e aviso. */
 export function Secao13Fontes({ parte }: PropsSecao) {
-  const secao = secaoPorId("13");
+  const secao = secaoPorId("14");
   const [bAviso, bComoLer] = secao.blocos;
   if (parte === 0) {
     return (

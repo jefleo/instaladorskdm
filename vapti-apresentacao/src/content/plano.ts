@@ -38,6 +38,7 @@ export const planoAcao = {
     titulo: "Do canal mais barato ao mais caro",
     nota: "Ordem esperada de custo. O custo real de cada canal é medido no piloto.",
     instrucao: "Clique em um canal para ver como fazer e o que medir.",
+    canal: "Canal",
     comoFazer: "Como fazer",
     oQueMedir: "O que medir",
     canais: [
@@ -89,6 +90,7 @@ export const planoAcao = {
     titulo: `A régua de cobrança, de ${rc.programacaoDe.rotulo} a ${rc.acompanhamentoAte.rotulo}`,
     instrucao: "Clique em um marco para ver o que acontece, por qual canal e com qual tom.",
     eixo: "Dias em relação ao vencimento",
+    quando: "Quando",
     oQue: "O que acontece",
     canal: "Canal",
     tom: "Tom",
