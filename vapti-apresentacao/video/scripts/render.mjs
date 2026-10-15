@@ -107,12 +107,14 @@ async function renderChunk(page, k) {
   ff.stderr.on("data", (d) => (errFf += d));
   let morto = false;
   ff.on("close", (c) => { if (c !== 0) morto = true; });
+  const cdp = await page.context().newCDPSession(page);
   ff.stdin.on("error", () => { morto = true; });
   for (let i = a; i < b; i++) {
     if (morto) throw new Error("ffmpeg do chunk encerrou: " + errFf.slice(-300));
     const t0 = Date.now();
     await page.evaluate((t) => window.__vapti.setTime(t), i / FPS);
-    const png = await page.screenshot({ type: "png" });
+    const { data } = await cdp.send("Page.captureScreenshot", { format: "png", optimizeForSpeed: true });
+    const png = Buffer.from(data, "base64");
     if (!ff.stdin.write(png)) await once(ff.stdin, "drain");
     msQuadro = msQuadro ? msQuadro * 0.98 + (Date.now() - t0) * 0.02 : Date.now() - t0;
     feitos++;

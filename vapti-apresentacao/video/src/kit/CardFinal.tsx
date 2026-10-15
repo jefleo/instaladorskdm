@@ -40,14 +40,14 @@ export function CardFinal({ t0, t1 }: CardFinalProps) {
           bottom: 92,
           width: 1180,
           margin: 0,
-          transform: `translate3d(-50%, ${((1 - pAviso) * 10).toFixed(2)}px, 0)`,
+          transform: `translate(-50%, ${((1 - pAviso) * 10).toFixed(2)}px)`,
           textAlign: "center",
           fontFamily: "var(--fonte-texto)",
           fontWeight: 500,
           fontSize: 25,
           lineHeight: 1.45,
-          color: "var(--cor-texto-2)",
-          opacity: pAviso,
+          color: "var(--cor-texto)",
+          opacity: pAviso * 0.8,
           textWrap: "balance",
         }}
       >

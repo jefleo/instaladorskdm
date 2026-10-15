@@ -7,6 +7,7 @@ import { useId, type CSSProperties, type ReactNode } from "react";
 import { useFilme } from "./contexto";
 import { brilhoCaixa, COR, rgba, SOMBRA_PROFUNDA, type Tom } from "./cores";
 import { clamp01, ease, prog, spring, type Easing } from "./tempo";
+import { texturaVinheta } from "./texturas";
 
 /* ------------------------------------------------------------------ */
 /* <Tracado> — path SVG que se desenha                                 */
@@ -360,31 +361,35 @@ export function Grade({ tipo = "pauta", passo = 64, em, dur = 1.2, opacidade = 1
           top: A.y,
           width: A.w,
           height: A.h,
+          backgroundColor: "transparent",
           backgroundImage: fundo,
           backgroundSize: `${passo}px ${passo}px`,
           backgroundPosition: `${off.toFixed(2)}px ${off.toFixed(2)}px`,
           opacity: ease.outCubic(p),
-          maskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, #000 40%, transparent 100%)",
         }}
-      />
+      >
+        {/* bordas somem com uma vinheta por cima (textura; mais barato que mask-image) */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${texturaVinheta()})`, backgroundSize: "100% 100%" }} />
+      </div>
     );
   }
-  // Chão em perspectiva: plano inclinado que some no horizonte
-  const off = t * deriva;
+  // Chão em perspectiva: plano inclinado que some no horizonte. A deriva é um translate
+  // dentro do plano (camada rasterizada uma vez), em laço sem emenda.
+  const passoChao = passo * 1.5;
+  const off = (((t * deriva) % passoChao) + passoChao) % passoChao;
   return (
     <div aria-hidden="true" className="pointer-events-none absolute overflow-hidden" style={{ left: 0, top: horizonte, width: 1920, height: 1080 - horizonte, opacity: ease.outCubic(p), perspective: 700, perspectiveOrigin: "50% 0%" }}>
       <div
         style={{
           position: "absolute",
           left: -1920,
-          top: 0,
+          top: -passoChao,
           width: 1920 * 3,
-          height: 1400,
+          height: 1400 + passoChao,
           backgroundImage: fundo,
-          backgroundSize: `${passo * 1.5}px ${passo * 1.5}px`,
-          backgroundPosition: `0px ${off.toFixed(2)}px`,
-          transform: "rotateX(76deg)",
-          transformOrigin: "50% 0%",
+          backgroundSize: `${passoChao}px ${passoChao}px`,
+          transform: `rotateX(76deg) translate(0, ${off.toFixed(2)}px)`,
+          transformOrigin: `50% ${passoChao}px`,
         }}
       />
       {/* some no horizonte: gradiente por cima (mais barato que mask-image) */}
@@ -429,10 +434,10 @@ export function Cartao({ em, saida, x, y, largura, altura, tom, brilho = 0, entr
     entrada === "escala"
       ? `scale(${(0.9 + 0.1 * s).toFixed(4)})`
       : entrada === "esquerda"
-        ? `translate3d(${(u * -60).toFixed(2)}px, 0, 0)`
+        ? `translate(${(u * -60).toFixed(2)}px, 0)`
         : entrada === "direita"
-          ? `translate3d(${(u * 60).toFixed(2)}px, 0, 0)`
-          : `translate3d(0, ${(u * 44).toFixed(2)}px, 0) scale(${(0.97 + 0.03 * s).toFixed(4)})`;
+          ? `translate(${(u * 60).toFixed(2)}px, 0)`
+          : `translate(0, ${(u * 44).toFixed(2)}px) scale(${(0.97 + 0.03 * s).toFixed(4)})`;
   const posicao: CSSProperties = x !== undefined || y !== undefined ? { position: "absolute", left: x, top: y } : { position: "relative" };
   return (
     <div

@@ -55,7 +55,7 @@ export function Capitulo({ texto, em, dur = CAPITULO.duracao }: CapituloProps) {
         top: CAPITULO.topo,
         gap: 16,
         opacity: vida,
-        transform: `translate3d(0, ${sobe.toFixed(2)}px, 0)`,
+        transform: `translate(0, ${sobe.toFixed(2)}px)`,
         fontSize: 22,
         lineHeight: 1,
       }}
@@ -79,7 +79,7 @@ export function Capitulo({ texto, em, dur = CAPITULO.duracao }: CapituloProps) {
           color: "var(--cor-verde)",
           letterSpacing: "0.04em",
           opacity: pNum,
-          transform: `translate3d(${((1 - pNum) * -10).toFixed(2)}px, 0, 0)`,
+          transform: `translate(${((1 - pNum) * -10).toFixed(2)}px, 0)`,
         }}
       >
         {num}
@@ -96,7 +96,7 @@ export function Capitulo({ texto, em, dur = CAPITULO.duracao }: CapituloProps) {
             letterSpacing: "0.14em",
             color: "var(--cor-texto-2)",
             opacity: pTit,
-            transform: `translate3d(${((1 - pTit) * -12).toFixed(2)}px, 0, 0)`,
+            transform: `translate(${((1 - pTit) * -12).toFixed(2)}px, 0)`,
           }}
         >
           {titulo}

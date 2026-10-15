@@ -178,11 +178,11 @@ function Demo() {
           <Curva pontos={CURVA} largura={940} altura={400} em={d3.t0 + 0.4} dur={1.8} style={{ position: "absolute", left: 70, top: 250 }}>
             <line x1={0} x2={940} y1={ZERO_Y} y2={ZERO_Y} stroke="var(--cor-borda-forte)" strokeWidth={2} strokeDasharray="6 8" opacity={ease.outCubic(prog(t, d3.t0 + 0.3, d3.t0 + 0.8))} />
           </Curva>
-          <div className="absolute" style={{ left: 820, top: 590 }}>
+          <div className="absolute" style={{ left: 500, top: 596 }}>
             <Numero valor={fase1.perdaEquilibrio.valor} final={fase1.perdaEquilibrio.rotulo} formato="pct2" tParada={e3.tE + 0.4} dur={0.6} tamanho={44} tom="coral" em={e3.tE - 0.2} escalaUnidade={0.7} />
           </div>
         </Cartao>
-        <Seta de={[960, 768]} para={[866, 690]} curvatura={0.3} em={e3.tE - 0.1} tom="coral" />
+        <Seta de={[800, 776]} para={[842, 690]} curvatura={-0.3} em={e3.tE - 0.1} tom="coral" />
         <CelularMoldura em={d3.t0 + 0.35} x={1330} y={130} largura={330}>
           <div className="flex h-full flex-col" style={{ padding: "64px 26px 30px", gap: 18 }}>
             <MarcaVapti tamanho={34} />

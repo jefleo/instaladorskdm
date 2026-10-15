@@ -56,7 +56,7 @@ export function MarcaVapti({ tamanho = 160, em, saida, slogan = false, variante 
         width: "0.42em",
         height: "0.15em",
         background: corPingo,
-        transform: `translate3d(${x.toFixed(4)}em, 0, 0) skewX(-24deg)`,
+        transform: `translate(${x.toFixed(4)}em, 0) skewX(-24deg)`,
         borderRadius: "0.025em",
         opacity: a,
       }}
@@ -90,7 +90,7 @@ export function MarcaVapti({ tamanho = 160, em, saida, slogan = false, variante 
           const p = animado ? prog(t, t0 + i * 0.05, t0 + i * 0.05 + 0.6) : 1;
           return (
             <span key={i} aria-hidden="true" style={{ display: "inline-block", overflow: p < 1 ? "hidden" : "visible", padding: "0.08em 0 0.14em", margin: "-0.08em 0 -0.14em" }}>
-              <span style={{ display: "inline-block", transform: `translate3d(0, ${((1 - ease.outExpo(p)) * 110).toFixed(2)}%, 0)` }}>{l}</span>
+              <span style={{ display: "inline-block", transform: `translate(0, ${((1 - ease.outExpo(p)) * 110).toFixed(2)}%)` }}>{l}</span>
             </span>
           );
         })}
@@ -137,7 +137,7 @@ export function MarcaVapti({ tamanho = 160, em, saida, slogan = false, variante 
             letterSpacing: "0.005em",
             color: "var(--cor-texto-2)",
             opacity: pSlogan,
-            transform: `translate3d(0, ${((1 - pSlogan) * 10).toFixed(2)}px, 0)`,
+            transform: `translate(0, ${((1 - pSlogan) * 10).toFixed(2)}px)`,
           }}
         >
           {sloganTexto}

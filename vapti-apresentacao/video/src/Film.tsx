@@ -128,7 +128,7 @@ function Passagem({ p }: { p: number }) {
               borderRadius: 2,
               background: "var(--cor-verde)",
               opacity: a * (0.12 + k * 0.1),
-              transform: `translate3d(${xr.toFixed(1)}px, 0, 0) skewX(-24deg)`,
+              transform: `translate(${xr.toFixed(1)}px, 0) skewX(-24deg)`,
             }}
           />
         );
@@ -144,7 +144,7 @@ function Passagem({ p }: { p: number }) {
           background: "var(--cor-verde)",
           opacity: a * 0.7,
           boxShadow: `0 0 28px ${rgba("verde", 0.5)}`,
-          transform: `translate3d(${x.toFixed(1)}px, 0, 0) skewX(-24deg)`,
+          transform: `translate(${x.toFixed(1)}px, 0) skewX(-24deg)`,
         }}
       />
     </div>

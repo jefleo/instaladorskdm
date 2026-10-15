@@ -52,7 +52,7 @@ export function CelularMoldura({ em, saida, largura = 360, x, y, giro = -7, bril
       {brilho > 0 ? <Halo tom="verde" x={aparelhoL / 2} y={alturaCelular(largura) / 2} w={aparelhoL * 2.6} h={aparelhoL * 3.4} intensidade={0.2 * brilho} /> : null}
       <div
         style={{
-          transform: `translate3d(0, ${(u * 120).toFixed(2)}px, 0) rotateY(${ry.toFixed(3)}deg) rotateX(${(2 + u * 6).toFixed(3)}deg)`,
+          transform: `translate(0, ${(u * 120).toFixed(2)}px) rotateY(${ry.toFixed(3)}deg) rotateX(${(2 + u * 6).toFixed(3)}deg)`,
           transformOrigin: "50% 60%",
         }}
       >

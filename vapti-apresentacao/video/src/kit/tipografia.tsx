@@ -173,21 +173,21 @@ export function Palavra({
         let opacity = 1;
         if (modo === "mascara") {
           const e = ease.outExpo(p);
-          transform = `translate3d(0, ${((1 - e) * 108).toFixed(2)}%, 0)`;
+          transform = `translate(0, ${((1 - e) * 108).toFixed(2)}%)`;
           opacity = Math.min(1, p * 2.4);
         } else if (modo === "subir") {
           const e = ease.saida(p);
-          transform = `translate3d(0, ${((1 - e) * 0.42).toFixed(3)}em, 0)`;
+          transform = `translate(0, ${((1 - e) * 0.42).toFixed(3)}em)`;
           opacity = ease.outCubic(p);
         } else {
           const e = ease.outCubic(p);
-          transform = `translate3d(0, ${((1 - e) * 0.12).toFixed(3)}em, 0) scale(${(1 + (1 - e) * 0.14).toFixed(4)})`;
+          transform = `translate(0, ${((1 - e) * 0.12).toFixed(3)}em) scale(${(1 + (1 - e) * 0.14).toFixed(4)})`;
           opacity = e;
         }
         if (qSaida > 0) {
           const qs = ease.inOutSine(Math.min(1, qSaida * 1.3 - (ws.length - 1 - i) * 0.04));
           opacity *= 1 - Math.max(0, qs);
-          transform += ` translate3d(0, ${(-Math.max(0, qs) * 0.25).toFixed(3)}em, 0)`;
+          transform += ` translate(0, ${(-Math.max(0, qs) * 0.25).toFixed(3)}em)`;
         }
         // Brilho do destaque: flash curto na entrada, depois assenta
         const lt = t - tempos[i];
@@ -211,7 +211,6 @@ export function Palavra({
                   opacity,
                   color: ehDestaque ? COR[tomDestaque] : (cor ?? COR[tom]),
                   textShadow: forca > 0 ? brilhoTexto(tomDestaque, forca) : undefined,
-                  willChange: "transform",
                 }}
               >
                 {w}
@@ -326,7 +325,7 @@ export function Rotulo({ texto, em, saida, tom = "verde", destaque, traco = true
             height: eyebrow ? "0.32em" : "0.24em",
             background: COR[tom],
             borderRadius: 2,
-            transform: `translate3d(${((1 - pTraco) * -0.6).toFixed(3)}em, 0, 0) skewX(-24deg) scaleX(${pTraco.toFixed(4)})`,
+            transform: `translate(${((1 - pTraco) * -0.6).toFixed(3)}em, 0) skewX(-24deg) scaleX(${pTraco.toFixed(4)})`,
             transformOrigin: "left center",
             boxShadow: `0 0 18px ${rgba(tom === "texto" ? "texto" : tom, 0.35 * pTraco)}`,
           }}
@@ -357,7 +356,7 @@ const FORMATOS: Record<Exclude<FormatoNumero, (v: number) => string>, (v: number
 /** Resolve o formatador de um `FormatoNumero`. */
 export const formatador = (f: FormatoNumero): ((v: number) => string) => (typeof f === "function" ? f : FORMATOS[f]);
 
-/** Separa moeda, miolo numérico e unidade para dar escala menor às unidades. */
+/** Separa prefixo monetário, miolo numérico e unidade, para dar escala menor às unidades. */
 function partes(s: string): { pre: string; miolo: string; suf: string } {
   const m = s.match(/^(≈\s?)?((?:R\$|US\$)\s?)?(.*?)(\s?(?:mi|mil|bi|%|x))?$/);
   if (!m) return { pre: "", miolo: s, suf: "" };
@@ -468,7 +467,7 @@ export function Numero({
         whiteSpace: "nowrap",
         color: COR[tom],
         opacity: ease.outCubic(entrada) * (1 - qSaida),
-        transform: `translate3d(0, ${((1 - ease.saida(entrada)) * 0.12).toFixed(3)}em, 0) scale(${(1 + pop).toFixed(4)})`,
+        transform: `translate(0, ${((1 - ease.saida(entrada)) * 0.12).toFixed(3)}em) scale(${(1 + pop).toFixed(4)})`,
         transformOrigin: alinhar === "centro" ? "50% 60%" : alinhar === "direita" ? "100% 60%" : "0% 60%",
         textShadow: forca > 0.01 ? brilhoTexto(tom, forca) : undefined,
         ...style,

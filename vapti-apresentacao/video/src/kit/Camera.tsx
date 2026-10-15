@@ -156,7 +156,7 @@ export function transformCamada(pose: PoseCompleta, z: number): string {
   const tx = -pose.x * f;
   const ty = -pose.y * f;
   const r = pose.rot * f;
-  return `translate3d(${tx.toFixed(2)}px, ${ty.toFixed(2)}px, 0) scale(${s.toFixed(5)}) rotate(${r.toFixed(4)}deg)`;
+  return `translate(${tx.toFixed(2)}px, ${ty.toFixed(2)}px) scale(${s.toFixed(5)}) rotate(${r.toFixed(4)}deg)`;
 }
 
 /** Plano de parallax dentro de uma <Camera>. Os filhos usam coordenadas do palco. */

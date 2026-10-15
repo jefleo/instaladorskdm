@@ -1,6 +1,12 @@
 /**
  * Acabamento de imagem: grão, vinheta, graduação de cor, luz que respira e poeira.
- * Tudo barato (gradientes, um PNG em mosaico, transform/opacity) e função de `t`.
+ * Tudo barato (texturas pré-desenhadas, transform/opacity) e função de `t`.
+ *
+ * Desempenho (medido no Chromium por software): prefira transform 2D (`translate`, não
+ * `translate3d`: o 3D promove camadas de composição e encarece cada quadro), texturas em vez
+ * de gradientes radiais grandes, e nada de `will-change` em camadas que mudam de ESCALA
+ * (a escala de rasterização passa a depender da história e o quadro deixa de ser
+ * determinista). O grão é a exceção segura: só translada.
  */
 import type { CSSProperties } from "react";
 import { useFilme } from "./contexto";
@@ -19,7 +25,8 @@ export interface GraoProps {
 
 /**
  * Grão de filme: o mosaico (gerado uma vez, `texturaGrao`) é deslocado a cada quadro
- * por um hash de `floor(t * fps)` — determinista, sem feTurbulence.
+ * por um hash de `floor(t * fps)` — determinista, sem feTurbulence. O deslocamento é um
+ * `translate` de uma camada própria (rasterizada uma vez), não um redesenho.
  */
 export function Grao({ forca = 1 }: GraoProps) {
   const { t, fps, rascunho } = useFilme();
@@ -28,15 +35,22 @@ export function Grao({ forca = 1 }: GraoProps) {
   const dx = hash(q, 11) % LADO_GRAO;
   const dy = hash(q, 23) % LADO_GRAO;
   return (
-    <div
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-0"
-      style={{
-        backgroundImage: `url(${texturaGrao()})`,
-        backgroundPosition: `${dx}px ${dy}px`,
-        opacity: forca >= 1 ? undefined : forca,
-      }}
-    />
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+      <div
+        style={{
+          position: "absolute",
+          left: 0,
+          top: 0,
+          width: 1920 + LADO_GRAO,
+          height: 1080 + LADO_GRAO,
+          backgroundImage: `url(${texturaGrao()})`,
+          transform: `translate(${-dx}px, ${-dy}px)`,
+          // camada própria, só translação inteira: rasteriza uma vez, determinista
+          willChange: "transform",
+          opacity: forca >= 1 ? undefined : forca,
+        }}
+      />
+    </div>
   );
 }
 
@@ -54,11 +68,16 @@ export interface HaloProps {
   h?: number;
   /** Opacidade no centro, 0..1. */
   intensidade?: number;
+  /** Escala (pulso) aplicada por transform. */
+  escala?: number;
   style?: CSSProperties;
 }
 
-/** Brilho radial suave (textura pré-desenhada): use atrás de números, celulares, marcas. */
-export function Halo({ tom = "verde", x, y, w, h = w, intensidade = 0.2, style }: HaloProps) {
+/**
+ * Brilho radial suave (textura pré-desenhada): use atrás de números, celulares, marcas.
+ * `escala` pulsa por transform (camada própria: não redesenha nada por baixo).
+ */
+export function Halo({ tom = "verde", x, y, w, h = w, intensidade = 0.2, escala = 1, style }: HaloProps) {
   if (intensidade <= 0.002) return null;
   return (
     <div
@@ -72,6 +91,7 @@ export function Halo({ tom = "verde", x, y, w, h = w, intensidade = 0.2, style }
         backgroundImage: `url(${texturaRadial(tom)})`,
         backgroundSize: "100% 100%",
         opacity: clamp01(intensidade),
+        transform: escala === 1 ? undefined : `scale(${escala.toFixed(4)})`,
         ...style,
       }}
     />
@@ -159,8 +179,8 @@ export function Respiracao({ tom = "verde", x = 960, y = 540, raio = 520, intens
   const a = intensidade * (0.78 + 0.22 * s) * opacidade;
   const esc = 1 + 0.035 * s;
   // a textura cai a zero na borda: o raio útil é ~70% do lado
-  const lado = raio * 2 * 1.25 * esc;
-  return <Halo tom={tom} x={x} y={y} w={lado} h={lado * achatar} intensidade={a} />;
+  const lado = raio * 2 * 1.25;
+  return <Halo tom={tom} x={x} y={y} w={lado} h={lado * achatar} intensidade={a} escala={esc} />;
 }
 
 /* ------------------------------------------------------------------ */
@@ -168,9 +188,9 @@ export function Respiracao({ tom = "verde", x = 960, y = 540, raio = 520, intens
 /* ------------------------------------------------------------------ */
 
 export interface PoeiraProps {
-  /** Quantidade de partículas finas (padrão 36; mantenha ≤ 80). */
+  /** Quantidade de partículas finas (padrão 28; mantenha ≤ 80). */
   n?: number;
-  /** Quantidade de círculos grandes desfocados (bokeh, padrão 5). */
+  /** Quantidade de círculos grandes desfocados (bokeh, padrão 4). */
   bokeh?: number;
   seed?: number;
   tom?: Tom;
@@ -215,7 +235,7 @@ function particulas(n: number, seed: number, grande: boolean): Particula[] {
 const modulo = (a: number, b: number) => ((a % b) + b) % b;
 
 /** Poeira em suspensão: partículas finas que sobem devagar e cintilam, mais bokeh opcional. */
-export function Poeira({ n = 36, bokeh = 5, seed = 7, tom = "texto", area, velocidade = 10, opacidade = 1 }: PoeiraProps) {
+export function Poeira({ n = 28, bokeh = 4, seed = 7, tom = "texto", area, velocidade = 10, opacidade = 1 }: PoeiraProps) {
   const { t } = useFilme();
   if (opacidade <= 0.001) return null;
   const A = area ?? { x: 0, y: 0, w: 1920, h: 1080 };
@@ -239,7 +259,7 @@ export function Poeira({ n = 36, bokeh = 5, seed = 7, tom = "texto", area, veloc
               ...base,
               width: p.r * 2,
               height: p.r * 2,
-              transform: `translate3d(${(x - p.r).toFixed(1)}px, ${(y - p.r).toFixed(1)}px, 0)`,
+              transform: `translate(${(x - p.r).toFixed(1)}px, ${(y - p.r).toFixed(1)}px)`,
               backgroundImage: `url(${texturaRadial(tom)})`,
               backgroundSize: "100% 100%",
               opacity: Math.min(1, a * 1.2),
@@ -257,7 +277,7 @@ export function Poeira({ n = 36, bokeh = 5, seed = 7, tom = "texto", area, veloc
               ...base,
               width: p.r * 2,
               height: p.r * 2,
-              transform: `translate3d(${(x - p.r).toFixed(1)}px, ${(y - p.r).toFixed(1)}px, 0)`,
+              transform: `translate(${(x - p.r).toFixed(1)}px, ${(y - p.r).toFixed(1)}px)`,
               background: rgba(tom, a),
               boxShadow: p.r > 1.8 ? `0 0 ${(p.r * 3).toFixed(1)}px ${rgba(tom, a * 0.6)}` : undefined,
             }}
