@@ -321,7 +321,14 @@ function EtapaProposta() {
         <TituloTela>{p.titulo}</TituloTela>
         <Pilula tom="verde">{p.nivel}</Pilula>
       </div>
-      <p className="-mt-[6px] mb-[14px] font-texto text-[15px] text-texto-2">{e.lista[3].texto}</p>
+      <p className="-mt-[6px] mb-[10px] font-texto text-[15px] text-texto-2">{e.lista[3].texto}</p>
+      <p className="mb-[12px] flex items-center gap-[8px] rounded-[12px] border border-azul-borda bg-azul-suave px-[12px] py-[8px] font-texto text-[14px] text-texto">
+        <Icone icone={Landmark} tamanho={16} className="flex-none text-azul" />
+        <span>
+          <span className="text-texto-2">{p.credoraRotulo}: </span>
+          <strong className="font-semibold">{p.credora}</strong>
+        </span>
+      </p>
 
       {/* Herói: o que entra e o que sai */}
       <div className="rounded-[20px] border border-verde-borda bg-verde-suave p-[16px]">
