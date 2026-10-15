@@ -100,7 +100,7 @@ Perguntas prováveis:
 - Cenário-base das projeções: média de 5,0% por semana = 37,5% ao mês = R$ 80 de juros em R$ 400.
 - Sequência em dia com 1 tolerância por trimestre.
 - Indicação: quem indica sobe mais rápido se os indicados pagarem em dia. Ninguém vê dados de ninguém.
-- Princípios: Premia pagamento e organização, nunca volume de dívida. Regras sempre visíveis. Nada aleatório: sem sorteio, sem caixa-surpresa. Sinal de dependência reduz o limite em vez de vender mais.
+- Princípios: Premia pagamento e organização, nunca volume de dívida. Regras sempre visíveis. Nada aleatório: nenhum benefício depende de sorte. Sinal de dependência reduz o limite em vez de vender mais.
 - A própria Zippi mantém uma frente de gamificação de pagamentos e débito automático, segundo vaga publicada por ela.
 
 Perguntas prováveis:

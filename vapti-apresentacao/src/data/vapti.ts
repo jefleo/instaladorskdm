@@ -314,6 +314,9 @@ export const premissas = {
     "Perda medida sobre o valor sacado.",
     "Funding sênior a 2% ao mês.",
     "Margem antes de equipe, tecnologia e impostos.",
+    "Fase 2: carteira de R$ 3,4 mi; dívida sênior de R$ 2,55 mi; o capital da Vapti vira 25% subordinado.",
+    "Fase 3: FIDC com carteira de R$ 12,75 mi; sênior de R$ 10,2 mi; subordinada de R$ 2,55 mi (20%).",
+    "Régua de crescimento: hipóteses de ordem de grandeza, não promessas.",
   ],
 } as const;
 

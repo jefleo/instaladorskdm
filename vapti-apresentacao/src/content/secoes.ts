@@ -158,7 +158,7 @@ export const secoes: Secao[] = [
       fraseChave: `A Zippi já concedeu ${zippi.concedido.rotulo}. O mercado existe; a questão é como entrar.`,
       topicos: [
         "A Zippi nunca foi ESC: começou como Ltda originadora com instituição parceira.",
-        `${zippi.timeline[0].quando}: ${zippi.timeline[0].texto}. Em ${zippi.timeline[1].quando}, crédito semanal via Pix.`,
+        `${zippi.timeline[0].quando}: ${zippi.timeline[0].texto}. Em ${zippi.timeline[1].quando}, ${minusc(zippi.timeline[1].texto)}.`,
         `2022: ${zippi.liberado2022.rotulo} liberados, ${zippi.crescimento2022.rotulo} o ano anterior, e debênture de ${zippi.debenture2022.rotulo}.`,
         `Abr/2024: ${zippi.acumuladoAbr2024.rotulo} acumulado. Depois, três FIDCs, até ${fidc26.valor.rotulo} em ${fidc26.ano}.`,
         `Lição: ${zippi.licao}`,
@@ -675,7 +675,7 @@ export const secoes: Secao[] = [
     id: "13",
     nome: "Fontes e aviso",
     titulo: "Cada número tem origem declarada",
-    subtitulo: `${fontes.length} fontes públicas, consultadas em outubro de 2026.`,
+    subtitulo: `${fontes.length} fontes, consultadas em outubro de 2026.`,
     blocos: [
       { titulo: "Aviso", texto: aviso },
       { titulo: "Como ler", texto: "Fato tem fonte. Projeção tem selo e premissas. Estimativa de terceiros vem identificada." },

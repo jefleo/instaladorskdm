@@ -414,7 +414,7 @@ function EtapaAceite({ aceito, setAceito }: { aceito: boolean; setAceito: (v: bo
 
 function EtapaPix() {
   const x = e.pix;
-  const garantias = [
+  const avisosPix = [
     { icone: BellRing, texto: x.aviso },
     { icone: CalendarX2, texto: x.cancelar },
     { icone: RefreshCw, texto: x.retentativas },
@@ -428,7 +428,7 @@ function EtapaPix() {
         <Linha rotulo={x.recebedorRotulo} valor={<span className="font-texto text-[14px] font-semibold">{x.recebedor}</span>} />
       </dl>
       <ul className="mt-[14px] flex flex-col gap-[10px]">
-        {garantias.map((g) => (
+        {avisosPix.map((g) => (
           <li key={g.texto} className="flex items-start gap-[12px] font-texto text-[15px] leading-snug text-texto-2">
             <span className="grid size-[30px] flex-none place-items-center rounded-full bg-superficie-2 text-texto">
               <Icone icone={g.icone} tamanho={16} />
