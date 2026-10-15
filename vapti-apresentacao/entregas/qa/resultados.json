@@ -1,5 +1,5 @@
 {
-  "quando": "2026-10-15T10:56:52.509Z",
+  "quando": "2026-10-15T13:57:56.895Z",
   "testes": {
     "medicoes1920": {
       "10": {
@@ -2175,7 +2175,7 @@
       }
     ],
     "arquivoUnico": {
-      "bytes": 1279338,
+      "bytes": 1279390,
       "mb": 1.22,
       "abaixoDe5MB": true,
       "referenciasExternas": [],
