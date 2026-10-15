@@ -296,6 +296,15 @@ export const premissas = {
   taxaBase: n(0.05, "5% por semana", "%", "premissa", B("4.8")),
   perdaBase: n(0.08, "8%", "%", "premissa", B("4.8")),
   perdaEstresse: n(0.12, "12%", "%", "premissa", B("4.8")),
+  /** Conversão da TIR para taxa mensal: 30 dias corridos. */
+  diasPorMes: n(30, "30 dias", "dias", "premissa", B("4.8 — TIR convertida para 30 dias")),
+  diasPorSemana: n(7, "7 dias", "dias", "premissa", B("4.5 — parcelas semanais")),
+  mesesPorAno: n(12, "12", "meses", "premissa", B("4.8 — receita/ano = receita/mês × 12")),
+  /** Premissas derivadas da Tabela B (proporções entre as fases). */
+  multCarteiraFase2: n(4, "4x a carteira da fase 1", "x", "premissa", B("4.8, Tabela B — derivado: R$ 3,4 mi ÷ R$ 0,85 mi")),
+  multCarteiraFase3: n(15, "15x a carteira da fase 1", "x", "premissa", B("4.8, Tabela B — derivado: R$ 12,75 mi ÷ R$ 0,85 mi")),
+  seniorFase2: n(0.75, "75% da carteira", "%", "premissa", B("4.8, Tabela B — sênior de R$ 2,55 mi sobre R$ 3,4 mi")),
+  seniorFase3: n(0.8, "80% da carteira", "%", "premissa", B("4.8, Tabela B — sênior de R$ 10,2 mi sobre R$ 12,75 mi")),
   lista: [
     "Saque médio de R$ 400.",
     "85% do capital na rua.",
