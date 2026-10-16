@@ -2,7 +2,7 @@
   {
     "frase": "F086",
     "ref": "fala",
-    "dt": 0.12,
+    "dt": 0.04,
     "tipo": "pop",
     "dur": 0.12,
     "vol": -21
@@ -10,7 +10,7 @@
   {
     "frase": "F086",
     "ref": "fala",
-    "dt": 2.42,
+    "dt": 2.03,
     "tipo": "pop",
     "dur": 0.12,
     "vol": -21
@@ -18,7 +18,7 @@
   {
     "frase": "F086",
     "ref": "fala",
-    "dt": 4.72,
+    "dt": 4.19,
     "tipo": "pop",
     "dur": 0.12,
     "vol": -21
