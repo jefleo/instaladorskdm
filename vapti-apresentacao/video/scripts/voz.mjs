@@ -5,8 +5,10 @@
 //   mbrola   (padrão) voz sintética local: espeak-ng (fonemas) → camada de prosódia própria (pausas, ritmo, pitch,
 //            ênfase, reparo de difones) → mbrola (voz mb-br3 por padrão) → cadeia de ffmpeg (calor, de-esser,
 //            compressão, sala curta) → nivelamento. Não baixa nada; funciona offline.
-//   arquivos usa video/entrada/Fxxx.(wav|mp3|m4a|mp4|mov|...) quando existir (extrai o áudio, remove ruído com afftdn,
-//            normaliza). Frases sem arquivo caem no motor mbrola.
+//   arquivos usa video/entrada/editado/Fxxx.wav (clipe editado por editar-voz.mjs conforme video/edicao-voz.json) ou,
+//            se não houver, video/entrada/Fxxx.(wav|mp3|m4a|mp4|mov|...) (extrai o áudio, remove ruído com afftdn,
+//            normaliza). Com o clipe editado, grava em voz.json as palavras, o tEnfase e o silêncio depois da frase que
+//            vêm do plano, relativos ao início do WAV. Frases sem arquivo caem no motor mbrola.
 //   neural   esqueleto para Piper / Kokoro pt-BR (modelos locais em video/modelos/). Falha com mensagem clara se
 //            os modelos ainda não estiverem lá (ver video/scripts/LEIA-ME.md).
 //
@@ -22,7 +24,7 @@ import { tokenizar, textoParaVoz, textoParaKokoro, acharEnfase } from "./lib/tex
 import { alinharPalavras, aplicarProsodia, sintetizar } from "./lib/pho.mjs";
 import { CADEIA_VOZ_SINTETICA, CADEIA_VOZ_GRAVADA, gerarRespostaSala, medirNivel, nivelar, processar } from "./lib/voz-processamento.mjs";
 
-const VERSAO = 4; // some quando a prosódia ou a cadeia de áudio mudar (invalida o cache)
+const VERSAO = 5; // some quando a prosódia ou a cadeia de áudio mudar (invalida o cache)
 const S_REF = 110; // velocidade de referência do espeak; o ritmo final vem do fator `tempo` da camada de prosódia
 const EXT_ENTRADA = ["wav", "mp3", "m4a", "mp4", "mov", "aac", "flac", "ogg", "webm", "mkv"];
 
@@ -36,6 +38,9 @@ const PERFIL = {
 // Fator de tempo base (1 = espeak a 110): calibrado para que a fala fique perto das durações do roteiro (150 palavras/min).
 const TEMPO_BASE = 1.0;
 const LIMITE_TEMPO = [0.8, 1.75];
+
+const PLANO_VOZ = path.join(VIDEO, "edicao-voz.json");
+const planoVoz = existe(PLANO_VOZ) ? lerJson(PLANO_VOZ).frases : {};
 
 const arg = args();
 const motor = String(arg.motor || "neural");
@@ -122,6 +127,8 @@ async function gerarMbrola(f, ato, saida) {
 
 // ---------------------------------------------------------------- motor arquivos
 function arquivoDeEntrada(id) {
+  const editado = path.join(VIDEO, "entrada", "editado", `${id}.wav`);
+  if (existe(editado)) return editado;
   for (const ext of EXT_ENTRADA) {
     for (const nome of [`${id}.${ext}`, `${id}.${ext.toUpperCase()}`]) {
       const p = path.join(VIDEO, "entrada", nome);
@@ -131,13 +138,38 @@ function arquivoDeEntrada(id) {
   return null;
 }
 
+const eEditado = (origem) => path.basename(path.dirname(origem)) === "editado";
+
+/** Palavras do plano com o texto atual da fala (o plano guarda os tempos; o texto pode ter sido ajustado depois). */
+function palavrasDoPlano(f, p) {
+  if (!p?.palavras?.length) return null;
+  const tokens = tokenizar(f.texto);
+  if (tokens.length !== p.palavras.length) return null;
+  return p.palavras.map((w, i) => ({ w: tokens[i], t0: r3(w.t0), t1: r3(w.t1) }));
+}
+
 async function gerarArquivo(f, origem, saida) {
   const tmp = path.join(DIR_RAW, `${f.id}.entrada.wav`);
+  const p = eEditado(origem) ? planoVoz[f.id] : null;
   await ffmpeg(["-i", origem, "-vn", "-ac", "1", "-ar", "48000", "-c:a", "pcm_f32le", tmp]);
-  await processar(tmp, saida, CADEIA_VOZ_GRAVADA, {});
-  const niv = await nivelar(saida, { alvoDb: -21, tetoDb: -1.2 });
+  // a cadeia e o nivelamento não mudam a duração nem deslocam a voz (atraso do afftdn e do alimiter compensados),
+  // então os tempos do plano, relativos ao início do clipe editado, valem para o WAV final
+  const { atraso } = await processar(tmp, saida, CADEIA_VOZ_GRAVADA, { compensarAtraso: true });
+  const ganhoPlano = p?.ganhoDb || 0; // ajuste do plano, aplicado depois do nivelamento em -21 dB (o limitador protege o pico)
+  const niv = await nivelar(saida, { alvoDb: -21 + ganhoPlano, tetoDb: -1.2, semAtraso: true });
   fs.rmSync(tmp, { force: true });
-  return { motor: "arquivos", origem: path.relative(VIDEO, origem), dur: r3(await duracaoArquivo(saida)), ganhoDb: r3(niv.ganhoDb), palavras: null, tEnfase: null };
+  const dur = await duracaoArquivo(saida);
+  const info = { motor: "arquivos", origem: path.relative(VIDEO, origem), dur: r3(dur), ganhoDb: r3(niv.ganhoDb), atrasoCompensado: atraso, palavras: null, tEnfase: null };
+  if (p) {
+    info.editado = true;
+    info.ganhoPlanoDb = ganhoPlano;
+    info.palavras = palavrasDoPlano(f, p);
+    info.tEnfase = p.tEnfaseRel != null ? r3(p.tEnfaseRel) : null;
+    info.silencioDepois = p.pausaDepois ?? null; // silêncio total até a próxima frase (já inclui respiro, pausaAntes e fronteira de ato)
+    if (!info.palavras) console.warn(`  aviso: ${f.id}: palavras do plano não batem com o texto (${p.palavras?.length} × ${tokenizar(f.texto).length}); a timeline estima`);
+    if (info.palavras && info.palavras.at(-1).t1 > dur + 0.002) console.warn(`  aviso: ${f.id}: palavras passam do fim do WAV (${info.palavras.at(-1).t1} > ${r3(dur)})`);
+  }
+  return info;
 }
 
 // ---------------------------------------------------------------- motor neural (Kokoro pt-BR)
@@ -190,7 +222,8 @@ async function main() {
     const origem = motor !== "neural" ? arquivoDeEntrada(f.id) : arquivoDeEntrada(f.id);
     const motorFrase = origem ? "arquivos" : motor;
     const st = origem ? fs.statSync(origem) : null;
-    return { origem, motorFrase, chave: hash(VERSAO, motorFrase, f.texto, f.enfase, f.duracaoEstimada, PERFIL[ato.energia] || PERFIL[3], motorFrase === "mbrola" ? vozMb : "", st ? [st.size, Math.round(st.mtimeMs)] : "", motorFrase === "neural" ? [vozKokoro, VEL_ATO[ato.energia]] : "") };
+    const plano = origem && eEditado(origem) ? planoVoz[f.id] ?? null : null;
+    return { origem, motorFrase, chave: hash(VERSAO, motorFrase, f.texto, f.enfase, f.duracaoEstimada, PERFIL[ato.energia] || PERFIL[3], motorFrase === "mbrola" ? vozMb : "", st ? [st.size, Math.round(st.mtimeMs)] : "", motorFrase === "neural" ? [vozKokoro, VEL_ATO[ato.energia]] : "", plano ? [plano.palavras, plano.tEnfaseRel, plano.pausaDepois, plano.ganhoDb] : "") };
   };
   if (motor === "neural") {
     const pend = alvo.filter((f) => {
@@ -236,7 +269,7 @@ async function main() {
   for (const f of roteiro.frases) { const m = novas[f.id]?.motor; if (m) motores[m] = (motores[m] || 0) + 1; }
   gravarJson(vozPath, {
     motor, vozMbrola: `mb-${vozMb}`, versao: VERSAO, motores,
-    nota: "Registro do motor de voz por frase. palavras/tEnfase (mbrola) vêm dos tempos reais dos fonemas, relativos ao início do WAV.",
+    nota: "Registro do motor de voz por frase. palavras/tEnfase vêm dos tempos reais (fonemas no mbrola; plano de edição video/edicao-voz.json nos clipes editados), relativos ao início do WAV. silencioDepois (clipes editados) é o silêncio total até a próxima frase.",
     frases: novas,
   });
 

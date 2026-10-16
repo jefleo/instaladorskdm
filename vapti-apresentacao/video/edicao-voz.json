@@ -1,0 +1,7188 @@
+{
+ "_convencao": {
+  "ini/fim": "origem \"clipe\": segundos dentro de video/entrada/Fxxx.wav. origem \"gravacao\": segundos dentro de video/entrada/bruto/gravacao.m4a. Os campos iniGravacao/fimGravacao valem sempre como referência.",
+  "pausaDepois": "silêncio TOTAL entre o fim (fim) desta frase e o início (ini) da próxima, já somados o respiro, a pausaAntes da próxima e os 0,9 s da fronteira de ato. Com o plano em uso, a timeline usa este valor no lugar de RESPIRO+pausaAntes+pausaDepois+FRONTEIRA_ATO.",
+  "tEnfaseRel": "segundos desde o início do clipe JÁ aparado (ini) e com as pausas internas já encurtadas: é o início da palavra de ênfase, medido por ASR (método em enfaseMetodo). A timeline soma o início absoluto da frase. Para a sílaba tônica, aplique fracaoTonica sobre palavras[k].",
+  "palavras": "tempos relativos ao clipe aparado, distribuídos por sílabas e ancorados no início e no fim da fala, nas pausas internas reais e no instante medido da ênfase.",
+  "encurtarPausas": "[de, ate, para]: pausa interna no clipe (segundos relativos a ini, ANTES do encurtamento). Remove o trecho [de+para/2, ate-para/2] (o miolo da pausa), deixando \"para\" segundos de pausa, e faz crossfade de 10 ms. Só há silêncio (-60 a -85 dB) na região.",
+  "eq": "cadeia ffmpeg aplicada ANTES de CADEIA_VOZ_GRAVADA e do nivelamento.",
+  "ganhoDb": "ajuste aplicado DEPOIS do nivelamento em -21 dB RMS."
+ },
+ "frases": {
+  "F001": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 1.255,
+   "iniGravacao": 11.96,
+   "fimGravacao": 13.195,
+   "ganhoDb": 0,
+   "pausaDepois": 0.9,
+   "tEnfaseRel": 0.055,
+   "enfaseMetodo": "inicio",
+   "palavras": [
+    {
+     "w": "Quatrocentos",
+     "t0": 0.04,
+     "t1": 0.82
+    },
+    {
+     "w": "reais.",
+     "t0": 0.82,
+     "t1": 1.21
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "suspenso/ascendente (continuação)",
+   "motivoPausa": "abertura: deixa o número ecoar antes da história",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "R$ 400"
+  },
+  "F002": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 5.335,
+   "iniGravacao": 14.19,
+   "fimGravacao": 19.505,
+   "ganhoDb": 0,
+   "pausaDepois": 0.35,
+   "tEnfaseRel": 4.5,
+   "enfaseMetodo": "asr-varredura (execução: cortes de 40 ms + energia)",
+   "palavras": [
+    {
+     "w": "Pra",
+     "t0": 0.04,
+     "t1": 0.363
+    },
+    {
+     "w": "muita",
+     "t0": 0.363,
+     "t1": 0.687
+    },
+    {
+     "w": "gente,",
+     "t0": 0.687,
+     "t1": 1.01
+    },
+    {
+     "w": "é",
+     "t0": 1.38,
+     "t1": 1.569
+    },
+    {
+     "w": "isso",
+     "t0": 1.569,
+     "t1": 1.948
+    },
+    {
+     "w": "que",
+     "t0": 1.948,
+     "t1": 2.137
+    },
+    {
+     "w": "separa",
+     "t0": 2.137,
+     "t1": 2.705
+    },
+    {
+     "w": "um",
+     "t0": 2.705,
+     "t1": 2.894
+    },
+    {
+     "w": "dia",
+     "t0": 2.894,
+     "t1": 3.083
+    },
+    {
+     "w": "de",
+     "t0": 3.083,
+     "t1": 3.272
+    },
+    {
+     "w": "trabalho",
+     "t0": 3.272,
+     "t1": 3.84
+    },
+    {
+     "w": "de",
+     "t0": 4.28,
+     "t1": 4.39
+    },
+    {
+     "w": "um",
+     "t0": 4.39,
+     "t1": 4.5
+    },
+    {
+     "w": "dia",
+     "t0": 4.5,
+     "t1": 4.697
+    },
+    {
+     "w": "perdido.",
+     "t0": 4.697,
+     "t1": 5.29
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "abre a lista de exemplos; contorno quase plano, continua",
+   "nota": "Mantido o take; só o aparo. Ênfase corrigida na execução: o início medido de \"dia\" é 4.50 s (o plano tinha 4.60 s); palavras do bloco reancoradas.",
+   "asrDoCorte": "Para muita gente, é isso que separa um dia de trabalho de um dia perdido.",
+   "tEnfaseRelPlanoOriginal": 4.6
+  },
+  "F003": {
+   "origem": "clipe",
+   "ini": 0.32,
+   "fim": 3.005,
+   "iniGravacao": 20.16,
+   "fimGravacao": 22.845,
+   "ganhoDb": 0,
+   "pausaDepois": 0.2,
+   "tEnfaseRel": 1.45,
+   "enfaseMetodo": "asr-manual (sufixos ASR + energia, ±60 ms)",
+   "palavras": [
+    {
+     "w": "É",
+     "t0": 0.04,
+     "t1": 0.181
+    },
+    {
+     "w": "o",
+     "t0": 0.181,
+     "t1": 0.322
+    },
+    {
+     "w": "motorista",
+     "t0": 0.322,
+     "t1": 0.886
+    },
+    {
+     "w": "que",
+     "t0": 0.886,
+     "t1": 1.027
+    },
+    {
+     "w": "precisa",
+     "t0": 1.027,
+     "t1": 1.45
+    },
+    {
+     "w": "abastecer",
+     "t0": 1.45,
+     "t1": 2.055
+    },
+    {
+     "w": "pra",
+     "t0": 2.055,
+     "t1": 2.358
+    },
+    {
+     "w": "rodar.",
+     "t0": 2.358,
+     "t1": 2.66
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "suspenso/ascendente (continuação)",
+   "motivoPausa": "enumeração (motorista → barbeiro): contorno suspenso, colar",
+   "nota": "Corte deixa de fora: respiração 19.95-20.06 (-43 dB) Conferir de ouvido: o ASR ouve \"abaixar\" em vez de \"abastecer\" em todas as passagens. Se for \"abaixar\", regravar.",
+   "asrDoCorte": "É um motorista que precisa abaixar para rodar."
+  },
+  "F004": {
+   "origem": "clipe",
+   "ini": 0.17,
+   "fim": 3.875,
+   "iniGravacao": 23.33,
+   "fimGravacao": 27.035,
+   "ganhoDb": 0,
+   "pausaDepois": 0.35,
+   "tEnfaseRel": 1.26,
+   "enfaseMetodo": "asr-varredura (execução: cortes de 40 ms + energia)",
+   "palavras": [
+    {
+     "w": "É",
+     "t0": 0.04,
+     "t1": 0.176
+    },
+    {
+     "w": "o",
+     "t0": 0.176,
+     "t1": 0.311
+    },
+    {
+     "w": "barbeiro",
+     "t0": 0.311,
+     "t1": 0.718
+    },
+    {
+     "w": "que",
+     "t0": 0.718,
+     "t1": 0.853
+    },
+    {
+     "w": "precisa",
+     "t0": 0.853,
+     "t1": 1.26
+    },
+    {
+     "w": "repor",
+     "t0": 1.26,
+     "t1": 1.632
+    },
+    {
+     "w": "material",
+     "t0": 1.632,
+     "t1": 2.191
+    },
+    {
+     "w": "antes",
+     "t0": 2.191,
+     "t1": 2.563
+    },
+    {
+     "w": "do",
+     "t0": 2.563,
+     "t1": 2.749
+    },
+    {
+     "w": "fim",
+     "t0": 2.749,
+     "t1": 2.936
+    },
+    {
+     "w": "de",
+     "t0": 2.936,
+     "t1": 3.121
+    },
+    {
+     "w": "semana.",
+     "t0": 3.121,
+     "t1": 3.68
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "suspenso/ascendente (continuação)",
+   "motivoPausa": "fim dos exemplos",
+   "nota": "Mantido o take; só o aparo. Ênfase corrigida na execução: o início medido de \"repor\" é 1.26 s (o plano tinha 1.54 s); palavras do bloco reancoradas.",
+   "asrDoCorte": "É o barbeiro que precisa repor material antes do fim de semana.",
+   "tEnfaseRelPlanoOriginal": 1.54
+  },
+  "F005": {
+   "origem": "clipe",
+   "ini": 0.47,
+   "fim": 3.625,
+   "iniGravacao": 27.67,
+   "fimGravacao": 30.825,
+   "ganhoDb": 0,
+   "pausaDepois": 0.3,
+   "tEnfaseRel": 0.9,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Eles",
+     "t0": 0.04,
+     "t1": 0.384
+    },
+    {
+     "w": "recebem",
+     "t0": 0.384,
+     "t1": 0.9
+    },
+    {
+     "w": "todo",
+     "t0": 0.9,
+     "t1": 1.353
+    },
+    {
+     "w": "dia,",
+     "t0": 1.353,
+     "t1": 1.58
+    },
+    {
+     "w": "ou",
+     "t0": 2.06,
+     "t1": 2.238
+    },
+    {
+     "w": "toda",
+     "t0": 2.238,
+     "t1": 2.595
+    },
+    {
+     "w": "semana.",
+     "t0": 2.595,
+     "t1": 3.13
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "\"Mas\" vira o raciocínio, mas é a mesma ideia",
+   "nota": "Corte deixa de fora: respiração 27.29-27.58 (-37 dB)",
+   "asrDoCorte": "eles recebem todo dia ou toda semana."
+  },
+  "F006": {
+   "origem": "clipe",
+   "ini": 0.29,
+   "fim": 6.585,
+   "iniGravacao": 31.34,
+   "fimGravacao": 37.635,
+   "ganhoDb": 0,
+   "pausaDepois": 0.25,
+   "tEnfaseRel": 4.3,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Mas",
+     "t0": 0.04,
+     "t1": 0.246
+    },
+    {
+     "w": "o",
+     "t0": 0.246,
+     "t1": 0.451
+    },
+    {
+     "w": "crédito",
+     "t0": 0.451,
+     "t1": 1.068
+    },
+    {
+     "w": "tradicional",
+     "t0": 1.068,
+     "t1": 1.89
+    },
+    {
+     "w": "olha",
+     "t0": 2.28,
+     "t1": 2.617
+    },
+    {
+     "w": "pra",
+     "t0": 2.617,
+     "t1": 2.953
+    },
+    {
+     "w": "eles",
+     "t0": 2.953,
+     "t1": 3.29
+    },
+    {
+     "w": "como",
+     "t0": 3.29,
+     "t1": 3.627
+    },
+    {
+     "w": "se",
+     "t0": 3.627,
+     "t1": 3.795
+    },
+    {
+     "w": "ganhassem",
+     "t0": 3.795,
+     "t1": 4.3
+    },
+    {
+     "w": "por",
+     "t0": 4.3,
+     "t1": 4.64
+    },
+    {
+     "w": "mês,",
+     "t0": 4.64,
+     "t1": 4.98
+    },
+    {
+     "w": "com",
+     "t0": 5.28,
+     "t1": 5.424
+    },
+    {
+     "w": "holerite.",
+     "t0": 5.424,
+     "t1": 6.0
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "continua direto em \"E aí\"",
+   "nota": "Corte deixa de fora: respiração 31.14-31.23 (-43 dB) Pausa interna de 0.57 s encurtada para 0.30 s.",
+   "encurtarPausas": [
+    [
+     4.98,
+     5.55,
+     0.3
+    ]
+   ],
+   "asrDoCorte": "Mas o crédito tradicional olha para eles como se ganhassem por mês com o Olerite."
+  },
+  "F007": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 3.495,
+   "iniGravacao": 38.38,
+   "fimGravacao": 41.855,
+   "ganhoDb": 0,
+   "pausaDepois": 0.55,
+   "tEnfaseRel": 1.96,
+   "enfaseMetodo": "asr-varredura (execução: cortes de 40 ms + energia)",
+   "palavras": [
+    {
+     "w": "E",
+     "t0": 0.04,
+     "t1": 0.385
+    },
+    {
+     "w": "aí",
+     "t0": 0.385,
+     "t1": 0.73
+    },
+    {
+     "w": "o",
+     "t0": 1.03,
+     "t1": 1.147
+    },
+    {
+     "w": "dinheiro",
+     "t0": 1.147,
+     "t1": 1.495
+    },
+    {
+     "w": "não",
+     "t0": 1.495,
+     "t1": 1.727
+    },
+    {
+     "w": "chega",
+     "t0": 1.727,
+     "t1": 1.96
+    },
+    {
+     "w": "na",
+     "t0": 1.96,
+     "t1": 2.097
+    },
+    {
+     "w": "hora",
+     "t0": 2.097,
+     "t1": 2.373
+    },
+    {
+     "w": "em",
+     "t0": 2.373,
+     "t1": 2.51
+    },
+    {
+     "w": "que",
+     "t0": 2.51,
+     "t1": 2.647
+    },
+    {
+     "w": "faz",
+     "t0": 2.647,
+     "t1": 2.785
+    },
+    {
+     "w": "falta.",
+     "t0": 2.785,
+     "t1": 3.06
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "suspenso/ascendente (continuação)",
+   "motivoPausa": "pausa antes do número grande (24 milhões)",
+   "nota": "Pausa interna de 0.69 s encurtada para 0.30 s. Conferir de ouvido: o ASR ouve \"na hora que vai soltar\" (roteiro: \"na hora em que faz falta\"). Pela energia, a sílaba tônica parece ser \"FAL-ta\" (provável \"faz falta\" sem o \"em\"). Se não for, regravar. Ênfase corrigida na execução: o início medido de \"na\" é 1.96 s (o plano tinha 1.86 s); palavras do bloco reancoradas.",
+   "encurtarPausas": [
+    [
+     0.73,
+     1.42,
+     0.3
+    ]
+   ],
+   "asrDoCorte": "E aí, o dinheiro não chega na hora que vai soltar.",
+   "tEnfaseRelPlanoOriginal": 1.86
+  },
+  "F008": {
+   "origem": "clipe",
+   "ini": 0.03,
+   "fim": 5.485,
+   "iniGravacao": 43.69,
+   "fimGravacao": 49.145,
+   "ganhoDb": 0,
+   "pausaDepois": 0.4,
+   "tEnfaseRel": 1.05,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "São",
+     "t0": 0.04,
+     "t1": 0.545
+    },
+    {
+     "w": "mais",
+     "t0": 0.545,
+     "t1": 0.797
+    },
+    {
+     "w": "de",
+     "t0": 0.797,
+     "t1": 1.05
+    },
+    {
+     "w": "vinte",
+     "t0": 1.05,
+     "t1": 1.448
+    },
+    {
+     "w": "e",
+     "t0": 1.448,
+     "t1": 1.647
+    },
+    {
+     "w": "quatro",
+     "t0": 1.647,
+     "t1": 2.044
+    },
+    {
+     "w": "milhões",
+     "t0": 2.044,
+     "t1": 2.641
+    },
+    {
+     "w": "de",
+     "t0": 2.641,
+     "t1": 2.84
+    },
+    {
+     "w": "trabalhadores",
+     "t0": 3.0,
+     "t1": 4.013
+    },
+    {
+     "w": "autônomos",
+     "t0": 4.013,
+     "t1": 4.823
+    },
+    {
+     "w": "no",
+     "t0": 4.823,
+     "t1": 5.025
+    },
+    {
+     "w": "Brasil.",
+     "t0": 5.025,
+     "t1": 5.43
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "número desce e conclui; a próxima é a tese",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "São mais de 24 milhões de trabalhadores autônomos no Brasil."
+  },
+  "F009": {
+   "origem": "clipe",
+   "ini": 0.33,
+   "fim": 4.885,
+   "iniGravacao": 73.76,
+   "fimGravacao": 78.315,
+   "ganhoDb": 0,
+   "pausaDepois": 1.2,
+   "tEnfaseRel": 0.2,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "A",
+     "t0": 0.04,
+     "t1": 0.2
+    },
+    {
+     "w": "Vapti",
+     "t0": 0.2,
+     "t1": 0.513
+    },
+    {
+     "w": "nasce",
+     "t0": 0.513,
+     "t1": 0.827
+    },
+    {
+     "w": "pra",
+     "t0": 0.827,
+     "t1": 1.14
+    },
+    {
+     "w": "ser",
+     "t0": 1.31,
+     "t1": 1.471
+    },
+    {
+     "w": "o",
+     "t0": 1.471,
+     "t1": 1.632
+    },
+    {
+     "w": "lugar",
+     "t0": 1.632,
+     "t1": 1.954
+    },
+    {
+     "w": "a",
+     "t0": 1.954,
+     "t1": 2.115
+    },
+    {
+     "w": "quem",
+     "t0": 2.115,
+     "t1": 2.276
+    },
+    {
+     "w": "eles",
+     "t0": 2.276,
+     "t1": 2.598
+    },
+    {
+     "w": "recorrem",
+     "t0": 2.598,
+     "t1": 3.081
+    },
+    {
+     "w": "quando",
+     "t0": 3.081,
+     "t1": 3.403
+    },
+    {
+     "w": "falta",
+     "t0": 3.403,
+     "t1": 3.725
+    },
+    {
+     "w": "aquele",
+     "t0": 3.725,
+     "t1": 4.208
+    },
+    {
+     "w": "valor.",
+     "t0": 4.208,
+     "t1": 4.53
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "fronteira de ato (já inclui os 0,9 s da fronteira; não somar)",
+   "nota": "Corte deixa de fora: respiração 73.50-73.68 (-36 dB) \"pra ser o lugar\" sai como \"pra seu lugar\" (elisão natural). Não pede regravação.",
+   "asrDoCorte": "A VAPT nasce para ser o lugar a quem eles recorrem quando falta aquele valor."
+  },
+  "F010": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 1.695,
+   "iniGravacao": 92.23,
+   "fimGravacao": 93.905,
+   "ganhoDb": 0,
+   "pausaDepois": 0.35,
+   "tEnfaseRel": 0.27,
+   "enfaseMetodo": "asr-varredura (execução: cortes de 40 ms + energia)",
+   "palavras": [
+    {
+     "w": "E",
+     "t0": 0.04,
+     "t1": 0.116
+    },
+    {
+     "w": "isso",
+     "t0": 0.116,
+     "t1": 0.27
+    },
+    {
+     "w": "não",
+     "t0": 0.27,
+     "t1": 0.5
+    },
+    {
+     "w": "é",
+     "t0": 0.5,
+     "t1": 0.614
+    },
+    {
+     "w": "uma",
+     "t0": 0.614,
+     "t1": 0.845
+    },
+    {
+     "w": "aposta",
+     "t0": 0.845,
+     "t1": 1.19
+    },
+    {
+     "w": "no",
+     "t0": 1.19,
+     "t1": 1.304
+    },
+    {
+     "w": "escuro.",
+     "t0": 1.304,
+     "t1": 1.65
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "\"E isso não é uma aposta\" puxa a prova logo em seguida",
+   "nota": "Falta o \"E\" inicial (\"Isso não é uma aposta…\") em todas as tomadas. É aceitável e não pede regravação. Ênfase corrigida na execução: o início medido de \"não\" é 0.27 s (o plano tinha 0.38 s); palavras do bloco reancoradas.",
+   "asrDoCorte": "Isso não é uma posta no escuro.",
+   "tEnfaseRelPlanoOriginal": 0.38
+  },
+  "F011": {
+   "origem": "clipe",
+   "ini": 0.5,
+   "fim": 4.315,
+   "iniGravacao": 94.77,
+   "fimGravacao": 98.585,
+   "ganhoDb": 0,
+   "pausaDepois": 0.35,
+   "tEnfaseRel": 1.23,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Uma",
+     "t0": 0.04,
+     "t1": 0.304
+    },
+    {
+     "w": "empresa",
+     "t0": 0.304,
+     "t1": 0.701
+    },
+    {
+     "w": "brasileira",
+     "t0": 0.701,
+     "t1": 1.23
+    },
+    {
+     "w": "já",
+     "t0": 1.23,
+     "t1": 1.409
+    },
+    {
+     "w": "provou",
+     "t0": 1.409,
+     "t1": 1.766
+    },
+    {
+     "w": "esse",
+     "t0": 1.766,
+     "t1": 2.124
+    },
+    {
+     "w": "modelo:",
+     "t0": 2.124,
+     "t1": 2.66
+    },
+    {
+     "w": "a",
+     "t0": 3.3,
+     "t1": 3.463
+    },
+    {
+     "w": "Zippi.",
+     "t0": 3.463,
+     "t1": 3.79
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "suspenso/ascendente (continuação)",
+   "motivoPausa": "apresenta a Zippi; a história segue",
+   "nota": "Corte deixa de fora: respiração 94.55-94.62 (-47 dB)",
+   "asrDoCorte": "Uma empresa brasileira já provou esse modelo, a ZIP."
+  },
+  "F012": {
+   "origem": "gravacao",
+   "ini": 105.657,
+   "fim": 110.882,
+   "iniGravacao": 105.657,
+   "fimGravacao": 110.882,
+   "ganhoDb": 0,
+   "pausaDepois": 0.3,
+   "tEnfaseRel": 3.22,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Ela",
+     "t0": 0.04,
+     "t1": 0.307
+    },
+    {
+     "w": "começou",
+     "t0": 0.307,
+     "t1": 0.707
+    },
+    {
+     "w": "em",
+     "t0": 0.707,
+     "t1": 0.84
+    },
+    {
+     "w": "2019,",
+     "t0": 0.84,
+     "t1": 1.773
+    },
+    {
+     "w": "com",
+     "t0": 2.073,
+     "t1": 2.302
+    },
+    {
+     "w": "um",
+     "t0": 2.302,
+     "t1": 2.532
+    },
+    {
+     "w": "cheque",
+     "t0": 2.532,
+     "t1": 2.991
+    },
+    {
+     "w": "de",
+     "t0": 2.991,
+     "t1": 3.22
+    },
+    {
+     "w": "cento",
+     "t0": 3.22,
+     "t1": 3.515
+    },
+    {
+     "w": "e",
+     "t0": 3.515,
+     "t1": 3.663
+    },
+    {
+     "w": "vinte",
+     "t0": 3.663,
+     "t1": 3.958
+    },
+    {
+     "w": "e",
+     "t0": 3.958,
+     "t1": 4.105
+    },
+    {
+     "w": "cinco",
+     "t0": 4.105,
+     "t1": 4.4
+    },
+    {
+     "w": "mil",
+     "t0": 4.4,
+     "t1": 4.548
+    },
+    {
+     "w": "dólares.",
+     "t0": 4.548,
+     "t1": 4.99
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "linha do tempo 2019→2021→2022: ritmo de crônica",
+   "nota": "Troca p/ take 105,66 s: mais expressivo (faixa de F0 13,7 st × 10,7), pausa só na vírgula de \"2019,\" e sem o ruído interno da escolhida; texto igual nas duas. Pausa interna de 0.51 s encurtada para 0.30 s.",
+   "encurtarPausas": [
+    [
+     1.773,
+     2.283,
+     0.3
+    ]
+   ],
+   "asrDoCorte": "Ela começou em 2019, com cheque de 125 mil dólares."
+  },
+  "F013": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 8.025,
+   "iniGravacao": 118.43,
+   "fimGravacao": 126.435,
+   "ganhoDb": 0,
+   "pausaDepois": 0.35,
+   "tEnfaseRel": 2.8,
+   "enfaseMetodo": "asr-manual (sufixos ASR + energia, ±60 ms)",
+   "palavras": [
+    {
+     "w": "Em",
+     "t0": 0.04,
+     "t1": 0.17
+    },
+    {
+     "w": "2021,",
+     "t0": 0.17,
+     "t1": 1.08
+    },
+    {
+     "w": "lançou",
+     "t0": 1.35,
+     "t1": 1.786
+    },
+    {
+     "w": "um",
+     "t0": 1.786,
+     "t1": 2.004
+    },
+    {
+     "w": "cartão",
+     "t0": 2.004,
+     "t1": 2.658
+    },
+    {
+     "w": "de",
+     "t0": 2.658,
+     "t1": 2.876
+    },
+    {
+     "w": "crédito",
+     "t0": 2.876,
+     "t1": 2.916
+    },
+    {
+     "w": "semanal",
+     "t0": 2.916,
+     "t1": 4.08
+    },
+    {
+     "w": "para",
+     "t0": 4.08,
+     "t1": 4.333
+    },
+    {
+     "w": "autônomos,",
+     "t0": 4.333,
+     "t1": 4.84
+    },
+    {
+     "w": "com",
+     "t0": 5.27,
+     "t1": 5.451
+    },
+    {
+     "w": "o",
+     "t0": 5.451,
+     "t1": 5.631
+    },
+    {
+     "w": "limite",
+     "t0": 5.631,
+     "t1": 6.173
+    },
+    {
+     "w": "voltando",
+     "t0": 6.173,
+     "t1": 6.715
+    },
+    {
+     "w": "segundos",
+     "t0": 6.715,
+     "t1": 7.257
+    },
+    {
+     "w": "depois",
+     "t0": 7.257,
+     "t1": 7.619
+    },
+    {
+     "w": "do",
+     "t0": 7.619,
+     "t1": 7.799
+    },
+    {
+     "w": "Pix.",
+     "t0": 7.799,
+     "t1": 7.98
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "linha do tempo",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Em 2021, lançou um cartão de crédito semanal para autônomos, com o limite voltando segundo os depois de OPEX."
+  },
+  "F014": {
+   "origem": "clipe",
+   "ini": 0.04,
+   "fim": 5.825,
+   "iniGravacao": 127.21,
+   "fimGravacao": 132.995,
+   "ganhoDb": 0,
+   "pausaDepois": 0.45,
+   "tEnfaseRel": 2.66,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Só",
+     "t0": 0.04,
+     "t1": 0.229
+    },
+    {
+     "w": "em",
+     "t0": 0.229,
+     "t1": 0.418
+    },
+    {
+     "w": "2022,",
+     "t0": 0.418,
+     "t1": 1.74
+    },
+    {
+     "w": "liberou",
+     "t0": 2.06,
+     "t1": 2.66
+    },
+    {
+     "w": "duzentos",
+     "t0": 2.66,
+     "t1": 3.241
+    },
+    {
+     "w": "e",
+     "t0": 3.241,
+     "t1": 3.435
+    },
+    {
+     "w": "setenta",
+     "t0": 3.435,
+     "t1": 4.016
+    },
+    {
+     "w": "e",
+     "t0": 4.016,
+     "t1": 4.21
+    },
+    {
+     "w": "cinco",
+     "t0": 4.21,
+     "t1": 4.597
+    },
+    {
+     "w": "milhões",
+     "t0": 4.597,
+     "t1": 5.179
+    },
+    {
+     "w": "de",
+     "t0": 5.179,
+     "t1": 5.372
+    },
+    {
+     "w": "reais.",
+     "t0": 5.372,
+     "t1": 5.76
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "número grande; respira antes do próximo número",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Só em 2022 liberou R$ 275 milhões."
+  },
+  "F015": {
+   "origem": "gravacao",
+   "ini": 133.715,
+   "fim": 137.73,
+   "iniGravacao": 133.715,
+   "fimGravacao": 137.73,
+   "ganhoDb": 0,
+   "pausaDepois": 0.4,
+   "tEnfaseRel": 1.74,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Hoje,",
+     "t0": 0.04,
+     "t1": 0.485
+    },
+    {
+     "w": "já",
+     "t0": 0.785,
+     "t1": 0.976
+    },
+    {
+     "w": "são",
+     "t0": 0.976,
+     "t1": 1.358
+    },
+    {
+     "w": "mais",
+     "t0": 1.358,
+     "t1": 1.549
+    },
+    {
+     "w": "de",
+     "t0": 1.549,
+     "t1": 1.74
+    },
+    {
+     "w": "sete",
+     "t0": 1.74,
+     "t1": 2.12
+    },
+    {
+     "w": "bilhões",
+     "t0": 2.12,
+     "t1": 2.69
+    },
+    {
+     "w": "e",
+     "t0": 2.69,
+     "t1": 2.88
+    },
+    {
+     "w": "meio",
+     "t0": 2.88,
+     "t1": 3.07
+    },
+    {
+     "w": "concedidos.",
+     "t0": 3.07,
+     "t1": 3.83
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "conclusão descendente; segue para avaliação",
+   "nota": "Troca p/ take 133,72 s: sem a quebra de 0,34 s antes de \"concedidos\" que a escolhida tem; mesma energia e queda final. Pausa interna de 0.46 s encurtada para 0.30 s.",
+   "encurtarPausas": [
+    [
+     0.485,
+     0.945,
+     0.3
+    ]
+   ],
+   "asrDoCorte": "Hoje, já são mais de 7,5 bilhões conselhidos."
+  },
+  "F016": {
+   "origem": "gravacao",
+   "ini": 151.309,
+   "fim": 156.854,
+   "iniGravacao": 151.309,
+   "fimGravacao": 156.854,
+   "ganhoDb": 0,
+   "pausaDepois": 0.55,
+   "tEnfaseRel": 3.62,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "E",
+     "t0": 0.04,
+     "t1": 0.197
+    },
+    {
+     "w": "o",
+     "t0": 0.197,
+     "t1": 0.354
+    },
+    {
+     "w": "Dealroom",
+     "t0": 0.354,
+     "t1": 0.981
+    },
+    {
+     "w": "estima",
+     "t0": 1.141,
+     "t1": 1.776
+    },
+    {
+     "w": "que",
+     "t0": 1.776,
+     "t1": 1.988
+    },
+    {
+     "w": "ela",
+     "t0": 1.988,
+     "t1": 2.412
+    },
+    {
+     "w": "valha",
+     "t0": 2.412,
+     "t1": 2.836
+    },
+    {
+     "w": "cerca",
+     "t0": 2.836,
+     "t1": 3.259
+    },
+    {
+     "w": "de",
+     "t0": 3.259,
+     "t1": 3.471
+    },
+    {
+     "w": "oitenta",
+     "t0": 3.62,
+     "t1": 4.198
+    },
+    {
+     "w": "milhões",
+     "t0": 4.198,
+     "t1": 4.764
+    },
+    {
+     "w": "de",
+     "t0": 4.764,
+     "t1": 4.953
+    },
+    {
+     "w": "dólares.",
+     "t0": 4.953,
+     "t1": 5.52
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "fecha o bloco de números; \"Mas\" vira",
+   "nota": "Troca p/ take 151,31 s: fluente (a escolhida para 0,5 s entre \"Dealroom\" e \"estima\"), \"que ela valha\" bem articulado (na escolhida o ASR ouve \"aquela valha\") e sem clipping (18 amostras na escolhida).",
+   "asrDoCorte": "E o de Euron estima que ela valha cerca de 80 milhões de dólares."
+  },
+  "F017": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 3.185,
+   "iniGravacao": 192.88,
+   "fimGravacao": 196.045,
+   "ganhoDb": 0,
+   "pausaDepois": 0.8,
+   "tEnfaseRel": 2.65,
+   "enfaseMetodo": "asr-manual (sufixos ASR + energia, ±60 ms)",
+   "palavras": [
+    {
+     "w": "Mas",
+     "t0": 0.04,
+     "t1": 0.23
+    },
+    {
+     "w": "o",
+     "t0": 0.23,
+     "t1": 0.42
+    },
+    {
+     "w": "dado",
+     "t0": 0.42,
+     "t1": 0.8
+    },
+    {
+     "w": "que",
+     "t0": 0.8,
+     "t1": 0.99
+    },
+    {
+     "w": "mais",
+     "t0": 0.99,
+     "t1": 1.18
+    },
+    {
+     "w": "importa",
+     "t0": 1.18,
+     "t1": 1.75
+    },
+    {
+     "w": "pra",
+     "t0": 1.75,
+     "t1": 2.13
+    },
+    {
+     "w": "nós",
+     "t0": 2.45,
+     "t1": 2.55
+    },
+    {
+     "w": "é",
+     "t0": 2.55,
+     "t1": 2.65
+    },
+    {
+     "w": "outro.",
+     "t0": 2.65,
+     "t1": 3.14
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "gancho (\"é outro\"): suspense antes da revelação",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Mas o dado que mais importa para nós é outro."
+  },
+  "F018": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 2.695,
+   "iniGravacao": 214.25,
+   "fimGravacao": 216.925,
+   "ganhoDb": 0,
+   "pausaDepois": 0.2,
+   "tEnfaseRel": 1.83,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "A",
+     "t0": 0.04,
+     "t1": 0.189
+    },
+    {
+     "w": "Zippi",
+     "t0": 0.189,
+     "t1": 0.487
+    },
+    {
+     "w": "não",
+     "t0": 0.487,
+     "t1": 0.786
+    },
+    {
+     "w": "cresceu",
+     "t0": 0.786,
+     "t1": 1.084
+    },
+    {
+     "w": "emprestando",
+     "t0": 1.084,
+     "t1": 1.681
+    },
+    {
+     "w": "o",
+     "t0": 1.681,
+     "t1": 1.83
+    },
+    {
+     "w": "próprio",
+     "t0": 1.83,
+     "t1": 2.158
+    },
+    {
+     "w": "dinheiro.",
+     "t0": 2.158,
+     "t1": 2.65
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "negação → afirmação (\"não cresceu… cresceu\"): colar",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "A Zip não cresceu emprestando próprio dinheiro."
+  },
+  "F019": {
+   "origem": "clipe",
+   "ini": 0.03,
+   "fim": 3.535,
+   "iniGravacao": 217.77,
+   "fimGravacao": 221.275,
+   "ganhoDb": 0,
+   "pausaDepois": 0.45,
+   "tEnfaseRel": 1.09,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Ela",
+     "t0": 0.04,
+     "t1": 0.46
+    },
+    {
+     "w": "cresceu",
+     "t0": 0.46,
+     "t1": 0.88
+    },
+    {
+     "w": "com",
+     "t0": 0.88,
+     "t1": 1.09
+    },
+    {
+     "w": "fundos",
+     "t0": 1.09,
+     "t1": 1.371
+    },
+    {
+     "w": "de",
+     "t0": 1.371,
+     "t1": 1.512
+    },
+    {
+     "w": "investimento",
+     "t0": 1.512,
+     "t1": 2.215
+    },
+    {
+     "w": "comprando",
+     "t0": 2.215,
+     "t1": 2.636
+    },
+    {
+     "w": "a",
+     "t0": 2.636,
+     "t1": 2.777
+    },
+    {
+     "w": "carteira",
+     "t0": 2.777,
+     "t1": 3.199
+    },
+    {
+     "w": "dela.",
+     "t0": 3.199,
+     "t1": 3.48
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "pausa antes da sequência de números",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "ela cresceu com fundos de investimento comprando a carteira dela."
+  },
+  "F020": {
+   "origem": "clipe",
+   "ini": 0.03,
+   "fim": 7.935,
+   "iniGravacao": 222.59,
+   "fimGravacao": 230.495,
+   "ganhoDb": 0,
+   "pausaDepois": 0.5,
+   "tEnfaseRel": 4.87,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Sessenta",
+     "t0": 0.04,
+     "t1": 0.464
+    },
+    {
+     "w": "e",
+     "t0": 0.464,
+     "t1": 0.605
+    },
+    {
+     "w": "seis",
+     "t0": 0.605,
+     "t1": 0.746
+    },
+    {
+     "w": "milhões",
+     "t0": 0.746,
+     "t1": 1.169
+    },
+    {
+     "w": "em",
+     "t0": 1.169,
+     "t1": 1.311
+    },
+    {
+     "w": "2024.",
+     "t0": 1.311,
+     "t1": 2.44
+    },
+    {
+     "w": "Oitenta",
+     "t0": 3.01,
+     "t1": 3.417
+    },
+    {
+     "w": "em",
+     "t0": 3.417,
+     "t1": 3.553
+    },
+    {
+     "w": "2025.",
+     "t0": 3.553,
+     "t1": 4.64
+    },
+    {
+     "w": "Duzentos",
+     "t0": 4.87,
+     "t1": 5.704
+    },
+    {
+     "w": "e",
+     "t0": 5.704,
+     "t1": 5.901
+    },
+    {
+     "w": "vinte",
+     "t0": 5.901,
+     "t1": 6.297
+    },
+    {
+     "w": "em",
+     "t0": 6.297,
+     "t1": 6.495
+    },
+    {
+     "w": "2026.",
+     "t0": 6.495,
+     "t1": 7.88
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "suspenso/ascendente (continuação)",
+   "motivoPausa": "números importantes; deixa assentar",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "R$ 66 milhões em 2024, R$ 80,000,000 em 2025, R$ 220,000,000 em 2026."
+  },
+  "F021": {
+   "origem": "clipe",
+   "ini": 0.03,
+   "fim": 1.745,
+   "iniGravacao": 232.36,
+   "fimGravacao": 234.075,
+   "ganhoDb": 0,
+   "pausaDepois": 1.2,
+   "tEnfaseRel": 0.48,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Esse",
+     "t0": 0.04,
+     "t1": 0.26
+    },
+    {
+     "w": "é",
+     "t0": 0.26,
+     "t1": 0.37
+    },
+    {
+     "w": "o",
+     "t0": 0.37,
+     "t1": 0.48
+    },
+    {
+     "w": "caminho",
+     "t0": 0.48,
+     "t1": 0.843
+    },
+    {
+     "w": "que",
+     "t0": 0.843,
+     "t1": 0.964
+    },
+    {
+     "w": "a",
+     "t0": 0.964,
+     "t1": 1.085
+    },
+    {
+     "w": "gente",
+     "t0": 1.085,
+     "t1": 1.327
+    },
+    {
+     "w": "vai",
+     "t0": 1.327,
+     "t1": 1.448
+    },
+    {
+     "w": "seguir.",
+     "t0": 1.448,
+     "t1": 1.69
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "fronteira de ato (já inclui os 0,9 s da fronteira; não somar)",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Esse é o caminho que a gente vai seguir."
+  },
+  "F022": {
+   "origem": "clipe",
+   "ini": 0.04,
+   "fim": 0.965,
+   "iniGravacao": 240.03,
+   "fimGravacao": 240.955,
+   "ganhoDb": 0,
+   "pausaDepois": 0.25,
+   "tEnfaseRel": 0.5,
+   "enfaseMetodo": "asr-manual (sufixos ASR + energia, ±60 ms)",
+   "palavras": [
+    {
+     "w": "Funciona",
+     "t0": 0.04,
+     "t1": 0.5
+    },
+    {
+     "w": "assim.",
+     "t0": 0.5,
+     "t1": 0.9
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "\"Funciona assim.\" anuncia o que vem: curto",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Funciona assim."
+  },
+  "F023": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 3.425,
+   "iniGravacao": 241.61,
+   "fimGravacao": 245.015,
+   "ganhoDb": 0,
+   "pausaDepois": 0.3,
+   "tEnfaseRel": 2.21,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "O",
+     "t0": 0.04,
+     "t1": 0.22
+    },
+    {
+     "w": "cliente",
+     "t0": 0.22,
+     "t1": 0.58
+    },
+    {
+     "w": "tem",
+     "t0": 0.58,
+     "t1": 0.76
+    },
+    {
+     "w": "um",
+     "t0": 0.76,
+     "t1": 0.94
+    },
+    {
+     "w": "limite,",
+     "t0": 0.94,
+     "t1": 1.48
+    },
+    {
+     "w": "e",
+     "t0": 1.93,
+     "t1": 2.21
+    },
+    {
+     "w": "saca",
+     "t0": 2.21,
+     "t1": 2.544
+    },
+    {
+     "w": "quando",
+     "t0": 2.544,
+     "t1": 2.879
+    },
+    {
+     "w": "precisa.",
+     "t0": 2.879,
+     "t1": 3.38
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "passo a passo do produto",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "O cliente tem um limite e saca quando precisa."
+  },
+  "F024": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 3.185,
+   "iniGravacao": 245.63,
+   "fimGravacao": 248.795,
+   "ganhoDb": 0,
+   "pausaDepois": 0.3,
+   "tEnfaseRel": 2.435,
+   "enfaseMetodo": "asr-varredura (execução: cortes de 40 ms + energia)",
+   "palavras": [
+    {
+     "w": "Ele",
+     "t0": 0.04,
+     "t1": 0.417
+    },
+    {
+     "w": "pede",
+     "t0": 0.417,
+     "t1": 0.795
+    },
+    {
+     "w": "por",
+     "t0": 0.795,
+     "t1": 0.984
+    },
+    {
+     "w": "mensagem,",
+     "t0": 0.984,
+     "t1": 1.55
+    },
+    {
+     "w": "até",
+     "t0": 1.88,
+     "t1": 2.102
+    },
+    {
+     "w": "mandando",
+     "t0": 2.102,
+     "t1": 2.435
+    },
+    {
+     "w": "áudio.",
+     "t0": 2.435,
+     "t1": 3.14
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "suspenso/ascendente (continuação)",
+   "motivoPausa": "passo a passo",
+   "nota": "Mantido o take; só o aparo. Ênfase corrigida na execução: o início medido de \"áudio\" é 2.44 s (o plano tinha 2.58 s); palavras do bloco reancoradas.",
+   "asrDoCorte": "ele pede por mensagem até mandando áudio.",
+   "tEnfaseRelPlanoOriginal": 2.585
+  },
+  "F025": {
+   "origem": "clipe",
+   "ini": 0.36,
+   "fim": 5.895,
+   "iniGravacao": 258.37,
+   "fimGravacao": 263.905,
+   "ganhoDb": 0,
+   "pausaDepois": 0.3,
+   "tEnfaseRel": 2.73,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Recebe",
+     "t0": 0.04,
+     "t1": 0.616
+    },
+    {
+     "w": "um",
+     "t0": 0.616,
+     "t1": 0.808
+    },
+    {
+     "w": "link",
+     "t0": 0.808,
+     "t1": 1.0
+    },
+    {
+     "w": "e",
+     "t0": 1.42,
+     "t1": 1.584
+    },
+    {
+     "w": "segue",
+     "t0": 1.584,
+     "t1": 1.911
+    },
+    {
+     "w": "numa",
+     "t0": 1.911,
+     "t1": 2.239
+    },
+    {
+     "w": "tela",
+     "t0": 2.239,
+     "t1": 2.566
+    },
+    {
+     "w": "com",
+     "t0": 2.566,
+     "t1": 2.73
+    },
+    {
+     "w": "barra",
+     "t0": 2.73,
+     "t1": 3.08
+    },
+    {
+     "w": "de",
+     "t0": 3.08,
+     "t1": 3.255
+    },
+    {
+     "w": "progresso,",
+     "t0": 3.255,
+     "t1": 3.78
+    },
+    {
+     "w": "até",
+     "t0": 3.99,
+     "t1": 4.37
+    },
+    {
+     "w": "o",
+     "t0": 4.37,
+     "t1": 4.56
+    },
+    {
+     "w": "Pix",
+     "t0": 4.56,
+     "t1": 4.75
+    },
+    {
+     "w": "cair",
+     "t0": 4.75,
+     "t1": 4.94
+    },
+    {
+     "w": "na",
+     "t0": 4.94,
+     "t1": 5.13
+    },
+    {
+     "w": "conta.",
+     "t0": 5.13,
+     "t1": 5.51
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "passo a passo; \"E vê\" continua",
+   "nota": "Corte deixa de fora: respiração 258.07-258.32 (-38 dB)",
+   "asrDoCorte": "recebe um link e segue-no a tela com barra de progresso até o PIX cair na conta."
+  },
+  "F026": {
+   "origem": "clipe",
+   "ini": 0.03,
+   "fim": 5.305,
+   "iniGravacao": 264.58,
+   "fimGravacao": 269.855,
+   "ganhoDb": 0,
+   "pausaDepois": 0.5,
+   "tEnfaseRel": 0.85,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "E",
+     "t0": 0.04,
+     "t1": 0.243
+    },
+    {
+     "w": "vê",
+     "t0": 0.243,
+     "t1": 0.445
+    },
+    {
+     "w": "tudo",
+     "t0": 0.445,
+     "t1": 0.85
+    },
+    {
+     "w": "antes",
+     "t0": 0.85,
+     "t1": 1.2
+    },
+    {
+     "w": "de",
+     "t0": 1.2,
+     "t1": 1.375
+    },
+    {
+     "w": "aceitar:",
+     "t0": 1.375,
+     "t1": 1.9
+    },
+    {
+     "w": "quanto",
+     "t0": 2.23,
+     "t1": 2.578
+    },
+    {
+     "w": "recebe,",
+     "t0": 2.578,
+     "t1": 3.1
+    },
+    {
+     "w": "quanto",
+     "t0": 3.44,
+     "t1": 3.87
+    },
+    {
+     "w": "paga",
+     "t0": 3.87,
+     "t1": 4.3
+    },
+    {
+     "w": "e",
+     "t0": 4.59,
+     "t1": 4.67
+    },
+    {
+     "w": "quando.",
+     "t0": 4.82,
+     "t1": 5.25
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "pausa antes do exemplo numérico",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "e vê tudo antes de aceitar, quanto recebe, quanto paga e quando."
+  },
+  "F027": {
+   "origem": "clipe",
+   "ini": 0.17,
+   "fim": 5.675,
+   "iniGravacao": 274.81,
+   "fimGravacao": 280.315,
+   "ganhoDb": 0,
+   "pausaDepois": 0.4,
+   "tEnfaseRel": 2.78,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Um",
+     "t0": 0.04,
+     "t1": 0.209
+    },
+    {
+     "w": "saque",
+     "t0": 0.209,
+     "t1": 0.547
+    },
+    {
+     "w": "de",
+     "t0": 0.547,
+     "t1": 0.716
+    },
+    {
+     "w": "quatrocentos",
+     "t0": 0.716,
+     "t1": 1.392
+    },
+    {
+     "w": "reais",
+     "t0": 1.392,
+     "t1": 1.73
+    },
+    {
+     "w": "vira",
+     "t0": 1.93,
+     "t1": 2.05
+    },
+    {
+     "w": "quatro",
+     "t0": 2.78,
+     "t1": 2.82
+    },
+    {
+     "w": "parcelas",
+     "t0": 2.82,
+     "t1": 3.433
+    },
+    {
+     "w": "semanais",
+     "t0": 3.433,
+     "t1": 4.173
+    },
+    {
+     "w": "de",
+     "t0": 4.173,
+     "t1": 4.42
+    },
+    {
+     "w": "cento",
+     "t0": 4.68,
+     "t1": 5.0
+    },
+    {
+     "w": "e",
+     "t0": 5.0,
+     "t1": 5.16
+    },
+    {
+     "w": "vinte.",
+     "t0": 5.16,
+     "t1": 5.48
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "número; segue alternativa",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Um saque de R$ 400 vira 4 parcelas semanais de R$ 120."
+  },
+  "F028": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 5.075,
+   "iniGravacao": 290.3,
+   "fimGravacao": 295.355,
+   "ganhoDb": 0,
+   "pausaDepois": 0.45,
+   "tEnfaseRel": 2.33,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Quem",
+     "t0": 0.04,
+     "t1": 0.211
+    },
+    {
+     "w": "prefere",
+     "t0": 0.211,
+     "t1": 0.725
+    },
+    {
+     "w": "pagar",
+     "t0": 0.725,
+     "t1": 1.067
+    },
+    {
+     "w": "por",
+     "t0": 1.067,
+     "t1": 1.239
+    },
+    {
+     "w": "dia",
+     "t0": 1.239,
+     "t1": 1.41
+    },
+    {
+     "w": "tem",
+     "t0": 1.66,
+     "t1": 1.794
+    },
+    {
+     "w": "o",
+     "t0": 1.794,
+     "t1": 1.928
+    },
+    {
+     "w": "plano",
+     "t0": 1.928,
+     "t1": 2.196
+    },
+    {
+     "w": "de",
+     "t0": 2.196,
+     "t1": 2.33
+    },
+    {
+     "w": "catorze",
+     "t0": 2.33,
+     "t1": 2.96
+    },
+    {
+     "w": "dias:",
+     "t0": 2.96,
+     "t1": 3.17
+    },
+    {
+     "w": "trinta",
+     "t0": 3.72,
+     "t1": 4.047
+    },
+    {
+     "w": "e",
+     "t0": 4.047,
+     "t1": 4.211
+    },
+    {
+     "w": "um",
+     "t0": 4.211,
+     "t1": 4.375
+    },
+    {
+     "w": "reais",
+     "t0": 4.375,
+     "t1": 4.702
+    },
+    {
+     "w": "por",
+     "t0": 4.702,
+     "t1": 4.866
+    },
+    {
+     "w": "dia.",
+     "t0": 4.866,
+     "t1": 5.03
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "número; muda de assunto (pagamento)",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Quem prefere pagar por dia, tem o plano de 14 dias, R$ 31 por dia."
+  },
+  "F029": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 3.955,
+   "iniGravacao": 297.51,
+   "fimGravacao": 301.445,
+   "ganhoDb": 0,
+   "pausaDepois": 0.25,
+   "tEnfaseRel": 1.0,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "E",
+     "t0": 0.04,
+     "t1": 0.177
+    },
+    {
+     "w": "o",
+     "t0": 0.177,
+     "t1": 0.314
+    },
+    {
+     "w": "pagamento",
+     "t0": 0.314,
+     "t1": 0.863
+    },
+    {
+     "w": "é",
+     "t0": 0.863,
+     "t1": 1.0
+    },
+    {
+     "w": "automático,",
+     "t0": 1.0,
+     "t1": 1.61
+    },
+    {
+     "w": "com",
+     "t0": 1.89,
+     "t1": 2.045
+    },
+    {
+     "w": "o",
+     "t0": 2.045,
+     "t1": 2.201
+    },
+    {
+     "w": "Pix",
+     "t0": 2.201,
+     "t1": 2.356
+    },
+    {
+     "w": "Automático",
+     "t0": 2.356,
+     "t1": 3.133
+    },
+    {
+     "w": "do",
+     "t0": 3.133,
+     "t1": 3.288
+    },
+    {
+     "w": "Banco",
+     "t0": 3.288,
+     "t1": 3.599
+    },
+    {
+     "w": "Central.",
+     "t0": 3.599,
+     "t1": 3.91
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "continua (como funciona o Pix)",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "e o pagamento é automático, com o PIX automático do Banco Central."
+  },
+  "F030": {
+   "origem": "gravacao",
+   "ini": 302.353,
+   "fim": 308.838,
+   "iniGravacao": 302.353,
+   "fimGravacao": 308.838,
+   "ganhoDb": 0,
+   "pausaDepois": 0.45,
+   "tEnfaseRel": 4.36,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "O",
+     "t0": 0.04,
+     "t1": 0.239
+    },
+    {
+     "w": "cliente",
+     "t0": 0.239,
+     "t1": 0.636
+    },
+    {
+     "w": "autoriza",
+     "t0": 0.636,
+     "t1": 1.431
+    },
+    {
+     "w": "uma",
+     "t0": 1.431,
+     "t1": 1.828
+    },
+    {
+     "w": "vez,",
+     "t0": 1.828,
+     "t1": 2.027
+    },
+    {
+     "w": "e",
+     "t0": 2.457,
+     "t1": 2.616
+    },
+    {
+     "w": "o",
+     "t0": 2.616,
+     "t1": 2.774
+    },
+    {
+     "w": "sistema",
+     "t0": 2.774,
+     "t1": 3.25
+    },
+    {
+     "w": "tenta",
+     "t0": 3.25,
+     "t1": 3.567
+    },
+    {
+     "w": "de",
+     "t0": 3.567,
+     "t1": 3.726
+    },
+    {
+     "w": "novo",
+     "t0": 3.726,
+     "t1": 4.043
+    },
+    {
+     "w": "até",
+     "t0": 4.043,
+     "t1": 4.36
+    },
+    {
+     "w": "três",
+     "t0": 4.36,
+     "t1": 4.656
+    },
+    {
+     "w": "vezes",
+     "t0": 4.656,
+     "t1": 5.247
+    },
+    {
+     "w": "se",
+     "t0": 5.447,
+     "t1": 5.65
+    },
+    {
+     "w": "faltar",
+     "t0": 5.65,
+     "t1": 6.055
+    },
+    {
+     "w": "saldo.",
+     "t0": 6.055,
+     "t1": 6.46
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "conclusão; \"Quitou\" abre a recompensa",
+   "nota": "Troca p/ take 302,35 s: pausa na vírgula certa (\"uma vez,\"); a escolhida quebra 0,46 s antes de \"se faltar saldo\".",
+   "asrDoCorte": "O cliente autoriza uma vez e o sistema tenta de novo até três vezes se faltar saldo."
+  },
+  "F031": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 4.435,
+   "iniGravacao": 323.42,
+   "fimGravacao": 327.835,
+   "ganhoDb": 0,
+   "pausaDepois": 1.2,
+   "tEnfaseRel": 3.845,
+   "enfaseMetodo": "asr-interp (entre dois cortes ASR, ±80 ms)",
+   "palavras": [
+    {
+     "w": "Quitou,",
+     "t0": 0.04,
+     "t1": 0.66
+    },
+    {
+     "w": "o",
+     "t0": 1.04,
+     "t1": 1.178
+    },
+    {
+     "w": "limite",
+     "t0": 1.178,
+     "t1": 1.593
+    },
+    {
+     "w": "volta.",
+     "t0": 1.593,
+     "t1": 1.87
+    },
+    {
+     "w": "E",
+     "t0": 2.51,
+     "t1": 2.668
+    },
+    {
+     "w": "com",
+     "t0": 2.668,
+     "t1": 2.826
+    },
+    {
+     "w": "o",
+     "t0": 2.826,
+     "t1": 2.984
+    },
+    {
+     "w": "tempo,",
+     "t0": 2.984,
+     "t1": 3.3
+    },
+    {
+     "w": "ele",
+     "t0": 3.77,
+     "t1": 3.845
+    },
+    {
+     "w": "cresce.",
+     "t0": 3.845,
+     "t1": 4.39
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "fronteira de ato (já inclui os 0,9 s da fronteira; não somar)",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "que toa o limite volta e com o tempo ele cresce."
+  },
+  "F032": {
+   "origem": "clipe",
+   "ini": 0.03,
+   "fim": 3.125,
+   "iniGravacao": 336.08,
+   "fimGravacao": 339.175,
+   "ganhoDb": 0,
+   "pausaDepois": 0.25,
+   "tEnfaseRel": 2.2,
+   "enfaseMetodo": "asr-manual (sufixos ASR + energia, ±60 ms)",
+   "palavras": [
+    {
+     "w": "Agora,",
+     "t0": 0.04,
+     "t1": 0.76
+    },
+    {
+     "w": "a",
+     "t0": 0.97,
+     "t1": 1.124
+    },
+    {
+     "w": "parte",
+     "t0": 1.124,
+     "t1": 1.431
+    },
+    {
+     "w": "que",
+     "t0": 1.431,
+     "t1": 1.585
+    },
+    {
+     "w": "faz",
+     "t0": 1.585,
+     "t1": 1.739
+    },
+    {
+     "w": "o",
+     "t0": 1.739,
+     "t1": 1.893
+    },
+    {
+     "w": "cliente",
+     "t0": 1.893,
+     "t1": 2.2
+    },
+    {
+     "w": "querer",
+     "t0": 2.2,
+     "t1": 2.635
+    },
+    {
+     "w": "ficar.",
+     "t0": 2.635,
+     "t1": 3.07
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "anuncia os níveis: curto",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Agora é a parte que faz o cliente querer ficar."
+  },
+  "F033": {
+   "origem": "clipe",
+   "ini": 0.03,
+   "fim": 4.875,
+   "iniGravacao": 339.46,
+   "fimGravacao": 344.305,
+   "ganhoDb": 0,
+   "pausaDepois": 0.35,
+   "tEnfaseRel": 1.52,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "A",
+     "t0": 0.04,
+     "t1": 0.312
+    },
+    {
+     "w": "Vapti",
+     "t0": 0.312,
+     "t1": 0.855
+    },
+    {
+     "w": "tem",
+     "t0": 0.855,
+     "t1": 1.127
+    },
+    {
+     "w": "níveis:",
+     "t0": 1.127,
+     "t1": 1.52
+    },
+    {
+     "w": "Entrada,",
+     "t0": 1.52,
+     "t1": 2.772
+    },
+    {
+     "w": "Bronze,",
+     "t0": 2.772,
+     "t1": 3.36
+    },
+    {
+     "w": "Prata",
+     "t0": 3.56,
+     "t1": 3.953
+    },
+    {
+     "w": "e",
+     "t0": 3.953,
+     "t1": 4.15
+    },
+    {
+     "w": "Ouro.",
+     "t0": 4.37,
+     "t1": 4.82
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "suspenso/ascendente (continuação)",
+   "motivoPausa": "lista dos níveis; continua",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "A VAPT tem níveis entrada bronze prata ouro"
+  },
+  "F034": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 5.135,
+   "iniGravacao": 345.14,
+   "fimGravacao": 350.255,
+   "ganhoDb": 0,
+   "pausaDepois": 0.35,
+   "tEnfaseRel": 4.025,
+   "enfaseMetodo": "asr-interp (entre dois cortes ASR, ±80 ms)",
+   "palavras": [
+    {
+     "w": "Quem",
+     "t0": 0.04,
+     "t1": 0.248
+    },
+    {
+     "w": "paga",
+     "t0": 0.248,
+     "t1": 0.664
+    },
+    {
+     "w": "em",
+     "t0": 0.664,
+     "t1": 0.872
+    },
+    {
+     "w": "dia",
+     "t0": 0.872,
+     "t1": 1.08
+    },
+    {
+     "w": "sobe",
+     "t0": 1.48,
+     "t1": 1.856
+    },
+    {
+     "w": "de",
+     "t0": 1.856,
+     "t1": 2.044
+    },
+    {
+     "w": "nível.",
+     "t0": 2.044,
+     "t1": 2.42
+    },
+    {
+     "w": "E",
+     "t0": 2.9,
+     "t1": 3.085
+    },
+    {
+     "w": "a",
+     "t0": 3.085,
+     "t1": 3.27
+    },
+    {
+     "w": "cada",
+     "t0": 3.27,
+     "t1": 3.64
+    },
+    {
+     "w": "nível,",
+     "t0": 3.64,
+     "t1": 4.01
+    },
+    {
+     "w": "a",
+     "t0": 4.025,
+     "t1": 4.528
+    },
+    {
+     "w": "taxa",
+     "t0": 4.528,
+     "t1": 4.903
+    },
+    {
+     "w": "cai.",
+     "t0": 4.903,
+     "t1": 5.09
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "continua para os números da taxa",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Quem paga em dia, sobe de nível, e a cada nível, a taxa cai."
+  },
+  "F035": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 4.375,
+   "iniGravacao": 355.77,
+   "fimGravacao": 360.125,
+   "ganhoDb": 0,
+   "pausaDepois": 0.45,
+   "tEnfaseRel": 2.88,
+   "enfaseMetodo": "asr-manual (sufixos ASR + energia, ±60 ms)",
+   "palavras": [
+    {
+     "w": "Começa",
+     "t0": 0.04,
+     "t1": 0.543
+    },
+    {
+     "w": "em",
+     "t0": 0.543,
+     "t1": 0.71
+    },
+    {
+     "w": "seis",
+     "t0": 0.71,
+     "t1": 0.878
+    },
+    {
+     "w": "por",
+     "t0": 0.878,
+     "t1": 1.045
+    },
+    {
+     "w": "cento",
+     "t0": 1.045,
+     "t1": 1.38
+    },
+    {
+     "w": "por",
+     "t0": 1.38,
+     "t1": 1.548
+    },
+    {
+     "w": "semana,",
+     "t0": 1.548,
+     "t1": 2.05
+    },
+    {
+     "w": "e",
+     "t0": 2.48,
+     "t1": 2.58
+    },
+    {
+     "w": "chega",
+     "t0": 2.58,
+     "t1": 2.78
+    },
+    {
+     "w": "a",
+     "t0": 2.78,
+     "t1": 2.88
+    },
+    {
+     "w": "quatro",
+     "t0": 2.88,
+     "t1": 3.46
+    },
+    {
+     "w": "no",
+     "t0": 3.46,
+     "t1": 3.75
+    },
+    {
+     "w": "Ouro.",
+     "t0": 3.75,
+     "t1": 4.33
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "número; muda para benefício",
+   "nota": "O ASR ouve \"Começa por seis…\" (roteiro: \"Começa em seis\"). É diferença menor.",
+   "asrDoCorte": "Começa por 6% por semana e chega a 4% no ouro."
+  },
+  "F036": {
+   "origem": "clipe",
+   "ini": 0.03,
+   "fim": 5.275,
+   "iniGravacao": 365.58,
+   "fimGravacao": 370.825,
+   "ganhoDb": 0,
+   "pausaDepois": 0.3,
+   "tEnfaseRel": 3.83,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "A",
+     "t0": 0.04,
+     "t1": 0.2
+    },
+    {
+     "w": "partir",
+     "t0": 0.2,
+     "t1": 0.52
+    },
+    {
+     "w": "do",
+     "t0": 0.52,
+     "t1": 0.68
+    },
+    {
+     "w": "Prata,",
+     "t0": 0.68,
+     "t1": 1.0
+    },
+    {
+     "w": "o",
+     "t0": 1.41,
+     "t1": 1.556
+    },
+    {
+     "w": "limite",
+     "t0": 1.556,
+     "t1": 1.993
+    },
+    {
+     "w": "volta",
+     "t0": 1.993,
+     "t1": 2.284
+    },
+    {
+     "w": "à",
+     "t0": 2.284,
+     "t1": 2.43
+    },
+    {
+     "w": "medida",
+     "t0": 2.61,
+     "t1": 3.13
+    },
+    {
+     "w": "que",
+     "t0": 3.13,
+     "t1": 3.303
+    },
+    {
+     "w": "ele",
+     "t0": 3.303,
+     "t1": 3.65
+    },
+    {
+     "w": "paga,",
+     "t0": 3.99,
+     "t1": 4.03
+    },
+    {
+     "w": "sem",
+     "t0": 4.03,
+     "t1": 4.062
+    },
+    {
+     "w": "precisar",
+     "t0": 4.07,
+     "t1": 4.757
+    },
+    {
+     "w": "zerar.",
+     "t0": 4.757,
+     "t1": 5.22
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "benefícios em sequência (Prata → Ouro)",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "A partir do prata, o limite volta à medida que ele paga, sem precisar zerar."
+  },
+  "F037": {
+   "origem": "clipe",
+   "ini": 0.03,
+   "fim": 6.535,
+   "iniGravacao": 371.6,
+   "fimGravacao": 378.105,
+   "ganhoDb": 0,
+   "pausaDepois": 0.45,
+   "tEnfaseRel": 1.59,
+   "enfaseMetodo": "asr-varredura (execução: cortes de 40 ms + energia)",
+   "palavras": [
+    {
+     "w": "No",
+     "t0": 0.04,
+     "t1": 0.263
+    },
+    {
+     "w": "Ouro,",
+     "t0": 0.263,
+     "t1": 0.71
+    },
+    {
+     "w": "ele",
+     "t0": 1.01,
+     "t1": 1.203
+    },
+    {
+     "w": "ganha",
+     "t0": 1.203,
+     "t1": 1.397
+    },
+    {
+     "w": "uma",
+     "t0": 1.397,
+     "t1": 1.59
+    },
+    {
+     "w": "reserva",
+     "t0": 1.59,
+     "t1": 2.127
+    },
+    {
+     "w": "de",
+     "t0": 2.127,
+     "t1": 2.307
+    },
+    {
+     "w": "emergência",
+     "t0": 2.307,
+     "t1": 3.024
+    },
+    {
+     "w": "pré-aprovada,",
+     "t0": 3.024,
+     "t1": 3.92
+    },
+    {
+     "w": "liberada",
+     "t0": 4.28,
+     "t1": 5.225
+    },
+    {
+     "w": "em",
+     "t0": 5.225,
+     "t1": 5.461
+    },
+    {
+     "w": "segundos.",
+     "t0": 5.461,
+     "t1": 6.17
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "fecha os benefícios por nível",
+   "nota": "Pausa interna de 0.61 s encurtada para 0.30 s. Ênfase corrigida na execução: o início medido de \"reserva\" é 1.59 s (o plano tinha 2.09 s); palavras do bloco reancoradas.",
+   "encurtarPausas": [
+    [
+     0.71,
+     1.32,
+     0.3
+    ]
+   ],
+   "asrDoCorte": "No ouro, ele ganha uma reserva de emergência pré-aprovada, liberada em segundos.",
+   "tEnfaseRelPlanoOriginal": 2.09
+  },
+  "F038": {
+   "origem": "clipe",
+   "ini": 0.23,
+   "fim": 4.095,
+   "iniGravacao": 388.52,
+   "fimGravacao": 392.385,
+   "ganhoDb": 0,
+   "pausaDepois": 0.3,
+   "tEnfaseRel": 1.09,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "E",
+     "t0": 0.04,
+     "t1": 0.157
+    },
+    {
+     "w": "quem",
+     "t0": 0.157,
+     "t1": 0.273
+    },
+    {
+     "w": "indica",
+     "t0": 0.273,
+     "t1": 0.623
+    },
+    {
+     "w": "amigos",
+     "t0": 0.623,
+     "t1": 0.973
+    },
+    {
+     "w": "que",
+     "t0": 0.973,
+     "t1": 1.09
+    },
+    {
+     "w": "pagam",
+     "t0": 1.09,
+     "t1": 1.515
+    },
+    {
+     "w": "em",
+     "t0": 1.515,
+     "t1": 1.727
+    },
+    {
+     "w": "dia",
+     "t0": 1.727,
+     "t1": 1.94
+    },
+    {
+     "w": "também",
+     "t0": 2.19,
+     "t1": 2.535
+    },
+    {
+     "w": "sobe",
+     "t0": 2.535,
+     "t1": 2.88
+    },
+    {
+     "w": "mais",
+     "t0": 2.88,
+     "t1": 3.053
+    },
+    {
+     "w": "rápido.",
+     "t0": 3.053,
+     "t1": 3.57
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "continua (\"Tudo com regra clara\")",
+   "nota": "Pausa interna de 0.52 s encurtada para 0.25 s.",
+   "encurtarPausas": [
+    [
+     1.94,
+     2.46,
+     0.25
+    ]
+   ],
+   "asrDoCorte": "E quem indica amigos que pagam em dia também sobe mais rápido."
+  },
+  "F039": {
+   "origem": "clipe",
+   "ini": 0.39,
+   "fim": 4.555,
+   "iniGravacao": 393.09,
+   "fimGravacao": 397.255,
+   "ganhoDb": 0,
+   "pausaDepois": 0.6,
+   "tEnfaseRel": 0.47,
+   "enfaseMetodo": "asr-varredura (execução: cortes de 40 ms + energia)",
+   "palavras": [
+    {
+     "w": "Tudo",
+     "t0": 0.04,
+     "t1": 0.326
+    },
+    {
+     "w": "com",
+     "t0": 0.326,
+     "t1": 0.47
+    },
+    {
+     "w": "regra",
+     "t0": 0.47,
+     "t1": 0.97
+    },
+    {
+     "w": "clara,",
+     "t0": 0.97,
+     "t1": 1.47
+    },
+    {
+     "w": "na",
+     "t0": 1.96,
+     "t1": 2.21
+    },
+    {
+     "w": "tela,",
+     "t0": 2.21,
+     "t1": 2.71
+    },
+    {
+     "w": "pra",
+     "t0": 3.06,
+     "t1": 3.369
+    },
+    {
+     "w": "todo",
+     "t0": 3.369,
+     "t1": 3.677
+    },
+    {
+     "w": "mundo",
+     "t0": 3.677,
+     "t1": 3.986
+    },
+    {
+     "w": "ver.",
+     "t0": 3.986,
+     "t1": 4.14
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "virada de valor; respiro antes do princípio",
+   "nota": "Corte deixa de fora: respiração 392.77-392.92 (-39 dB) Ênfase corrigida na execução: o início medido de \"regra\" é 0.47 s (o plano tinha 0.72 s); palavras do bloco reancoradas.",
+   "asrDoCorte": "Tudo com regra clara na tela para todo mundo ver.",
+   "tEnfaseRelPlanoOriginal": 0.72
+  },
+  "F040": {
+   "origem": "clipe",
+   "ini": 0.03,
+   "fim": 4.075,
+   "iniGravacao": 405.53,
+   "fimGravacao": 409.575,
+   "ganhoDb": 0,
+   "pausaDepois": 0.45,
+   "tEnfaseRel": 2.22,
+   "enfaseMetodo": "asr-varredura (execução: cortes de 40 ms + energia)",
+   "palavras": [
+    {
+     "w": "A",
+     "t0": 0.04,
+     "t1": 0.22
+    },
+    {
+     "w": "gente",
+     "t0": 0.22,
+     "t1": 0.58
+    },
+    {
+     "w": "premia",
+     "t0": 0.58,
+     "t1": 0.94
+    },
+    {
+     "w": "quem",
+     "t0": 0.94,
+     "t1": 1.12
+    },
+    {
+     "w": "paga",
+     "t0": 1.12,
+     "t1": 1.48
+    },
+    {
+     "w": "bem.",
+     "t0": 1.48,
+     "t1": 1.66
+    },
+    {
+     "w": "Nunca",
+     "t0": 2.22,
+     "t1": 2.7
+    },
+    {
+     "w": "quem",
+     "t0": 2.7,
+     "t1": 2.82
+    },
+    {
+     "w": "se",
+     "t0": 2.82,
+     "t1": 3.02
+    },
+    {
+     "w": "endivida",
+     "t0": 3.02,
+     "t1": 3.82
+    },
+    {
+     "w": "mais.",
+     "t0": 3.82,
+     "t1": 4.02
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "princípio dito; deixa assentar",
+   "nota": "Mantido o take; só o aparo. Ênfase corrigida na execução: o início medido de \"Nunca\" é 2.22 s (o plano tinha 2.66 s); palavras do bloco reancoradas.",
+   "asrDoCorte": "A gente premia quem paga bem, nunca quem se endivida mais.",
+   "tEnfaseRelPlanoOriginal": 2.66
+  },
+  "F041": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 4.795,
+   "iniGravacao": 419.31,
+   "fimGravacao": 424.085,
+   "ganhoDb": 0,
+   "pausaDepois": 1.2,
+   "tEnfaseRel": 3.0,
+   "enfaseMetodo": "asr-varredura (execução: cortes de 40 ms + energia)",
+   "palavras": [
+    {
+     "w": "Isso",
+     "t0": 0.04,
+     "t1": 0.322
+    },
+    {
+     "w": "é",
+     "t0": 0.322,
+     "t1": 0.463
+    },
+    {
+     "w": "o",
+     "t0": 0.463,
+     "t1": 0.604
+    },
+    {
+     "w": "certo",
+     "t0": 0.604,
+     "t1": 0.887
+    },
+    {
+     "w": "a",
+     "t0": 0.887,
+     "t1": 1.028
+    },
+    {
+     "w": "fazer,",
+     "t0": 1.028,
+     "t1": 1.31
+    },
+    {
+     "w": "e",
+     "t0": 1.69,
+     "t1": 1.821
+    },
+    {
+     "w": "é",
+     "t0": 1.821,
+     "t1": 1.952
+    },
+    {
+     "w": "exatamente",
+     "t0": 1.952,
+     "t1": 2.607
+    },
+    {
+     "w": "o",
+     "t0": 2.607,
+     "t1": 2.738
+    },
+    {
+     "w": "que",
+     "t0": 2.738,
+     "t1": 2.869
+    },
+    {
+     "w": "um",
+     "t0": 2.869,
+     "t1": 3.0
+    },
+    {
+     "w": "investidor",
+     "t0": 3.0,
+     "t1": 3.583
+    },
+    {
+     "w": "vai",
+     "t0": 3.583,
+     "t1": 3.73
+    },
+    {
+     "w": "querer",
+     "t0": 3.73,
+     "t1": 4.021
+    },
+    {
+     "w": "ver",
+     "t0": 4.021,
+     "t1": 4.167
+    },
+    {
+     "w": "lá",
+     "t0": 4.167,
+     "t1": 4.313
+    },
+    {
+     "w": "na",
+     "t0": 4.313,
+     "t1": 4.458
+    },
+    {
+     "w": "frente.",
+     "t0": 4.458,
+     "t1": 4.75
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "fronteira de ato (já inclui os 0,9 s da fronteira; não somar)",
+   "nota": "Mantido o take; só o aparo. Ênfase corrigida na execução: o início medido de \"investidor\" é 3.00 s (o plano tinha 3.34 s); palavras do bloco reancoradas.",
+   "asrDoCorte": "Isso é o certo a fazer, e é exatamente o que um investidor vai querer ver lá na frente.",
+   "tEnfaseRelPlanoOriginal": 3.34
+  },
+  "F042": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 4.765,
+   "iniGravacao": 438.97,
+   "fimGravacao": 443.715,
+   "ganhoDb": 0,
+   "pausaDepois": 0.75,
+   "tEnfaseRel": 4.06,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Agora,",
+     "t0": 0.04,
+     "t1": 0.58
+    },
+    {
+     "w": "a",
+     "t0": 0.83,
+     "t1": 0.984
+    },
+    {
+     "w": "pergunta",
+     "t0": 0.984,
+     "t1": 1.446
+    },
+    {
+     "w": "que",
+     "t0": 1.446,
+     "t1": 1.6
+    },
+    {
+     "w": "define",
+     "t0": 1.6,
+     "t1": 2.062
+    },
+    {
+     "w": "tudo:",
+     "t0": 2.062,
+     "t1": 2.37
+    },
+    {
+     "w": "como",
+     "t0": 2.96,
+     "t1": 3.274
+    },
+    {
+     "w": "isso",
+     "t0": 3.274,
+     "t1": 3.589
+    },
+    {
+     "w": "funciona",
+     "t0": 3.589,
+     "t1": 4.06
+    },
+    {
+     "w": "dentro",
+     "t0": 4.06,
+     "t1": 4.39
+    },
+    {
+     "w": "da",
+     "t0": 4.39,
+     "t1": 4.555
+    },
+    {
+     "w": "lei.",
+     "t0": 4.555,
+     "t1": 4.72
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "pergunta que define tudo: deixa pairar",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Agora, a pergunta que define tudo. Como isso funciona dentro da lei?"
+  },
+  "F043": {
+   "origem": "clipe",
+   "ini": 0.03,
+   "fim": 8.395,
+   "iniGravacao": 447.42,
+   "fimGravacao": 455.785,
+   "ganhoDb": 0,
+   "pausaDepois": 0.55,
+   "tEnfaseRel": 6.82,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Emprestar",
+     "t0": 0.04,
+     "t1": 0.421
+    },
+    {
+     "w": "como",
+     "t0": 0.421,
+     "t1": 0.675
+    },
+    {
+     "w": "empresa",
+     "t0": 0.675,
+     "t1": 1.055
+    },
+    {
+     "w": "comum",
+     "t0": 1.055,
+     "t1": 1.309
+    },
+    {
+     "w": "não",
+     "t0": 1.309,
+     "t1": 1.563
+    },
+    {
+     "w": "dá:",
+     "t0": 1.563,
+     "t1": 1.69
+    },
+    {
+     "w": "pra",
+     "t0": 1.91,
+     "t1": 2.33
+    },
+    {
+     "w": "quem",
+     "t0": 2.73,
+     "t1": 2.901
+    },
+    {
+     "w": "não",
+     "t0": 2.901,
+     "t1": 3.242
+    },
+    {
+     "w": "é",
+     "t0": 3.242,
+     "t1": 3.413
+    },
+    {
+     "w": "instituição",
+     "t0": 3.413,
+     "t1": 4.267
+    },
+    {
+     "w": "financeira,",
+     "t0": 4.267,
+     "t1": 4.95
+    },
+    {
+     "w": "a",
+     "t0": 5.25,
+     "t1": 5.424
+    },
+    {
+     "w": "lei",
+     "t0": 5.424,
+     "t1": 5.599
+    },
+    {
+     "w": "limita",
+     "t0": 5.599,
+     "t1": 6.122
+    },
+    {
+     "w": "os",
+     "t0": 6.122,
+     "t1": 6.297
+    },
+    {
+     "w": "juros",
+     "t0": 6.297,
+     "t1": 6.646
+    },
+    {
+     "w": "a",
+     "t0": 6.646,
+     "t1": 6.82
+    },
+    {
+     "w": "doze",
+     "t0": 6.82,
+     "t1": 7.098
+    },
+    {
+     "w": "por",
+     "t0": 7.098,
+     "t1": 7.237
+    },
+    {
+     "w": "cento",
+     "t0": 7.237,
+     "t1": 7.514
+    },
+    {
+     "w": "ao",
+     "t0": 7.514,
+     "t1": 7.792
+    },
+    {
+     "w": "ano.",
+     "t0": 7.792,
+     "t1": 8.07
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "número (12% ao ano) + troca de opção",
+   "nota": "Pausa interna de 0.67 s encurtada para 0.40 s.",
+   "encurtarPausas": [
+    [
+     2.33,
+     3.0,
+     0.4
+    ]
+   ],
+   "asrDoCorte": "Imprestar como empresa comum não dá. Para quem não é instituição financeira, a lei limita os juros a 12% ao ano."
+  },
+  "F044": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 3.715,
+   "iniGravacao": 493.16,
+   "fimGravacao": 496.855,
+   "ganhoDb": 0,
+   "pausaDepois": 0.25,
+   "tEnfaseRel": 2.69,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "A",
+     "t0": 0.04,
+     "t1": 0.33
+    },
+    {
+     "w": "ESC,",
+     "t0": 0.33,
+     "t1": 0.62
+    },
+    {
+     "w": "a",
+     "t0": 0.81,
+     "t1": 0.972
+    },
+    {
+     "w": "Empresa",
+     "t0": 0.972,
+     "t1": 1.458
+    },
+    {
+     "w": "Simples",
+     "t0": 1.458,
+     "t1": 1.782
+    },
+    {
+     "w": "de",
+     "t0": 1.782,
+     "t1": 1.944
+    },
+    {
+     "w": "Crédito,",
+     "t0": 1.944,
+     "t1": 2.43
+    },
+    {
+     "w": "parecia",
+     "t0": 2.69,
+     "t1": 3.121
+    },
+    {
+     "w": "o",
+     "t0": 3.121,
+     "t1": 3.259
+    },
+    {
+     "w": "caminho.",
+     "t0": 3.259,
+     "t1": 3.67
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "\"Mas ela não atende…\" continua a mesma ideia",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "A ESC, a empresa simples de crédito, parecia o caminho."
+  },
+  "F045": {
+   "origem": "clipe",
+   "ini": 0.3,
+   "fim": 7.955,
+   "iniGravacao": 497.39,
+   "fimGravacao": 505.045,
+   "ganhoDb": 0,
+   "pausaDepois": 0.35,
+   "tEnfaseRel": 5.5,
+   "enfaseMetodo": "asr-manual (sufixos ASR + energia, ±60 ms)",
+   "palavras": [
+    {
+     "w": "Mas",
+     "t0": 0.04,
+     "t1": 0.179
+    },
+    {
+     "w": "ela",
+     "t0": 0.179,
+     "t1": 0.458
+    },
+    {
+     "w": "não",
+     "t0": 0.458,
+     "t1": 0.736
+    },
+    {
+     "w": "atende",
+     "t0": 0.736,
+     "t1": 1.154
+    },
+    {
+     "w": "pessoa",
+     "t0": 1.154,
+     "t1": 1.572
+    },
+    {
+     "w": "física,",
+     "t0": 1.572,
+     "t1": 1.99
+    },
+    {
+     "w": "só",
+     "t0": 2.3,
+     "t1": 2.486
+    },
+    {
+     "w": "funciona",
+     "t0": 2.486,
+     "t1": 3.044
+    },
+    {
+     "w": "na",
+     "t0": 3.044,
+     "t1": 3.23
+    },
+    {
+     "w": "própria",
+     "t0": 3.23,
+     "t1": 3.602
+    },
+    {
+     "w": "cidade",
+     "t0": 3.602,
+     "t1": 4.16
+    },
+    {
+     "w": "e",
+     "t0": 4.16,
+     "t1": 4.346
+    },
+    {
+     "w": "nas",
+     "t0": 4.346,
+     "t1": 4.532
+    },
+    {
+     "w": "vizinhas,",
+     "t0": 4.532,
+     "t1": 5.09
+    },
+    {
+     "w": "e",
+     "t0": 5.24,
+     "t1": 5.5
+    },
+    {
+     "w": "não",
+     "t0": 5.5,
+     "t1": 5.828
+    },
+    {
+     "w": "pode",
+     "t0": 5.828,
+     "t1": 6.155
+    },
+    {
+     "w": "receber",
+     "t0": 6.155,
+     "t1": 6.647
+    },
+    {
+     "w": "dinheiro",
+     "t0": 6.647,
+     "t1": 7.138
+    },
+    {
+     "w": "de",
+     "t0": 7.138,
+     "t1": 7.302
+    },
+    {
+     "w": "fundos.",
+     "t0": 7.302,
+     "t1": 7.63
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "lista de limites; conclusão vem a seguir",
+   "nota": "Corte deixa de fora: respiração 497.18-497.31 (-41 dB)",
+   "asrDoCorte": "mas ela não atende pessoa física, só funciona na própria cidade e nas zizinhas e não pode receber dinheiro de fundos."
+  },
+  "F046": {
+   "origem": "gravacao",
+   "ini": 510.323,
+   "fim": 514.818,
+   "iniGravacao": 510.323,
+   "fimGravacao": 514.818,
+   "ganhoDb": 0,
+   "pausaDepois": 0.5,
+   "tEnfaseRel": 0.26,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Ela",
+     "t0": 0.04,
+     "t1": 0.26
+    },
+    {
+     "w": "travaria",
+     "t0": 0.26,
+     "t1": 0.746
+    },
+    {
+     "w": "a",
+     "t0": 0.746,
+     "t1": 0.908
+    },
+    {
+     "w": "gente",
+     "t0": 0.908,
+     "t1": 1.232
+    },
+    {
+     "w": "justamente",
+     "t0": 1.232,
+     "t1": 1.879
+    },
+    {
+     "w": "quando",
+     "t0": 1.879,
+     "t1": 2.203
+    },
+    {
+     "w": "a",
+     "t0": 2.203,
+     "t1": 2.365
+    },
+    {
+     "w": "operação",
+     "t0": 2.365,
+     "t1": 3.175
+    },
+    {
+     "w": "começasse",
+     "t0": 3.175,
+     "t1": 3.822
+    },
+    {
+     "w": "a",
+     "t0": 3.822,
+     "t1": 3.984
+    },
+    {
+     "w": "dar",
+     "t0": 3.984,
+     "t1": 4.146
+    },
+    {
+     "w": "certo.",
+     "t0": 4.146,
+     "t1": 4.47
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "conclusão; \"Então\" vira para a solução",
+   "nota": "Troca p/ take 510,32 s: \"travaria\" limpo (a escolhida soa \"atravaria\"), +1 dB de esforço vocal e fala mais clara (6,3 × 7,7 síl/s).",
+   "asrDoCorte": "ela travaria a gente justamente quando a operação começasse a dar certo."
+  },
+  "F047": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 2.195,
+   "iniGravacao": 523.74,
+   "fimGravacao": 525.915,
+   "ganhoDb": 0,
+   "pausaDepois": 0.35,
+   "tEnfaseRel": 1.21,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Então",
+     "t0": 0.04,
+     "t1": 0.43
+    },
+    {
+     "w": "a",
+     "t0": 0.43,
+     "t1": 0.56
+    },
+    {
+     "w": "gente",
+     "t0": 0.56,
+     "t1": 0.82
+    },
+    {
+     "w": "vai",
+     "t0": 0.82,
+     "t1": 0.95
+    },
+    {
+     "w": "fazer",
+     "t0": 0.95,
+     "t1": 1.21
+    },
+    {
+     "w": "como",
+     "t0": 1.21,
+     "t1": 1.523
+    },
+    {
+     "w": "a",
+     "t0": 1.523,
+     "t1": 1.68
+    },
+    {
+     "w": "Zippi",
+     "t0": 1.68,
+     "t1": 1.993
+    },
+    {
+     "w": "fez.",
+     "t0": 1.993,
+     "t1": 2.15
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "anuncia o modelo",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Então a gente vai fazer com uma zip face."
+  },
+  "F048": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 4.265,
+   "iniGravacao": 526.9,
+   "fimGravacao": 531.145,
+   "ganhoDb": 0,
+   "pausaDepois": 0.25,
+   "tEnfaseRel": 1.26,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "A",
+     "t0": 0.04,
+     "t1": 0.243
+    },
+    {
+     "w": "Vapti",
+     "t0": 0.243,
+     "t1": 0.65
+    },
+    {
+     "w": "cuida",
+     "t0": 0.65,
+     "t1": 1.057
+    },
+    {
+     "w": "do",
+     "t0": 1.057,
+     "t1": 1.26
+    },
+    {
+     "w": "cliente,",
+     "t0": 1.26,
+     "t1": 1.75
+    },
+    {
+     "w": "da",
+     "t0": 2.16,
+     "t1": 2.338
+    },
+    {
+     "w": "análise",
+     "t0": 2.338,
+     "t1": 3.05
+    },
+    {
+     "w": "e",
+     "t0": 3.28,
+     "t1": 3.468
+    },
+    {
+     "w": "da",
+     "t0": 3.468,
+     "t1": 3.656
+    },
+    {
+     "w": "cobrança.",
+     "t0": 3.656,
+     "t1": 4.22
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "divisão de papéis em sequência",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "A Vapt cuida do cliente, da análise e da cobrança."
+  },
+  "F049": {
+   "origem": "clipe",
+   "ini": 0.03,
+   "fim": 5.355,
+   "iniGravacao": 531.56,
+   "fimGravacao": 536.885,
+   "ganhoDb": 0,
+   "pausaDepois": 0.25,
+   "tEnfaseRel": 0.93,
+   "enfaseMetodo": "asr-varredura (execução: cortes de 40 ms + energia)",
+   "palavras": [
+    {
+     "w": "Uma",
+     "t0": 0.04,
+     "t1": 0.294
+    },
+    {
+     "w": "instituição",
+     "t0": 0.294,
+     "t1": 0.93
+    },
+    {
+     "w": "autorizada",
+     "t0": 0.93,
+     "t1": 1.816
+    },
+    {
+     "w": "pelo",
+     "t0": 1.816,
+     "t1": 2.17
+    },
+    {
+     "w": "Banco",
+     "t0": 2.17,
+     "t1": 2.525
+    },
+    {
+     "w": "Central",
+     "t0": 2.525,
+     "t1": 2.88
+    },
+    {
+     "w": "emite",
+     "t0": 2.88,
+     "t1": 3.411
+    },
+    {
+     "w": "o",
+     "t0": 3.411,
+     "t1": 3.588
+    },
+    {
+     "w": "contrato",
+     "t0": 3.588,
+     "t1": 4.12
+    },
+    {
+     "w": "e",
+     "t0": 4.35,
+     "t1": 4.508
+    },
+    {
+     "w": "libera",
+     "t0": 4.508,
+     "t1": 4.983
+    },
+    {
+     "w": "o",
+     "t0": 4.983,
+     "t1": 5.142
+    },
+    {
+     "w": "Pix.",
+     "t0": 5.142,
+     "t1": 5.3
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "divisão de papéis em sequência",
+   "nota": "Mantido o take; só o aparo. Ênfase corrigida na execução: o início medido de \"autorizada\" é 0.93 s (o plano tinha 1.27 s); palavras do bloco reancoradas.",
+   "asrDoCorte": "uma instituição autorizada pelo Banco Central em Mítio Contrato e libera o PIX.",
+   "tEnfaseRelPlanoOriginal": 1.27
+  },
+  "F050": {
+   "origem": "clipe",
+   "ini": 0.31,
+   "fim": 4.725,
+   "iniGravacao": 537.58,
+   "fimGravacao": 541.995,
+   "ganhoDb": 0,
+   "pausaDepois": 0.45,
+   "tEnfaseRel": 0.8,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "E",
+     "t0": 0.04,
+     "t1": 0.195
+    },
+    {
+     "w": "a",
+     "t0": 0.195,
+     "t1": 0.35
+    },
+    {
+     "w": "Vapti",
+     "t0": 0.35,
+     "t1": 0.66
+    },
+    {
+     "w": "compra",
+     "t0": 0.8,
+     "t1": 1.169
+    },
+    {
+     "w": "esse",
+     "t0": 1.169,
+     "t1": 1.507
+    },
+    {
+     "w": "crédito",
+     "t0": 1.507,
+     "t1": 2.015
+    },
+    {
+     "w": "com",
+     "t0": 2.015,
+     "t1": 2.184
+    },
+    {
+     "w": "o",
+     "t0": 2.184,
+     "t1": 2.354
+    },
+    {
+     "w": "próprio",
+     "t0": 2.354,
+     "t1": 2.692
+    },
+    {
+     "w": "capital,",
+     "t0": 2.692,
+     "t1": 3.2
+    },
+    {
+     "w": "no",
+     "t0": 3.53,
+     "t1": 3.745
+    },
+    {
+     "w": "mesmo",
+     "t0": 3.745,
+     "t1": 4.175
+    },
+    {
+     "w": "dia.",
+     "t0": 4.175,
+     "t1": 4.39
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "fecha o mecanismo; nomeia o modelo",
+   "nota": "Corte deixa de fora: respiração 537.37-537.47 (-43 dB)",
+   "asrDoCorte": "e a Vapt compra esse crédito com o próprio capital no mesmo dia."
+  },
+  "F051": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 4.815,
+   "iniGravacao": 554.46,
+   "fimGravacao": 559.255,
+   "ganhoDb": 0,
+   "pausaDepois": 0.35,
+   "tEnfaseRel": 2.0,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Isso",
+     "t0": 0.04,
+     "t1": 0.394
+    },
+    {
+     "w": "se",
+     "t0": 0.394,
+     "t1": 0.571
+    },
+    {
+     "w": "chama",
+     "t0": 0.571,
+     "t1": 0.926
+    },
+    {
+     "w": "BaaS,",
+     "t0": 0.926,
+     "t1": 1.28
+    },
+    {
+     "w": "e",
+     "t0": 1.54,
+     "t1": 1.693
+    },
+    {
+     "w": "está",
+     "t0": 1.693,
+     "t1": 2.0
+    },
+    {
+     "w": "regulamentado",
+     "t0": 2.0,
+     "t1": 2.831
+    },
+    {
+     "w": "desde",
+     "t0": 2.831,
+     "t1": 3.108
+    },
+    {
+     "w": "novembro",
+     "t0": 3.108,
+     "t1": 3.524
+    },
+    {
+     "w": "de",
+     "t0": 3.524,
+     "t1": 3.662
+    },
+    {
+     "w": "2025.",
+     "t0": 3.662,
+     "t1": 4.77
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "\"Resultado:\" continua o raciocínio",
+   "nota": "Falta o \"e\" (\"…BaaS, está regulamentado\"). A outra tomada (542,5 s) tem o \"e\", mas tem uma pausa de 1,3 s depois de \"BaaS\". Mantida a escolhida.",
+   "asrDoCorte": "Isso se chama BAS, está regulamentado desde novembro de 2025."
+  },
+  "F052": {
+   "origem": "clipe",
+   "ini": 0.04,
+   "fim": 6.515,
+   "iniGravacao": 559.77,
+   "fimGravacao": 566.245,
+   "ganhoDb": 0,
+   "pausaDepois": 1.2,
+   "tEnfaseRel": 4.72,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Resultado:",
+     "t0": 0.04,
+     "t1": 0.77
+    },
+    {
+     "w": "Brasil",
+     "t0": 1.13,
+     "t1": 1.541
+    },
+    {
+     "w": "inteiro,",
+     "t0": 1.541,
+     "t1": 2.157
+    },
+    {
+     "w": "pessoa",
+     "t0": 2.157,
+     "t1": 2.773
+    },
+    {
+     "w": "física",
+     "t0": 2.773,
+     "t1": 3.389
+    },
+    {
+     "w": "e",
+     "t0": 3.389,
+     "t1": 3.594
+    },
+    {
+     "w": "MEI,",
+     "t0": 3.594,
+     "t1": 3.799
+    },
+    {
+     "w": "e",
+     "t0": 3.799,
+     "t1": 4.005
+    },
+    {
+     "w": "a",
+     "t0": 4.005,
+     "t1": 4.21
+    },
+    {
+     "w": "porta",
+     "t0": 4.72,
+     "t1": 4.85
+    },
+    {
+     "w": "aberta",
+     "t0": 4.85,
+     "t1": 5.45
+    },
+    {
+     "w": "para",
+     "t0": 5.45,
+     "t1": 5.85
+    },
+    {
+     "w": "os",
+     "t0": 5.85,
+     "t1": 6.05
+    },
+    {
+     "w": "fundos.",
+     "t0": 6.05,
+     "t1": 6.45
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "fronteira de ato (já inclui os 0,9 s da fronteira; não somar)",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Resultado? Brasil inteiro pessoa física e-mail e a porta aberta para os fundos."
+  },
+  "F053": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 1.175,
+   "iniGravacao": 574.29,
+   "fimGravacao": 575.445,
+   "ganhoDb": 0,
+   "pausaDepois": 0.3,
+   "tEnfaseRel": 0.56,
+   "enfaseMetodo": "asr-varredura (execução: cortes de 40 ms + energia)",
+   "palavras": [
+    {
+     "w": "Vamos",
+     "t0": 0.04,
+     "t1": 0.3
+    },
+    {
+     "w": "aos",
+     "t0": 0.3,
+     "t1": 0.56
+    },
+    {
+     "w": "números.",
+     "t0": 0.56,
+     "t1": 1.13
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "anúncio curto",
+   "nota": "Mantido o take; só o aparo. Ênfase corrigida na execução: o início medido de \"números\" é 0.56 s (o plano tinha 0.66 s); palavras do bloco reancoradas.",
+   "asrDoCorte": "Vamos aos números.",
+   "tEnfaseRelPlanoOriginal": 0.655
+  },
+  "F054": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 6.345,
+   "iniGravacao": 592.43,
+   "fimGravacao": 598.755,
+   "ganhoDb": 0,
+   "pausaDepois": 0.35,
+   "tEnfaseRel": 4.67,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "A",
+     "t0": 0.04,
+     "t1": 0.213
+    },
+    {
+     "w": "cinco",
+     "t0": 0.213,
+     "t1": 0.559
+    },
+    {
+     "w": "por",
+     "t0": 0.559,
+     "t1": 0.732
+    },
+    {
+     "w": "cento",
+     "t0": 0.732,
+     "t1": 1.078
+    },
+    {
+     "w": "por",
+     "t0": 1.078,
+     "t1": 1.251
+    },
+    {
+     "w": "semana,",
+     "t0": 1.251,
+     "t1": 1.77
+    },
+    {
+     "w": "um",
+     "t0": 2.0,
+     "t1": 2.208
+    },
+    {
+     "w": "saque",
+     "t0": 2.208,
+     "t1": 2.624
+    },
+    {
+     "w": "de",
+     "t0": 2.624,
+     "t1": 2.832
+    },
+    {
+     "w": "quatrocentos",
+     "t0": 2.832,
+     "t1": 3.664
+    },
+    {
+     "w": "reais",
+     "t0": 3.664,
+     "t1": 4.08
+    },
+    {
+     "w": "custa",
+     "t0": 4.26,
+     "t1": 4.67
+    },
+    {
+     "w": "oitenta",
+     "t0": 4.67,
+     "t1": 5.281
+    },
+    {
+     "w": "reais",
+     "t0": 5.281,
+     "t1": 5.689
+    },
+    {
+     "w": "de",
+     "t0": 5.689,
+     "t1": 5.893
+    },
+    {
+     "w": "juros.",
+     "t0": 5.893,
+     "t1": 6.3
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "número; a próxima é a consequência direta",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "A 5% por semana, um saque de R$ 400 custa R$ 80 de juros."
+  },
+  "F055": {
+   "origem": "gravacao",
+   "ini": 605.568,
+   "fim": 607.873,
+   "iniGravacao": 605.568,
+   "fimGravacao": 607.873,
+   "ganhoDb": 0,
+   "pausaDepois": 0.55,
+   "tEnfaseRel": 0.46,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Isso",
+     "t0": 0.04,
+     "t1": 0.32
+    },
+    {
+     "w": "dá",
+     "t0": 0.32,
+     "t1": 0.46
+    },
+    {
+     "w": "trinta",
+     "t0": 0.46,
+     "t1": 0.74
+    },
+    {
+     "w": "e",
+     "t0": 0.74,
+     "t1": 0.88
+    },
+    {
+     "w": "sete",
+     "t0": 0.88,
+     "t1": 1.16
+    },
+    {
+     "w": "e",
+     "t0": 1.16,
+     "t1": 1.3
+    },
+    {
+     "w": "meio",
+     "t0": 1.3,
+     "t1": 1.44
+    },
+    {
+     "w": "por",
+     "t0": 1.44,
+     "t1": 1.58
+    },
+    {
+     "w": "cento",
+     "t0": 1.58,
+     "t1": 1.86
+    },
+    {
+     "w": "ao",
+     "t0": 1.86,
+     "t1": 2.14
+    },
+    {
+     "w": "mês.",
+     "t0": 2.14,
+     "t1": 2.28
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "número-chave (37,5%); respiro",
+   "nota": "Troca p/ take 605,57 s (1ª tomada, conferida no ASR: diz \"trinta e sete e meio\"): mais energia, mais melodia (11,2 × 8,6 st), queda conclusiva e menos corrida no número-chave. Corte deixa de fora: respiração 605.30-605.49 (-31 dB) Corte deixa de fora: respiração 608.02-608.16 (-41 dB)",
+   "asrDoCorte": "Isso dá 37,5% ao mês."
+  },
+  "F056": {
+   "origem": "clipe",
+   "ini": 0.08,
+   "fim": 10.545,
+   "iniGravacao": 648.195,
+   "fimGravacao": 658.66,
+   "ganhoDb": 0,
+   "pausaDepois": 0.4,
+   "tEnfaseRel": 7.86,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "A",
+     "t0": 0.04,
+     "t1": 0.203
+    },
+    {
+     "w": "Zippi",
+     "t0": 0.203,
+     "t1": 0.529
+    },
+    {
+     "w": "cobra",
+     "t0": 0.529,
+     "t1": 0.855
+    },
+    {
+     "w": "a",
+     "t0": 0.855,
+     "t1": 1.018
+    },
+    {
+     "w": "partir",
+     "t0": 1.018,
+     "t1": 1.344
+    },
+    {
+     "w": "de",
+     "t0": 1.344,
+     "t1": 1.507
+    },
+    {
+     "w": "quatro",
+     "t0": 1.507,
+     "t1": 1.834
+    },
+    {
+     "w": "por",
+     "t0": 1.834,
+     "t1": 1.997
+    },
+    {
+     "w": "cento",
+     "t0": 1.997,
+     "t1": 2.323
+    },
+    {
+     "w": "por",
+     "t0": 2.323,
+     "t1": 2.486
+    },
+    {
+     "w": "semana,",
+     "t0": 2.486,
+     "t1": 2.975
+    },
+    {
+     "w": "cerca",
+     "t0": 3.305,
+     "t1": 3.603
+    },
+    {
+     "w": "de",
+     "t0": 3.603,
+     "t1": 3.752
+    },
+    {
+     "w": "dezoito",
+     "t0": 3.752,
+     "t1": 4.2
+    },
+    {
+     "w": "por",
+     "t0": 4.2,
+     "t1": 4.349
+    },
+    {
+     "w": "cento",
+     "t0": 4.349,
+     "t1": 4.647
+    },
+    {
+     "w": "ao",
+     "t0": 4.647,
+     "t1": 4.946
+    },
+    {
+     "w": "mês.",
+     "t0": 4.946,
+     "t1": 5.095
+    },
+    {
+     "w": "A",
+     "t0": 5.625,
+     "t1": 5.828
+    },
+    {
+     "w": "gente",
+     "t0": 5.828,
+     "t1": 6.235
+    },
+    {
+     "w": "cobra",
+     "t0": 6.235,
+     "t1": 6.641
+    },
+    {
+     "w": "mais",
+     "t0": 6.641,
+     "t1": 6.844
+    },
+    {
+     "w": "porque",
+     "t0": 6.844,
+     "t1": 7.25
+    },
+    {
+     "w": "atende",
+     "t0": 7.25,
+     "t1": 7.86
+    },
+    {
+     "w": "quem",
+     "t0": 7.86,
+     "t1": 7.997
+    },
+    {
+     "w": "ela",
+     "t0": 7.997,
+     "t1": 8.272
+    },
+    {
+     "w": "recusa,",
+     "t0": 8.272,
+     "t1": 8.685
+    },
+    {
+     "w": "inclusive",
+     "t0": 9.005,
+     "t1": 9.643
+    },
+    {
+     "w": "negativado.",
+     "t0": 9.643,
+     "t1": 10.44
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "comparação; \"E é por isso\" continua",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "A ZIP cobra a partir de 4% por semana, cerca de 18% ao mês. A gente cobra mais porque atende quem ela recusa, inclusive negativado."
+  },
+  "F057": {
+   "origem": "clipe",
+   "ini": 0.36,
+   "fim": 5.455,
+   "iniGravacao": 659.34,
+   "fimGravacao": 664.435,
+   "ganhoDb": 0,
+   "pausaDepois": 0.55,
+   "tEnfaseRel": 3.89,
+   "enfaseMetodo": "asr-varredura (execução: cortes de 40 ms + energia)",
+   "palavras": [
+    {
+     "w": "E",
+     "t0": 0.04,
+     "t1": 0.208
+    },
+    {
+     "w": "é",
+     "t0": 0.208,
+     "t1": 0.376
+    },
+    {
+     "w": "por",
+     "t0": 0.376,
+     "t1": 0.544
+    },
+    {
+     "w": "isso",
+     "t0": 0.544,
+     "t1": 0.88
+    },
+    {
+     "w": "que",
+     "t0": 1.08,
+     "t1": 1.255
+    },
+    {
+     "w": "a",
+     "t0": 1.255,
+     "t1": 1.43
+    },
+    {
+     "w": "taxa",
+     "t0": 1.43,
+     "t1": 1.78
+    },
+    {
+     "w": "cai",
+     "t0": 1.78,
+     "t1": 1.955
+    },
+    {
+     "w": "por",
+     "t0": 1.955,
+     "t1": 2.13
+    },
+    {
+     "w": "nível:",
+     "t0": 2.13,
+     "t1": 2.48
+    },
+    {
+     "w": "o",
+     "t0": 2.63,
+     "t1": 2.68
+    },
+    {
+     "w": "bom",
+     "t0": 2.82,
+     "t1": 3.034
+    },
+    {
+     "w": "pagador",
+     "t0": 3.034,
+     "t1": 3.676
+    },
+    {
+     "w": "tem",
+     "t0": 3.676,
+     "t1": 3.89
+    },
+    {
+     "w": "motivo",
+     "t0": 3.89,
+     "t1": 4.395
+    },
+    {
+     "w": "pra",
+     "t0": 4.395,
+     "t1": 4.733
+    },
+    {
+     "w": "ficar.",
+     "t0": 4.733,
+     "t1": 5.07
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "muda para projeção; respiro antes do número",
+   "nota": "Corte deixa de fora: respiração 659.05-659.22 (-43 dB) Ênfase corrigida na execução: o início medido de \"motivo\" é 3.89 s (o plano tinha 4.18 s); palavras do bloco reancoradas.",
+   "asrDoCorte": "E é por isso que a taxa cai por nível. O bom pagador tem motivo para ficar.",
+   "tEnfaseRelPlanoOriginal": 4.18
+  },
+  "F058": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 4.285,
+   "iniGravacao": 664.94,
+   "fimGravacao": 669.205,
+   "ganhoDb": 0,
+   "pausaDepois": 0.3,
+   "tEnfaseRel": 2.78,
+   "enfaseMetodo": "asr-manual (sufixos ASR + energia, ±60 ms)",
+   "palavras": [
+    {
+     "w": "Com",
+     "t0": 0.04,
+     "t1": 0.186
+    },
+    {
+     "w": "um",
+     "t0": 0.186,
+     "t1": 0.332
+    },
+    {
+     "w": "milhão",
+     "t0": 0.332,
+     "t1": 0.771
+    },
+    {
+     "w": "de",
+     "t0": 0.771,
+     "t1": 0.917
+    },
+    {
+     "w": "reais,",
+     "t0": 0.917,
+     "t1": 1.21
+    },
+    {
+     "w": "a",
+     "t0": 1.48,
+     "t1": 1.624
+    },
+    {
+     "w": "carteira",
+     "t0": 1.624,
+     "t1": 2.058
+    },
+    {
+     "w": "gira",
+     "t0": 2.058,
+     "t1": 2.347
+    },
+    {
+     "w": "cerca",
+     "t0": 2.347,
+     "t1": 2.636
+    },
+    {
+     "w": "de",
+     "t0": 2.636,
+     "t1": 2.78
+    },
+    {
+     "w": "um",
+     "t0": 2.78,
+     "t1": 2.962
+    },
+    {
+     "w": "milhão",
+     "t0": 2.962,
+     "t1": 3.51
+    },
+    {
+     "w": "e",
+     "t0": 3.51,
+     "t1": 3.692
+    },
+    {
+     "w": "meio",
+     "t0": 3.692,
+     "t1": 3.875
+    },
+    {
+     "w": "por",
+     "t0": 3.875,
+     "t1": 4.057
+    },
+    {
+     "w": "mês.",
+     "t0": 4.057,
+     "t1": 4.24
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "projeção em sequência",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Com um milhão de reais, a carteira gira cerca de um milhão e meio por mês."
+  },
+  "F059": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 2.935,
+   "iniGravacao": 690.97,
+   "fimGravacao": 693.885,
+   "ganhoDb": 0,
+   "pausaDepois": 0.35,
+   "tEnfaseRel": 0.8,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Isso",
+     "t0": 0.04,
+     "t1": 0.344
+    },
+    {
+     "w": "projeta",
+     "t0": 0.344,
+     "t1": 0.8
+    },
+    {
+     "w": "três",
+     "t0": 0.8,
+     "t1": 0.961
+    },
+    {
+     "w": "milhões",
+     "t0": 0.961,
+     "t1": 1.443
+    },
+    {
+     "w": "e",
+     "t0": 1.443,
+     "t1": 1.604
+    },
+    {
+     "w": "meio",
+     "t0": 1.604,
+     "t1": 1.765
+    },
+    {
+     "w": "de",
+     "t0": 1.765,
+     "t1": 1.925
+    },
+    {
+     "w": "receita",
+     "t0": 1.925,
+     "t1": 2.408
+    },
+    {
+     "w": "por",
+     "t0": 2.408,
+     "t1": 2.568
+    },
+    {
+     "w": "ano.",
+     "t0": 2.568,
+     "t1": 2.89
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "projeção em sequência",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Isso projeta 3 milhões e meio de receita por ano."
+  },
+  "F060": {
+   "origem": "clipe",
+   "ini": 0.03,
+   "fim": 5.365,
+   "iniGravacao": 694.3,
+   "fimGravacao": 699.635,
+   "ganhoDb": 0,
+   "pausaDepois": 0.5,
+   "tEnfaseRel": 1.13,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "E",
+     "t0": 0.04,
+     "t1": 0.176
+    },
+    {
+     "w": "uma",
+     "t0": 0.176,
+     "t1": 0.449
+    },
+    {
+     "w": "margem",
+     "t0": 0.449,
+     "t1": 0.721
+    },
+    {
+     "w": "perto",
+     "t0": 0.721,
+     "t1": 0.994
+    },
+    {
+     "w": "de",
+     "t0": 0.994,
+     "t1": 1.13
+    },
+    {
+     "w": "cento",
+     "t0": 1.13,
+     "t1": 1.544
+    },
+    {
+     "w": "e",
+     "t0": 1.544,
+     "t1": 1.751
+    },
+    {
+     "w": "trinta",
+     "t0": 1.751,
+     "t1": 2.165
+    },
+    {
+     "w": "mil",
+     "t0": 2.165,
+     "t1": 2.372
+    },
+    {
+     "w": "reais",
+     "t0": 2.372,
+     "t1": 2.786
+    },
+    {
+     "w": "por",
+     "t0": 2.786,
+     "t1": 2.993
+    },
+    {
+     "w": "mês,",
+     "t0": 2.993,
+     "t1": 3.2
+    },
+    {
+     "w": "antes",
+     "t0": 3.59,
+     "t1": 3.934
+    },
+    {
+     "w": "de",
+     "t0": 3.934,
+     "t1": 4.106
+    },
+    {
+     "w": "equipe",
+     "t0": 4.106,
+     "t1": 4.622
+    },
+    {
+     "w": "e",
+     "t0": 4.622,
+     "t1": 4.794
+    },
+    {
+     "w": "impostos.",
+     "t0": 4.794,
+     "t1": 5.31
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "números; \"Mas presta atenção\" vira",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "e uma margem perto de 130 mil reais por mês, antes de equipe em postos."
+  },
+  "F061": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 1.955,
+   "iniGravacao": 700.13,
+   "fimGravacao": 702.065,
+   "ganhoDb": 0,
+   "pausaDepois": 0.6,
+   "tEnfaseRel": 0.89,
+   "enfaseMetodo": "asr-varredura (execução: cortes de 40 ms + energia)",
+   "palavras": [
+    {
+     "w": "Mas",
+     "t0": 0.04,
+     "t1": 0.161
+    },
+    {
+     "w": "presta",
+     "t0": 0.161,
+     "t1": 0.404
+    },
+    {
+     "w": "atenção",
+     "t0": 0.404,
+     "t1": 0.89
+    },
+    {
+     "w": "nesse",
+     "t0": 0.89,
+     "t1": 1.175
+    },
+    {
+     "w": "número",
+     "t0": 1.175,
+     "t1": 1.616
+    },
+    {
+     "w": "aqui.",
+     "t0": 1.616,
+     "t1": 1.91
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "anuncia o número crítico: silêncio antes dele (SPEC 6.8)",
+   "nota": "Mantido o take; só o aparo. Ênfase corrigida na execução: o início medido de \"nesse\" é 0.89 s (o plano tinha 1.23 s); palavras do bloco reancoradas.",
+   "asrDoCorte": "Mas preste atenção nesse número aqui.",
+   "tEnfaseRelPlanoOriginal": 1.23
+  },
+  "F062": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 5.445,
+   "iniGravacao": 707.16,
+   "fimGravacao": 712.585,
+   "ganhoDb": 0,
+   "pausaDepois": 0.6,
+   "tEnfaseRel": 4.79,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Se",
+     "t0": 0.04,
+     "t1": 0.208
+    },
+    {
+     "w": "a",
+     "t0": 0.208,
+     "t1": 0.375
+    },
+    {
+     "w": "perda",
+     "t0": 0.375,
+     "t1": 0.711
+    },
+    {
+     "w": "passar",
+     "t0": 0.711,
+     "t1": 1.046
+    },
+    {
+     "w": "de",
+     "t0": 1.046,
+     "t1": 1.214
+    },
+    {
+     "w": "dezesseis",
+     "t0": 1.214,
+     "t1": 1.717
+    },
+    {
+     "w": "vírgula",
+     "t0": 1.717,
+     "t1": 2.22
+    },
+    {
+     "w": "setenta",
+     "t0": 2.22,
+     "t1": 2.724
+    },
+    {
+     "w": "e",
+     "t0": 2.724,
+     "t1": 2.891
+    },
+    {
+     "w": "cinco",
+     "t0": 2.891,
+     "t1": 3.227
+    },
+    {
+     "w": "por",
+     "t0": 3.227,
+     "t1": 3.395
+    },
+    {
+     "w": "cento,",
+     "t0": 3.395,
+     "t1": 3.73
+    },
+    {
+     "w": "essa",
+     "t0": 3.97,
+     "t1": 4.38
+    },
+    {
+     "w": "margem",
+     "t0": 4.38,
+     "t1": 4.79
+    },
+    {
+     "w": "zera.",
+     "t0": 4.79,
+     "t1": 5.4
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "\"essa margem zera\": deixa cair antes da revelação",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Se a perda passar de 16,75%, essa margem zera."
+  },
+  "F063": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 3.595,
+   "iniGravacao": 715.86,
+   "fimGravacao": 719.435,
+   "ganhoDb": 0,
+   "pausaDepois": 0.9,
+   "tEnfaseRel": 2.89,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "O",
+     "t0": 0.04,
+     "t1": 0.184
+    },
+    {
+     "w": "que",
+     "t0": 0.184,
+     "t1": 0.328
+    },
+    {
+     "w": "decide",
+     "t0": 0.328,
+     "t1": 0.76
+    },
+    {
+     "w": "esse",
+     "t0": 0.76,
+     "t1": 1.048
+    },
+    {
+     "w": "negócio",
+     "t0": 1.048,
+     "t1": 1.48
+    },
+    {
+     "w": "não",
+     "t0": 1.67,
+     "t1": 1.987
+    },
+    {
+     "w": "é",
+     "t0": 1.987,
+     "t1": 2.145
+    },
+    {
+     "w": "a",
+     "t0": 2.145,
+     "t1": 2.303
+    },
+    {
+     "w": "taxa.",
+     "t0": 2.303,
+     "t1": 2.62
+    },
+    {
+     "w": "É",
+     "t0": 2.89,
+     "t1": 3.07
+    },
+    {
+     "w": "a",
+     "t0": 3.07,
+     "t1": 3.23
+    },
+    {
+     "w": "perda.",
+     "t0": 3.23,
+     "t1": 3.55
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "pico do filme (\"É a perda\"): silêncio longo",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "O que decide esse negócio não é a taxa, é a perda."
+  },
+  "F064": {
+   "origem": "clipe",
+   "ini": 0.04,
+   "fim": 3.905,
+   "iniGravacao": 726.31,
+   "fimGravacao": 730.175,
+   "ganhoDb": 0,
+   "pausaDepois": 0.5,
+   "tEnfaseRel": 2.85,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Por",
+     "t0": 0.04,
+     "t1": 0.163
+    },
+    {
+     "w": "isso",
+     "t0": 0.163,
+     "t1": 0.409
+    },
+    {
+     "w": "o",
+     "t0": 0.409,
+     "t1": 0.532
+    },
+    {
+     "w": "piloto",
+     "t0": 0.532,
+     "t1": 0.901
+    },
+    {
+     "w": "existe:",
+     "t0": 0.901,
+     "t1": 1.27
+    },
+    {
+     "w": "pra",
+     "t0": 1.54,
+     "t1": 1.877
+    },
+    {
+     "w": "medir",
+     "t0": 1.877,
+     "t1": 2.214
+    },
+    {
+     "w": "a",
+     "t0": 2.214,
+     "t1": 2.383
+    },
+    {
+     "w": "perda",
+     "t0": 2.383,
+     "t1": 2.72
+    },
+    {
+     "w": "real",
+     "t0": 2.87,
+     "t1": 2.91
+    },
+    {
+     "w": "antes",
+     "t0": 2.91,
+     "t1": 3.246
+    },
+    {
+     "w": "de",
+     "t0": 3.246,
+     "t1": 3.444
+    },
+    {
+     "w": "crescer.",
+     "t0": 3.444,
+     "t1": 3.84
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "conclusão; muda para o segundo ano",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Por isso, o piloto existe, para medir a perda real antes de crescer."
+  },
+  "F065": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 7.025,
+   "iniGravacao": 749.16,
+   "fimGravacao": 756.165,
+   "ganhoDb": 0,
+   "pausaDepois": 0.35,
+   "tEnfaseRel": 4.96,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "No",
+     "t0": 0.04,
+     "t1": 0.197
+    },
+    {
+     "w": "segundo",
+     "t0": 0.197,
+     "t1": 0.667
+    },
+    {
+     "w": "ano,",
+     "t0": 0.667,
+     "t1": 0.98
+    },
+    {
+     "w": "com",
+     "t0": 1.29,
+     "t1": 1.459
+    },
+    {
+     "w": "dívida",
+     "t0": 1.459,
+     "t1": 1.966
+    },
+    {
+     "w": "estruturada",
+     "t0": 1.966,
+     "t1": 2.811
+    },
+    {
+     "w": "financiando",
+     "t0": 2.811,
+     "t1": 3.488
+    },
+    {
+     "w": "a",
+     "t0": 3.488,
+     "t1": 3.657
+    },
+    {
+     "w": "carteira,",
+     "t0": 3.657,
+     "t1": 4.164
+    },
+    {
+     "w": "ela",
+     "t0": 4.164,
+     "t1": 4.502
+    },
+    {
+     "w": "vai",
+     "t0": 4.502,
+     "t1": 4.671
+    },
+    {
+     "w": "a",
+     "t0": 4.671,
+     "t1": 4.84
+    },
+    {
+     "w": "três",
+     "t0": 4.96,
+     "t1": 5.211
+    },
+    {
+     "w": "vírgula",
+     "t0": 5.211,
+     "t1": 5.874
+    },
+    {
+     "w": "quatro",
+     "t0": 5.874,
+     "t1": 6.317
+    },
+    {
+     "w": "milhões.",
+     "t0": 6.317,
+     "t1": 6.98
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "número; a próxima completa a projeção",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "No segundo ano, com a dívida estruturada financiando a carteira, ela vai a 3,4 milhões."
+  },
+  "F066": {
+   "origem": "clipe",
+   "ini": 0.78,
+   "fim": 5.405,
+   "iniGravacao": 74.52,
+   "fimGravacao": 79.145,
+   "ganhoDb": 0,
+   "pausaDepois": 1.2,
+   "tEnfaseRel": 2.18,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "E",
+     "t0": 0.04,
+     "t1": 0.216
+    },
+    {
+     "w": "a",
+     "t0": 0.216,
+     "t1": 0.393
+    },
+    {
+     "w": "margem",
+     "t0": 0.393,
+     "t1": 0.745
+    },
+    {
+     "w": "projetada",
+     "t0": 0.745,
+     "t1": 1.45
+    },
+    {
+     "w": "passa",
+     "t0": 1.72,
+     "t1": 2.027
+    },
+    {
+     "w": "de",
+     "t0": 2.027,
+     "t1": 2.18
+    },
+    {
+     "w": "quatrocentos",
+     "t0": 2.18,
+     "t1": 2.925
+    },
+    {
+     "w": "e",
+     "t0": 2.925,
+     "t1": 3.111
+    },
+    {
+     "w": "sessenta",
+     "t0": 3.111,
+     "t1": 3.669
+    },
+    {
+     "w": "mil",
+     "t0": 3.669,
+     "t1": 3.855
+    },
+    {
+     "w": "reais",
+     "t0": 3.855,
+     "t1": 4.228
+    },
+    {
+     "w": "por",
+     "t0": 4.228,
+     "t1": 4.414
+    },
+    {
+     "w": "mês.",
+     "t0": 4.414,
+     "t1": 4.6
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "suspenso/ascendente (continuação)",
+   "motivoPausa": "fronteira de ato (já inclui os 0,9 s da fronteira; não somar)",
+   "nota": "Corte deixa de fora: respiração 73.86-74.13 (-39 dB) Outra gravação: +5 a +8 dB em 3–8 kHz e +4 dB em ~1,25 kHz em relação às vizinhas. A EQ aproxima o timbre de F065/F067.",
+   "arquivo": "bruto/F066-regravado.m4a",
+   "iniGravacao_nota": "iniGravacao/fimGravacao referem-se a bruto/F066-regravado.m4a",
+   "eq": "lowshelf=f=200:g=-2.5,equalizer=f=1250:t=q:w=1.4:g=-3,highshelf=f=3000:g=-5",
+   "asrDoCorte": "e a margem projetada passa de 460 mil reais por mês."
+  },
+  "F067": {
+   "origem": "clipe",
+   "ini": 0.03,
+   "fim": 2.175,
+   "iniGravacao": 796.14,
+   "fimGravacao": 798.285,
+   "ganhoDb": 0,
+   "pausaDepois": 0.4,
+   "tEnfaseRel": 0.3,
+   "enfaseMetodo": "asr-manual (sufixos ASR + energia, ±60 ms)",
+   "palavras": [
+    {
+     "w": "Cada",
+     "t0": 0.04,
+     "t1": 0.3
+    },
+    {
+     "w": "centavo",
+     "t0": 0.3,
+     "t1": 0.846
+    },
+    {
+     "w": "de",
+     "t0": 0.846,
+     "t1": 1.028
+    },
+    {
+     "w": "custo",
+     "t0": 1.028,
+     "t1": 1.392
+    },
+    {
+     "w": "foi",
+     "t0": 1.392,
+     "t1": 1.574
+    },
+    {
+     "w": "pensado.",
+     "t0": 1.574,
+     "t1": 2.12
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "abre a lista de custos",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Cada assentável de custo foi pensado."
+  },
+  "F068": {
+   "origem": "clipe",
+   "ini": 0.03,
+   "fim": 6.685,
+   "iniGravacao": 809.12,
+   "fimGravacao": 815.775,
+   "ganhoDb": 0,
+   "pausaDepois": 0.4,
+   "tEnfaseRel": 5.49,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Em",
+     "t0": 0.04,
+     "t1": 0.24
+    },
+    {
+     "w": "mensagem,",
+     "t0": 0.24,
+     "t1": 0.84
+    },
+    {
+     "w": "cada",
+     "t0": 1.13,
+     "t1": 1.449
+    },
+    {
+     "w": "saque",
+     "t0": 1.449,
+     "t1": 1.767
+    },
+    {
+     "w": "custaria",
+     "t0": 1.767,
+     "t1": 2.246
+    },
+    {
+     "w": "um",
+     "t0": 2.246,
+     "t1": 2.405
+    },
+    {
+     "w": "real",
+     "t0": 2.405,
+     "t1": 2.724
+    },
+    {
+     "w": "e",
+     "t0": 2.724,
+     "t1": 2.883
+    },
+    {
+     "w": "cinco",
+     "t0": 2.883,
+     "t1": 3.202
+    },
+    {
+     "w": "centavos.",
+     "t0": 3.202,
+     "t1": 3.68
+    },
+    {
+     "w": "Com",
+     "t0": 4.11,
+     "t1": 4.273
+    },
+    {
+     "w": "a",
+     "t0": 4.273,
+     "t1": 4.436
+    },
+    {
+     "w": "jornada",
+     "t0": 4.436,
+     "t1": 4.924
+    },
+    {
+     "w": "certa,",
+     "t0": 4.924,
+     "t1": 5.25
+    },
+    {
+     "w": "vinte",
+     "t0": 5.49,
+     "t1": 6.024
+    },
+    {
+     "w": "centavos.",
+     "t0": 6.024,
+     "t1": 6.63
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "números; segue outro custo",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Em mensagem, cada saque custaria R$ 1,05, com a jornada certa, R$ 0,20."
+  },
+  "F069": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 6.555,
+   "iniGravacao": 817.81,
+   "fimGravacao": 824.345,
+   "ganhoDb": 0,
+   "pausaDepois": 0.5,
+   "tEnfaseRel": 4.44,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "A",
+     "t0": 0.04,
+     "t1": 0.223
+    },
+    {
+     "w": "consulta",
+     "t0": 0.223,
+     "t1": 0.772
+    },
+    {
+     "w": "de",
+     "t0": 0.772,
+     "t1": 0.955
+    },
+    {
+     "w": "crédito",
+     "t0": 0.955,
+     "t1": 1.504
+    },
+    {
+     "w": "sai",
+     "t0": 1.504,
+     "t1": 1.687
+    },
+    {
+     "w": "de",
+     "t0": 1.687,
+     "t1": 1.87
+    },
+    {
+     "w": "mais",
+     "t0": 1.87,
+     "t1": 2.053
+    },
+    {
+     "w": "de",
+     "t0": 2.053,
+     "t1": 2.236
+    },
+    {
+     "w": "quinze",
+     "t0": 2.236,
+     "t1": 2.602
+    },
+    {
+     "w": "reais",
+     "t0": 2.602,
+     "t1": 2.968
+    },
+    {
+     "w": "no",
+     "t0": 2.968,
+     "t1": 3.151
+    },
+    {
+     "w": "balcão",
+     "t0": 3.151,
+     "t1": 3.7
+    },
+    {
+     "w": "pra",
+     "t0": 4.12,
+     "t1": 4.44
+    },
+    {
+     "w": "dois",
+     "t0": 4.44,
+     "t1": 4.658
+    },
+    {
+     "w": "ou",
+     "t0": 4.658,
+     "t1": 4.876
+    },
+    {
+     "w": "três",
+     "t0": 4.876,
+     "t1": 5.094
+    },
+    {
+     "w": "reais",
+     "t0": 5.094,
+     "t1": 5.53
+    },
+    {
+     "w": "por",
+     "t0": 5.85,
+     "t1": 6.07
+    },
+    {
+     "w": "saque.",
+     "t0": 6.07,
+     "t1": 6.51
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "fecha eficiência; vira para riscos",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "A consulta de crédito sai de mais de 15 reais no balcão para 2 ou 3 reais por saque."
+  },
+  "F070": {
+   "origem": "clipe",
+   "ini": 0.03,
+   "fim": 1.985,
+   "iniGravacao": 840.36,
+   "fimGravacao": 842.315,
+   "ganhoDb": 0,
+   "pausaDepois": 0.65,
+   "tEnfaseRel": 1.2,
+   "enfaseMetodo": "asr-manual (sufixos ASR + energia, ±60 ms)",
+   "palavras": [
+    {
+     "w": "Agora,",
+     "t0": 0.04,
+     "t1": 0.54
+    },
+    {
+     "w": "o",
+     "t0": 0.76,
+     "t1": 0.87
+    },
+    {
+     "w": "que",
+     "t0": 0.87,
+     "t1": 0.98
+    },
+    {
+     "w": "pode",
+     "t0": 0.98,
+     "t1": 1.2
+    },
+    {
+     "w": "dar",
+     "t0": 1.2,
+     "t1": 1.382
+    },
+    {
+     "w": "errado.",
+     "t0": 1.382,
+     "t1": 1.93
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "suspenso/ascendente (continuação)",
+   "motivoPausa": "virada para os riscos: deixa a pergunta pairar",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Agora, o que pode dar errado?"
+  },
+  "F071": {
+   "origem": "clipe",
+   "ini": 0.23,
+   "fim": 5.055,
+   "iniGravacao": 856.68,
+   "fimGravacao": 861.505,
+   "ganhoDb": 0,
+   "pausaDepois": 0.45,
+   "tEnfaseRel": 4.31,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "A",
+     "t0": 0.04,
+     "t1": 0.191
+    },
+    {
+     "w": "gente",
+     "t0": 0.191,
+     "t1": 0.492
+    },
+    {
+     "w": "depende",
+     "t0": 0.492,
+     "t1": 0.944
+    },
+    {
+     "w": "de",
+     "t0": 0.944,
+     "t1": 1.095
+    },
+    {
+     "w": "uma",
+     "t0": 1.095,
+     "t1": 1.396
+    },
+    {
+     "w": "instituição",
+     "t0": 1.396,
+     "t1": 2.15
+    },
+    {
+     "w": "parceira.",
+     "t0": 2.65,
+     "t1": 3.22
+    },
+    {
+     "w": "Por",
+     "t0": 3.22,
+     "t1": 3.41
+    },
+    {
+     "w": "isso",
+     "t0": 3.41,
+     "t1": 3.79
+    },
+    {
+     "w": "vamos",
+     "t0": 3.79,
+     "t1": 4.17
+    },
+    {
+     "w": "cotar",
+     "t0": 4.32,
+     "t1": 4.36
+    },
+    {
+     "w": "três.",
+     "t0": 4.36,
+     "t1": 4.8
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "risco 1 respondido",
+   "nota": "Corte deixa de fora: ruído 856.52-856.58 (-49 dB)",
+   "asrDoCorte": "A gente depende de uma instituição parceira. Por isso, vamos cotar três."
+  },
+  "F072": {
+   "origem": "clipe",
+   "ini": 0.03,
+   "fim": 4.595,
+   "iniGravacao": 876.87,
+   "fimGravacao": 881.435,
+   "ganhoDb": 0,
+   "pausaDepois": 0.45,
+   "tEnfaseRel": 2.76,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "A",
+     "t0": 0.04,
+     "t1": 0.2
+    },
+    {
+     "w": "taxa",
+     "t0": 0.2,
+     "t1": 0.52
+    },
+    {
+     "w": "é",
+     "t0": 0.52,
+     "t1": 0.68
+    },
+    {
+     "w": "o",
+     "t0": 0.68,
+     "t1": 0.84
+    },
+    {
+     "w": "dobro",
+     "t0": 0.84,
+     "t1": 1.16
+    },
+    {
+     "w": "da",
+     "t0": 1.16,
+     "t1": 1.32
+    },
+    {
+     "w": "referência,",
+     "t0": 1.32,
+     "t1": 1.96
+    },
+    {
+     "w": "e",
+     "t0": 1.96,
+     "t1": 2.12
+    },
+    {
+     "w": "isso",
+     "t0": 2.12,
+     "t1": 2.44
+    },
+    {
+     "w": "pede",
+     "t0": 2.44,
+     "t1": 2.76
+    },
+    {
+     "w": "transparência",
+     "t0": 2.76,
+     "t1": 3.472
+    },
+    {
+     "w": "total",
+     "t0": 3.472,
+     "t1": 3.828
+    },
+    {
+     "w": "no",
+     "t0": 3.828,
+     "t1": 4.006
+    },
+    {
+     "w": "contrato.",
+     "t0": 4.006,
+     "t1": 4.54
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "risco 2 respondido",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "A taxa é o dobro da referência e isso pede transparência total no contrato."
+  },
+  "F073": {
+   "origem": "clipe",
+   "ini": 0.2,
+   "fim": 4.935,
+   "iniGravacao": 906.11,
+   "fimGravacao": 910.845,
+   "ganhoDb": 0,
+   "pausaDepois": 0.35,
+   "tEnfaseRel": 3.54,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "A",
+     "t0": 0.04,
+     "t1": 0.213
+    },
+    {
+     "w": "regra",
+     "t0": 0.213,
+     "t1": 0.56
+    },
+    {
+     "w": "do",
+     "t0": 0.56,
+     "t1": 0.733
+    },
+    {
+     "w": "BaaS",
+     "t0": 0.733,
+     "t1": 1.08
+    },
+    {
+     "w": "é",
+     "t0": 1.08,
+     "t1": 1.253
+    },
+    {
+     "w": "nova.",
+     "t0": 1.253,
+     "t1": 1.6
+    },
+    {
+     "w": "Nada",
+     "t0": 1.84,
+     "t1": 2.16
+    },
+    {
+     "w": "é",
+     "t0": 2.16,
+     "t1": 2.32
+    },
+    {
+     "w": "assinado",
+     "t0": 2.32,
+     "t1": 2.96
+    },
+    {
+     "w": "sem",
+     "t0": 3.12,
+     "t1": 3.54
+    },
+    {
+     "w": "parecer",
+     "t0": 3.54,
+     "t1": 3.947
+    },
+    {
+     "w": "jurídico.",
+     "t0": 3.947,
+     "t1": 4.49
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "risco 3; a próxima é a consequência (prazo)",
+   "nota": "Corte deixa de fora: ruído 910.69-910.82 (-29 dB) Fim mantido em 910,845 s: há um murmúrio sonoro em 910,69–910,80 s logo depois de \"jurídico\", e cortar antes arrisca comer a sílaba final.",
+   "asrDoCorte": "A regra do Bás é nova, nada é assinado sem parecer jurídico."
+  },
+  "F074": {
+   "origem": "clipe",
+   "ini": 0.34,
+   "fim": 5.385,
+   "iniGravacao": 931.58,
+   "fimGravacao": 936.625,
+   "ganhoDb": 0,
+   "pausaDepois": 1.2,
+   "tEnfaseRel": 4.34,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "E",
+     "t0": 0.04,
+     "t1": 0.195
+    },
+    {
+     "w": "leva",
+     "t0": 0.195,
+     "t1": 0.504
+    },
+    {
+     "w": "de",
+     "t0": 0.504,
+     "t1": 0.659
+    },
+    {
+     "w": "dois",
+     "t0": 0.659,
+     "t1": 0.813
+    },
+    {
+     "w": "a",
+     "t0": 0.813,
+     "t1": 0.968
+    },
+    {
+     "w": "quatro",
+     "t0": 0.968,
+     "t1": 1.277
+    },
+    {
+     "w": "meses",
+     "t0": 1.277,
+     "t1": 1.587
+    },
+    {
+     "w": "pra",
+     "t0": 1.587,
+     "t1": 1.896
+    },
+    {
+     "w": "operar.",
+     "t0": 1.896,
+     "t1": 2.36
+    },
+    {
+     "w": "Por",
+     "t0": 2.73,
+     "t1": 2.937
+    },
+    {
+     "w": "isso",
+     "t0": 2.937,
+     "t1": 3.35
+    },
+    {
+     "w": "as",
+     "t0": 3.58,
+     "t1": 3.77
+    },
+    {
+     "w": "conversas",
+     "t0": 3.77,
+     "t1": 4.34
+    },
+    {
+     "w": "começam",
+     "t0": 4.34,
+     "t1": 4.85
+    },
+    {
+     "w": "já.",
+     "t0": 4.85,
+     "t1": 5.02
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "fronteira de ato (já inclui os 0,9 s da fronteira; não somar)",
+   "nota": "Corte deixa de fora: ruído 931.43-931.50 (-36 dB)",
+   "asrDoCorte": "e leva de dois a quatro meses para operar. Por isso, as conversas começam já."
+  },
+  "F075": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 1.595,
+   "iniGravacao": 965.94,
+   "fimGravacao": 967.515,
+   "ganhoDb": 0,
+   "pausaDepois": 0.5,
+   "tEnfaseRel": 0.995,
+   "enfaseMetodo": "asr-interp (entre dois cortes ASR, ±80 ms)",
+   "palavras": [
+    {
+     "w": "E",
+     "t0": 0.04,
+     "t1": 0.176
+    },
+    {
+     "w": "onde",
+     "t0": 0.176,
+     "t1": 0.449
+    },
+    {
+     "w": "isso",
+     "t0": 0.449,
+     "t1": 0.722
+    },
+    {
+     "w": "pode",
+     "t0": 0.722,
+     "t1": 0.995
+    },
+    {
+     "w": "chegar?",
+     "t0": 0.995,
+     "t1": 1.55
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "pergunta retórica; respiro",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "e onde isso pode chegar?"
+  },
+  "F076": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 4.415,
+   "iniGravacao": 969.06,
+   "fimGravacao": 973.455,
+   "ganhoDb": 0,
+   "pausaDepois": 0.3,
+   "tEnfaseRel": 1.29,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "A",
+     "t0": 0.04,
+     "t1": 0.196
+    },
+    {
+     "w": "Zippi",
+     "t0": 0.196,
+     "t1": 0.509
+    },
+    {
+     "w": "levou",
+     "t0": 0.509,
+     "t1": 0.821
+    },
+    {
+     "w": "cerca",
+     "t0": 0.821,
+     "t1": 1.134
+    },
+    {
+     "w": "de",
+     "t0": 1.134,
+     "t1": 1.29
+    },
+    {
+     "w": "três",
+     "t0": 1.29,
+     "t1": 1.479
+    },
+    {
+     "w": "anos,",
+     "t0": 1.479,
+     "t1": 1.857
+    },
+    {
+     "w": "do",
+     "t0": 1.857,
+     "t1": 2.046
+    },
+    {
+     "w": "lançamento",
+     "t0": 2.046,
+     "t1": 2.802
+    },
+    {
+     "w": "ao",
+     "t0": 2.802,
+     "t1": 3.18
+    },
+    {
+     "w": "primeiro",
+     "t0": 3.39,
+     "t1": 3.978
+    },
+    {
+     "w": "fundo.",
+     "t0": 3.978,
+     "t1": 4.37
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "continua em \"A nossa régua\"",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "A ZIP levou cerca de 3 anos do lançamento ao primeiro fundo."
+  },
+  "F077": {
+   "origem": "clipe",
+   "ini": 0.03,
+   "fim": 1.805,
+   "iniGravacao": 986.09,
+   "fimGravacao": 987.865,
+   "ganhoDb": 0,
+   "pausaDepois": 0.4,
+   "tEnfaseRel": 1.1,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "A",
+     "t0": 0.04,
+     "t1": 0.217
+    },
+    {
+     "w": "nossa",
+     "t0": 0.217,
+     "t1": 0.57
+    },
+    {
+     "w": "régua",
+     "t0": 0.57,
+     "t1": 0.923
+    },
+    {
+     "w": "é",
+     "t0": 0.923,
+     "t1": 1.1
+    },
+    {
+     "w": "parecida.",
+     "t0": 1.1,
+     "t1": 1.75
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "anuncia a régua ano a ano",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "A nossa régua é parecida."
+  },
+  "F078": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 2.815,
+   "iniGravacao": 997.67,
+   "fimGravacao": 1000.465,
+   "ganhoDb": 0,
+   "pausaDepois": 0.3,
+   "tEnfaseRel": 1.33,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Ano",
+     "t0": 0.04,
+     "t1": 0.556
+    },
+    {
+     "w": "um:",
+     "t0": 0.556,
+     "t1": 0.814
+    },
+    {
+     "w": "gerar",
+     "t0": 0.814,
+     "t1": 1.33
+    },
+    {
+     "w": "histórico,",
+     "t0": 1.33,
+     "t1": 1.854
+    },
+    {
+     "w": "com",
+     "t0": 1.854,
+     "t1": 1.985
+    },
+    {
+     "w": "o",
+     "t0": 1.985,
+     "t1": 2.115
+    },
+    {
+     "w": "capital",
+     "t0": 2.115,
+     "t1": 2.508
+    },
+    {
+     "w": "próprio.",
+     "t0": 2.508,
+     "t1": 2.77
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "régua ano a ano: ritmo regular",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Anu I gerar histórico com capital próprio."
+  },
+  "F079": {
+   "origem": "clipe",
+   "ini": 0.03,
+   "fim": 2.725,
+   "iniGravacao": 1001.31,
+   "fimGravacao": 1004.005,
+   "ganhoDb": 0,
+   "pausaDepois": 0.3,
+   "tEnfaseRel": 1.57,
+   "enfaseMetodo": "asr-varredura (execução: cortes de 40 ms + energia)",
+   "palavras": [
+    {
+     "w": "Ano",
+     "t0": 0.04,
+     "t1": 0.567
+    },
+    {
+     "w": "dois:",
+     "t0": 0.567,
+     "t1": 0.83
+    },
+    {
+     "w": "primeira",
+     "t0": 1.14,
+     "t1": 1.57
+    },
+    {
+     "w": "dívida",
+     "t0": 1.57,
+     "t1": 1.983
+    },
+    {
+     "w": "estruturada.",
+     "t0": 1.983,
+     "t1": 2.67
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "régua ano a ano",
+   "nota": "Mantido o take; só o aparo. Ênfase corrigida na execução: o início medido de \"dívida\" é 1.57 s (o plano tinha 1.45 s); palavras do bloco reancoradas.",
+   "asrDoCorte": "Há no 2 primeira dívida estruturada.",
+   "tEnfaseRelPlanoOriginal": 1.45
+  },
+  "F080": {
+   "origem": "clipe",
+   "ini": 0.03,
+   "fim": 2.785,
+   "iniGravacao": 1004.59,
+   "fimGravacao": 1007.345,
+   "ganhoDb": 0,
+   "pausaDepois": 0.3,
+   "tEnfaseRel": 1.25,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Ano",
+     "t0": 0.04,
+     "t1": 0.43
+    },
+    {
+     "w": "três:",
+     "t0": 0.43,
+     "t1": 0.625
+    },
+    {
+     "w": "um",
+     "t0": 0.625,
+     "t1": 0.82
+    },
+    {
+     "w": "fundo",
+     "t0": 1.25,
+     "t1": 1.377
+    },
+    {
+     "w": "comprando",
+     "t0": 1.377,
+     "t1": 1.957
+    },
+    {
+     "w": "a",
+     "t0": 1.957,
+     "t1": 2.15
+    },
+    {
+     "w": "carteira.",
+     "t0": 2.15,
+     "t1": 2.73
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "régua ano a ano",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Há no 3, em fundo comprando a carteira."
+  },
+  "F081": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 4.795,
+   "iniGravacao": 1015.07,
+   "fimGravacao": 1019.845,
+   "ganhoDb": 0,
+   "pausaDepois": 0.4,
+   "tEnfaseRel": 2.6,
+   "enfaseMetodo": "asr-manual (sufixos ASR + energia, ±60 ms)",
+   "palavras": [
+    {
+     "w": "Anos",
+     "t0": 0.04,
+     "t1": 0.417
+    },
+    {
+     "w": "quatro",
+     "t0": 0.417,
+     "t1": 0.794
+    },
+    {
+     "w": "e",
+     "t0": 0.794,
+     "t1": 0.983
+    },
+    {
+     "w": "cinco:",
+     "t0": 0.983,
+     "t1": 1.36
+    },
+    {
+     "w": "rodada",
+     "t0": 1.78,
+     "t1": 2.233
+    },
+    {
+     "w": "de",
+     "t0": 2.233,
+     "t1": 2.384
+    },
+    {
+     "w": "investimento,",
+     "t0": 2.384,
+     "t1": 2.6
+    },
+    {
+     "w": "se",
+     "t0": 2.6,
+     "t1": 3.47
+    },
+    {
+     "w": "os",
+     "t0": 3.47,
+     "t1": 3.63
+    },
+    {
+     "w": "números",
+     "t0": 3.63,
+     "t1": 4.11
+    },
+    {
+     "w": "sustentarem.",
+     "t0": 4.11,
+     "t1": 4.75
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "fim da régua; a próxima é a saída",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "anos 4 e 5 rodada de investimento se os números sustentarem."
+  },
+  "F082": {
+   "origem": "clipe",
+   "ini": 0.34,
+   "fim": 4.445,
+   "iniGravacao": 1023.63,
+   "fimGravacao": 1027.735,
+   "ganhoDb": 0,
+   "pausaDepois": 0.5,
+   "tEnfaseRel": 3.11,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "E",
+     "t0": 0.04,
+     "t1": 0.197
+    },
+    {
+     "w": "entre",
+     "t0": 0.197,
+     "t1": 0.51
+    },
+    {
+     "w": "o",
+     "t0": 0.51,
+     "t1": 0.667
+    },
+    {
+     "w": "quarto",
+     "t0": 0.667,
+     "t1": 0.98
+    },
+    {
+     "w": "e",
+     "t0": 0.98,
+     "t1": 1.137
+    },
+    {
+     "w": "o",
+     "t0": 1.137,
+     "t1": 1.293
+    },
+    {
+     "w": "sexto",
+     "t0": 1.293,
+     "t1": 1.607
+    },
+    {
+     "w": "ano,",
+     "t0": 1.607,
+     "t1": 1.92
+    },
+    {
+     "w": "a",
+     "t0": 2.29,
+     "t1": 2.427
+    },
+    {
+     "w": "janela",
+     "t0": 2.427,
+     "t1": 2.837
+    },
+    {
+     "w": "pra",
+     "t0": 2.837,
+     "t1": 3.11
+    },
+    {
+     "w": "vender",
+     "t0": 3.11,
+     "t1": 3.353
+    },
+    {
+     "w": "a",
+     "t0": 3.353,
+     "t1": 3.474
+    },
+    {
+     "w": "operação.",
+     "t0": 3.474,
+     "t1": 4.08
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "\"O que se vende\" é virada de ideia",
+   "nota": "Corte deixa de fora: respiração 1023.45-1023.53 (-45 dB)",
+   "asrDoCorte": "E é entre o quarto e o sexto ano, a janela para vender a operação."
+  },
+  "F083": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 6.255,
+   "iniGravacao": 1050.44,
+   "fimGravacao": 1056.675,
+   "ganhoDb": 0,
+   "pausaDepois": 0.3,
+   "tEnfaseRel": 2.2,
+   "enfaseMetodo": "asr-manual (sufixos ASR + energia, ±60 ms)",
+   "palavras": [
+    {
+     "w": "O",
+     "t0": 0.04,
+     "t1": 0.175
+    },
+    {
+     "w": "que",
+     "t0": 0.175,
+     "t1": 0.31
+    },
+    {
+     "w": "se",
+     "t0": 0.31,
+     "t1": 0.445
+    },
+    {
+     "w": "vende",
+     "t0": 0.445,
+     "t1": 0.715
+    },
+    {
+     "w": "não",
+     "t0": 0.715,
+     "t1": 0.985
+    },
+    {
+     "w": "é",
+     "t0": 0.985,
+     "t1": 1.12
+    },
+    {
+     "w": "a",
+     "t0": 1.12,
+     "t1": 1.255
+    },
+    {
+     "w": "carteira.",
+     "t0": 1.255,
+     "t1": 1.66
+    },
+    {
+     "w": "É",
+     "t0": 2.09,
+     "t1": 2.2
+    },
+    {
+     "w": "o",
+     "t0": 2.2,
+     "t1": 2.367
+    },
+    {
+     "w": "motor:",
+     "t0": 2.367,
+     "t1": 2.7
+    },
+    {
+     "w": "o",
+     "t0": 3.22,
+     "t1": 3.419
+    },
+    {
+     "w": "canal,",
+     "t0": 3.419,
+     "t1": 3.818
+    },
+    {
+     "w": "a",
+     "t0": 3.818,
+     "t1": 4.017
+    },
+    {
+     "w": "análise",
+     "t0": 4.017,
+     "t1": 4.815
+    },
+    {
+     "w": "e",
+     "t0": 4.815,
+     "t1": 5.014
+    },
+    {
+     "w": "os",
+     "t0": 5.014,
+     "t1": 5.213
+    },
+    {
+     "w": "clientes",
+     "t0": 5.213,
+     "t1": 5.612
+    },
+    {
+     "w": "que",
+     "t0": 5.612,
+     "t1": 5.811
+    },
+    {
+     "w": "voltam.",
+     "t0": 5.811,
+     "t1": 6.21
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "suspenso/ascendente (continuação)",
+   "motivoPausa": "\"E esse motor\" continua",
+   "nota": "Fala \"o canal, análise, os clientes\" (sem \"a\" e \"e\"). A tomada 1042,4 s é mais completa e mais melódica, mas foi refeita pelo próprio apresentador. Mantida a escolhida; dá para trocar, se ele preferir.",
+   "asrDoCorte": "O que se vende não é a carteira, é o motor, o canal, análise, os clientes que voltam..."
+  },
+  "F084": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 3.945,
+   "iniGravacao": 1062.77,
+   "fimGravacao": 1066.695,
+   "ganhoDb": 0,
+   "pausaDepois": 1.4,
+   "tEnfaseRel": 3.04,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "E",
+     "t0": 0.04,
+     "t1": 0.24
+    },
+    {
+     "w": "esse",
+     "t0": 0.24,
+     "t1": 0.64
+    },
+    {
+     "w": "motor",
+     "t0": 0.64,
+     "t1": 1.04
+    },
+    {
+     "w": "é",
+     "t0": 1.47,
+     "t1": 1.591
+    },
+    {
+     "w": "o",
+     "t0": 1.591,
+     "t1": 1.712
+    },
+    {
+     "w": "que",
+     "t0": 1.712,
+     "t1": 1.832
+    },
+    {
+     "w": "a",
+     "t0": 1.832,
+     "t1": 1.953
+    },
+    {
+     "w": "gente",
+     "t0": 1.953,
+     "t1": 2.195
+    },
+    {
+     "w": "leva",
+     "t0": 2.195,
+     "t1": 2.436
+    },
+    {
+     "w": "pra",
+     "t0": 2.436,
+     "t1": 2.678
+    },
+    {
+     "w": "montar",
+     "t0": 2.678,
+     "t1": 2.919
+    },
+    {
+     "w": "a",
+     "t0": 2.919,
+     "t1": 3.04
+    },
+    {
+     "w": "próxima",
+     "t0": 3.04,
+     "t1": 3.47
+    },
+    {
+     "w": "carteira.",
+     "t0": 3.47,
+     "t1": 3.9
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "fronteira de ato (já inclui os 0,9 s da fronteira; não somar)",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "E esse motor é o que a gente leva para montar a próxima carteira."
+  },
+  "F085": {
+   "origem": "clipe",
+   "ini": 0.41,
+   "fim": 3.745,
+   "iniGravacao": 1071.99,
+   "fimGravacao": 1075.325,
+   "ganhoDb": -0.5,
+   "pausaDepois": 0.5,
+   "tEnfaseRel": 2.22,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Pra",
+     "t0": 0.04,
+     "t1": 0.36
+    },
+    {
+     "w": "começar,",
+     "t0": 0.36,
+     "t1": 0.84
+    },
+    {
+     "w": "a",
+     "t0": 1.1,
+     "t1": 1.26
+    },
+    {
+     "w": "gente",
+     "t0": 1.26,
+     "t1": 1.58
+    },
+    {
+     "w": "precisa",
+     "t0": 1.58,
+     "t1": 2.06
+    },
+    {
+     "w": "de",
+     "t0": 2.06,
+     "t1": 2.22
+    },
+    {
+     "w": "cinco",
+     "t0": 2.22,
+     "t1": 2.583
+    },
+    {
+     "w": "decisões.",
+     "t0": 2.583,
+     "t1": 3.31
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "anuncia as decisões: respiro antes da lista",
+   "nota": "Corte deixa de fora: respiração 1071.64-1071.89 (-35 dB)",
+   "asrDoCorte": "Para começar, a gente precisa de cinco decisões."
+  },
+  "F086": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 5.685,
+   "iniGravacao": 1125.15,
+   "fimGravacao": 1130.815,
+   "ganhoDb": 0,
+   "pausaDepois": 0.35,
+   "tEnfaseRel": 0.485,
+   "enfaseMetodo": "asr-interp (entre dois cortes ASR, ±80 ms)",
+   "palavras": [
+    {
+     "w": "Aprovar",
+     "t0": 0.04,
+     "t1": 0.374
+    },
+    {
+     "w": "a",
+     "t0": 0.374,
+     "t1": 0.485
+    },
+    {
+     "w": "estrutura",
+     "t0": 0.485,
+     "t1": 0.945
+    },
+    {
+     "w": "sem",
+     "t0": 0.945,
+     "t1": 1.065
+    },
+    {
+     "w": "ESC.",
+     "t0": 1.065,
+     "t1": 1.505
+    },
+    {
+     "w": "Chamar",
+     "t0": 2.031,
+     "t1": 2.371
+    },
+    {
+     "w": "advogado",
+     "t0": 2.371,
+     "t1": 3.048
+    },
+    {
+     "w": "e",
+     "t0": 3.048,
+     "t1": 3.218
+    },
+    {
+     "w": "contador.",
+     "t0": 3.218,
+     "t1": 3.726
+    },
+    {
+     "w": "Cotar",
+     "t0": 4.19,
+     "t1": 4.673
+    },
+    {
+     "w": "as",
+     "t0": 4.673,
+     "t1": 4.915
+    },
+    {
+     "w": "parcerias.",
+     "t0": 4.915,
+     "t1": 5.64
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "lista de decisões",
+   "nota": "Diz \"parcerias\" (roteiro: \"parceiras\") em todas as tomadas. Sugestão: trocar o texto do roteiro e da tela para \"parcerias\", que mantém o sentido, ou regravar só essa frase. Palavras corrigidas na execução: as pausas reais estão em 1,51–2,03 s (depois de \"ESC.\") e 3,73–4,19 s; o plano punha a primeira pausa depois de \"estrutura\".",
+   "asrDoCorte": "aprovar estrutura cinésquia, chamar advogado e contador, cortar as parcerias."
+  },
+  "F087": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 4.275,
+   "iniGravacao": 1159.86,
+   "fimGravacao": 1164.115,
+   "ganhoDb": 0,
+   "pausaDepois": 0.3,
+   "tEnfaseRel": 3.36,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "Aprovar",
+     "t0": 0.04,
+     "t1": 0.533
+    },
+    {
+     "w": "o",
+     "t0": 0.533,
+     "t1": 0.697
+    },
+    {
+     "w": "piloto",
+     "t0": 0.697,
+     "t1": 1.189
+    },
+    {
+     "w": "de",
+     "t0": 1.189,
+     "t1": 1.353
+    },
+    {
+     "w": "noventa",
+     "t0": 1.353,
+     "t1": 1.846
+    },
+    {
+     "w": "dias,",
+     "t0": 1.846,
+     "t1": 2.01
+    },
+    {
+     "w": "com",
+     "t0": 2.19,
+     "t1": 2.336
+    },
+    {
+     "w": "critério",
+     "t0": 2.336,
+     "t1": 2.775
+    },
+    {
+     "w": "de",
+     "t0": 2.775,
+     "t1": 2.921
+    },
+    {
+     "w": "parada",
+     "t0": 2.921,
+     "t1": 3.36
+    },
+    {
+     "w": "definido",
+     "t0": 3.36,
+     "t1": 3.94
+    },
+    {
+     "w": "antes.",
+     "t0": 3.94,
+     "t1": 4.23
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "lista; \"E confirmar\" fecha a lista",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "aprovar o piloto de 90 dias com critério de parada definido antes."
+  },
+  "F088": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 1.895,
+   "iniGravacao": 1170.04,
+   "fimGravacao": 1171.915,
+   "ganhoDb": 0,
+   "pausaDepois": 0.7,
+   "tEnfaseRel": 1.28,
+   "enfaseMetodo": "asr-manual (sufixos ASR + energia, ±60 ms)",
+   "palavras": [
+    {
+     "w": "E",
+     "t0": 0.04,
+     "t1": 0.178
+    },
+    {
+     "w": "confirmar",
+     "t0": 0.178,
+     "t1": 0.591
+    },
+    {
+     "w": "o",
+     "t0": 0.591,
+     "t1": 0.729
+    },
+    {
+     "w": "aporte",
+     "t0": 0.729,
+     "t1": 1.142
+    },
+    {
+     "w": "de",
+     "t0": 1.142,
+     "t1": 1.28
+    },
+    {
+     "w": "um",
+     "t0": 1.28,
+     "t1": 1.422
+    },
+    {
+     "w": "milhão.",
+     "t0": 1.422,
+     "t1": 1.85
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "fecha o pedido (aporte): deixa o número assentar",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "e confirmar o aporte de 1 milhão."
+  },
+  "F089": {
+   "origem": "clipe",
+   "ini": 0.15,
+   "fim": 2.225,
+   "iniGravacao": 1190.38,
+   "fimGravacao": 1192.455,
+   "ganhoDb": 0,
+   "pausaDepois": 0.3,
+   "tEnfaseRel": 1.355,
+   "enfaseMetodo": "asr-interp (entre dois cortes ASR, ±80 ms)",
+   "palavras": [
+    {
+     "w": "A",
+     "t0": 0.04,
+     "t1": 0.16
+    },
+    {
+     "w": "Zippi",
+     "t0": 0.16,
+     "t1": 0.399
+    },
+    {
+     "w": "provou",
+     "t0": 0.399,
+     "t1": 0.638
+    },
+    {
+     "w": "que",
+     "t0": 0.638,
+     "t1": 0.757
+    },
+    {
+     "w": "esse",
+     "t0": 0.757,
+     "t1": 0.996
+    },
+    {
+     "w": "mercado",
+     "t0": 0.996,
+     "t1": 1.355
+    },
+    {
+     "w": "existe.",
+     "t0": 1.355,
+     "t1": 2.05
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "par paralelo Zippi → Vapti: colar",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "A ZIP provou que esse mercado existe."
+  },
+  "F090": {
+   "origem": "clipe",
+   "ini": 0.33,
+   "fim": 4.725,
+   "iniGravacao": 1199.36,
+   "fimGravacao": 1203.755,
+   "ganhoDb": 0,
+   "pausaDepois": 1.0,
+   "tEnfaseRel": 2.25,
+   "enfaseMetodo": "asr",
+   "palavras": [
+    {
+     "w": "A",
+     "t0": 0.04,
+     "t1": 0.25
+    },
+    {
+     "w": "Vapti",
+     "t0": 0.25,
+     "t1": 0.67
+    },
+    {
+     "w": "vai",
+     "t0": 0.94,
+     "t1": 1.086
+    },
+    {
+     "w": "provar",
+     "t0": 1.086,
+     "t1": 1.377
+    },
+    {
+     "w": "que",
+     "t0": 1.377,
+     "t1": 1.522
+    },
+    {
+     "w": "dá",
+     "t0": 1.522,
+     "t1": 1.668
+    },
+    {
+     "w": "pra",
+     "t0": 1.668,
+     "t1": 1.959
+    },
+    {
+     "w": "fazer",
+     "t0": 1.959,
+     "t1": 2.25
+    },
+    {
+     "w": "melhor,",
+     "t0": 2.25,
+     "t1": 2.74
+    },
+    {
+     "w": "com",
+     "t0": 2.99,
+     "t1": 3.22
+    },
+    {
+     "w": "quem",
+     "t0": 3.22,
+     "t1": 3.45
+    },
+    {
+     "w": "mais",
+     "t0": 3.45,
+     "t1": 3.68
+    },
+    {
+     "w": "precisa.",
+     "t0": 3.68,
+     "t1": 4.37
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "antes do \"Vamos?\" final: respiro de fechamento",
+   "nota": "Corte deixa de fora: respiração 1199.09-1199.31 (-43 dB)",
+   "asrDoCorte": "A Vapt vai provar que dá pra fazer melhor com quem mais precisa."
+  },
+  "F091": {
+   "origem": "clipe",
+   "ini": 0.02,
+   "fim": 0.755,
+   "iniGravacao": 1214.84,
+   "fimGravacao": 1215.575,
+   "ganhoDb": 1.0,
+   "pausaDepois": null,
+   "tEnfaseRel": 0.035,
+   "enfaseMetodo": "inicio",
+   "palavras": [
+    {
+     "w": "Vamos?",
+     "t0": 0.04,
+     "t1": 0.71
+    }
+   ],
+   "fadeIn": 0.01,
+   "fadeOut": 0.03,
+   "contornoFinal": "suspenso/ascendente (continuação)",
+   "motivoPausa": "última frase: segue o card final (sem mudança)",
+   "nota": "Mantido o take; só o aparo.",
+   "asrDoCorte": "Vamos?"
+  }
+ }
+}

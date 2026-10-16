@@ -1,496 +1,496 @@
 1
-00:00:00,760 --> 00:00:02,244
+00:00:00,800 --> 00:00:02,155
 Quatrocentos reais.
 
 2
-00:00:03,384 --> 00:00:08,935
+00:00:02,935 --> 00:00:08,370
 Pra muita gente, é isso que separa
 um dia de trabalho de um dia perdido.
 
 3
-00:00:09,075 --> 00:00:12,314
+00:00:08,600 --> 00:00:11,405
 É o motorista que precisa
 abastecer pra rodar.
 
 4
-00:00:12,454 --> 00:00:16,553
+00:00:11,485 --> 00:00:15,310
 É o barbeiro que precisa repor
 material antes do fim de semana.
 
 5
-00:00:16,693 --> 00:00:20,535
+00:00:15,540 --> 00:00:18,815
 Eles recebem todo dia, ou toda semana.
 
 6
-00:00:20,675 --> 00:00:27,481
+00:00:18,995 --> 00:00:25,140
 Mas o crédito tradicional olha pra eles
 como se ganhassem por mês, com holerite.
 
 7
-00:00:27,621 --> 00:00:31,386
+00:00:25,270 --> 00:00:28,475
 E aí o dinheiro não chega
 na hora em que faz falta.
 
 8
-00:00:31,826 --> 00:00:37,538
+00:00:28,905 --> 00:00:34,480
 São mais de vinte e quatro milhões
 de trabalhadores autônomos no Brasil.
 
 9
-00:00:37,678 --> 00:00:42,832
+00:00:34,760 --> 00:00:39,435
 A Vapti nasce pra ser o lugar a quem
 eles recorrem quando falta aquele valor.
 
 10
-00:00:43,872 --> 00:00:45,787
+00:00:40,515 --> 00:00:42,310
 E isso não é uma aposta no escuro.
 
 11
-00:00:45,927 --> 00:00:50,464
+00:00:42,540 --> 00:00:46,475
 Uma empresa brasileira já
 provou esse modelo: a Zippi.
 
 12
-00:00:50,604 --> 00:00:56,080
+00:00:46,705 --> 00:00:51,840
 Ela começou em 2019, com um cheque
 de cento e vinte e cinco mil dólares.
 
 13
-00:00:56,220 --> 00:01:01,434
+00:00:52,020 --> 00:00:57,240
 Em 2021, lançou um cartão de
 crédito semanal para autônomos,
 
 14
-00:01:01,444 --> 00:01:04,480
+00:00:57,250 --> 00:01:00,145
 com o limite voltando
 segundos depois do Pix.
 
 15
-00:01:04,620 --> 00:01:10,654
+00:01:00,375 --> 00:01:06,280
 Só em 2022, liberou duzentos e
 setenta e cinco milhões de reais.
 
 16
-00:01:10,794 --> 00:01:15,256
+00:01:06,610 --> 00:01:10,585
 Hoje, já são mais de sete
 bilhões e meio concedidos.
 
 17
-00:01:15,396 --> 00:01:20,815
+00:01:10,865 --> 00:01:16,530
 E o Dealroom estima que ela valha
 cerca de oitenta milhões de dólares.
 
 18
-00:01:20,955 --> 00:01:24,355
+00:01:16,960 --> 00:01:20,245
 Mas o dado que mais
 importa pra nós é outro.
 
 19
-00:01:25,095 --> 00:01:28,032
+00:01:20,925 --> 00:01:23,720
 A Zippi não cresceu
 emprestando o próprio dinheiro.
 
 20
-00:01:28,172 --> 00:01:31,925
+00:01:23,800 --> 00:01:27,425
 Ela cresceu com fundos de investimento
 comprando a carteira dela.
 
 21
-00:01:32,065 --> 00:01:40,221
+00:01:27,755 --> 00:01:35,780
 Sessenta e seis milhões em 2024.
 Oitenta em 2025. Duzentos e vinte em 2026.
 
 22
-00:01:40,361 --> 00:01:42,341
+00:01:36,160 --> 00:01:37,995
 Esse é o caminho que a gente vai seguir.
 
 23
-00:01:43,381 --> 00:01:44,579
+00:01:39,075 --> 00:01:40,120
 Funciona assim.
 
 24
-00:01:44,719 --> 00:01:48,404
+00:01:40,250 --> 00:01:43,775
 O cliente tem um limite,
 e saca quando precisa.
 
 25
-00:01:48,544 --> 00:01:51,979
+00:01:43,955 --> 00:01:47,240
 Ele pede por mensagem, até mandando áudio.
 
 26
-00:01:52,119 --> 00:01:58,236
+00:01:47,420 --> 00:01:53,075
 Recebe um link e segue numa tela com barra
 de progresso, até o Pix cair na conta.
 
 27
-00:01:58,376 --> 00:02:03,902
+00:01:53,255 --> 00:01:58,650
 E vê tudo antes de aceitar:
 quanto recebe, quanto paga e quando.
 
 28
-00:02:04,042 --> 00:02:09,951
+00:01:59,030 --> 00:02:04,655
 Um saque de quatrocentos reais vira
 quatro parcelas semanais de cento e vinte.
 
 29
-00:02:10,091 --> 00:02:15,383
+00:02:04,935 --> 00:02:10,110
 Quem prefere pagar por dia tem o plano de
 catorze dias: trinta e um reais por dia.
 
 30
-00:02:15,523 --> 00:02:19,850
+00:02:10,440 --> 00:02:14,495
 E o pagamento é automático, com o
 Pix Automático do Banco Central.
 
 31
-00:02:19,990 --> 00:02:23,700
+00:02:14,625 --> 00:02:17,825
 O cliente autoriza uma vez, e o sistema
 
 32
-00:02:23,710 --> 00:02:27,338
+00:02:17,835 --> 00:02:21,230
 tenta de novo até três
 vezes se faltar saldo.
 
 33
-00:02:27,478 --> 00:02:32,138
+00:02:21,560 --> 00:02:26,095
 Quitou, o limite volta.
 E com o tempo, ele cresce.
 
 34
-00:02:33,178 --> 00:02:36,540
+00:02:27,175 --> 00:02:30,390
 Agora, a parte que faz
 o cliente querer ficar.
 
 35
-00:02:36,680 --> 00:02:41,790
+00:02:30,520 --> 00:02:35,485
 A Vapti tem níveis: Entrada,
 Bronze, Prata e Ouro.
 
 36
-00:02:41,930 --> 00:02:47,284
+00:02:35,715 --> 00:02:40,950
 Quem paga em dia sobe de nível.
 E a cada nível, a taxa cai.
 
 37
-00:02:47,424 --> 00:02:52,015
+00:02:41,180 --> 00:02:45,655
 Começa em seis por cento por
 semana, e chega a quatro no Ouro.
 
 38
-00:02:52,155 --> 00:02:57,647
+00:02:45,985 --> 00:02:51,350
 A partir do Prata, o limite volta à
 medida que ele paga, sem precisar zerar.
 
 39
-00:02:57,787 --> 00:03:01,546
+00:02:51,530 --> 00:02:54,504
 No Ouro, ele ganha uma
 reserva de emergência
 
 40
-00:03:01,556 --> 00:03:04,542
+00:02:54,514 --> 00:02:57,845
 pré-aprovada, liberada em segundos.
 
 41
-00:03:04,682 --> 00:03:08,989
+00:02:58,175 --> 00:03:01,890
 E quem indica amigos que pagam
 em dia também sobe mais rápido.
 
 42
-00:03:09,129 --> 00:03:13,931
+00:03:02,070 --> 00:03:06,355
 Tudo com regra clara,
 na tela, pra todo mundo ver.
 
 43
-00:03:14,371 --> 00:03:18,695
+00:03:06,835 --> 00:03:11,000
 A gente premia quem paga bem.
 Nunca quem se endivida mais.
 
 44
-00:03:18,835 --> 00:03:21,770
+00:03:11,330 --> 00:03:14,149
 Isso é o certo a fazer,
 e é exatamente o que
 
 45
-00:03:21,780 --> 00:03:23,868
+00:03:14,159 --> 00:03:16,225
 um investidor vai querer ver lá na frente.
 
 46
-00:03:24,908 --> 00:03:29,893
+00:03:17,305 --> 00:03:22,170
 Agora, a pergunta que define tudo:
 como isso funciona dentro da lei.
 
 47
-00:03:30,633 --> 00:03:34,849
+00:03:22,800 --> 00:03:27,017
 Emprestar como empresa comum não
 dá: pra quem não é instituição
 
 48
-00:03:34,859 --> 00:03:39,270
+00:03:27,027 --> 00:03:31,015
 financeira, a lei limita os
 juros a doze por cento ao ano.
 
 49
-00:03:39,410 --> 00:03:43,376
+00:03:31,445 --> 00:03:35,260
 A ESC, a Empresa Simples de
 Crédito, parecia o caminho.
 
 50
-00:03:43,516 --> 00:03:47,556
+00:03:35,390 --> 00:03:38,942
 Mas ela não atende pessoa
 física, só funciona na própria
 
 51
-00:03:47,566 --> 00:03:51,685
+00:03:38,952 --> 00:03:43,165
 cidade e nas vizinhas, e não
 pode receber dinheiro de fundos.
 
 52
-00:03:51,825 --> 00:03:55,921
+00:03:43,395 --> 00:03:48,010
 Ela travaria a gente justamente quando
 a operação começasse a dar certo.
 
 53
-00:03:56,061 --> 00:03:58,504
+00:03:48,390 --> 00:03:50,685
 Então a gente vai fazer como a Zippi fez.
 
 54
-00:03:58,644 --> 00:04:03,124
+00:03:50,915 --> 00:03:55,280
 A Vapti cuida do cliente,
 da análise e da cobrança.
 
 55
-00:04:03,264 --> 00:04:08,872
+00:03:55,410 --> 00:04:00,855
 Uma instituição autorizada pelo Banco
 Central emite o contrato e libera o Pix.
 
 56
-00:04:09,012 --> 00:04:13,946
+00:04:00,985 --> 00:04:05,520
 E a Vapti compra esse crédito com
 o próprio capital, no mesmo dia.
 
 57
-00:04:14,086 --> 00:04:19,116
+00:04:05,850 --> 00:04:10,765
 Isso se chama BaaS, e está
 regulamentado desde novembro de 2025.
 
 58
-00:04:19,256 --> 00:04:25,976
+00:04:10,995 --> 00:04:17,590
 Resultado: Brasil inteiro, pessoa física
 e MEI, e a porta aberta para os fundos.
 
 59
-00:04:27,016 --> 00:04:28,419
+00:04:18,670 --> 00:04:19,945
 Vamos aos números.
 
 60
-00:04:28,559 --> 00:04:31,595
+00:04:20,125 --> 00:04:22,907
 A cinco por cento por semana, um saque de
 
 61
-00:04:31,605 --> 00:04:35,148
+00:04:22,917 --> 00:04:26,570
 quatrocentos reais custa
 oitenta reais de juros.
 
 62
-00:04:35,288 --> 00:04:37,931
+00:04:26,800 --> 00:04:29,225
 Isso dá trinta e sete e
 meio por cento ao mês.
 
 63
-00:04:38,071 --> 00:04:42,935
+00:04:29,655 --> 00:04:34,252
 A Zippi cobra a partir de quatro por cento
 por semana, cerca de dezoito por cento
 
 64
-00:04:42,945 --> 00:04:48,870
+00:04:34,262 --> 00:04:40,240
 ao mês. A gente cobra mais porque atende
 quem ela recusa, inclusive negativado.
 
 65
-00:04:49,010 --> 00:04:54,710
+00:04:40,520 --> 00:04:45,735
 E é por isso que a taxa cai por nível:
 o bom pagador tem motivo pra ficar.
 
 66
-00:04:54,850 --> 00:04:59,377
+00:04:46,165 --> 00:04:50,550
 Com um milhão de reais, a carteira
 gira cerca de um milhão e meio por mês.
 
 67
-00:04:59,517 --> 00:05:02,706
+00:04:50,730 --> 00:04:53,765
 Isso projeta três milhões
 e meio de receita por ano.
 
 68
-00:05:02,846 --> 00:05:08,459
+00:04:53,995 --> 00:04:59,450
 E uma margem perto de cento e trinta mil
 reais por mês, antes de equipe e impostos.
 
 69
-00:05:08,599 --> 00:05:10,790
+00:04:59,830 --> 00:05:01,885
 Mas presta atenção nesse número aqui.
 
 70
-00:05:11,430 --> 00:05:13,929
+00:05:02,365 --> 00:05:04,535
 Se a perda passar de dezesseis vírgula
 
 71
-00:05:13,939 --> 00:05:17,109
+00:05:04,545 --> 00:05:07,910
 setenta e cinco por cento,
 essa margem zera.
 
 72
-00:05:17,649 --> 00:05:21,460
+00:05:08,390 --> 00:05:12,085
 O que decide esse negócio
 não é a taxa. É a perda.
 
 73
-00:05:21,600 --> 00:05:25,728
+00:05:12,865 --> 00:05:16,850
 Por isso o piloto existe: pra medir
 a perda real antes de crescer.
 
 74
-00:05:25,868 --> 00:05:29,723
+00:05:17,230 --> 00:05:20,668
 No segundo ano, com dívida
 estruturada financiando
 
 75
-00:05:29,733 --> 00:05:33,113
+00:05:20,678 --> 00:05:24,355
 a carteira, ela vai a três
 vírgula quatro milhões.
 
 76
-00:05:33,253 --> 00:05:38,853
+00:05:24,585 --> 00:05:29,330
 E a margem projetada passa de
 quatrocentos e sessenta mil reais por mês.
 
 77
-00:05:39,893 --> 00:05:42,478
+00:05:30,410 --> 00:05:32,675
 Cada centavo de custo foi pensado.
 
 78
-00:05:42,618 --> 00:05:45,845
+00:05:32,955 --> 00:05:36,107
 Em mensagem, cada saque
 custaria um real e cinco
 
 79
-00:05:45,855 --> 00:05:49,539
+00:05:36,117 --> 00:05:39,730
 centavos. Com a jornada
 certa, vinte centavos.
 
 80
-00:05:49,679 --> 00:05:52,947
+00:05:40,010 --> 00:05:42,562
 A consulta de crédito
 sai de mais de quinze
 
 81
-00:05:52,957 --> 00:05:56,481
+00:05:42,572 --> 00:05:46,665
 reais no balcão pra dois
 ou três reais por saque.
 
 82
-00:05:56,621 --> 00:05:58,816
+00:05:47,045 --> 00:05:49,120
 Agora, o que pode dar errado.
 
 83
-00:05:59,456 --> 00:06:04,765
+00:05:49,650 --> 00:05:54,595
 A gente depende de uma instituição
 parceira. Por isso vamos cotar três.
 
 84
-00:06:04,905 --> 00:06:09,715
+00:05:54,925 --> 00:05:59,610
 A taxa é o dobro da referência, e isso
 pede transparência total no contrato.
 
 85
-00:06:09,855 --> 00:06:15,010
+00:05:59,940 --> 00:06:04,795
 A regra do BaaS é nova. Nada é
 assinado sem parecer jurídico.
 
 86
-00:06:15,150 --> 00:06:20,767
+00:06:05,025 --> 00:06:10,190
 E leva de dois a quatro meses pra operar.
 Por isso as conversas começam já.
 
 87
-00:06:21,807 --> 00:06:23,636
+00:06:11,270 --> 00:06:12,965
 E onde isso pode chegar?
 
 88
-00:06:23,776 --> 00:06:28,401
+00:06:13,345 --> 00:06:17,860
 A Zippi levou cerca de três anos,
 do lançamento ao primeiro fundo.
 
 89
-00:06:28,541 --> 00:06:30,597
+00:06:18,040 --> 00:06:19,935
 A nossa régua é parecida.
 
 90
-00:06:30,737 --> 00:06:33,810
+00:06:20,215 --> 00:06:23,130
 Ano um: gerar histórico,
 com o capital próprio.
 
 91
-00:06:33,950 --> 00:06:36,937
+00:06:23,310 --> 00:06:26,125
 Ano dois: primeira dívida estruturada.
 
 92
-00:06:37,077 --> 00:06:40,086
+00:06:26,305 --> 00:06:29,180
 Ano três: um fundo comprando a carteira.
 
 93
-00:06:40,226 --> 00:06:45,282
+00:06:29,360 --> 00:06:34,255
 Anos quatro e cinco: rodada de
 investimento, se os números sustentarem.
 
 94
-00:06:45,422 --> 00:06:50,100
+00:06:34,535 --> 00:06:38,760
 E entre o quarto e o sexto ano,
 a janela pra vender a operação.
 
 95
-00:06:50,240 --> 00:06:53,417
+00:06:39,140 --> 00:06:42,310
 O que se vende não é
 a carteira. É o motor:
 
 96
-00:06:53,427 --> 00:06:56,739
+00:06:42,320 --> 00:06:45,495
 o canal, a análise e
 os clientes que voltam.
 
 97
-00:06:56,879 --> 00:07:01,072
+00:06:45,675 --> 00:06:49,720
 E esse motor é o que a gente leva
 pra montar a próxima carteira.
 
 98
-00:07:02,112 --> 00:07:06,093
+00:06:51,000 --> 00:06:54,455
 Pra começar, a gente
 precisa de cinco decisões.
 
 99
-00:07:06,233 --> 00:07:12,148
+00:06:54,835 --> 00:07:00,620
 Aprovar a estrutura sem ESC. Chamar
-advogado e contador. Cotar as parceiras.
+advogado e contador. Cotar as parcerias.
 
 100
-00:07:12,288 --> 00:07:16,845
+00:07:00,850 --> 00:07:05,225
 Aprovar o piloto de noventa dias,
 com critério de parada definido antes.
 
 101
-00:07:16,985 --> 00:07:19,111
+00:07:05,405 --> 00:07:07,400
 E confirmar o aporte de um milhão.
 
 102
-00:07:19,251 --> 00:07:21,957
+00:07:07,980 --> 00:07:10,175
 A Zippi provou que esse mercado existe.
 
 103
-00:07:22,097 --> 00:07:27,042
+00:07:10,355 --> 00:07:14,870
 A Vapti vai provar que dá pra fazer
 melhor, com quem mais precisa.
 
 104
-00:07:27,782 --> 00:07:28,778
+00:07:15,750 --> 00:07:16,690
 Vamos?

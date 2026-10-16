@@ -46,6 +46,7 @@ Stack: React 19 + TS estrito + Tailwind v4 + `src/styles/tokens.css` + fontes @f
 ```
 
 Todos os tempos em segundos **absolutos** do filme. `tEnfase` é o instante absoluto em que a sílaba da palavra de ênfase começa (estimado pela posição proporcional da palavra dentro da fala). `palavras[].t0/t1` também absolutos. Regras de montagem (agente PIPELINE): respiro entre frases 0,3 s, mais `pausaAntes`/`pausaDepois` do roteiro; fronteira de ato +0,9 s; o filme abre com 0,8 s de preto; fecha com card final de 5 s (V24) após a F091.
+Com a voz gravada e editada (`video/edicao-voz.json` → `video/entrada/editado/`, motor `arquivos`), o vão entre duas frases é o silêncio total do plano (`pausaDepois` do plano, que já inclui respiro, `pausaAntes` e fronteira de ato), `palavras` são os tempos reais do plano e `tEnfase` é o início medido da palavra de ênfase. Os campos `pausaAntes`/`pausaDepois` da timeline continuam sendo os do roteiro.
 Enquanto a voz não existir, `fonte: "estimado"` usa as durações do roteiro; ao rodar `video:voz`, vira `"voz"` com as durações reais.
 
 Cues de som: `video/cues/atoN.json` = `[{ "frase": "F008", "ref": "fala|enfase|fim", "dt": 0.0, "tipo": "tick|whoosh|impacto|swell|ding|pop|sub", "dur": 2.5, "vol": -18 }]`. O script de áudio funde esses cues com os padrões (whoosh na fronteira de ato, impacto na revelação).

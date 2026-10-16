@@ -63,14 +63,62 @@ export const CADEIA_VOZ_GRAVADA = [
   "acompressor=threshold=0.1:ratio=2.2:attack=12:release=200:makeup=2:knee=3",
 ];
 
-/** Roda a cadeia de filtros e (opcional) a sala; entrada qualquer, saída WAV 48 kHz mono 16 bits (pico em -6 dBFS). */
-export async function processar(entrada, saida, cadeia, { sala = null, rodarAntes = [] } = {}) {
+/**
+ * Atraso (em amostras) que uma cadeia ffmpeg introduz sem aumentar o arquivo. O afftdn atrasa a saída em 25 ms a 48 kHz
+ * e mantém o tamanho: sem compensar, a voz sai deslocada e os últimos 25 ms (a cauda da última sílaba) somem.
+ * Medido uma vez por cadeia com um impulso sobre ruído de -80 dB.
+ */
+const atrasos = new Map();
+export function medirAtraso(cadeia, dirTmp) {
+  const chave = cadeia.join(",");
+  if (!atrasos.has(chave)) atrasos.set(chave, medirAtrasoAgora(cadeia, dirTmp, atrasos.size)); // promessa: chamadas em paralelo esperam a mesma medição
+  return atrasos.get(chave);
+}
+
+async function medirAtrasoAgora(cadeia, dirTmp, k) {
+  garantir(dirTmp);
+  const n = SR;
+  const pos = Math.round(0.4 * SR);
+  const x = new Float32Array(n);
+  let s = 12345;
+  for (let i = 0; i < n; i++) {
+    s = (Math.imul(s, 1103515245) + 12345) >>> 0;
+    x[i] = ((s / 4294967296) * 2 - 1) * 1e-4;
+  }
+  x[pos] = 0.5;
+  const a = path.join(dirTmp, `atraso-${process.pid}-${k}-in.wav`);
+  const b = path.join(dirTmp, `atraso-${process.pid}-${k}-out.wav`);
+  gravarWav(a, [x], SR, 24);
+  await ffmpeg(["-i", a, "-af", ["aresample=resampler=soxr:osr=48000", "aformat=channel_layouts=mono", ...cadeia].join(","), "-ar", "48000", "-ac", "1", "-c:a", "pcm_f32le", b]);
+  const y = lerWav(b).dados[0];
+  fs.rmSync(a, { force: true });
+  fs.rmSync(b, { force: true });
+  let im = pos;
+  for (let i = pos; i < Math.min(y.length, pos + Math.round(0.2 * SR)); i++) if (Math.abs(y[i]) > Math.abs(y[im])) im = i;
+  return im - pos;
+}
+
+/**
+ * Roda a cadeia de filtros e (opcional) a sala; entrada qualquer, saída WAV 48 kHz mono 16 bits (pico em -6 dBFS).
+ * `compensarAtraso`: completa o fim com silêncio antes da cadeia e descarta o atraso medido no início, de modo que a saída
+ * tenha o mesmo tamanho e a mesma posição no tempo da entrada (os tempos de palavras da entrada continuam valendo).
+ */
+export async function processar(entrada, saida, cadeia, { sala = null, rodarAntes = [], compensarAtraso = false } = {}) {
   garantir(path.dirname(saida));
-  const filtros = [...rodarAntes, "aresample=resampler=soxr:osr=48000", "aformat=channel_layouts=mono", ...cadeia];
+  let atraso = 0;
+  let nEntrada = 0;
+  const pad = [];
+  if (compensarAtraso) {
+    atraso = await medirAtraso([...rodarAntes, ...cadeia], path.dirname(saida));
+    nEntrada = lerWav(entrada).dados[0].length;
+    pad.push(`apad=pad_dur=${(atraso / SR + 0.1).toFixed(4)}`);
+  }
+  const filtros = [...rodarAntes, ...pad, "aresample=resampler=soxr:osr=48000", "aformat=channel_layouts=mono", ...cadeia];
   const tmp = saida + ".seco.wav";
   await ffmpeg(["-i", entrada, "-af", filtros.join(","), "-ar", "48000", "-ac", "1", "-c:a", "pcm_f32le", tmp]);
   let x = lerWav(tmp).dados[0];
   fs.rmSync(tmp, { force: true });
+  if (compensarAtraso) x = x.slice(atraso, atraso + nEntrada);
   if (sala) {
     // a sala é convolvida em JS (o afir desta build do ffmpeg não soma o ramo seco de forma confiável)
     const ir = lerWav(sala).dados[0];
@@ -82,7 +130,7 @@ export async function processar(entrada, saida, cadeia, { sala = null, rodarAnte
   const y = new Float32Array(x.length);
   for (let i = 0; i < x.length; i++) y[i] = x[i] * k;
   gravarWav(saida, [y], SR);
-  return saida;
+  return { saida, atraso };
 }
 
 /** Nível RMS (dBFS) só dos trechos ativos (acima de -50 dBFS por janela de 20 ms) e pico (dBFS). */
@@ -106,14 +154,17 @@ export function medirNivel(arquivo) {
   return { rmsDb: 20 * Math.log10(rmsAtivo), picoDb: 20 * Math.log10(pico + 1e-12) };
 }
 
-/** Aplica ganho para o RMS ativo ficar em `alvoDb`, com limitador suave para o pico não passar de `tetoDb`. */
-export async function nivelar(arquivo, { alvoDb = -21, tetoDb = -1.2 } = {}) {
+/**
+ * Aplica ganho para o RMS ativo ficar em `alvoDb`, com limitador suave para o pico não passar de `tetoDb`.
+ * `semAtraso`: compensa o lookahead do alimiter (3 ms), que sem isso desloca a voz e corta o fim do arquivo.
+ */
+export async function nivelar(arquivo, { alvoDb = -21, tetoDb = -1.2, semAtraso = false } = {}) {
   const { rmsDb, picoDb } = medirNivel(arquivo);
   let ganho = alvoDb - rmsDb;
   ganho = Math.max(-20, Math.min(24, ganho));
   const tmp = arquivo + ".nivel.wav";
   const teto = Math.pow(10, tetoDb / 20).toFixed(4);
-  await ffmpeg(["-i", arquivo, "-af", `volume=${ganho.toFixed(2)}dB,alimiter=limit=${teto}:attack=3:release=60:level=disabled`, "-ar", "48000", "-ac", "1", "-c:a", "pcm_s16le", tmp]);
+  await ffmpeg(["-i", arquivo, "-af", `volume=${ganho.toFixed(2)}dB,alimiter=limit=${teto}:attack=3:release=60:level=disabled${semAtraso ? ":latency=1" : ""}`, "-ar", "48000", "-ac", "1", "-c:a", "pcm_s16le", tmp]);
   fs.renameSync(tmp, arquivo);
   return { ganhoDb: ganho, antes: { rmsDb, picoDb } };
 }

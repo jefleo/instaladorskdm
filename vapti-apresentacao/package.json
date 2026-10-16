@@ -12,6 +12,7 @@
     "qa": "node scripts/qa.mjs",
     "video:dev": "vite -c vite.video.config.ts",
     "video:build": "vite build -c vite.video.config.ts",
+    "video:editar": "node video/scripts/editar-voz.mjs",
     "video:voz": "node video/scripts/voz.mjs",
     "video:timeline": "node video/scripts/timeline.mjs",
     "video:audio": "node video/scripts/audio.mjs",

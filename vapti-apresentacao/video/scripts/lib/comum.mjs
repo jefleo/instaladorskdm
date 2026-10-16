@@ -135,31 +135,34 @@ export function lerWav(p) {
   return { sr: fmt.sr, canais, dados: saida };
 }
 
-/** Grava WAV PCM 16 bits a partir de canais Float32Array (com dither TPDF leve opcional). */
-export function gravarWav(p, canais, sr = SR) {
+/** Grava WAV PCM 16 bits (ou 24 com `bits = 24`) a partir de canais Float32Array. */
+export function gravarWav(p, canais, sr = SR, bits = 16) {
+  if (bits !== 16 && bits !== 24) throw new Error(`gravarWav: ${bits} bits não suportado`);
   const nc = canais.length;
   const n = canais[0].length;
-  const buf = Buffer.alloc(44 + n * nc * 2);
+  const by = bits / 8;
+  const escala = bits === 16 ? 32767 : 8388607;
+  const buf = Buffer.alloc(44 + n * nc * by);
   buf.write("RIFF", 0, "ascii");
-  buf.writeUInt32LE(36 + n * nc * 2, 4);
+  buf.writeUInt32LE(36 + n * nc * by, 4);
   buf.write("WAVE", 8, "ascii");
   buf.write("fmt ", 12, "ascii");
   buf.writeUInt32LE(16, 16);
   buf.writeUInt16LE(1, 20);
   buf.writeUInt16LE(nc, 22);
   buf.writeUInt32LE(sr, 24);
-  buf.writeUInt32LE(sr * nc * 2, 28);
-  buf.writeUInt16LE(nc * 2, 32);
-  buf.writeUInt16LE(16, 34);
+  buf.writeUInt32LE(sr * nc * by, 28);
+  buf.writeUInt16LE(nc * by, 32);
+  buf.writeUInt16LE(bits, 34);
   buf.write("data", 36, "ascii");
-  buf.writeUInt32LE(n * nc * 2, 40);
+  buf.writeUInt32LE(n * nc * by, 40);
   let o = 44;
   for (let i = 0; i < n; i++) {
     for (let c = 0; c < nc; c++) {
       let v = canais[c][i];
       v = v > 1 ? 1 : v < -1 ? -1 : v;
-      buf.writeInt16LE(Math.round(v * 32767), o);
-      o += 2;
+      buf.writeIntLE(Math.round(v * escala), o, by);
+      o += by;
     }
   }
   garantir(path.dirname(p));

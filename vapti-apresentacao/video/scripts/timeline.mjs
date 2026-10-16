@@ -9,6 +9,9 @@
 //
 // Regras de montagem (SPEC §2): 0,8 s de preto no início; respiro de 0,3 s entre frases mais pausaAntes/pausaDepois
 // do roteiro; fronteira de ato +0,9 s; card final de 5 s depois da F091.
+// Clipes editados (voz.json com `editado`, vindos de video/edicao-voz.json): o silêncio entre a frase e a seguinte é o
+// `silencioDepois` do plano (já inclui respiro, pausaAntes e fronteira de ato), palavras e tEnfase são os tempos reais do
+// plano (tEnfase = início da palavra de ênfase) e o clipe não é aparado de novo (as bordas e os fades já vêm da edição).
 import path from "node:path";
 import fs from "node:fs";
 import {
@@ -48,16 +51,27 @@ async function silencios(arquivo, db, minimo) {
   return lista;
 }
 
-/** Mede e apara um clipe: devolve {dur, segmentos[[ini,fim]] relativos ao clipe aparado, arquivo aparado}. */
-async function prepararClipe(id, info) {
+/**
+ * Mede e apara um clipe: devolve {dur, segmentos[[ini,fim]] relativos ao clipe aparado, arquivo aparado}.
+ * `semAparo` (clipe editado): as bordas já foram cortadas a ~30 ms da fala, com a cauda de 35 ms e os fades da edição;
+ * o aparo a -42 dB não cortaria nada, mas somaria outro fade de 30 ms sobre a cauda. O arquivo vai como está.
+ */
+async function prepararClipe(id, info, { semAparo = false } = {}) {
   const bruto = path.join(AUDIO, `${id}.wav`);
   const aparado = path.join(BUILD, "audio-aparado", `${id}.wav`);
   const st = fs.statSync(bruto);
-  const chave = `${st.size}-${Math.round(st.mtimeMs)}-${FOLGA_ANTES}-${FOLGA_DEPOIS}-${LIMIAR_DB}`;
+  const chave = `${st.size}-${Math.round(st.mtimeMs)}-${semAparo ? "sem-aparo" : `${FOLGA_ANTES}-${FOLGA_DEPOIS}-${LIMIAR_DB}`}`;
   const anterior = info[id];
   if (anterior && anterior.chave === chave && existe(aparado)) return anterior;
 
   const total = await duracaoArquivo(bruto);
+  if (semAparo) {
+    garantir(path.dirname(aparado));
+    fs.copyFileSync(bruto, aparado);
+    const novo = { chave, arquivo: path.relative(path.dirname(BUILD), aparado), durBruta: r3(total), aparaIni: 0, aparaFim: r3(total), dur: r3(total), segmentos: [[0, r3(total)]] };
+    info[id] = novo;
+    return novo;
+  }
   const bordas = await silencios(bruto, LIMIAR_DB, 0.03);
   let ini = 0;
   let fim = total;
@@ -233,9 +247,13 @@ async function main() {
   if (!forcarEstimado && temAudio.length > 0 && !usarVoz) {
     console.warn(`aviso: só ${temAudio.length}/91 clipes em video/build/audio; usando durações estimadas (rode video:voz para gerar todos).`);
   }
+  // registro da voz: tempos reais (palavras/tEnfase relativos ao WAV) e silêncio do plano de edição
+  let voz = {};
+  try { voz = lerJson(path.join(BUILD, "voz.json")).frases || {}; } catch { voz = {}; }
+  const planoDe = (id) => (usarVoz && voz[id]?.editado ? voz[id] : null);
   let medidas = {};
   if (usarVoz) {
-    const lista = await emParalelo(frasesBase, 4, (f) => prepararClipe(f.id, info));
+    const lista = await emParalelo(frasesBase, 4, (f) => prepararClipe(f.id, info, { semAparo: !!planoDe(f.id) }));
     frasesBase.forEach((f, i) => (medidas[f.id] = lista[i]));
     gravarJson(infoPath, info);
   }
@@ -244,19 +262,32 @@ async function main() {
   let cursor = PRETO_INICIAL;
   const frases = [];
   let anterior = null;
+  const fontes = { gapPlano: 0, palavrasReais: 0, enfaseReal: 0 };
   for (const f of frasesBase) {
     const dur = usarVoz ? medidas[f.id].dur : f.duracaoEstimada;
     let inicio;
     if (!anterior) inicio = cursor + f.pausaAntes;
-    else {
+    else if (anterior.silencioDepois != null) {
+      inicio = anterior.fim + anterior.silencioDepois; // silêncio total do plano (respiro, pausaAntes e fronteira já somados)
+      fontes.gapPlano++;
+    } else {
       const gap = anterior.pausaDepois + RESPIRO + f.pausaAntes + (f.ato !== anterior.ato ? FRONTEIRA_ATO : 0);
       inicio = anterior.fim + gap;
     }
     const tokens = tokenizar(f.texto);
-    const palavras = temporizarPalavras(tokens, inicio, dur, usarVoz ? medidas[f.id].segmentos : null);
+    const pv = planoDe(f.id);
+    const desloc = usarVoz ? medidas[f.id].aparaIni : 0; // tempos do WAV → tempos do clipe aparado (0 nos editados)
+    const reais = pv?.palavras?.length === tokens.length ? pv.palavras : null;
+    const palavras = reais
+      ? reais.map((p) => ({ w: p.w, t0: r3(inicio + Math.max(0, p.t0 - desloc)), t1: r3(inicio + Math.min(dur, p.t1 - desloc)) }))
+      : temporizarPalavras(tokens, inicio, dur, usarVoz ? medidas[f.id].segmentos : null);
+    if (reais) fontes.palavrasReais++;
     const achou = acharEnfase(tokens, f.enfase);
     let tEnfase;
-    if (achou) {
+    if (pv?.tEnfase != null) {
+      tEnfase = r3(inicio + pv.tEnfase - desloc); // início real da palavra de ênfase
+      fontes.enfaseReal++;
+    } else if (achou) {
       const p = palavras[achou.i];
       tEnfase = r3(p.t0 + fracaoTonica(p.w) * (p.t1 - p.t0));
     } else {
@@ -271,13 +302,13 @@ async function main() {
       layout: f.layout, visuais: f.visuais, tela: f.tela, selo: f.selo, som: f.som, direcao: f.direcao,
     };
     frases.push(reg);
-    anterior = { ...reg, fim: inicio + dur };
+    anterior = { ...reg, fim: inicio + dur, silencioDepois: pv?.silencioDepois ?? null };
   }
 
   // atos: a fronteira fica no meio do vão entre a última fala de um ato e a primeira do seguinte
   const ultimaFrase = frases[frases.length - 1];
   const fimNarracao = ultimaFrase.fim;
-  const cardIni = r3(fimNarracao + ultimaFrase.pausaDepois);
+  const cardIni = r3(fimNarracao + (planoDe(ultimaFrase.id)?.silencioDepois ?? ultimaFrase.pausaDepois));
   const cardFim = r3(cardIni + CARD_FINAL);
   const atos = roteiro.atos.map((a, i) => {
     const doAto = frases.filter((f) => f.ato === a.id);
@@ -286,7 +317,10 @@ async function main() {
     let inicio = 0;
     if (i > 0) {
       const prevUlt = frases.filter((f) => f.ato === roteiro.atos[i - 1].id).at(-1);
-      inicio = r3(((prevUlt.fim + prevUlt.pausaDepois) + (primeira.inicio - primeira.pausaAntes)) / 2);
+      // com o silêncio do plano, a fronteira fica no meio do vão real entre as duas falas
+      inicio = planoDe(prevUlt.id)?.silencioDepois != null
+        ? r3((prevUlt.fim + primeira.inicio) / 2)
+        : r3(((prevUlt.fim + prevUlt.pausaDepois) + (primeira.inicio - primeira.pausaAntes)) / 2);
     }
     return {
       id: a.id, titulo: a.titulo, capitulo: `${String(i + 1).padStart(2, "0")} · ${a.titulo}`,
@@ -311,6 +345,7 @@ async function main() {
   const min = Math.floor(cardFim / 60);
   const seg = (cardFim - min * 60).toFixed(1);
   console.log(`timeline.json: fonte=${timeline.fonte} · ${frases.length} frases · ${atos.length} atos · duração ${cardFim.toFixed(1)} s (${min}:${seg.padStart(4, "0")})`);
+  if (usarVoz) console.log(`  plano de edição: silêncio do plano em ${fontes.gapPlano}/90 vãos · palavras reais em ${fontes.palavrasReais}/91 · ênfase real em ${fontes.enfaseReal}/91`);
   console.log(`  fim da narração ${fimNarracao.toFixed(1)} s · card final ${cardIni.toFixed(1)}–${cardFim.toFixed(1)} s · ${((Date.now() - t0) / 1000).toFixed(1)} s de execução`);
   atos.forEach((a) => console.log(`  ${a.id} ${a.inicio.toFixed(1).padStart(6)} – ${a.fim.toFixed(1).padStart(6)}  ${a.capitulo}  (${a.primeira}–${a.ultima})`));
 }
