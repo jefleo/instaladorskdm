@@ -1,0 +1,193 @@
+TEXTO PARA A ELEVENLABS — cole um ato por vez
+Voz: Roberto Valença · Modelo: Eleven Multilingual v2 · Idioma: Português
+
+===== ATO 1 — O problema =====
+Quatrocentos reais.
+
+Pra muita gente, é isso que separa um dia de trabalho de um dia perdido.
+
+É o motorista que precisa abastecer pra rodar.
+
+É o barbeiro que precisa repor material antes do fim de semana.
+
+Eles recebem todo dia, ou toda semana.
+
+Mas o crédito tradicional olha pra eles como se ganhassem por mês, com holerite.
+
+E aí o dinheiro não chega na hora em que faz falta.
+
+São mais de vinte e quatro milhões de trabalhadores autônomos no Brasil.
+
+A Vapti nasce pra ser o lugar a quem eles recorrem quando falta aquele valor.
+
+===== ATO 2 — A prova =====
+E isso não é uma aposta no escuro.
+
+Uma empresa brasileira já provou esse modelo: a Zippi.
+
+Ela começou em 2019, com um cheque de cento e vinte e cinco mil dólares.
+
+Em 2021, lançou um cartão de crédito semanal para autônomos, com o limite voltando segundos depois do Pix.
+
+Só em 2022, liberou duzentos e setenta e cinco milhões de reais.
+
+Hoje, já são mais de sete bilhões e meio concedidos.
+
+E o Dealroom estima que ela valha cerca de oitenta milhões de dólares. É uma estimativa de terceiros.
+
+Mas o dado que mais importa pra nós é outro.
+
+A Zippi não cresceu emprestando o próprio dinheiro.
+
+Ela cresceu com fundos de investimento comprando a carteira dela.
+
+Sessenta e seis milhões em 2024. Oitenta em 2025. Duzentos e vinte em 2026.
+
+Esse é o caminho que a gente vai seguir.
+
+===== ATO 3 — O produto =====
+Funciona assim.
+
+O cliente tem um limite, e saca quando precisa.
+
+Ele pede por mensagem, até mandando áudio.
+
+Recebe um link e segue numa tela com barra de progresso, até o Pix cair na conta.
+
+E vê tudo antes de aceitar: quanto recebe, quanto paga e quando.
+
+Um saque de quatrocentos reais vira quatro parcelas semanais de cento e vinte.
+
+Quem prefere pagar por dia tem o plano de catorze dias: trinta e um reais por dia.
+
+E o pagamento é automático, com o Pix Automático do Banco Central.
+
+O cliente autoriza uma vez, e o sistema tenta de novo até três vezes se faltar saldo.
+
+Quitou, o limite volta. E com o tempo, ele cresce.
+
+===== ATO 4 — Gamificação =====
+Agora, a parte que faz o cliente querer ficar.
+
+A Vapti tem níveis: Entrada, Bronze, Prata e Ouro.
+
+Quem paga em dia sobe de nível. E a cada nível, a taxa cai.
+
+Começa em seis por cento por semana, e chega a quatro no Ouro.
+
+A partir do Prata, o limite volta à medida que ele paga, sem precisar zerar.
+
+No Ouro, ele ganha uma reserva de emergência pré-aprovada, liberada em segundos.
+
+E quem indica amigos que pagam em dia também sobe mais rápido.
+
+Tudo com regra clara, na tela, pra todo mundo ver.
+
+A gente premia quem paga bem. Nunca quem se endivida mais.
+
+Isso é o certo a fazer, e é exatamente o que um investidor vai querer ver lá na frente.
+
+===== ATO 5 — Estrutura =====
+Agora, a pergunta que define tudo: como isso funciona dentro da lei.
+
+Emprestar como empresa comum não dá: pra quem não é instituição financeira, a lei limita os juros a doze por cento ao ano.
+
+A ESC, a Empresa Simples de Crédito, parecia o caminho.
+
+Mas ela não atende pessoa física, só funciona na própria cidade e nas vizinhas, e não pode receber dinheiro de fundos.
+
+Ela travaria a gente justamente quando a operação começasse a dar certo.
+
+Então a gente vai fazer como a Zippi fez.
+
+A Vapti cuida do cliente, da análise e da cobrança.
+
+Uma instituição autorizada pelo Banco Central emite o contrato e libera o Pix.
+
+E a Vapti compra esse crédito com o próprio capital, no mesmo dia.
+
+Isso se chama BaaS, e está regulamentado desde novembro de 2025.
+
+Resultado: Brasil inteiro, pessoa física e MEI, e a porta aberta para os fundos.
+
+===== ATO 6 — Números =====
+Vamos aos números.
+
+A cinco por cento por semana, um saque de quatrocentos reais custa oitenta reais de juros.
+
+Isso dá trinta e sete e meio por cento ao mês.
+
+A Zippi cobra a partir de quatro por cento por semana, cerca de dezoito por cento ao mês. A gente cobra mais porque atende quem ela recusa, inclusive negativado.
+
+E é por isso que a taxa cai por nível: o bom pagador tem motivo pra ficar.
+
+Com um milhão de reais, a carteira gira cerca de um milhão e meio por mês.
+
+Isso projeta três milhões e meio de receita por ano.
+
+E uma margem perto de cento e trinta mil reais por mês, antes de equipe e impostos.
+
+Mas presta atenção nesse número aqui.
+
+Se a perda passar de dezesseis vírgula setenta e cinco por cento, essa margem zera.
+
+O que decide esse negócio não é a taxa. É a perda.
+
+Por isso o piloto existe: pra medir a perda real antes de crescer.
+
+No segundo ano, com dívida estruturada financiando a carteira, ela vai a três vírgula quatro milhões.
+
+E a margem projetada passa de quatrocentos e sessenta mil reais por mês.
+
+===== ATO 7 — Eficiência e riscos =====
+Cada centavo de custo foi pensado.
+
+Em mensagem, cada saque custaria um real e cinco centavos. Com a jornada certa, vinte centavos.
+
+A consulta de crédito sai de mais de quinze reais no balcão pra dois ou três reais por saque.
+
+Agora, o que pode dar errado.
+
+A gente depende de uma instituição parceira. Por isso vamos cotar três.
+
+A taxa é o dobro da referência, e isso pede transparência total no contrato.
+
+A regra do BaaS é nova. Nada é assinado sem parecer jurídico.
+
+E leva de dois a quatro meses pra operar. Por isso as conversas começam já.
+
+===== ATO 8 — Crescimento e saída =====
+E onde isso pode chegar?
+
+A Zippi levou cerca de três anos, do lançamento ao primeiro fundo.
+
+A nossa régua é parecida.
+
+Ano um: gerar histórico, com o capital próprio.
+
+Ano dois: primeira dívida estruturada.
+
+Ano três: um fundo comprando a carteira.
+
+Anos quatro e cinco: rodada de investimento, se os números sustentarem.
+
+E entre o quarto e o sexto ano, a janela pra vender a operação.
+
+O que se vende não é a carteira. É o motor: o canal, a análise e os clientes que voltam.
+
+E esse motor é o que a gente leva pra montar a próxima carteira.
+
+===== ATO 9 — A decisão =====
+Pra começar, a gente precisa de cinco decisões.
+
+Aprovar a estrutura sem ESC. Chamar advogado e contador. Cotar as parceiras.
+
+Aprovar o piloto de noventa dias, com critério de parada definido antes.
+
+E confirmar o aporte de um milhão.
+
+A Zippi provou que esse mercado existe.
+
+A Vapti vai provar que dá pra fazer melhor, com quem mais precisa.
+
+Vamos?
