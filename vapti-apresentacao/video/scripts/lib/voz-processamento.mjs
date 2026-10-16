@@ -52,8 +52,11 @@ export const CADEIA_VOZ_SINTETICA = [
 ];
 
 export const CADEIA_VOZ_GRAVADA = [
+  // A gravação (Lark M2S) já chega limpa, com piso perto de -80 dB: redução de ruído leve, só para não criar artefato.
+  // adeclip reconstrói os poucos picos que encostaram em 0 dBFS (no máximo 6 amostras seguidas).
+  "adeclip=w=55:o=75:a=8:t=10:n=1000",
   "highpass=f=70:poles=2",
-  "afftdn=nr=14:nf=-48:tn=1",
+  "afftdn=nr=6:nf=-62:tn=1",
   "lowshelf=g=1.5:f=160:width_type=s:w=0.8",
   "equalizer=f=3200:t=q:w=1.4:g=-1.0",
   "deesser=i=0.25:m=0.5:f=0.5",
