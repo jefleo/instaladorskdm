@@ -750,8 +750,8 @@ export const decisoes = {
     "Confirmar com a parceira se o rotativo semanal com Pix Automático cabe no catálogo dela.",
     "Acesso ao Open Finance via parceira.",
     /* Adendo 15/10 */
-    "Plano diário fora do Pix Automático (mínimo semanal): QR Pix por parcela ou outro arranjo. [A CONFIRMAR]",
-    "Tarifa do Pix Automático para quem recebe e calendário das 3 novas tentativas. [A CONFIRMAR]",
+    "Plano diário (o Pix Automático é no mínimo semanal): QR Pix por parcela? [A CONFIRMAR]",
+    "Tarifa do Pix Automático e calendário das 3 novas tentativas. [A CONFIRMAR]",
   ],
   /** Próximas 4 semanas — o briefing não traz cronograma detalhado. */
   proximas4Semanas: "[A CONFIRMAR] cronograma semana a semana",
