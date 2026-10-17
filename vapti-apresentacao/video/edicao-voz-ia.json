@@ -1,0 +1,690 @@
+{
+ "_convencao": {
+  "ini/fim": "origem \"clipe\": segundos dentro de video/entrada-ia/Fxxx.wav (clipe já cortado da narração da IA, 48 kHz mono PCM 24). iniGravacao/fimGravacao: segundos dentro da variação escolhida do ato (campo fonte), depois do ajuste de andamento.",
+  "pausaDepois": "silêncio TOTAL entre o fim (fim) desta frase e o início (ini) da próxima, já somados o respiro, a pausaAntes da próxima e os 0,9 s da fronteira de ato. Com o plano em uso, a timeline usa este valor no lugar de RESPIRO+pausaAntes+pausaDepois+FRONTEIRA_ATO.",
+  "tEnfaseRel": "segundos desde o início do clipe JÁ aparado (ini) e com as pausas internas já encurtadas: é o início da palavra de ênfase, medido por ASR (método em enfaseMetodo). A timeline soma o início absoluto da frase. Para a sílaba tônica, aplique fracaoTonica sobre palavras[k].",
+  "palavras": "tempos relativos ao clipe aparado, distribuídos por sílabas e ancorados no início e no fim da fala, nas pausas internas reais e no instante medido da ênfase.",
+  "encurtarPausas": "[de, ate, para]: pausa interna no clipe (segundos relativos a ini, ANTES do encurtamento). Remove o trecho [de+para/2, ate-para/2] (o miolo da pausa), deixando \"para\" segundos de pausa, e faz crossfade de 10 ms. Só há silêncio (-60 a -85 dB) na região.",
+  "eq": "cadeia ffmpeg aplicada ANTES de CADEIA_VOZ_GRAVADA e do nivelamento.",
+  "ganhoDb": "ajuste aplicado DEPOIS do nivelamento em -21 dB RMS.",
+  "fadeIn/fadeOut": "zero aqui: os fades (8 ms de entrada, 20 ms de saída, meio cosseno) já foram aplicados no corte, dentro dos 40 ms antes e dos 35 ms de cauda.",
+  "fonte": "ato, variação da ElevenLabs e andamento aplicado (rubberband com formantes preservados) quando houve."
+ },
+ "_nota": "Plano da voz da IA (ElevenLabs, voz Roberto Valença). Usar com: node video/scripts/editar-voz.mjs --perfil ia && node video/scripts/voz.mjs --motor arquivos --perfil ia.",
+ "frases": {
+  "F001": {
+   "origem": "clipe",
+   "arquivo": "F001.wav",
+   "ini": 0,
+   "fim": 1.5049791666666668,
+   "iniGravacao": 0,
+   "fimGravacao": 1.505,
+   "fonte": "ElevenLabs eleven_v4 · Roberto Valença · A1 variação v4 · andamento 0.92 (rubberband)",
+   "ganhoDb": 0,
+   "pausaDepois": 0.9,
+   "tEnfaseRel": 0.02,
+   "enfaseMetodo": "inicio",
+   "palavras": [
+    {
+     "w": "Quatrocentos",
+     "t0": 0.02,
+     "t1": 0.986
+    },
+    {
+     "w": "reais.",
+     "t0": 0.986,
+     "t1": 1.47
+    }
+   ],
+   "fadeIn": 0,
+   "fadeOut": 0,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "abertura: deixa o número ecoar antes da história",
+   "nota": "Corte com 40 ms antes do início e 35 ms de cauda; fades de 8/20 ms já aplicados no corte.",
+   "asrDoCorte": "400 reais"
+  },
+  "F002": {
+   "origem": "clipe",
+   "arquivo": "F002.wav",
+   "ini": 0,
+   "fim": 4.7177291666666665,
+   "iniGravacao": 1.54,
+   "fimGravacao": 6.258,
+   "fonte": "ElevenLabs eleven_v4 · Roberto Valença · A1 variação v4 · andamento 0.92 (rubberband)",
+   "ganhoDb": 0,
+   "pausaDepois": 0.3,
+   "tEnfaseRel": 3.595,
+   "enfaseMetodo": "asr-varredura (prefixo+sufixo, grade de 100 ms refinada a 30 ms; mínimo de energia a ±40 ms)",
+   "palavras": [
+    {
+     "w": "Pra",
+     "t0": 0.04,
+     "t1": 0.423
+    },
+    {
+     "w": "muita",
+     "t0": 0.423,
+     "t1": 0.807
+    },
+    {
+     "w": "gente,",
+     "t0": 0.807,
+     "t1": 1.19
+    },
+    {
+     "w": "é",
+     "t0": 1.38,
+     "t1": 1.528
+    },
+    {
+     "w": "isso",
+     "t0": 1.528,
+     "t1": 1.823
+    },
+    {
+     "w": "que",
+     "t0": 1.823,
+     "t1": 1.971
+    },
+    {
+     "w": "separa",
+     "t0": 1.971,
+     "t1": 2.414
+    },
+    {
+     "w": "um",
+     "t0": 2.414,
+     "t1": 2.561
+    },
+    {
+     "w": "dia",
+     "t0": 2.561,
+     "t1": 2.709
+    },
+    {
+     "w": "de",
+     "t0": 2.709,
+     "t1": 2.857
+    },
+    {
+     "w": "trabalho",
+     "t0": 2.857,
+     "t1": 3.3
+    },
+    {
+     "w": "de",
+     "t0": 3.3,
+     "t1": 3.447
+    },
+    {
+     "w": "um",
+     "t0": 3.447,
+     "t1": 3.595
+    },
+    {
+     "w": "dia",
+     "t0": 3.595,
+     "t1": 3.867
+    },
+    {
+     "w": "perdido.",
+     "t0": 3.867,
+     "t1": 4.683
+    }
+   ],
+   "fadeIn": 0,
+   "fadeOut": 0,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "abre a lista de exemplos; a ideia continua",
+   "nota": "Corte com 40 ms antes do início e 35 ms de cauda; fades de 8/20 ms já aplicados no corte.",
+   "asrDoCorte": "Para muita gente, é isso que separa um dia de trabalho de um dia perdido."
+  },
+  "F003": {
+   "origem": "clipe",
+   "arquivo": "F003.wav",
+   "ini": 0,
+   "fim": 2.6952708333333333,
+   "iniGravacao": 6.279,
+   "fimGravacao": 8.974,
+   "fonte": "ElevenLabs eleven_v4 · Roberto Valença · A1 variação v4 · andamento 0.92 (rubberband)",
+   "ganhoDb": 0,
+   "pausaDepois": 0.25,
+   "tEnfaseRel": 1.555,
+   "enfaseMetodo": "asr-varredura (prefixo+sufixo, grade de 100 ms refinada a 30 ms; mínimo de energia a ±40 ms)",
+   "palavras": [
+    {
+     "w": "É",
+     "t0": 0.04,
+     "t1": 0.192
+    },
+    {
+     "w": "o",
+     "t0": 0.192,
+     "t1": 0.343
+    },
+    {
+     "w": "motorista",
+     "t0": 0.343,
+     "t1": 0.949
+    },
+    {
+     "w": "que",
+     "t0": 0.949,
+     "t1": 1.1
+    },
+    {
+     "w": "precisa",
+     "t0": 1.1,
+     "t1": 1.555
+    },
+    {
+     "w": "abastecer",
+     "t0": 1.555,
+     "t1": 2.108
+    },
+    {
+     "w": "pra",
+     "t0": 2.108,
+     "t1": 2.384
+    },
+    {
+     "w": "rodar.",
+     "t0": 2.384,
+     "t1": 2.66
+    }
+   ],
+   "fadeIn": 0,
+   "fadeOut": 0,
+   "contornoFinal": "levemente descendente",
+   "motivoPausa": "enumeração (motorista → barbeiro): colar",
+   "nota": "Corte com 40 ms antes do início e 35 ms de cauda; fades de 8/20 ms já aplicados no corte.",
+   "asrDoCorte": "É um motorista que precisa abastecer para rodar."
+  },
+  "F004": {
+   "origem": "clipe",
+   "arquivo": "F004.wav",
+   "ini": 0,
+   "fim": 3.377854166666667,
+   "iniGravacao": 9.294,
+   "fimGravacao": 12.672,
+   "fonte": "ElevenLabs eleven_v4 · Roberto Valença · A1 variação v4 · andamento 0.92 (rubberband)",
+   "ganhoDb": 0,
+   "pausaDepois": 0.3,
+   "tEnfaseRel": 1.315,
+   "enfaseMetodo": "asr-varredura (prefixo+sufixo, grade de 100 ms refinada a 30 ms; mínimo de energia a ±40 ms)",
+   "palavras": [
+    {
+     "w": "É",
+     "t0": 0.04,
+     "t1": 0.182
+    },
+    {
+     "w": "o",
+     "t0": 0.182,
+     "t1": 0.323
+    },
+    {
+     "w": "barbeiro",
+     "t0": 0.323,
+     "t1": 0.748
+    },
+    {
+     "w": "que",
+     "t0": 0.748,
+     "t1": 0.89
+    },
+    {
+     "w": "precisa",
+     "t0": 0.89,
+     "t1": 1.315
+    },
+    {
+     "w": "repor",
+     "t0": 1.315,
+     "t1": 1.627
+    },
+    {
+     "w": "material",
+     "t0": 1.627,
+     "t1": 2.095
+    },
+    {
+     "w": "antes",
+     "t0": 2.095,
+     "t1": 2.407
+    },
+    {
+     "w": "do",
+     "t0": 2.407,
+     "t1": 2.563
+    },
+    {
+     "w": "fim",
+     "t0": 2.563,
+     "t1": 2.719
+    },
+    {
+     "w": "de",
+     "t0": 2.719,
+     "t1": 2.875
+    },
+    {
+     "w": "semana.",
+     "t0": 2.875,
+     "t1": 3.343
+    }
+   ],
+   "fadeIn": 0,
+   "fadeOut": 0,
+   "contornoFinal": "suspenso/ascendente (continuação)",
+   "motivoPausa": "fim dos exemplos; segue a explicação",
+   "nota": "Corte com 40 ms antes do início e 35 ms de cauda; fades de 8/20 ms já aplicados no corte.",
+   "asrDoCorte": "É o barbeiro que precisa repor material antes do fim de semana."
+  },
+  "F005": {
+   "origem": "clipe",
+   "arquivo": "F005.wav",
+   "ini": 0,
+   "fim": 2.391958333333333,
+   "iniGravacao": 13.206,
+   "fimGravacao": 15.597,
+   "fonte": "ElevenLabs eleven_v4 · Roberto Valença · A1 variação v4 · andamento 0.92 (rubberband)",
+   "ganhoDb": 0,
+   "pausaDepois": 0.4,
+   "tEnfaseRel": 0.815,
+   "enfaseMetodo": "asr-varredura (prefixo+sufixo, grade de 100 ms refinada a 30 ms; mínimo de energia a ±40 ms)",
+   "palavras": [
+    {
+     "w": "Eles",
+     "t0": 0.04,
+     "t1": 0.35
+    },
+    {
+     "w": "recebem",
+     "t0": 0.35,
+     "t1": 0.815
+    },
+    {
+     "w": "todo",
+     "t0": 0.815,
+     "t1": 1.158
+    },
+    {
+     "w": "dia,",
+     "t0": 1.158,
+     "t1": 1.329
+    },
+    {
+     "w": "ou",
+     "t0": 1.329,
+     "t1": 1.5
+    },
+    {
+     "w": "toda",
+     "t0": 1.5,
+     "t1": 1.843
+    },
+    {
+     "w": "semana.",
+     "t0": 1.843,
+     "t1": 2.357
+    }
+   ],
+   "fadeIn": 0,
+   "fadeOut": 0,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "\"Mas\" vira o raciocínio, dentro da mesma ideia",
+   "nota": "Corte com 40 ms antes do início e 35 ms de cauda; fades de 8/20 ms já aplicados no corte.",
+   "asrDoCorte": "Eles recebem todo dia ou toda semana."
+  },
+  "F006": {
+   "origem": "clipe",
+   "arquivo": "F006.wav",
+   "ini": 0,
+   "fim": 4.844833333333334,
+   "iniGravacao": 16.1,
+   "fimGravacao": 20.944,
+   "fonte": "ElevenLabs eleven_v4 · Roberto Valença · A1 variação v4 · andamento 0.92 (rubberband)",
+   "ganhoDb": 0,
+   "pausaDepois": 0.35,
+   "tEnfaseRel": 3.435,
+   "enfaseMetodo": "asr-varredura (prefixo+sufixo, grade de 100 ms refinada a 30 ms; mínimo de energia a ±40 ms)",
+   "palavras": [
+    {
+     "w": "Mas",
+     "t0": 0.04,
+     "t1": 0.202
+    },
+    {
+     "w": "o",
+     "t0": 0.202,
+     "t1": 0.363
+    },
+    {
+     "w": "crédito",
+     "t0": 0.363,
+     "t1": 0.848
+    },
+    {
+     "w": "tradicional",
+     "t0": 0.848,
+     "t1": 1.495
+    },
+    {
+     "w": "olha",
+     "t0": 1.495,
+     "t1": 1.818
+    },
+    {
+     "w": "pra",
+     "t0": 1.818,
+     "t1": 2.142
+    },
+    {
+     "w": "eles",
+     "t0": 2.142,
+     "t1": 2.465
+    },
+    {
+     "w": "como",
+     "t0": 2.465,
+     "t1": 2.788
+    },
+    {
+     "w": "se",
+     "t0": 2.788,
+     "t1": 2.95
+    },
+    {
+     "w": "ganhassem",
+     "t0": 2.95,
+     "t1": 3.435
+    },
+    {
+     "w": "por",
+     "t0": 3.435,
+     "t1": 3.723
+    },
+    {
+     "w": "mês,",
+     "t0": 3.723,
+     "t1": 4.01
+    },
+    {
+     "w": "com",
+     "t0": 4.14,
+     "t1": 4.274
+    },
+    {
+     "w": "holerite.",
+     "t0": 4.274,
+     "t1": 4.81
+    }
+   ],
+   "fadeIn": 0,
+   "fadeOut": 0,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "continua direto em \"E aí\"",
+   "nota": "Corte com 40 ms antes do início e 35 ms de cauda; fades de 8/20 ms já aplicados no corte.",
+   "asrDoCorte": "Mas o crédito tradicional olha para eles como se ganhassem por mês, com o leirite."
+  },
+  "F007": {
+   "origem": "clipe",
+   "arquivo": "F007.wav",
+   "ini": 0,
+   "fim": 2.530125,
+   "iniGravacao": 21.267,
+   "fimGravacao": 23.797,
+   "fonte": "ElevenLabs eleven_v4 · Roberto Valença · A1 variação v4 · andamento 0.92 (rubberband)",
+   "ganhoDb": 0,
+   "pausaDepois": 0.55,
+   "tEnfaseRel": 1.365,
+   "enfaseMetodo": "asr-varredura (prefixo+sufixo, grade de 100 ms refinada a 30 ms; mínimo de energia a ±40 ms)",
+   "palavras": [
+    {
+     "w": "E",
+     "t0": 0.04,
+     "t1": 0.172
+    },
+    {
+     "w": "aí",
+     "t0": 0.172,
+     "t1": 0.305
+    },
+    {
+     "w": "o",
+     "t0": 0.305,
+     "t1": 0.437
+    },
+    {
+     "w": "dinheiro",
+     "t0": 0.437,
+     "t1": 0.835
+    },
+    {
+     "w": "não",
+     "t0": 0.835,
+     "t1": 1.1
+    },
+    {
+     "w": "chega",
+     "t0": 1.1,
+     "t1": 1.365
+    },
+    {
+     "w": "na",
+     "t0": 1.365,
+     "t1": 1.506
+    },
+    {
+     "w": "hora",
+     "t0": 1.506,
+     "t1": 1.789
+    },
+    {
+     "w": "em",
+     "t0": 1.789,
+     "t1": 1.93
+    },
+    {
+     "w": "que",
+     "t0": 1.93,
+     "t1": 2.071
+    },
+    {
+     "w": "faz",
+     "t0": 2.071,
+     "t1": 2.213
+    },
+    {
+     "w": "falta.",
+     "t0": 2.213,
+     "t1": 2.495
+    }
+   ],
+   "fadeIn": 0,
+   "fadeOut": 0,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "respiro antes do número grande (24 milhões)",
+   "nota": "Corte com 40 ms antes do início e 35 ms de cauda; fades de 8/20 ms já aplicados no corte.",
+   "asrDoCorte": "E aí o dinheiro não chega na hora em que faz falta."
+  },
+  "F008": {
+   "origem": "clipe",
+   "arquivo": "F008.wav",
+   "ini": 0,
+   "fim": 4.0480833333333335,
+   "iniGravacao": 24.829,
+   "fimGravacao": 28.877,
+   "fonte": "ElevenLabs eleven_v4 · Roberto Valença · A1 variação v4 · andamento 0.92 (rubberband)",
+   "ganhoDb": 0,
+   "pausaDepois": 0.45,
+   "tEnfaseRel": 0.615,
+   "enfaseMetodo": "asr-varredura (prefixo+sufixo, grade de 100 ms refinada a 30 ms; mínimo de energia a ±40 ms)",
+   "palavras": [
+    {
+     "w": "São",
+     "t0": 0.04,
+     "t1": 0.327
+    },
+    {
+     "w": "mais",
+     "t0": 0.327,
+     "t1": 0.471
+    },
+    {
+     "w": "de",
+     "t0": 0.471,
+     "t1": 0.615
+    },
+    {
+     "w": "vinte",
+     "t0": 0.615,
+     "t1": 0.939
+    },
+    {
+     "w": "e",
+     "t0": 0.939,
+     "t1": 1.1
+    },
+    {
+     "w": "quatro",
+     "t0": 1.1,
+     "t1": 1.424
+    },
+    {
+     "w": "milhões",
+     "t0": 1.424,
+     "t1": 1.91
+    },
+    {
+     "w": "de",
+     "t0": 1.91,
+     "t1": 2.071
+    },
+    {
+     "w": "trabalhadores",
+     "t0": 2.071,
+     "t1": 2.88
+    },
+    {
+     "w": "autônomos",
+     "t0": 2.88,
+     "t1": 3.528
+    },
+    {
+     "w": "no",
+     "t0": 3.528,
+     "t1": 3.689
+    },
+    {
+     "w": "Brasil.",
+     "t0": 3.689,
+     "t1": 4.013
+    }
+   ],
+   "fadeIn": 0,
+   "fadeOut": 0,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "número; a próxima é a tese",
+   "nota": "Corte com 40 ms antes do início e 35 ms de cauda; fades de 8/20 ms já aplicados no corte.",
+   "asrDoCorte": "São mais de 24 milhões de trabalhadores autônomos no Brasil."
+  },
+  "F009": {
+   "origem": "clipe",
+   "arquivo": "F009.wav",
+   "ini": 0,
+   "fim": 4.970770833333333,
+   "iniGravacao": 29.538,
+   "fimGravacao": 34.509,
+   "fonte": "ElevenLabs eleven_v4 · Roberto Valença · A1 variação v4 · andamento 0.92 (rubberband)",
+   "ganhoDb": 0,
+   "pausaDepois": 1.2,
+   "tEnfaseRel": 0.195,
+   "enfaseMetodo": "vale de energia depois do artigo inicial",
+   "palavras": [
+    {
+     "w": "A",
+     "t0": 0.04,
+     "t1": 0.195
+    },
+    {
+     "w": "Vapti",
+     "t0": 0.195,
+     "t1": 0.549
+    },
+    {
+     "w": "nasce",
+     "t0": 0.549,
+     "t1": 0.902
+    },
+    {
+     "w": "pra",
+     "t0": 0.902,
+     "t1": 1.256
+    },
+    {
+     "w": "ser",
+     "t0": 1.256,
+     "t1": 1.433
+    },
+    {
+     "w": "o",
+     "t0": 1.433,
+     "t1": 1.61
+    },
+    {
+     "w": "lugar",
+     "t0": 1.61,
+     "t1": 1.964
+    },
+    {
+     "w": "a",
+     "t0": 1.964,
+     "t1": 2.14
+    },
+    {
+     "w": "quem",
+     "t0": 2.14,
+     "t1": 2.317
+    },
+    {
+     "w": "eles",
+     "t0": 2.317,
+     "t1": 2.671
+    },
+    {
+     "w": "recorrem",
+     "t0": 2.671,
+     "t1": 3.202
+    },
+    {
+     "w": "quando",
+     "t0": 3.592,
+     "t1": 3.89
+    },
+    {
+     "w": "falta",
+     "t0": 3.89,
+     "t1": 4.189
+    },
+    {
+     "w": "aquele",
+     "t0": 4.189,
+     "t1": 4.637
+    },
+    {
+     "w": "valor.",
+     "t0": 4.637,
+     "t1": 4.936
+    }
+   ],
+   "fadeIn": 0,
+   "fadeOut": 0,
+   "contornoFinal": "descendente (conclusão)",
+   "motivoPausa": "fronteira de ato (inclui os 0,9 s da fronteira)",
+   "nota": "Corte com 40 ms antes do início e 35 ms de cauda; fades de 8/20 ms já aplicados no corte.",
+   "asrDoCorte": "A VAPT nasce para ser o lugar a quem eles recorrem quando falta aquele valor."
+  }
+ }
+}
