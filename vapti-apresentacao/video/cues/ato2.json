@@ -1,0 +1,154 @@
+[
+  {
+    "frase": "F010",
+    "ref": "enfase",
+    "dt": -0.6,
+    "tipo": "swell",
+    "dur": 0.8,
+    "vol": -24
+  },
+  {
+    "frase": "F012",
+    "ref": "enfase",
+    "dt": 0.2,
+    "tipo": "tick",
+    "dur": 0.05,
+    "vol": -26
+  },
+  {
+    "frase": "F012",
+    "ref": "enfase",
+    "dt": 1.11,
+    "tipo": "tick",
+    "dur": 0.05,
+    "vol": -26
+  },
+  {
+    "frase": "F012",
+    "ref": "enfase",
+    "dt": 1.43,
+    "tipo": "pop",
+    "dur": 0.12,
+    "vol": -23
+  },
+  {
+    "frase": "F013",
+    "ref": "enfase",
+    "dt": -0.25,
+    "tipo": "whoosh",
+    "dur": 0.6,
+    "vol": -26
+  },
+  {
+    "frase": "F014",
+    "ref": "enfase",
+    "dt": 0.26,
+    "tipo": "tick",
+    "dur": 0.05,
+    "vol": -26
+  },
+  {
+    "frase": "F014",
+    "ref": "enfase",
+    "dt": 1.22,
+    "tipo": "tick",
+    "dur": 0.05,
+    "vol": -26
+  },
+  {
+    "frase": "F014",
+    "ref": "enfase",
+    "dt": 1.69,
+    "tipo": "pop",
+    "dur": 0.12,
+    "vol": -22
+  },
+  {
+    "frase": "F015",
+    "ref": "enfase",
+    "dt": -0.1,
+    "tipo": "tick",
+    "dur": 0.05,
+    "vol": -26
+  },
+  {
+    "frase": "F015",
+    "ref": "enfase",
+    "dt": 0.72,
+    "tipo": "tick",
+    "dur": 0.05,
+    "vol": -26
+  },
+  {
+    "frase": "F015",
+    "ref": "enfase",
+    "dt": 1.13,
+    "tipo": "sub",
+    "dur": 1.0,
+    "vol": -20
+  },
+  {
+    "frase": "F016",
+    "ref": "enfase",
+    "dt": 0.0,
+    "tipo": "tick",
+    "dur": 0.05,
+    "vol": -26
+  },
+  {
+    "frase": "F016",
+    "ref": "enfase",
+    "dt": 0.63,
+    "tipo": "pop",
+    "dur": 0.12,
+    "vol": -24
+  },
+  {
+    "frase": "F020",
+    "ref": "fala",
+    "dt": 0.05,
+    "tipo": "tick",
+    "dur": 0.05,
+    "vol": -26
+  },
+  {
+    "frase": "F020",
+    "ref": "fala",
+    "dt": 0.8,
+    "tipo": "tick",
+    "dur": 0.05,
+    "vol": -26
+  },
+  {
+    "frase": "F020",
+    "ref": "fala",
+    "dt": 5.35,
+    "tipo": "tick",
+    "dur": 0.05,
+    "vol": -26
+  },
+  {
+    "frase": "F020",
+    "ref": "fala",
+    "dt": 6.14,
+    "tipo": "tick",
+    "dur": 0.05,
+    "vol": -26
+  },
+  {
+    "frase": "F020",
+    "ref": "fala",
+    "dt": 6.33,
+    "tipo": "pop",
+    "dur": 0.12,
+    "vol": -22
+  },
+  {
+    "frase": "F021",
+    "ref": "enfase",
+    "dt": -0.1,
+    "tipo": "whoosh",
+    "dur": 0.8,
+    "vol": -22
+  }
+]

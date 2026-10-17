@@ -1,0 +1,10 @@
+[
+  { "frase": "F054", "ref": "enfase", "dt": -0.35, "tipo": "tick", "dur": 0.55, "vol": -26 },
+  { "frase": "F055", "ref": "enfase", "dt": 0.1, "tipo": "tick", "dur": 1.3, "vol": -26 },
+  { "frase": "F058", "ref": "enfase", "dt": -0.1, "tipo": "tick", "dur": 1.0, "vol": -26 },
+  { "frase": "F059", "ref": "enfase", "dt": 0.0, "tipo": "tick", "dur": 1.1, "vol": -26 },
+  { "frase": "F060", "ref": "enfase", "dt": 0.1, "tipo": "tick", "dur": 0.95, "vol": -26 },
+  { "frase": "F062", "ref": "enfase", "dt": 0.0, "tipo": "impacto", "dur": 0.5, "vol": -16 },
+  { "frase": "F063", "ref": "enfase", "dt": 0.0, "tipo": "sub", "dur": 2.5, "vol": -16 },
+  { "frase": "F066", "ref": "enfase", "dt": -0.25, "tipo": "tick", "dur": 1.6, "vol": -26 }
+]

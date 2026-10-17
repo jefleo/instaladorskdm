@@ -1,0 +1,6 @@
+[
+  { "frase": "F043", "ref": "fim", "dt": -0.15, "tipo": "pop", "dur": 0.4, "vol": -24 },
+  { "frase": "F046", "ref": "enfase", "dt": 0.0, "tipo": "impacto", "dur": 0.6, "vol": -24 },
+  { "frase": "F047", "ref": "enfase", "dt": -0.2, "tipo": "swell", "dur": 1.6, "vol": -24 },
+  { "frase": "F051", "ref": "enfase", "dt": 0.0, "tipo": "impacto", "dur": 0.7, "vol": -20 }
+]

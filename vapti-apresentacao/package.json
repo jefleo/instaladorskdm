@@ -1,0 +1,47 @@
+{
+  "name": "vapti-apresentacao",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "test": "vitest run",
+    "typecheck": "tsc -b",
+    "entregas": "npm run build && node scripts/entregas.mjs",
+    "qa": "node scripts/qa.mjs",
+    "video:dev": "vite -c vite.video.config.ts",
+    "video:build": "vite build -c vite.video.config.ts",
+    "video:editar": "node video/scripts/editar-voz.mjs",
+    "video:voz": "node video/scripts/voz.mjs",
+    "video:editar-ia": "node video/scripts/editar-voz.mjs --perfil ia",
+    "video:voz-ia": "node video/scripts/voz.mjs --motor arquivos --perfil ia",
+    "video:timeline": "node video/scripts/timeline.mjs",
+    "video:audio": "node video/scripts/audio.mjs",
+    "video:render": "node video/scripts/render.mjs",
+    "video:rascunho": "node video/scripts/timeline.mjs && npm run video:build && node video/scripts/render.mjs --rascunho",
+    "video": "npm run video:voz && npm run video:timeline && npm run video:audio && npm run video:build && npm run video:render"
+  },
+  "dependencies": {
+    "@fontsource/bricolage-grotesque": "^5.2.10",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@fontsource/manrope": "^5.2.8",
+    "lucide-react": "^0.544.0",
+    "motion": "^12.23.24",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.16",
+    "@types/node": "^22.18.12",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.1.0",
+    "playwright": "^1.56.1",
+    "tailwindcss": "^4.1.16",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.12",
+    "vite-plugin-singlefile": "^2.3.0",
+    "vitest": "^3.2.4"
+  }
+}

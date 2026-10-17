@@ -1,0 +1,138 @@
+[
+ {
+  "frase": "F022",
+  "ref": "fala",
+  "dt": -0.1,
+  "tipo": "whoosh",
+  "dur": 0.8,
+  "vol": -24
+ },
+ {
+  "frase": "F023",
+  "ref": "enfase",
+  "dt": 0.0,
+  "tipo": "pop",
+  "dur": 0.12,
+  "vol": -22
+ },
+ {
+  "frase": "F024",
+  "ref": "enfase",
+  "dt": 0.0,
+  "tipo": "pop",
+  "dur": 0.12,
+  "vol": -24
+ },
+ {
+  "frase": "F025",
+  "ref": "fala",
+  "dt": 1.79,
+  "tipo": "tick",
+  "dur": 0.05,
+  "vol": -25
+ },
+ {
+  "frase": "F025",
+  "ref": "fala",
+  "dt": 2.17,
+  "tipo": "tick",
+  "dur": 0.05,
+  "vol": -25
+ },
+ {
+  "frase": "F025",
+  "ref": "fala",
+  "dt": 2.55,
+  "tipo": "tick",
+  "dur": 0.05,
+  "vol": -25
+ },
+ {
+  "frase": "F025",
+  "ref": "fala",
+  "dt": 2.93,
+  "tipo": "tick",
+  "dur": 0.05,
+  "vol": -25
+ },
+ {
+  "frase": "F025",
+  "ref": "fala",
+  "dt": 3.31,
+  "tipo": "tick",
+  "dur": 0.05,
+  "vol": -25
+ },
+ {
+  "frase": "F025",
+  "ref": "fala",
+  "dt": 3.69,
+  "tipo": "tick",
+  "dur": 0.05,
+  "vol": -25
+ },
+ {
+  "frase": "F025",
+  "ref": "fala",
+  "dt": 4.07,
+  "tipo": "tick",
+  "dur": 0.05,
+  "vol": -25
+ },
+ {
+  "frase": "F025",
+  "ref": "fala",
+  "dt": 4.65,
+  "tipo": "ding",
+  "dur": 1.6,
+  "vol": -22
+ },
+ {
+  "frase": "F027",
+  "ref": "enfase",
+  "dt": 0.0,
+  "tipo": "whoosh",
+  "dur": 0.7,
+  "vol": -26
+ },
+ {
+  "frase": "F029",
+  "ref": "enfase",
+  "dt": 0.0,
+  "tipo": "pop",
+  "dur": 0.12,
+  "vol": -22
+ },
+ {
+  "frase": "F030",
+  "ref": "fala",
+  "dt": 2.88,
+  "tipo": "pop",
+  "dur": 0.12,
+  "vol": -26
+ },
+ {
+  "frase": "F030",
+  "ref": "fala",
+  "dt": 3.48,
+  "tipo": "pop",
+  "dur": 0.12,
+  "vol": -26
+ },
+ {
+  "frase": "F030",
+  "ref": "enfase",
+  "dt": 0.0,
+  "tipo": "ding",
+  "dur": 1.4,
+  "vol": -23
+ },
+ {
+  "frase": "F031",
+  "ref": "enfase",
+  "dt": -0.6,
+  "tipo": "swell",
+  "dur": 0.7,
+  "vol": -25
+ }
+]

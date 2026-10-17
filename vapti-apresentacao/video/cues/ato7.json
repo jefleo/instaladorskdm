@@ -1,0 +1,34 @@
+[
+  {
+    "frase": "F068",
+    "ref": "enfase",
+    "dt": 0.3,
+    "tipo": "tick",
+    "dur": 0.06,
+    "vol": -20
+  },
+  {
+    "frase": "F069",
+    "ref": "fala",
+    "dt": 3.24,
+    "tipo": "tick",
+    "dur": 0.06,
+    "vol": -22
+  },
+  {
+    "frase": "F069",
+    "ref": "fala",
+    "dt": 4.03,
+    "tipo": "tick",
+    "dur": 0.06,
+    "vol": -22
+  },
+  {
+    "frase": "F069",
+    "ref": "fala",
+    "dt": 4.66,
+    "tipo": "tick",
+    "dur": 0.06,
+    "vol": -19
+  }
+]

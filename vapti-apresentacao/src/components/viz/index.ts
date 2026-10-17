@@ -1,0 +1,16 @@
+export { CaixaIrregular } from "./CaixaIrregular";
+export { MapaAutonomos } from "./MapaAutonomos";
+export { LinhaTempoZippi } from "./LinhaTempoZippi";
+export { BarrasFidc } from "./BarrasFidc";
+export { PlanosPagamento } from "./PlanosPagamento";
+export { PixRetentativas } from "./PixRetentativas";
+export { FluxoBaas } from "./FluxoBaas";
+export { PrecoComparativo } from "./PrecoComparativo";
+export { CascataFase1 } from "./CascataFase1";
+export { CurvaMargemPerda } from "./CurvaMargemPerda";
+export { TresFases } from "./TresFases";
+export { Eficiencia } from "./Eficiencia";
+export { ReguaDuasTrilhas } from "./ReguaDuasTrilhas";
+export { Simulador } from "./Simulador";
+export { TabelaCapital } from "./TabelaCapital";
+export { SimuladorCliente } from "./SimuladorCliente";

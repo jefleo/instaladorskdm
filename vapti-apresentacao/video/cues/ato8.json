@@ -1,0 +1,26 @@
+[
+  {
+    "frase": "F075",
+    "ref": "fala",
+    "dt": 0,
+    "tipo": "swell",
+    "dur": 2.2,
+    "vol": -25
+  },
+  {
+    "frase": "F082",
+    "ref": "enfase",
+    "dt": -0.35,
+    "tipo": "swell",
+    "dur": 1.2,
+    "vol": -24
+  },
+  {
+    "frase": "F084",
+    "ref": "enfase",
+    "dt": -2,
+    "tipo": "swell",
+    "dur": 2.1,
+    "vol": -20
+  }
+]

@@ -1,0 +1,60 @@
+/* Estilos do filme: mesmas fontes e tokens do site, palco fixo 1920×1080. */
+@import "@fontsource/bricolage-grotesque/latin-500.css";
+@import "@fontsource/bricolage-grotesque/latin-700.css";
+@import "@fontsource/bricolage-grotesque/latin-800.css";
+@import "@fontsource/manrope/latin-400.css";
+@import "@fontsource/manrope/latin-500.css";
+@import "@fontsource/manrope/latin-600.css";
+@import "@fontsource/manrope/latin-700.css";
+@import "@fontsource/jetbrains-mono/latin-400.css";
+@import "@fontsource/jetbrains-mono/latin-500.css";
+@import "@fontsource/jetbrains-mono/latin-700.css";
+@import "tailwindcss";
+@import "../../src/styles/tokens.css";
+
+/* Classes usadas pelo filme e pelos componentes do site que ele reaproveita. */
+@source "./";
+@source "../../src/components/base";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #0e1116;
+}
+
+/* O filme é f(t): nenhuma transição ou animação CSS pode existir no palco. */
+#palco,
+#palco * {
+  transition: none !important;
+  animation: none !important;
+  caret-color: transparent;
+}
+
+#palco {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  transform-origin: 0 0;
+  background: var(--cor-tinta);
+  color: var(--cor-texto);
+  font-family: var(--fonte-texto);
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  font-kerning: normal;
+  /* Isola o palco: cada quadro é desenhado do zero. */
+  contain: strict;
+  isolation: isolate;
+}
+
+/* Números de dado: algarismos tabulares. */
+#palco .num,
+#palco [data-num] {
+  font-family: var(--fonte-mono);
+  font-variant-numeric: tabular-nums;
+}

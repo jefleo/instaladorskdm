@@ -1,0 +1,98 @@
+[
+ {
+  "frase": "F006",
+  "ref": "enfase",
+  "dt": 0.3,
+  "tipo": "sub",
+  "dur": 0.8,
+  "vol": -24
+ },
+ {
+  "frase": "F008",
+  "ref": "enfase",
+  "dt": 0.0,
+  "tipo": "tick",
+  "dur": 0.05,
+  "vol": -26
+ },
+ {
+  "frase": "F008",
+  "ref": "enfase",
+  "dt": 0.22,
+  "tipo": "tick",
+  "dur": 0.05,
+  "vol": -26
+ },
+ {
+  "frase": "F008",
+  "ref": "enfase",
+  "dt": 0.42,
+  "tipo": "tick",
+  "dur": 0.05,
+  "vol": -26
+ },
+ {
+  "frase": "F008",
+  "ref": "enfase",
+  "dt": 0.59,
+  "tipo": "tick",
+  "dur": 0.05,
+  "vol": -26
+ },
+ {
+  "frase": "F008",
+  "ref": "enfase",
+  "dt": 0.74,
+  "tipo": "tick",
+  "dur": 0.05,
+  "vol": -26
+ },
+ {
+  "frase": "F008",
+  "ref": "enfase",
+  "dt": 0.87,
+  "tipo": "tick",
+  "dur": 0.05,
+  "vol": -26
+ },
+ {
+  "frase": "F008",
+  "ref": "enfase",
+  "dt": 0.96,
+  "tipo": "tick",
+  "dur": 0.05,
+  "vol": -26
+ },
+ {
+  "frase": "F008",
+  "ref": "enfase",
+  "dt": 1.0,
+  "tipo": "tick",
+  "dur": 0.05,
+  "vol": -26
+ },
+ {
+  "frase": "F008",
+  "ref": "enfase",
+  "dt": 1.11,
+  "tipo": "pop",
+  "dur": 0.12,
+  "vol": -22
+ },
+ {
+  "frase": "F009",
+  "ref": "enfase",
+  "dt": -0.02,
+  "tipo": "pop",
+  "dur": 0.15,
+  "vol": -20
+ },
+ {
+  "frase": "F009",
+  "ref": "fim",
+  "dt": -1.25,
+  "tipo": "whoosh",
+  "dur": 1.2,
+  "vol": -25
+ }
+]
