@@ -6,6 +6,7 @@
 //                                                senão cai nas durações estimadas do roteiro (fonte "estimado")
 //   node video/scripts/timeline.mjs --estimado   força as durações estimadas do roteiro
 //   node video/scripts/timeline.mjs --rascunho   igual ao padrão (o formato do arquivo não muda)
+//   --ajustes ARQ                                ajustes de fala extras; sem ele, usa os do perfil gravado em voz.json
 //
 // Regras de montagem (SPEC §2): 0,8 s de preto no início; respiro de 0,3 s entre frases mais pausaAntes/pausaDepois
 // do roteiro; fronteira de ato +0,9 s; card final de 5 s depois da F091.
@@ -233,7 +234,13 @@ function gerarSrt(frases) {
 // ---------------------------------------------------------------- principal
 async function main() {
   const t0 = Date.now();
-  const roteiro = carregarRoteiro();
+  // ajustes de fala do perfil de voz em uso (voz.mjs --perfil ia grava video/ajustes-fala-ia.json em voz.json): com a voz
+  // da IA, F016 e F086 têm o texto que ela fala; com a voz do usuário, só video/ajustes-fala.json
+  let registroVoz = {};
+  try { registroVoz = lerJson(path.join(BUILD, "voz.json")); } catch { registroVoz = {}; }
+  const ajustesExtra = arg.ajustes ? String(arg.ajustes) : registroVoz.ajustesExtra || null;
+  const roteiro = carregarRoteiro({ ajustesExtra });
+  if (ajustesExtra) console.log(`timeline: perfil de voz ${registroVoz.perfil || "?"} · ajustes de fala extras ${ajustesExtra}`);
   const frasesBase = roteiro.frases;
   if (frasesBase.length !== 91) throw new Error(`esperava 91 frases, achei ${frasesBase.length}`);
 
@@ -249,7 +256,7 @@ async function main() {
   }
   // registro da voz: tempos reais (palavras/tEnfase relativos ao WAV) e silêncio do plano de edição
   let voz = {};
-  try { voz = lerJson(path.join(BUILD, "voz.json")).frases || {}; } catch { voz = {}; }
+  voz = registroVoz.frases || {};
   const planoDe = (id) => (usarVoz && voz[id]?.editado ? voz[id] : null);
   let medidas = {};
   if (usarVoz) {

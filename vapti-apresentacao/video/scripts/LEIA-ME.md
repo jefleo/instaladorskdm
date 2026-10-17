@@ -22,6 +22,20 @@ Motor padrão: **Kokoro pt-BR (neural, local)**, voz `pm_alex`. Velocidade por a
 ### Trocar pela sua voz (pasta `video/entrada/`)
 Coloque um arquivo por frase com o id do roteiro: `F001.wav` (ou `.mp3 .m4a .mp4 .mov`) … `F091.*`. Tem prioridade sobre o motor sintético, frase a frase. O áudio é extraído, passa por `afftdn` (redução de ruído), calor leve, de-esser, compressão suave e nivelamento. Depois rode `npm run video` (ou só voz → timeline → audio → render): o motion design acompanha o ritmo da sua voz porque a timeline mede os clipes reais. Para usar só arquivos: `--motor arquivos` (frases sem arquivo usam o mbrola).
 
+### Voz da IA (ElevenLabs) × voz do usuário (perfis)
+As duas vozes convivem; o perfil escolhe pasta, plano, tratamento e texto da legenda:
+
+| perfil | clipes | plano | tratamento | texto |
+|---|---|---|---|---|
+| `usuario` (padrão) | `video/entrada/` → `editado/` | `video/edicao-voz.json` | `CADEIA_VOZ_GRAVADA` (declip, afftdn, EQ, de-esser, compressão) | `ajustes-fala.json` |
+| `ia` | `video/entrada-ia/` → `editado/` | `video/edicao-voz-ia.json` | `CADEIA_VOZ_IA` (highpass, de-esser suave, compressão leve) | `ajustes-fala.json` + `ajustes-fala-ia.json` |
+
+- Voz da IA: `node video/scripts/editar-voz.mjs --perfil ia && node video/scripts/voz.mjs --motor arquivos --perfil ia` (ou `npm run video:editar-ia && npm run video:voz-ia`), depois timeline → audio → build → render.
+- Voz do usuário: `node video/scripts/voz.mjs --motor arquivos` (sem `--perfil`), depois timeline → audio → build → render.
+- `--entrada DIR`, `--plano ARQ` e `--ajustes ARQ` sobrepõem o perfil campo a campo. Nivelamento em −21 dB RMS e compensação de atraso iguais nos dois.
+- Texto da legenda: o `voz.mjs` grava o perfil e o arquivo de ajustes extras em `video/build/voz.json`; a `timeline.mjs` lê de lá. Com a IA, F016 inclui "É uma estimativa de terceiros." e F086 diz "Cotar as parceiras." (como no roteiro); com a voz do usuário, valem os textos de `ajustes-fala.json`, que registram o que ele gravou. Trocar de voz = rodar o `voz.mjs` do outro perfil; não há arquivo para editar à mão.
+- `video/entrada-ia/` fica fora do git (como `video/entrada/`).
+
 ### Reinstalar a voz neural do zero
 ```
 python3 -m venv video/.venv && video/.venv/bin/pip install kokoro-onnx soundfile

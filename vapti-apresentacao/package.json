@@ -14,6 +14,8 @@
     "video:build": "vite build -c vite.video.config.ts",
     "video:editar": "node video/scripts/editar-voz.mjs",
     "video:voz": "node video/scripts/voz.mjs",
+    "video:editar-ia": "node video/scripts/editar-voz.mjs --perfil ia",
+    "video:voz-ia": "node video/scripts/voz.mjs --motor arquivos --perfil ia",
     "video:timeline": "node video/scripts/timeline.mjs",
     "video:audio": "node video/scripts/audio.mjs",
     "video:render": "node video/scripts/render.mjs",

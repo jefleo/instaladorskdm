@@ -1,0 +1,9 @@
+{
+  "_nota": "Aplicado por cima de video/ajustes-fala.json só quando a voz é a da IA (voz.mjs --perfil ia grava o caminho em video/build/voz.json e a timeline o lê). Com a voz do usuário, valem só os ajustes de video/ajustes-fala.json, que registram o que ele disse na gravação.",
+  "F016": {
+    "fala": "E o Dealroom estima que ela valha cerca de oitenta milhões de dólares. É uma estimativa de terceiros."
+  },
+  "F086": {
+    "fala": "Aprovar a estrutura sem ESC. Chamar advogado e contador. Cotar as parceiras."
+  }
+}

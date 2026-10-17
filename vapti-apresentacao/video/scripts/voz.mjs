@@ -13,6 +13,11 @@
 //            os modelos ainda não estiverem lá (ver video/scripts/LEIA-ME.md).
 //
 // Opções: --voz br3|br1|br2|br4 (mbrola)  --so F001,F007 (só estas)  --forcar (ignora o cache)  --jobs 4  --calibrar
+//   --perfil usuario|ia  (padrão usuario) pasta dos clipes, plano de edição, cadeia de tratamento e ajustes de fala:
+//            usuario = video/entrada (+ editado/), video/edicao-voz.json, cadeia da voz gravada, só ajustes-fala.json
+//            ia      = video/entrada-ia (+ editado/), video/edicao-voz-ia.json, cadeia leve da IA, + ajustes-fala-ia.json
+//   --entrada DIR  --plano ARQ  --ajustes ARQ  sobrepõem o perfil campo a campo (caminhos relativos à raiz do projeto).
+//   O perfil usado fica registrado em video/build/voz.json; a timeline lê de lá os ajustes de fala (texto da legenda).
 // Cache: hash do texto + ênfase + parâmetros + motor (+ tamanho/data do arquivo de entrada). Só o que mudou é refeito.
 import path from "node:path";
 import fs from "node:fs";
@@ -22,7 +27,7 @@ import {
 import { carregarRoteiro } from "./lib/roteiro.mjs";
 import { tokenizar, textoParaVoz, textoParaKokoro, acharEnfase } from "./lib/texto.mjs";
 import { alinharPalavras, aplicarProsodia, sintetizar } from "./lib/pho.mjs";
-import { CADEIA_VOZ_SINTETICA, CADEIA_VOZ_GRAVADA, gerarRespostaSala, medirNivel, nivelar, processar } from "./lib/voz-processamento.mjs";
+import { CADEIA_VOZ_SINTETICA, PERFIS_VOZ, gerarRespostaSala, medirNivel, nivelar, processar } from "./lib/voz-processamento.mjs";
 
 const VERSAO = 5; // some quando a prosódia ou a cadeia de áudio mudar (invalida o cache)
 const S_REF = 110; // velocidade de referência do espeak; o ritmo final vem do fator `tempo` da camada de prosódia
@@ -39,10 +44,20 @@ const PERFIL = {
 const TEMPO_BASE = 1.0;
 const LIMITE_TEMPO = [0.8, 1.75];
 
-const PLANO_VOZ = path.join(VIDEO, "edicao-voz.json");
-const planoVoz = existe(PLANO_VOZ) ? lerJson(PLANO_VOZ).frases : {};
-
 const arg = args();
+const nomePerfil = String(arg.perfil || "usuario");
+const perfilVoz = PERFIS_VOZ[nomePerfil];
+if (!perfilVoz) {
+  console.error(`voz: perfil desconhecido "${nomePerfil}". Use ${Object.keys(PERFIS_VOZ).join(" ou ")}.`);
+  process.exit(2);
+}
+const RAIZ = path.dirname(VIDEO);
+const resolver = (p) => (path.isAbsolute(p) ? p : path.join(RAIZ, p));
+const DIR_ENTRADA = resolver(String(arg.entrada || perfilVoz.entrada));
+const PLANO_VOZ = resolver(String(arg.plano || perfilVoz.plano));
+const AJUSTES_EXTRA = arg.ajustes ? String(arg.ajustes) : perfilVoz.ajustesExtra;
+const CADEIA_ARQUIVOS = perfilVoz.cadeia;
+const planoVoz = existe(PLANO_VOZ) ? lerJson(PLANO_VOZ).frases : {};
 const motor = String(arg.motor || "neural");
 const vozMb = motor === "mbrola" ? String(arg.voz || "br3") : "br3";
 const vozKokoro = motor === "neural" ? String(arg.voz || "pm_alex") : "pm_alex";
@@ -127,11 +142,11 @@ async function gerarMbrola(f, ato, saida) {
 
 // ---------------------------------------------------------------- motor arquivos
 function arquivoDeEntrada(id) {
-  const editado = path.join(VIDEO, "entrada", "editado", `${id}.wav`);
+  const editado = path.join(DIR_ENTRADA, "editado", `${id}.wav`);
   if (existe(editado)) return editado;
   for (const ext of EXT_ENTRADA) {
     for (const nome of [`${id}.${ext}`, `${id}.${ext.toUpperCase()}`]) {
-      const p = path.join(VIDEO, "entrada", nome);
+      const p = path.join(DIR_ENTRADA, nome);
       if (existe(p)) return p;
     }
   }
@@ -154,12 +169,12 @@ async function gerarArquivo(f, origem, saida) {
   await ffmpeg(["-i", origem, "-vn", "-ac", "1", "-ar", "48000", "-c:a", "pcm_f32le", tmp]);
   // a cadeia e o nivelamento não mudam a duração nem deslocam a voz (atraso do afftdn e do alimiter compensados),
   // então os tempos do plano, relativos ao início do clipe editado, valem para o WAV final
-  const { atraso } = await processar(tmp, saida, CADEIA_VOZ_GRAVADA, { compensarAtraso: true });
+  const { atraso } = await processar(tmp, saida, CADEIA_ARQUIVOS, { compensarAtraso: true });
   const ganhoPlano = p?.ganhoDb || 0; // ajuste do plano, aplicado depois do nivelamento em -21 dB (o limitador protege o pico)
   const niv = await nivelar(saida, { alvoDb: -21 + ganhoPlano, tetoDb: -1.2, semAtraso: true });
   fs.rmSync(tmp, { force: true });
   const dur = await duracaoArquivo(saida);
-  const info = { motor: "arquivos", origem: path.relative(VIDEO, origem), dur: r3(dur), ganhoDb: r3(niv.ganhoDb), atrasoCompensado: atraso, palavras: null, tEnfase: null };
+  const info = { motor: "arquivos", perfil: nomePerfil, cadeia: perfilVoz.nomeCadeia, origem: path.relative(VIDEO, origem), dur: r3(dur), ganhoDb: r3(niv.ganhoDb), atrasoCompensado: atraso, palavras: null, tEnfase: null };
   if (p) {
     info.editado = true;
     info.ganhoPlanoDb = ganhoPlano;
@@ -202,7 +217,7 @@ async function gerarNeural(f, ato, saida) {
 // ---------------------------------------------------------------- principal
 async function main() {
   const t0 = Date.now();
-  const roteiro = carregarRoteiro();
+  const roteiro = carregarRoteiro({ ajustesExtra: AJUSTES_EXTRA });
   const atos = Object.fromEntries(roteiro.atos.map((a) => [a.id, a]));
   const vozPath = path.join(BUILD, "voz.json");
   let reg = {};
@@ -223,7 +238,7 @@ async function main() {
     const motorFrase = origem ? "arquivos" : motor;
     const st = origem ? fs.statSync(origem) : null;
     const plano = origem && eEditado(origem) ? planoVoz[f.id] ?? null : null;
-    return { origem, motorFrase, chave: hash(VERSAO, motorFrase, f.texto, f.enfase, f.duracaoEstimada, PERFIL[ato.energia] || PERFIL[3], motorFrase === "mbrola" ? vozMb : "", st ? [st.size, Math.round(st.mtimeMs)] : "", motorFrase === "neural" ? [vozKokoro, VEL_ATO[ato.energia]] : "", plano ? [plano.palavras, plano.tEnfaseRel, plano.pausaDepois, plano.ganhoDb] : "") };
+    return { origem, motorFrase, chave: hash(VERSAO, motorFrase, motorFrase === "arquivos" ? [perfilVoz.nomeCadeia, path.relative(VIDEO, origem)] : "", f.texto, f.enfase, f.duracaoEstimada, PERFIL[ato.energia] || PERFIL[3], motorFrase === "mbrola" ? vozMb : "", st ? [st.size, Math.round(st.mtimeMs)] : "", motorFrase === "neural" ? [vozKokoro, VEL_ATO[ato.energia]] : "", plano ? [plano.palavras, plano.tEnfaseRel, plano.pausaDepois, plano.ganhoDb] : "") };
   };
   if (motor === "neural") {
     const pend = alvo.filter((f) => {
@@ -269,12 +284,13 @@ async function main() {
   for (const f of roteiro.frases) { const m = novas[f.id]?.motor; if (m) motores[m] = (motores[m] || 0) + 1; }
   gravarJson(vozPath, {
     motor, vozMbrola: `mb-${vozMb}`, versao: VERSAO, motores,
-    nota: "Registro do motor de voz por frase. palavras/tEnfase vêm dos tempos reais (fonemas no mbrola; plano de edição video/edicao-voz.json nos clipes editados), relativos ao início do WAV. silencioDepois (clipes editados) é o silêncio total até a próxima frase.",
+    perfil: nomePerfil, entrada: path.relative(RAIZ, DIR_ENTRADA), plano: path.relative(RAIZ, PLANO_VOZ), ajustesExtra: AJUSTES_EXTRA,
+    nota: "Registro do motor de voz por frase. palavras/tEnfase vêm dos tempos reais (fonemas no mbrola; plano de edição do perfil (campo plano) nos clipes editados), relativos ao início do WAV. silencioDepois (clipes editados) é o silêncio total até a próxima frase.",
     frases: novas,
   });
 
   const wavs = roteiro.frases.filter((f) => existe(path.join(AUDIO, `${f.id}.wav`))).length;
-  console.log(`voz: motor=${motor} ${JSON.stringify(motores)} · ${wavs}/${roteiro.frases.length} arquivos em video/build/audio · ${((Date.now() - t0) / 1000).toFixed(1)} s`);
+  console.log(`voz: perfil=${nomePerfil} (${path.relative(RAIZ, DIR_ENTRADA)}, ${path.relative(RAIZ, PLANO_VOZ)}${AJUSTES_EXTRA ? ", " + AJUSTES_EXTRA : ""}) motor=${motor} ${JSON.stringify(motores)} · ${wavs}/${roteiro.frases.length} arquivos em video/build/audio · ${((Date.now() - t0) / 1000).toFixed(1)} s`);
   for (const a of avisos.slice(0, 20)) console.warn("  aviso: " + a);
   if (arg.calibrar) {
     let soma = 0, somaAlvo = 0;

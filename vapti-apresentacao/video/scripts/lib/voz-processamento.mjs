@@ -63,6 +63,20 @@ export const CADEIA_VOZ_GRAVADA = [
   "acompressor=threshold=0.1:ratio=2.2:attack=12:release=200:makeup=2:knee=3",
 ];
 
+// Voz da IA (ElevenLabs): estúdio limpo, sem ruído nem clipe. Só tira o subgrave, suaviza sibilantes e segura a dinâmica.
+export const CADEIA_VOZ_IA = [
+  "highpass=f=70:poles=2",
+  "deesser=i=0.15:m=0.5:f=0.5",
+  "acompressor=threshold=0.125:ratio=1.6:attack=15:release=200:makeup=1.5:knee=4",
+];
+
+// Perfis de voz para o motor `arquivos` (voz.mjs, editar-voz.mjs). `--perfil ia` troca pasta, plano, cadeia e ajustes de
+// fala de uma vez; --entrada/--plano/--ajustes sobrepõem campo a campo. Caminhos relativos à raiz do projeto.
+export const PERFIS_VOZ = {
+  usuario: { entrada: "video/entrada", plano: "video/edicao-voz.json", cadeia: CADEIA_VOZ_GRAVADA, nomeCadeia: "gravada", ajustesExtra: null },
+  ia: { entrada: "video/entrada-ia", plano: "video/edicao-voz-ia.json", cadeia: CADEIA_VOZ_IA, nomeCadeia: "ia", ajustesExtra: "video/ajustes-fala-ia.json" },
+};
+
 /**
  * Atraso (em amostras) que uma cadeia ffmpeg introduz sem aumentar o arquivo. O afftdn atrasa a saída em 25 ms a 48 kHz
  * e mantém o tamanho: sem compensar, a voz sai deslocada e os últimos 25 ms (a cauda da última sílaba) somem.

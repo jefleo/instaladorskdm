@@ -11,18 +11,24 @@
 // ganhoDb não entra aqui: é aplicado pelo voz.mjs depois do nivelamento.
 //
 // Uso: node video/scripts/editar-voz.mjs [--so F012,F066]
+//      node video/scripts/editar-voz.mjs --perfil ia      (= --entrada video/entrada-ia --plano video/edicao-voz-ia.json)
+// --entrada DIR e --plano ARQ trocam a pasta dos clipes e o plano; a saída vai para DIR/editado.
 import path from "node:path";
 import fs from "node:fs";
-import { VIDEO, BUILD, SR, args, ffmpeg, garantir, gravarWav, lerJson, lerWav, existe } from "./lib/comum.mjs";
+import { RAIZ, VIDEO, BUILD, SR, args, ffmpeg, garantir, gravarWav, lerJson, lerWav, existe } from "./lib/comum.mjs";
+import { PERFIS_VOZ } from "./lib/voz-processamento.mjs";
 
-export const PLANO_VOZ = path.join(VIDEO, "edicao-voz.json");
-const ENTRADA = path.join(VIDEO, "entrada");
+const arg = args();
+const perfil = PERFIS_VOZ[String(arg.perfil || "usuario")];
+if (!perfil) throw new Error(`editar-voz: perfil desconhecido "${arg.perfil}" (${Object.keys(PERFIS_VOZ).join(", ")})`);
+const resolver = (p) => (path.isAbsolute(p) ? p : path.join(RAIZ, p));
+export const PLANO_VOZ = resolver(String(arg.plano || perfil.plano));
+const ENTRADA = resolver(String(arg.entrada || perfil.entrada));
 const SAIDA = garantir(path.join(ENTRADA, "editado"));
-const TMP = garantir(path.join(BUILD, "voz", "edicao"));
+const TMP = garantir(path.join(BUILD, "voz", "edicao", path.basename(ENTRADA)));
 const XFADE = 0.01;
 const CONTEXTO_EQ = 0.2;
 
-const arg = args();
 const so = arg.so ? String(arg.so).split(",") : null;
 const plano = lerJson(PLANO_VOZ).frases;
 
@@ -113,7 +119,7 @@ async function main() {
     const extra = r.removido.length ? ` · pausa encurtada (−${r.removido.map((q) => q.removido.toFixed(3)).join(", ")} s)` : "";
     console.log(`${id} ${r.dur.toFixed(3)} s de ${r.origem}${plano[id].eq ? " · EQ" : ""}${extra}`);
   }
-  console.log(`editar-voz: ${ids.length} clipes em video/entrada/editado · ${total.toFixed(1)} s de fala`);
+  console.log(`editar-voz: ${ids.length} clipes em ${path.relative(RAIZ, SAIDA)} (plano ${path.relative(RAIZ, PLANO_VOZ)}) · ${total.toFixed(1)} s de fala`);
 }
 
 main().catch((e) => {

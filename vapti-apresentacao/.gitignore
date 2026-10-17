@@ -6,6 +6,7 @@ video/build/
 video/.venv/
 video/entrada/*
 !video/entrada/LEIA-ME.md
+video/entrada-ia/
 video/modelos/
 entregas/*.mp4
 ffmpeg2pass-*
